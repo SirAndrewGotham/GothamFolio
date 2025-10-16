@@ -1,14 +1,20 @@
 <header class="fixed w-full z-50 glass-effect py-4">
     <div class="fluid-container flex justify-between items-center">
-        <!-- Logo -->
+        <!-- Logo Component -->
         <div class="flex items-center">
             <a href="{{ url('/') }}" class="flex items-center">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg">
-                    A
-                </div>
-                <span class="{{ $is_rtl ? 'mr-2' : 'ml-2' }} text-xl font-bold gradient-text">AndrewGotham</span>
+                <x-frontend.partials.logo size="default" />
             </a>
         </div>
+        <!-- Logo -->
+{{--        <div class="flex items-center">--}}
+{{--            <a href="{{ url('/') }}" class="flex items-center">--}}
+{{--                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg">--}}
+{{--                    A--}}
+{{--                </div>--}}
+{{--                <span class="{{ $is_rtl ? 'mr-2' : 'ml-2' }} text-xl font-bold gradient-text">AndrewGotham</span>--}}
+{{--            </a>--}}
+{{--        </div>--}}
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-8 {{ $is_rtl ? 'flex-row-reverse' : '' }}">

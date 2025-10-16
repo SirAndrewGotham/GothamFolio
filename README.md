@@ -1,3 +1,5 @@
+*this is new GothamFolio development, previous one moved to archive*
+
 # GothamFolio - Personal Portfolio Website
 
 A modern, responsive portfolio website built with Laravel 12, Livewire, Volt, and Folio. Features a beautiful design with dark mode support and a fully functional feedback system.

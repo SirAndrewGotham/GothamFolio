@@ -1,5 +1,5 @@
 <x-frontend.layouts.app title="Обратная связь">
-    <section class="py-16 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
+    <section class="py-16 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 pt-20">
         <div class="fluid-container">
             <div class="max-w-4xl mx-auto text-center fade-in">
                 <h1 class="text-4xl md:text-5xl font-bold mb-6">Обратная связь</h1>
@@ -62,23 +62,27 @@
                         </div>
                     </div>
 
-                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">
-                        <h4 class="font-semibold mb-3">Частые вопросы</h4>
-                        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                                <span>Сколько времени занимает ответ?</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                                <span>Можно ли обсудить проект до заключения договора?</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
-                                <span>Работаете ли вы с международными клиентами?</span>
-                            </li>
-                        </ul>
-                    </div>
+{{--                    <div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-6">--}}
+{{--                        <h4 class="font-semibold mb-3">Частые вопросы</h4>--}}
+{{--                        <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">--}}
+{{--                            <li class="flex items-start">--}}
+{{--                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>--}}
+{{--                                <span>Сколько времени занимает ответ?</span>--}}
+{{--                            </li>--}}
+{{--                            <li class="flex items-start">--}}
+{{--                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>--}}
+{{--                                <span>Можно ли обсудить проект до заключения договора?</span>--}}
+{{--                            </li>--}}
+{{--                            <li class="flex items-start">--}}
+{{--                                <i class="fas fa-check text-green-500 mr-2 mt-1"></i>--}}
+{{--                                <span>Работаете ли вы с международными клиентами?</span>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
+{{--                    </div>--}}
+
+                    <x-frontend.feedback.faq-accordion />
+
+
                 </div>
 
                 <!-- Feedback Form - Volt Component -->
