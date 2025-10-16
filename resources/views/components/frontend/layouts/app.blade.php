@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="{{ str_replace('_', '-', $current_locale) }}"
+      dir="{{ $direction }}"
+      class="scroll-smooth {{ $is_rtl ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,6 +60,50 @@
         .carousel-fade {
             transition: opacity 0.5s ease-in-out;
         }
+
+        /* RTL-specific adjustments */
+        .rtl .section-divider {
+            background: linear-gradient(270deg, transparent, #cbd5e1, transparent);
+        }
+
+        .dark.rtl .section-divider {
+            background: linear-gradient(270deg, transparent, #475569, transparent);
+        }
+
+        /* Ensure proper spacing in RTL */
+        .rtl .ml-2 {
+            margin-left: 0;
+            margin-right: 0.5rem;
+        }
+
+        .rtl .mr-2 {
+            margin-right: 0;
+            margin-left: 0.5rem;
+        }
+
+        .rtl .ml-4 {
+            margin-left: 0;
+            margin-right: 1rem;
+        }
+
+        .rtl .mr-4 {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+
+        /* Text alignment for RTL */
+        .rtl .text-left {
+            text-align: right;
+        }
+
+        .rtl .text-right {
+            text-align: left;
+        }
+
+        /* Flex order for RTL */
+        .rtl .flex-row-reverse {
+            flex-direction: row-reverse;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
@@ -75,21 +121,16 @@
     function appData() {
         return {
             darkMode: localStorage.getItem('darkMode') === 'true',
-            currentLanguage: 'ru',
             mobileMenuOpen: false,
             activeSection: 'home',
             carouselActive: 0,
             carouselItems: 3,
-            // Form specific properties
 
             init() {
                 // Set initial theme
                 if (this.darkMode) {
                     document.documentElement.classList.add('dark');
                 }
-
-                // Set initial language
-                this.currentLanguage = localStorage.getItem('language') || 'ru';
 
                 /// Intersection Observer for section highlighting (only on home page)
                 if (window.location.pathname === '/') {
@@ -132,11 +173,6 @@
                     document.documentElement.classList.remove('dark');
                 }
             },
-            changeLanguage(lang) {
-                this.currentLanguage = lang;
-                localStorage.setItem('language', lang);
-                // In a real app, you would trigger a Livewire event here to change the language
-            },
             scrollToSection(sectionId) {
                 this.mobileMenuOpen = false;
                 const element = document.getElementById(sectionId);
@@ -150,5 +186,7 @@
         }
     }
 </script>
+
+@livewireScripts
 </body>
 </html>

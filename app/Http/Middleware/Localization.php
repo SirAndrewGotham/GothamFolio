@@ -1,0 +1,91 @@
+<?php
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
+use App\Models\Language;
+use App\Services\LanguageService;
+use Symfony\Component\HttpFoundation\Response;
+
+class Localization
+{
+    protected $languageService;
+
+    public function __construct(LanguageService $languageService)
+    {
+        $this->languageService = $languageService;
+    }
+
+    public function handle(Request $request, Closure $next): Response
+    {
+        $locale = Session::get('locale');
+        error_log('Localization Middleware - Initial Locale: ' . ($locale ?? 'null'));
+
+        // If no locale in session, use the database default
+        if (!$locale) {
+            $defaultLanguage = $this->languageService->getDefaultLanguage();
+            $locale = $defaultLanguage ? $defaultLanguage->code : 'en';
+            Session::put('locale', $locale);
+            error_log('Localization Middleware - No locale in session, set to default: ' . $locale);
+        }
+
+        // Set application locale to the database-driven locale
+        App::setLocale(Session::get('locale'));
+        error_log('Localization Middleware - App Locale after set: ' . App::getLocale());
+
+        // Set fallback locale to the database fallback
+        $fallbackLanguage = $this->languageService->getFallbackLanguage();
+        if ($fallbackLanguage) {
+            App::setFallbackLocale($fallbackLanguage->code);
+            error_log('Localization Middleware - Fallback Locale set to: ' . $fallbackLanguage->code);
+        }
+
+        // Share application locale data with all views
+        $this->shareLocaleDataWithViews();
+
+        return $next($request);
+    }
+
+    protected function shareLocaleDataWithViews()
+    {
+        $currentLocale = $this->languageService->getApplicationLocale();
+        $direction = $this->languageService->getApplicationDirection();
+        $isRtl = $this->languageService->getApplicationIsRtl();
+        $availableLanguages = $this->languageService->getAvailableLanguages();
+
+        view()->share('current_locale', $currentLocale);
+        view()->share('direction', $direction);
+        view()->share('is_rtl', $isRtl);
+        view()->share('availableLanguages', $availableLanguages);
+    }
+
+    protected function detectBrowserLanguage(array $browserLocales): string
+    {
+        $supportedLanguages = $this->languageService->getSupportedLocales();
+
+        foreach ($browserLocales as $browserLocale) {
+            $browserLocale = str_replace('_', '-', $browserLocale);
+            $baseLocale = explode('-', $browserLocale)[0];
+
+            // First try exact match
+            foreach ($supportedLanguages as $code => $fullLocale) {
+                if (str_starts_with($browserLocale, str_replace('_', '-', $fullLocale))) {
+                    return $fullLocale;
+                }
+            }
+
+            // Then try base code match
+            foreach ($supportedLanguages as $code => $fullLocale) {
+                if ($code === $baseLocale) {
+                    return $fullLocale;
+                }
+            }
+        }
+
+        // Use default language from database as last resort
+        $defaultLanguage = $this->languageService->getDefaultLanguage();
+        return $defaultLanguage ? $defaultLanguage->full_locale : 'en_US';
+    }
+}
