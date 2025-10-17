@@ -6,5 +6,5 @@ return [
     'works' => 'Portfolio',
     'galleries' => 'Galleries',
     'blog' => 'Blog',
-    'feedback' => 'Contact',
+    'feedback' => 'Contacts',
 ];

@@ -1,4 +1,4 @@
-*this is new GothamFolio development, previous one moved to archive*
+*this is new GothamFolio development, previous one - working but kind of outdated - moved to archive at [GothamFolio-v1](https://github.com/SirAndrewGotham/gothamfolio-v1)*
 
 # GothamFolio - Personal Portfolio Website
 
@@ -188,10 +188,6 @@ All components are located in `resources/views/components/frontend/` and can be 
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 🆘 Support
 

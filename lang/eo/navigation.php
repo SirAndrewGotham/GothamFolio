@@ -5,5 +5,5 @@ return [
     'works' => 'Portfolio',
     'galleries' => 'Galerioj',
     'blog' => 'Blogo',
-    'feedback' => 'Kontakto',
+    'feedback' => 'Kontaktoj',
 ];
