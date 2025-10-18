@@ -34,7 +34,7 @@
         "regional": null,
         "script": "Latin",
         "is_rtl": false,
-        "emoji": null,
+        "emoji": "\uD83C\uDFF4",
         "flag_svg": "<svg width=\"16\" height=\"16\" viewBox=\"0 0 16 16\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"16\" height=\"16\" fill=\"#008000\"/><rect x=\"0\" y=\"0\" width=\"16\" height=\"9\" fill=\"white\"/><circle cx=\"8\" cy=\"4.5\" r=\"2.5\" fill=\"#008000\"/><circle cx=\"8\" cy=\"4.5\" r=\"1.5\" fill=\"white\"/></svg>",
         "is_active": true,
         "is_default": false,
