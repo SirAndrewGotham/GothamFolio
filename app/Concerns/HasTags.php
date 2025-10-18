@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 trait HasTags
 {
     /**
-     * Get all of the tags for the model.
+     * Get all the tags for the model.
      */
     public function tags(): MorphToMany
     {

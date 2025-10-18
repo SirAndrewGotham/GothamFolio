@@ -5,11 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use App\Concerns\HasSlug;
 
 class Category extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes, HasSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -19,15 +21,19 @@ class Category extends Model
     protected $fillable = [
         'name',
         'slug',
+        'description',
+        'cover',
+        'is_featured',
+        'is_active',
     ];
 
     /**
-     * Interact with the category's slug.
+     * Get the name of the field that should be used for slug generation.
+     *
+     * @return string
      */
-    protected function slug(): Attribute
+    protected function getSluggableField(): string
     {
-        return Attribute::make(
-            set: fn (string $value) => Str::slug($value),
-        );
+        return 'name';
     }
 }
