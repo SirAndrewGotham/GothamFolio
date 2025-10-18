@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Str;
 
 class Tag extends Model
@@ -24,8 +24,10 @@ class Tag extends Model
     /**
      * Interact with the tag's slug.
      */
-    protected function setSlugAttribute(string $value): void
+    protected function slug(): Attribute
     {
-        $this->attributes['slug'] = Str::slug($value);
+        return Attribute::make(
+            set: fn (string $value) => Str::slug($value),
+        );
     }
 }
