@@ -7,9 +7,39 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Model
+ *
+ * @property array<int, string> $translatableAttributes The attributes that should be translatable for the model.
+ *
+ * ### Usage:
+ * In your model, define the `$translatableAttributes` property and then create explicit accessors and mutators for each translatable attribute:
+ * ```php
+ * class MyTranslatableModel extends Model
+ * {
+ *     use HasTranslations;
+ *
+ *     protected array $translatableAttributes = ['title', 'description'];
+ *
+ *     public function getTitleAttribute(string $value): string
+ *     {
+ *         return $this->getTranslatedAttribute('title') ?? $value;
+ *     }
+ *
+ *     public function setTitleAttribute(string $value): void
+ *     {
+ *         $this->setTranslatedAttribute('title', $value);
+ *     }
+ * }
+ * ```
  */
 trait HasTranslations
 {
+    /**
+     * The attributes that should be translatable.
+     *
+     * @var array<int, string>
+     */
+    protected array $translatableAttributes = [];
+
     /**
      * Get all of the translations for the model.
      */
@@ -25,11 +55,18 @@ trait HasTranslations
     {
         $locale = $locale ?? app()->getLocale();
 
-        return $this->translations
+        if ($this->relationLoaded('translations')) {
+            return $this->translations
+                        ->where('key', $key)
+                        ->where('locale', $locale)
+                        ->first()
+                        ?->value;
+        }
+
+        return $this->translations()
                     ->where('key', $key)
                     ->where('locale', $locale)
-                    ->first()
-                    ?->value;
+                    ->value('value');
     }
 
     /**
@@ -68,30 +105,5 @@ trait HasTranslations
         }
 
         $this->setTranslation($key, $value, $locale);
-    }
-
-    /**
-     * Automatically retrieve translated attributes.
-     */
-    public function __get($key)
-    {
-        if (in_array($key, $this->translatableAttributes ?? [])) {
-            return $this->getTranslatedAttribute($key);
-        }
-
-        return $this->getAttribute($key);
-    }
-
-    /**
-     * Automatically set translated attributes.
-     */
-    public function __set($key, $value)
-    {
-        if (in_array($key, $this->translatableAttributes ?? [])) {
-            $this->setTranslatedAttribute($key, $value);
-            return;
-        }
-
-        $this->setAttribute($key, $value);
     }
 }

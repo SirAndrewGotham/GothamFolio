@@ -25,3 +25,24 @@ class User extends Model
     use SoftDeletes;
 }
 ```
+
+- Prefer modern Laravel attribute casting for accessors and mutators (Laravel 9+). Example:
+
+```php
+use Illuminate\Database\Eloquent\Casts\Attribute;
+
+class User extends Model
+{
+    // ...
+
+    protected function name(): Attribute
+    {
+        return Attribute::make(
+            get: fn (string $value) => strtoupper($value),
+            set: fn (string $value) => strtolower($value),
+        );
+    }
+}
+```
+
+- Avoid using magic `__get()` and `__set()` methods in traits for handling translatable attributes, as they can lead to infinite recursion with Eloquent's internal attribute handling. Instead, define explicit accessors (`get{Attribute}Attribute`) and mutators (`set{Attribute}Attribute`) in your models that utilize the `HasTranslations` trait.

@@ -153,6 +153,10 @@ select:focus[data-flux-control] {
     transition: opacity 0.5s ease-in-out;
 }
 
+.green-flag {
+    filter: hue-rotate(90deg) saturate(2) brightness(0.8);
+}
+
 /* Ensure smooth scrolling */
 html {
     scroll-behavior: smooth;
