@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
 use App\Concerns\HasSlug;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Category extends Model
 {
@@ -28,11 +29,19 @@ class Category extends Model
     ];
 
     /**
+     * Get the parent categorizable model.
+     */
+    public function categorizable(): MorphTo
+    {
+        return $this->morphTo();
+    }
+
+    /**
      * Get the name of the field that should be used for slug generation.
      *
      * @return string
      */
-    protected function getSluggableField(): string
+    public function getSluggableField(): string
     {
         return 'name';
     }

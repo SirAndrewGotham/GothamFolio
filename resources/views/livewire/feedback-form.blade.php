@@ -27,29 +27,24 @@ $submit = function () {
 
     $this->formSubmitting = true;
 
-    try {
-        // Save to database
-        $feedback = \App\Models\Feedback::create([
-            'name' => $this->name,
-            'email' => $this->email,
-            'subject' => $this->subject,
-            'category' => $this->category,
-            'message' => $this->message,
-        ]);
+    // Save to database
+    $feedback = \App\Models\Feedback::create([
+        'name' => $this->name,
+        'email' => $this->email,
+        'subject' => $this->subject,
+        'category' => $this->category,
+        'message' => $this->message,
+    ]);
 
-        // Send email
-        Mail::to(env('MAIL_TO_ADDRESS', config('mail.from.address')))->send(new FeedbackReceived($feedback->toArray()));
+    // Send email
+    Mail::to(config('mail.to.address', config('mail.from.address')))->send(new FeedbackReceived($feedback->toArray()));
 
-        $this->formSubmitted = true;
+    $this->formSubmitted = true;
 
-        // Reset form fields
-        $this->reset(['name', 'email', 'subject', 'category', 'message']);
+    // Reset form fields
+    $this->reset(['name', 'email', 'subject', 'category', 'message']);
 
-    } catch (\Exception $e) {
-        Log::error('FeedbackForm Error: ' . $e->getMessage(), ['exception' => $e]);
-    } finally {
-        $this->formSubmitting = false;
-    }
+    $this->formSubmitting = false;
 };
 ?>
 

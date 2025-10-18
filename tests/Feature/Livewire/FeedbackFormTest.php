@@ -1,0 +1,88 @@
+<?php
+
+use App\Mail\FeedbackReceived;
+use App\Models\Feedback;
+use Livewire\Volt\Volt;
+use Illuminate\Support\Facades\Mail;
+use function Pest\Laravel\assertDatabaseHas;
+use function Pest\Livewire\livewire;
+
+uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
+
+it('feedback form renders successfully', function () {
+    Volt::test('feedback-form')
+        ->assertStatus(200);
+});
+
+it('shows validation errors for required fields', function () {
+    livewire('feedback-form')
+        ->call('submit')
+        ->assertHasErrors(['name', 'email', 'subject', 'category', 'message']);
+});
+
+it('shows validation error for invalid email', function () {
+    livewire('feedback-form')
+        ->set('email', 'invalid-email')
+        ->call('submit')
+        ->assertHasErrors(['email']);
+});
+
+it('shows validation errors for min length', function () {
+    livewire('feedback-form')
+        ->set('name', 'A')
+        ->set('subject', 'Sub')
+        ->set('message', 'Msg')
+        ->call('submit')
+        ->assertHasErrors(['name', 'subject', 'message']);
+});
+
+it('successfully submits feedback and stores in database', function () {
+    livewire('feedback-form')
+        ->set('name', 'John Doe')
+        ->set('email', 'john.doe@example.com')
+        ->set('subject', 'Test Subject')
+        ->set('category', 'question')
+        ->set('message', 'This is a test message for feedback.')
+        ->call('submit');
+
+    assertDatabaseHas('feedback', [
+        'name' => 'John Doe',
+        'email' => 'john.doe@example.com',
+        'subject' => 'Test Subject',
+        'category' => 'question',
+        'message' => 'This is a test message for feedback.',
+    ]);
+});
+
+it('sends feedback received email on successful submission', function () {
+    Mail::fake();
+
+    // Temporarily set a MAIL_TO_ADDRESS for testing
+    config(['mail.to.address' => 'admin@example.com']);
+
+    livewire('feedback-form')
+        ->set('name', 'Jane Doe')
+        ->set('email', 'jane.doe@example.com')
+        ->set('subject', 'Email Test Subject')
+        ->set('category', 'other')
+        ->set('message', 'This message should trigger an email.')
+        ->call('submit');
+
+    Mail::assertSent(FeedbackReceived::class);
+});
+
+it('resets form and sets formSubmitted to true on successful submission', function () {
+    livewire('feedback-form')
+        ->set('name', 'Test User')
+        ->set('email', 'test@example.com')
+        ->set('subject', 'Form Reset Test')
+        ->set('category', 'feedback')
+        ->set('message', 'This message should reset the form.')
+        ->call('submit')
+        ->assertSet('name', '')
+        ->assertSet('email', '')
+        ->assertSet('subject', '')
+        ->assertSet('category', '')
+        ->assertSet('message', '')
+        ->assertSet('formSubmitted', true);
+});

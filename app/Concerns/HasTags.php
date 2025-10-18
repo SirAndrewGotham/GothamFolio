@@ -11,10 +11,58 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 trait HasTags
 {
     /**
+     * Boot the HasTags trait for a model.
+     */
+    protected static function bootHasTags(): void
+    {
+        // Add any model event listeners here if needed
+    }
+
+    /**
      * Get all the tags for the model.
      */
     public function tags(): MorphToMany
     {
         return $this->morphToMany(Tag::class, 'taggable');
+    }
+
+    /**
+     * Add a tag to the model.
+     *
+     * @param  \App\Models\Tag|int  $tag
+     */
+    public function addTag(Tag|int $tag): void
+    {
+        $this->tags()->attach($tag);
+    }
+
+    /**
+     * Remove a tag from the model.
+     *
+     * @param  \App\Models\Tag|int  $tag
+     */
+    public function removeTag(Tag|int $tag): void
+    {
+        $this->tags()->detach($tag);
+    }
+
+    /**
+     * Check if the model has a tag.
+     *
+     * @param  \App\Models\Tag|int  $tag
+     */
+    public function hasTag(Tag|int $tag): bool
+    {
+        return $this->tags->contains($tag);
+    }
+
+    /**
+     * Sync tags to the model.
+     *
+     * @param  array<int, int|\App\Models\Tag>  $tags
+     */
+    public function syncTags(array $tags): void
+    {
+        $this->tags()->sync($tags);
     }
 }
