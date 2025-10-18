@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
 trait HasCategories
 {
     /**
-     * Get all of the categories for the model.
+     * Get all the categories for the model.
      */
     public function categories(): MorphToMany
     {

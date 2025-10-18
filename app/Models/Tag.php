@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Str;
+use App\Concerns\HasSlug;
 
 class Tag extends Model
 {
-    use HasFactory;
+    use HasFactory, HasSlug;
 
     /**
      * The attributes that are mass assignable.
@@ -22,12 +23,12 @@ class Tag extends Model
     ];
 
     /**
-     * Interact with the tag's slug.
+     * Get the name of the field that should be used for slug generation.
+     *
+     * @return string
      */
-    protected function slug(): Attribute
+    protected function getSluggableField(): string
     {
-        return Attribute::make(
-            set: fn (string $value) => Str::slug($value),
-        );
+        return 'name';
     }
 }
