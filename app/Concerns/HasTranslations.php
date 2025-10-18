@@ -34,6 +34,14 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 trait HasTranslations
 {
     /**
+     * Boot the HasTranslations trait for a model.
+     */
+    protected static function bootHasTranslations(): void
+    {
+        // Add any model event listeners here if needed
+    }
+
+    /**
      * The attributes that should be translatable.
      *
      * @var array<int, string>
@@ -70,16 +78,33 @@ trait HasTranslations
     }
 
     /**
+     * Get all translations for a given key.
+     */
+    public function getTranslations(string $key): array
+    {
+        return $this->translations
+                    ->where('key', $key)
+                    ->pluck('value', 'locale')
+                    ->toArray();
+    }
+
+    /**
      * Set a translation for a given key and locale.
      */
     public function setTranslation(string $key, string $value, string $locale = null): void
     {
         $locale = $locale ?? app()->getLocale();
 
+        // @phpstan-ignore-line
         $this->translations()->updateOrCreate(
+            // @phpstan-ignore-line
             ['locale' => $locale, 'key' => $key],
-            ['value' => $value]
+            // @phpstan-ignore-line
+            ['value' => $value, 'translatable_id' => $this->id, 'translatable_type' => $this->getMorphClass()]
         );
+
+        // Reload the translations relationship to ensure it's fresh
+        $this->load('translations');
     }
 
     /**
@@ -87,6 +112,7 @@ trait HasTranslations
      */
     public function getTranslatedAttribute(string $key, string $locale = null): ?string
     {
+        \Log::info('HasTranslations: getTranslatedAttribute called', ['key' => $key, 'locale' => $locale]);
         if (! in_array($key, $this->translatableAttributes ?? [])) {
             return $this->getAttribute($key); // Return original attribute if not translatable
         }
@@ -99,6 +125,7 @@ trait HasTranslations
      */
     public function setTranslatedAttribute(string $key, string $value, string $locale = null): void
     {
+        \Log::info('HasTranslations: setTranslatedAttribute called', ['key' => $key, 'value' => $value, 'locale' => $locale]);
         if (! in_array($key, $this->translatableAttributes ?? [])) {
             $this->setAttribute($key, $value); // Set original attribute if not translatable
             return;

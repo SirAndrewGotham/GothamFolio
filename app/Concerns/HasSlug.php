@@ -14,7 +14,7 @@ trait HasSlug
      *
      * @return string
      */
-    protected function getSluggableField(): string
+    public function getSluggableField(): string
     {
         return 'title'; // Default sluggable field
     }
@@ -28,8 +28,8 @@ trait HasSlug
         });
 
         static::updating(function (Model $model) {
-            // Only regenerate slug if the sluggable field has changed and slug is empty
-            if ($model->isDirty($model->getSluggableField()) && empty($model->slug)) {
+            // Only regenerate slug if the sluggable field has changed
+            if ($model->isDirty($model->getSluggableField())) {
                 $model->slug = $model->generateUniqueSlug();
             }
         });
@@ -50,8 +50,7 @@ trait HasSlug
         while (static::where('slug', $slug)
             ->where($this->getKeyName(), '!=', $this->getKey())
             ->exists()) {
-            $suffix++;
-            $slug = $originalSlug . '-' . $suffix;
+            $slug = $originalSlug . '-' . $suffix++;
         }
 
         return $slug;

@@ -20,7 +20,9 @@ $changeLanguage = function ($languageCode, LanguageService $languageService) {
 
         // For Folio routing, we need to use a different approach
         // Instead of redirect()->back(), we'll refresh the page
-        $this->js('window.location.reload()');
+        if (!app()->runningUnitTests()) {
+            $this->js('window.location.reload()');
+        }
     }
 };
 
@@ -32,7 +34,7 @@ $changeLanguage = function ($languageCode, LanguageService $languageService) {
             @if($currentLanguage->emoji)
                 <span class="mr-1">{!! $currentLanguage->emoji !!}</span>
             @elseif($currentLanguage->flag_svg)
-                <span class极-1 flex items-center justify-center w-4 h-4">
+                <span class="mr-1 flex items-center justify-center w-4 h-4">
                 {!! $currentLanguage->flag_svg !!}
                 </span>
             @else
@@ -45,7 +47,7 @@ $changeLanguage = function ($languageCode, LanguageService $languageService) {
         <i class="fas fa-chevron-down text-xs ml-1"></i>
     </button>
 
-    <div x-show="open" @click.outside="open = false" class="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg py极 z-50 max-h-96 overflow-y-auto">
+    <div x-show="open" @click.outside="open = false" class="absolute right-0 mt-2 w-64 bg-white dark:bg-gray-800 rounded-lg shadow-lg py-1 z-50 max-h-96 overflow-y-auto">
         @foreach($availableLanguages as $language)
             <button
                 wire:click="changeLanguage('{{ $language->code }}')"

@@ -18,7 +18,6 @@ class LanguageFactory extends Factory
     {
         return [
             'code' => $this->faker->unique()->languageCode,
-            'slug' => $this->faker->unique()->slug(2),
             'name_native' => $this->faker->word,
             'name_english' => $this->faker->word,
             'is_rtl' => false,
