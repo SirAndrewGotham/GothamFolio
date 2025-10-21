@@ -6,12 +6,38 @@
                 <p class="mb-4">
                     Меня зовут Эндрю, последние тридцать лет я - инженер-программист, специализирующийся на Веб-разработках: полного цикла (full-stack), бэк-ендов и апи. Сегодня мои основные инструменты, это Nginx, Laravel, MySQL/PostgreSQL, Tailwind, Livewire, Alpinejs, Swagger, Postman, Git, PhpStorm.
                 </p>
-                <a href="#resume" class="text-primary-500 hover:text-primary-400">По ссылке - больше информации</a>
+                <a href="/resume" class="text-primary-500 hover:text-primary-400">По ссылке - больше информации</a>
             </div>
 
             <div>
-                <h4 class="text-white font-bold mb-4">Последние статьи</h4>
-                <p>Статьи пока не готовы к публикации</p>
+                <h4 class="text-white font-bold mb-4">Навигация</h4>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="/resume" class="hover:text-white transition-colors">
+                            Резюме
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/competences" class="hover:text-white transition-colors">
+                            Компетенции
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/portfolio" class="hover:text-white transition-colors">
+                            Портфолио
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog" class="hover:text-white transition-colors">
+                            Блог
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/contact" class="hover:text-white transition-colors">
+                            Обратная связь
+                        </a>
+                    </li>
+                </ul>
             </div>
 
             <div>
@@ -38,7 +64,7 @@
                     <a href="https://github.com/sirandrewgotham" target="_blank" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://vk.com/andrewgotham" target="_blank" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
+                    <a href="https://vk.com/sirandrewgotham" target="_blank" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
                         <i class="fab fa-vk"></i>
                     </a>
                     <a href="https://t.me/sirandrewgotham" target="_blank" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">

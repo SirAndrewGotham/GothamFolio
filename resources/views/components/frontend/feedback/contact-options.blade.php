@@ -25,7 +25,7 @@
                     <p class="text-gray-600 dark:text-gray-400 mb-4">
                         Свяжитесь со мной через социальную сеть
                     </p>
-                    <a href="https://vk.com/andrewgotham" target="_blank" class="text-primary-500 hover:text-primary-600 font-medium">
+                    <a href="https://vk.com/sirandrewgotham" target="_blank" class="text-primary-500 hover:text-primary-600 font-medium">
                         Перейти в ВК
                     </a>
                 </div>

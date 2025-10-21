@@ -3,8 +3,8 @@
 return [
     'home' => 'Home',
     'resume' => 'Resume',
-    'works' => 'Portfolio',
+    'portfolio' => 'Portfolio',
     'galleries' => 'Galleries',
     'blog' => 'Blog',
-    'feedback' => 'Contacts',
+    'contact' => 'Contacts',
 ];

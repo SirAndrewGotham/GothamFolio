@@ -1,13 +1,13 @@
 @php
     $locale = App::getLocale();
-    $viewPath = "pages.resume.{$locale}";
+    $viewPath = "pages.competences.python.{$locale}";
 @endphp
 
 @if(View::exists($viewPath))
     @include($viewPath)
 @else
     @php
-        $fallbackPath = "pages.resume.en";
+        $fallbackPath = "pages.competences.python.en";
     @endphp
 
     @if(View::exists($fallbackPath))

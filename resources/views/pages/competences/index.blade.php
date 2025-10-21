@@ -1,13 +1,13 @@
 @php
     $locale = App::getLocale();
-    $viewPath = "pages.resume.{$locale}";
+    $viewPath = "pages.competences.competences.{$locale}";
 @endphp
 
 @if(View::exists($viewPath))
     @include($viewPath)
 @else
     @php
-        $fallbackPath = "pages.resume.en";
+        $fallbackPath = "pages.competences.competences.en";
     @endphp
 
     @if(View::exists($fallbackPath))

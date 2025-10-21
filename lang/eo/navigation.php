@@ -2,8 +2,8 @@
 return [
     'home' => 'Hejmo',
     'resume' => 'Vivo',
-    'works' => 'Portfolio',
+    'portfolio' => 'Portfolio',
     'galleries' => 'Galerioj',
     'blog' => 'Blogo',
-    'feedback' => 'Kontaktoj',
+    'contact' => 'Kontaktoj',
 ];

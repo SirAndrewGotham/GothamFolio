@@ -3,8 +3,8 @@
 return [
     'home' => 'Главная',
     'resume' => 'Резюме',
-    'works' => 'Портфолио',
+    'portfolio' => 'Портфолио',
     'galleries' => 'Галереи',
     'blog' => 'Блог',
-    'feedback' => 'Контакты',
+    'contact' => 'Контакты',
 ];

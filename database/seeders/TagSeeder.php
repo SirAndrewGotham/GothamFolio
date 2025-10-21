@@ -12,6 +12,18 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-        Tag::factory(10)->create();
+//        Tag::factory(10)->create();
+
+        $totalTags = 10;
+
+        $this->command->getOutput()->progressStart($totalTags);
+
+        Tag::factory()->count($totalTags)->make()->each(function ($tag) {
+            $tag->save();
+            $this->command->getOutput()->progressAdvance();
+        });
+
+        $this->command->getOutput()->progressFinish();
+        $this->command->info('Tags seeded successfully!');
     }
 }

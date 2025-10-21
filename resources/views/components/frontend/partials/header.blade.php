@@ -26,9 +26,9 @@
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('resume') ? 'text-primary-500' : '' }}">
                 {{ __('navigation.resume') }}
             </a>
-            <a href="{{ url('/works') }}"
-               class="font-medium hover:text-primary-500 transition-colors {{ request()->is('works') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.works') }}
+            <a href="{{ url('/portfolio') }}"
+               class="font-medium hover:text-primary-500 transition-colors {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
+                {{ __('navigation.portfolio') }}
             </a>
             <a href="{{ url('/galleries') }}"
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
@@ -38,9 +38,9 @@
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('blog') ? 'text-primary-500' : '' }}">
                 {{ __('navigation.blog') }}
             </a>
-            <a href="{{ url('/feedback') }}"
-               class="font-medium hover:text-primary-500 transition-colors {{ request()->is('feedback') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.feedback') }}
+            <a href="{{ url('/contact') }}"
+               class="font-medium hover:text-primary-500 transition-colors {{ request()->is('contact') ? 'text-primary-500' : '' }}">
+                {{ __('navigation.contact') }}
             </a>
         </nav>
 
@@ -71,8 +71,8 @@
             <a href="{{ url('/resume') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('resume') ? 'text-primary-500' : '' }}">
                 {{ __('navigation.resume') }}
             </a>
-            <a href="{{ url('/works') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('works') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.works') }}
+            <a href="{{ url('/portfolio') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
+                {{ __('navigation.portfolio') }}
             </a>
             <a href="{{ url('/galleries') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
                 {{ __('navigation.galleries') }}
@@ -80,8 +80,8 @@
             <a href="{{ url('/blog') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('blog') ? 'text-primary-500' : '' }}">
                 {{ __('navigation.blog') }}
             </a>
-            <a href="{{ url('/feedback') }}" class="font-medium py-2 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('feedback') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.feedback') }}
+            <a href="{{ url('/contact') }}" class="font-medium py-2 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('contact') ? 'text-primary-500' : '' }}">
+                {{ __('navigation.contact') }}
             </a>
         </div>
     </div>

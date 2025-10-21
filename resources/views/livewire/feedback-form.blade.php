@@ -147,8 +147,8 @@ $submit = function () {
                 wire:loading.attr="disabled"
                 class="w-full px-6 py-4 bg-primary-500 hover:bg-primary-600 disabled:bg-primary-400 text-white rounded-lg font-medium transition-colors shadow-lg flex items-center justify-center"
             >
-                <span wire:loading.remove>Отправить сообщение</span>
-                <span wire:loading class="flex items-center">
+                <span x-show="!$wire.formSubmitting">Отправить сообщение</span>
+                <span x-show="$wire.formSubmitting" class="flex items-center">
                     <i class="fas fa-spinner fa-spin mr-2"></i>
                     Отправка...
                 </span>
