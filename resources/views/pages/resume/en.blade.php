@@ -4,10 +4,10 @@
             <section class="py-12 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
                 <div class="container mx-auto px-4">
                     <div class="max-w-6xl mx-auto text-center fade-in">
-                        <h1 class="text-4xl md:text-5xl font-bold mb-6">Complete Resume</h1>
+                        <h1 class="text-4xl md:text-5xl font-bold mb-6">Andrew Gotham Resume</h1>
                         <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
                             Senior Full-Stack Developer with over 30 years of experience in web development.
-                            Specializing in creating modern, scalable web applications using Laravel, Livewire and Vue.js.
+                            Specializing in creating modern, scalable web applications and backend APIs using Laravel echosystem.
                         </p>
                         <div class="flex flex-wrap justify-center gap-6">
                             <div class="flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-lg shadow-sm">
@@ -46,7 +46,7 @@
                                 <div class="space-y-4">
                                     <div class="flex items-center">
                                         <i class="fas fa-envelope text-primary-500 w-5 mr-3"></i>
-                                        <span class="text-sm">andreogotema@gmail.com</span>
+                                        <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-sm hover:text-primary-500">andreogotema@gmail.com</a></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-phone text-primary-500 w-5 mr-3"></i>
@@ -133,6 +133,13 @@
                         <div class="lg:col-span-3 space-y-8">
                             <!-- Experience Section -->
                             <section id="experience" class="fade-in">
+                                <span class="flex justify-between">
+                                    <span>&nbsp;</span>
+                                    <a href="#" class="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-xs transition-colors">
+                                        <span>Download Resume PDF</span>
+                                        <i class="fas fa-download ml-2"></i>
+                                    </a>
+                                </span>
                                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 print:shadow-none">
                                     <h2 class="text-2xl font-bold mb-6 flex items-center">
                                         <i class="fas fa-briefcase text-primary-500 mr-3"></i>
@@ -143,27 +150,41 @@
                                         <!-- Current Job -->
                                         <div class="timeline-item">
                                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                                                <h3 class="text-xl font-semibold">Senior Full-Stack Developer</h3>
-                                                    <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">2020 - Present</span>
+                                                <h3 class="text-xl font-semibold">Programming Engineer</h3>
+                                                    <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">2022 - April 1, 2025</span>
                                             </div>
-                                            <div class="text-primary-600 dark:text-primary-400 font-medium mb-3">TechSolutions Inc.</div>
+                                            <div class="text-primary-600 dark:text-primary-400 font-medium mb-3"><a href="https://taris.ru" target="_blank">Taris, Inc.</a></div>
                                             <p class="text-gray-600 dark:text-gray-400 mb-4">
-                                                Development and support of high-load web applications for international clients.
+                                                Development and support of high-load civil engineering web application for cities' utilities services.
                                                 Leading a team of 5 developers, implementing modern development practices.
                                             </p>
                                             <div class="space-y-2">
-                                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">Key Achievements:</h4>
+                                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">Key Responsibilities and Achievements:</h4>
                                                 <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-1">
-                                                    <li>Increased application performance by 40% through query optimization and caching</li>
-                                                    <li>Implemented CI/CD processes, reducing deployment time by 60%</li>
-                                                    <li>Developed microservice architecture for system scaling</li>
+                                                    <li>Development, architecture design, practical construction of the back-ends for the commercial services in Laravel</li>
+                                                    <li>Development, design, construction of front-ends with Angular (at the initial stage of work)</li>
+                                                    <li>Development, design, construction of the databases for the company's Web projects (PostgreSQL, MySQL, SQLite).</li>
+                                                    <li>Projects' technical documentation for developers: API with Swagger.</li>
+                                                    <li>Automated testing (Pest, Unit), API testing via Postman, Insomnia.</li>
+                                                    <li>Access and authorization systems development for the API, including automated data collection systems (robots/drones).</li>
+                                                    <li>Organization, configuration, administration of the remote (cloud) servers</li>
+                                                    <li>DevOps (Ubuntu - Nginx - Postgres)</li>
+                                                    <li>Github: development of the policies and rules for the team, code review, approval of commits, etc.</li>
+                                                    <li>Development of the internal corporate rules, procedures, regulations for the Web development</li>
+                                                    <li>Development planning: setting goals - control - execution of tasks</li>
                                                 </ul>
                                             </div>
                                             <div class="mt-4 flex flex-wrap gap-2">
-                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm">Laravel</span>
-                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm">Vue.js</span>
-                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm">Livewire</span>
-                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm">MySQL</span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/laravel">Laravel</a></span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/sanctum">Sanctum</a></span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm">RESTfull API</span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/pest">Pest</a></span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/postman">Postman</a></span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/swagger">Swagger</a></span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm">PostgreSQL</span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/python">Python</a></span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/nginx">Nginx</a></span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm">Email/Telegram Support Integration</span>
                                             </div>
                                         </div>
 
@@ -171,9 +192,9 @@
                                         <div class="timeline-item">
                                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
                                                 <h3 class="text-xl font-semibold">Web Developer</h3>
-                                                <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">2018 - 2020</span>
+                                                <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">before 2022</span>
                                             </div>
-                                            <div class="text-primary-600 dark:text-primary-400 font-medium mb-3">Digital Agency "WebArt"</div>
+                                            <div class="text-primary-600 dark:text-primary-400 font-medium mb-3">Private Contract Assignments</div>
                                             <p class="text-gray-600 dark:text-gray-400 mb-4">
                                                 Creating websites and online stores for clients from various industries.
                                                 Working on projects from concept to launch and support.
@@ -316,13 +337,15 @@
                                             </h3>
                                             <div class="flex flex-wrap gap-3">
                                                 <a href="/competences/git" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Git</a>
-                                                <a href="/competences/docker" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Docker</a>
-                                                <a href="/competences/aws" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">AWS</a>
-                                                <a href="/competences/nginx" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Nginx</a>
                                                 <a href="/competences/composer" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Composer</a>
-                                                <a href="/competences/npm" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">npm/yarn</a>
+                                                <a href="/competences/docker" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Docker</a>
+                                                <a href="/competences/npm" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Npm/yarn</a>
+                                                <a href="/competences/aws" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">AWS</a>
+                                                <a href="/competences/yandex-cloud" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Yandex Cloud</a>
+                                                <a href="/competences/nginx" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Nginx</a>
                                                 <a href="/competences/phpunit" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">PHPUnit</a>
-                                                <a href="/competences/jest" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Jest</a>
+                                                <a href="/competences/pest" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">Pest</a>
+                                                <a href="/competences/db-management-tools" class="px-4 py-2 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-lg hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">DB Management Tools</a>
                                             </div>
                                         </div>
 
@@ -340,6 +363,42 @@
                                     </div>
                             </section>
 
+                            <!-- Competences Training Section -->
+                            <section id="education" class="fade-in">
+                                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 print:shadow-none">
+                                    <h2 class="text-2xl font-bold mb-6 flex items-center">
+                                        <i class="fas fa-graduation-cap text-primary-500 mr-3"></i>
+                                        Competences Training
+                                    </h2>
+
+                                    <div class="space-y-6">
+                                        <div class="timeline-item">
+                                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                                <h3 class="text-xl font-semibold">Data Scientist/Analyst with Python</h3>
+                                                <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">2025</span>
+                                            </div>
+                                            <div class="text-primary-600 dark:text-primary-400 font-medium"><a href="https://eduprof.mos.ru" target="_blank">GBOU DPO "Center Professional"</a></div>
+                                            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                                                State-owned professional training school.
+                                                Certificate: Data Scientist, Data Engineer, Data Analyst with Python.
+                                            </p>
+                                        </div>
+
+                                        <div class="timeline-item">
+                                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
+                                                <h3 class="text-xl font-semibold">Full-stack Web Developer</h3>
+                                                <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">2022</span>
+                                            </div>
+                                            <div class="text-primary-600 dark:text-primary-400 font-medium"><a href="https://eduprof.mos.ru" target="_blank">GBOU DPO "Center Professional"</a></div>
+                                            <p class="text-gray-600 dark:text-gray-400 mt-2">
+                                                State-owned professional training school.
+                                                Certified as a full-stack web developer with competences in frontend and backend development, css frameworks, php rpogramming, web development process.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
                             <!-- Education Section -->
                             <section id="education" class="fade-in">
                                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 print:shadow-none">
@@ -351,25 +410,25 @@
                                     <div class="space-y-6">
                                         <div class="timeline-item">
                                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                                                <h3 class="text-xl font-semibold">Master of Computer Science</h3>
-                                                <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">2016 - 2018</span>
+                                                <h3 class="text-xl font-semibold">D.Sc.</h3>
+                                                <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">1988 - 1990</span>
                                             </div>
-                                            <div class="text-primary-600 dark:text-primary-400 font-medium">Lomonosov Moscow State University</div>
+                                            <div class="text-primary-600 dark:text-primary-400 font-medium">Moscow Mining Institute</div>
                                             <p class="text-gray-600 dark:text-gray-400 mt-2">
-                                                Specialization: Web Technologies and Distributed Systems. Diploma thesis:
-                                                "Development of scalable architecture for high-load web applications".
+                                                Mining Engineer.<br />
+                                                Specialization: practical rock stability studies for underground works, computational analyses.
                                             </p>
                                         </div>
 
                                         <div class="timeline-item">
                                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                                                <h3 class="text-xl font-semibold">Bachelor of Computer Science</h3>
-                                                <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">2012 - 2016</span>
+                                                <h3 class="text-xl font-semibold">B.Sc., M.Sc.</h3><br />
+                                                <span class="text-primary-500 font-medium bg-primary-50 dark:bg-primary-900/30 px-3 py-1 rounded-full text-sm md:mt-1">1980 - 1985</span>
                                             </div>
-                                            <div class="text-primary-600 dark:text-primary-400 font-medium">Bauman Moscow State Technical University</div>
+                                            <div class="text-primary-600 dark:text-primary-400 font-medium">Moscow Mining Institute</div>
                                             <p class="text-gray-600 dark:text-gray-400 mt-2">
-                                                Main courses: Algorithms and Data Structures, Databases, Web Development,
-                                                Computer Networks, Artificial Intelligence.
+                                                Mining Engineer.
+                                                Specialization: practical rock stability studies for underground works.
                                             </p>
                                         </div>
                                     </div>
@@ -390,8 +449,8 @@
                                                 <i class="fab fa-laravel"></i>
                                             </div>
                                             <div>
-                                                <h4 class="font-semibold">Laravel Certified Developer</h4>
-                                                <p class="text-gray-600 dark:text-gray-400 text-sm">Laravel Certification Program • 2022</p>
+                                                <h4 class="font-semibold">Data Analyst with Python</h4>
+                                                <p class="text-gray-600 dark:text-gray-400 text-sm">Data Analyst Training Program • 2025</p>
                                             </div>
                                         </div>
 
@@ -400,30 +459,11 @@
                                                 <i class="fab fa-aws"></i>
                                             </div>
                                             <div>
-                                                <h4 class="font-semibold">AWS Certified Developer</h4>
-                                                <p class="text-gray-600 dark:text-gray-400 text-sm">Amazon Web Services • 2021</p>
+                                                <h4 class="font-semibold">Full Stack Web Developer</h4>
+                                                <p class="text-gray-600 dark:text-gray-400 text-sm">Full Stack Web Developer Training Program • 2022</p>
                                             </div>
                                         </div>
 
-                                        <div class="flex items-start">
-                                            <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mr-4">
-                                                <i class="fab fa-vuejs"></i>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-semibold">Vue.js Developer Certification</h4>
-                                                <p class="text-gray-600 dark:text-gray-400 text-sm">Vue School • 2020</p>
-                                            </div>
-                                        </div>
-
-                                        <div class="flex items-start">
-                                            <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mr-4">
-                                                <i class="fas fa-database"></i>
-                                            </div>
-                                            <div>
-                                                <h4 class="font-semibold">MySQL Database Administration</h4>
-                                                    <p class="text-gray-600 dark:text-gray-400 text-sm">Oracle University • 2019</p>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </section>

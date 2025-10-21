@@ -20,27 +20,27 @@
         <nav class="hidden md:flex space-x-8 {{ $is_rtl ? 'flex-row-reverse' : '' }}">
             <a href="{{ url('/') }}"
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('/') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.home') }}
+                {{ __('gothamfolio.navigation.home') }}
             </a>
             <a href="{{ url('/resume') }}"
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('resume') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.resume') }}
+                {{ __('gothamfolio.navigation.resume') }}
             </a>
             <a href="{{ url('/portfolio') }}"
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.portfolio') }}
+                {{ __('gothamfolio.navigation.portfolio') }}
             </a>
             <a href="{{ url('/galleries') }}"
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.galleries') }}
+                {{ __('gothamfolio.navigation.galleries') }}
             </a>
             <a href="{{ url('/blog') }}"
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('blog') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.blog') }}
+                {{ __('gothamfolio.navigation.blog') }}
             </a>
             <a href="{{ url('/contact') }}"
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('contact') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.contact') }}
+                {{ __('gothamfolio.navigation.contact') }}
             </a>
         </nav>
 
@@ -66,22 +66,22 @@
     <div x-show="mobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg py-4">
         <div class="fluid-container flex flex-col space-y-4">
             <a href="{{ url('/') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('/') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.home') }}
+                {{ __('gothamfolio.navigation.home') }}
             </a>
             <a href="{{ url('/resume') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('resume') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.resume') }}
+                {{ __('gothamfolio.navigation.resume') }}
             </a>
             <a href="{{ url('/portfolio') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.portfolio') }}
+                {{ __('gothamfolio.navigation.portfolio') }}
             </a>
             <a href="{{ url('/galleries') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.galleries') }}
+                {{ __('gothamfolio.navigation.galleries') }}
             </a>
             <a href="{{ url('/blog') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('blog') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.blog') }}
+                {{ __('gothamfolio.navigation.blog') }}
             </a>
             <a href="{{ url('/contact') }}" class="font-medium py-2 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('contact') ? 'text-primary-500' : '' }}">
-                {{ __('navigation.contact') }}
+                {{ __('gothamfolio.navigation.contact') }}
             </a>
         </div>
     </div>
