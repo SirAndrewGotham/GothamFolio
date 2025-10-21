@@ -38,7 +38,8 @@ class LanguageService
 
     public function getAvailableLanguages()
     {
-        return Language::active()->ordered()->get();
+        $languages = Language::active()->ordered()->get();
+        return $languages;
     }
 
     public function getDefaultLanguage()

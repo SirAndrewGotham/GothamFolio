@@ -24,6 +24,9 @@ $changeLanguage = function ($languageCode, LanguageService $languageService) {
             $this->js('window.location.reload()');
         }
     }
+    
+    // Add a console log to check if languageChanged event is dispatched
+    $this->js("console.log(\"Language changed to: {$languageCode}\");");
 };
 
 ?>
@@ -52,6 +55,7 @@ $changeLanguage = function ($languageCode, LanguageService $languageService) {
             <button
                 wire:click="changeLanguage('{{ $language->code }}')"
                 @click="open = false"
+                wire:model="currentLanguage.code"
                 class="flex items-center w-full text-left px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
             >
                 @if($language->emoji)
