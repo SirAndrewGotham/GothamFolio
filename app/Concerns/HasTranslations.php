@@ -7,29 +7,6 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Model
- *
- * @property array<int, string> $translatableAttributes The attributes that should be translatable for the model.
- *
- * ### Usage:
- * In your model, define the `$translatableAttributes` property and then create explicit accessors and mutators for each translatable attribute:
- * ```php
- * class MyTranslatableModel extends Model
- * {
- *     use HasTranslations;
- *
- *     protected array $translatableAttributes = ['title', 'description'];
- *
- *     public function getTitleAttribute(string $value): string
- *     {
- *         return $this->getTranslatedAttribute('title') ?? $value;
- *     }
- *
- *     public function setTitleAttribute(string $value): void
- *     {
- *         $this->setTranslatedAttribute('title', $value);
- *     }
- * }
- * ```
  */
 trait HasTranslations
 {
@@ -38,15 +15,12 @@ trait HasTranslations
      */
     protected static function bootHasTranslations(): void
     {
-        // Add any model event listeners here if needed
+        static::deleted(function ($model) {
+            if (method_exists($model, 'isForceDeleting') && $model->isForceDeleting()) {
+                $model->translations()->delete();
+            }
+        });
     }
-
-    /**
-     * The attributes that should be translatable.
-     *
-     * @var array<int, string>
-     */
-    protected array $translatableAttributes = [];
 
     /**
      * Get all of the translations for the model.
@@ -59,22 +33,22 @@ trait HasTranslations
     /**
      * Get a translation for a given key and locale.
      */
-    public function getTranslation(string $key, string $locale = null): ?string
+    public function getTranslation(string $key, ?string $locale = null): ?string
     {
         $locale = $locale ?? app()->getLocale();
 
         if ($this->relationLoaded('translations')) {
             return $this->translations
-                        ->where('key', $key)
-                        ->where('locale', $locale)
-                        ->first()
-                        ?->value;
+                ->where('key', $key)
+                ->where('locale', $locale)
+                ->first()
+                ?->value;
         }
 
         return $this->translations()
-                    ->where('key', $key)
-                    ->where('locale', $locale)
-                    ->value('value');
+            ->where('key', $key)
+            ->where('locale', $locale)
+            ->value('value');
     }
 
     /**
@@ -82,55 +56,240 @@ trait HasTranslations
      */
     public function getTranslations(string $key): array
     {
-        return $this->translations
-                    ->where('key', $key)
-                    ->pluck('value', 'locale')
-                    ->toArray();
+        if ($this->relationLoaded('translations')) {
+            return $this->translations
+                ->where('key', $key)
+                ->pluck('value', 'locale')
+                ->toArray();
+        }
+
+        return $this->translations()
+            ->where('key', $key)
+            ->pluck('value', 'locale')
+            ->toArray();
     }
 
     /**
      * Set a translation for a given key and locale.
      */
-    public function setTranslation(string $key, string $value, string $locale = null): void
+    public function setTranslation(string $key, string $value, ?string $locale = null): void
     {
         $locale = $locale ?? app()->getLocale();
 
-        // @phpstan-ignore-line
-        $this->translations()->updateOrCreate(
-            // @phpstan-ignore-line
-            ['locale' => $locale, 'key' => $key],
-            // @phpstan-ignore-line
-            ['value' => $value, 'translatable_id' => $this->id, 'translatable_type' => $this->getMorphClass()]
-        );
-
-        // Reload the translations relationship to ensure it's fresh
-        $this->load('translations');
-    }
-
-    /**
-     * Get a translated attribute.
-     */
-    public function getTranslatedAttribute(string $key, string $locale = null): ?string
-    {
-        \Log::info('HasTranslations: getTranslatedAttribute called', ['key' => $key, 'locale' => $locale]);
-        if (! in_array($key, $this->translatableAttributes ?? [])) {
-            return $this->getAttribute($key); // Return original attribute if not translatable
+        if (is_null($this->id)) {
+            throw new \Exception('Model ID is null when attempting to set translation for key: ' . $key);
         }
 
-        return $this->getTranslation($key, $locale);
+        // Manual implementation to avoid updateOrCreate issues
+        $translation = $this->translations()
+            ->where('locale', $locale)
+            ->where('key', $key)
+            ->first();
+
+        if ($translation) {
+            // Update existing translation
+            $translation->update(['value' => $value]);
+        } else {
+            $newTranslation = new Translation();
+            $newTranslation->locale = $locale;
+            $newTranslation->key = $key;
+            $newTranslation->value = $value;
+            $newTranslation->translatable_id = $this->id;
+            $newTranslation->translatable_type = $this->getMorphClass();
+            $newTranslation->save();
+
+            $translation = $newTranslation;
+        }
+
+        // Reload the translations relationship
+        if ($this->relationLoaded('translations')) {
+            $this->load('translations');
+        }
     }
 
     /**
-     * Set a translated attribute.
+     * Get a translated attribute (for use in attribute casting).
      */
-    public function setTranslatedAttribute(string $key, string $value, string $locale = null): void
+    public function getTranslatedAttribute(string $key, ?string $locale = null): ?string
     {
-        \Log::info('HasTranslations: setTranslatedAttribute called', ['key' => $key, 'value' => $value, 'locale' => $locale]);
-        if (! in_array($key, $this->translatableAttributes ?? [])) {
-            $this->setAttribute($key, $value); // Set original attribute if not translatable
+        // Check if the model has the translatableAttributes property
+        if (! property_exists($this, 'translatableAttributes') ||
+            ! in_array($key, $this->translatableAttributes ?? [])) {
+            return $this->getAttributeFromArray($key);
+        }
+
+        $translation = $this->getTranslation($key, $locale);
+        return $translation ?? $this->getAttributeFromArray($key);
+    }
+
+    /**
+     * Set a translated attribute (for use in attribute casting).
+     */
+    public function setTranslatedAttribute(string $key, string $value, ?string $locale = null): void
+    {
+        // Check if the model has the translatableAttributes property
+        if (! property_exists($this, 'translatableAttributes') ||
+            ! in_array($key, $this->translatableAttributes ?? [])) {
+            $this->attributes[$key] = $value;
             return;
         }
 
         $this->setTranslation($key, $value, $locale);
+        $this->attributes[$key] = $value;
+    }
+
+    /**
+     * Check if a translation exists for a given key and locale.
+     */
+    public function hasTranslation(string $key, ?string $locale = null): bool
+    {
+        $locale = $locale ?? app()->getLocale();
+
+        return $this->translations()
+            ->where('key', $key)
+            ->where('locale', $locale)
+            ->exists();
+    }
+
+    /**
+     * Get the available locales for a given key.
+     */
+    public function getAvailableLocales(string $key): array
+    {
+        return $this->translations()
+            ->where('key', $key)
+            ->pluck('locale')
+            ->toArray();
+    }
+
+    /**
+     * Check if a translation exists in any locale for a given key.
+     */
+    public function hasAnyTranslation(string $key): bool
+    {
+        return $this->translations()
+            ->where('key', $key)
+            ->exists();
+    }
+
+    /**
+     * Mass set translations for multiple keys.
+     */
+    public function setTranslations(array $translations, ?string $locale = null): void
+    {
+        $locale = $locale ?? app()->getLocale();
+
+        foreach ($translations as $key => $value) {
+            if (in_array($key, $this->translatableAttributes)) {
+                $this->setTranslation($key, $value, $locale);
+            }
+        }
+    }
+
+    /**
+     * Get all translations for the current locale.
+     */
+    public function getCurrentLocaleTranslations(): array
+    {
+        $locale = app()->getLocale();
+        $translations = [];
+
+        foreach ($this->translatableAttributes as $attribute) {
+            $translations[$attribute] = $this->getTranslation($attribute, $locale);
+        }
+
+        return $translations;
+    }
+
+    /**
+     * Get the fallback translation for a key.
+     */
+    public function getFallbackTranslation(string $key): ?string
+    {
+        $fallbackLocale = config('app.fallback_locale', 'en');
+
+        // First try fallback locale
+        $translation = $this->getTranslation($key, $fallbackLocale);
+
+        // If no fallback translation, try any available translation
+        if (is_null($translation)) {
+            $translation = $this->translations()
+                ->where('key', $key)
+                ->value('value');
+        }
+
+        return $translation;
+    }
+
+    /**
+     * Scope to filter by translation value.
+     */
+    public function scopeWhereTranslation($query, string $key, string $value, ?string $locale = null)
+    {
+        $locale = $locale ?? app()->getLocale();
+
+        return $query->whereHas('translations', function ($q) use ($key, $value, $locale) {
+            $q->where('key', $key)
+                ->where('value', 'like', "%{$value}%")
+                ->where('locale', $locale);
+        });
+    }
+
+    /**
+     * Eager load translations for specific locales.
+     */
+    public function scopeWithTranslations($query, array $locales = null)
+    {
+        $locales = $locales ?? [app()->getLocale()];
+
+        return $query->with(['translations' => function ($q) use ($locales) {
+            $q->whereIn('locale', $locales);
+        }]);
+    }
+
+    /**
+     * Check if the model has any translations.
+     */
+    public function hasTranslations(): bool
+    {
+        return $this->translations()->exists();
+    }
+
+    /**
+     * Get the count of translations for this model.
+     */
+    public function getTranslationsCountAttribute(): int
+    {
+        return $this->translations()->count();
+    }
+
+    /**
+     * Get translations grouped by locale.
+     */
+    public function getTranslationsByLocale(): array
+    {
+        return $this->translations()
+            ->get()
+            ->groupBy('locale')
+            ->map(function ($translations) {
+                return $translations->pluck('value', 'key');
+            })
+            ->toArray();
+    }
+
+    /**
+     * Sync translations - remove any not in the provided array.
+     */
+    public function syncTranslations(array $translations, string $locale): void
+    {
+        // First, remove all existing translations for this locale
+        $this->translations()->where('locale', $locale)->delete();
+
+        // Then create new ones
+        foreach ($translations as $key => $value) {
+            if (in_array($key, $this->translatableAttributes)) {
+                $this->setTranslation($key, $value, $locale);
+            }
+        }
     }
 }
