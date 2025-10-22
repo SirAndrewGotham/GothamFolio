@@ -10,6 +10,21 @@ use Faker\Factory as Faker;
 
 class SubscriptionSeeder extends Seeder
 {
+    /**
+     * Seed the database with a variety of Subscription records for users and guests.
+     *
+     * Creates verified and active subscriptions for a subset of up to 10 existing users (creates 5 users if none exist),
+     * ensures categories exist (creates 3 if none exist) and then seeds:
+     * - user-associated subscriptions (approximately half of selected users, if not already subscribed),
+     * - 15 guest subscriptions (email-only),
+     * - 5 inactive guest subscriptions,
+     * - 3 unverified guest subscriptions.
+     *
+     * The subscription scope may be global or category-specific (randomly chosen). Outputs summary information
+     * (total, active, verified, global, and category-specific counts) via the seeder command output.
+     *
+     * @return void
+     */
     public function run(): void
     {
         $faker = Faker::create();
@@ -84,6 +99,12 @@ class SubscriptionSeeder extends Seeder
         $this->command->info('Category-specific subscriptions: ' . Subscription::withCategories()->count());
     }
 
+    /**
+     * Selects whether a subscription is global or category-specific and returns the corresponding category IDs.
+     *
+     * @param \Illuminate\Support\Collection $categories Collection of Category models to choose from.
+     * @return int[]|null An array of 1–3 category IDs when category-specific, or `null` for a global subscription.
+     */
     protected function getRandomSubscriptionType($categories): ?array
     {
         // 60% global, 40% category-specific

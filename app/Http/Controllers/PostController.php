@@ -17,7 +17,7 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new Post resource.
      */
     public function create()
     {
@@ -25,7 +25,9 @@ class PostController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Persist a new Post resource using data validated by the request.
+     *
+     * @param \App\Http\Requests\StorePostRequest $request The validated request containing attributes for the new Post.
      */
     public function store(StorePostRequest $request)
     {
@@ -33,7 +35,9 @@ class PostController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Post resource.
+     *
+     * @param \App\Models\Post $post The Post instance resolved by route-model binding.
      */
     public function show(Post $post)
     {
@@ -41,7 +45,10 @@ class PostController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display a form for editing the specified Post.
+     *
+     * @param \App\Models\Post $post The Post instance to edit (route-model bound).
+     * @return \Illuminate\Http\Response|\Illuminate\View\View Response containing the edit form.
      */
     public function edit(Post $post)
     {
@@ -49,7 +56,10 @@ class PostController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified Post with validated data and persist the changes.
+     *
+     * @param UpdatePostRequest $request The validated request data for the update.
+     * @param Post $post The Post model instance to be updated (route-model binding).
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
@@ -57,7 +67,9 @@ class PostController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified Post resource from storage.
+     *
+     * @param Post $post The Post instance to be removed (route-model bound).
      */
     public function destroy(Post $post)
     {

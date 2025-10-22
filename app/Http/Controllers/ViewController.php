@@ -17,7 +17,7 @@ class ViewController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a form for creating a new View resource.
      */
     public function create()
     {
@@ -25,23 +25,29 @@ class ViewController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
+         * Create and persist a new View resource using the request's validated data.
+         *
+         * @param StoreViewRequest $request The request containing validated input for the new View.
+         */
     public function store(StoreViewRequest $request)
     {
         //
     }
 
     /**
-     * Display the specified resource.
-     */
+         * Display the specified View resource.
+         *
+         * @param \App\Models\View $view The View model instance resolved via route-model binding.
+         */
     public function show(View $view)
     {
         //
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified view resource.
+     *
+     * @param \App\Models\View $view The View model instance to edit.
      */
     public function edit(View $view)
     {
@@ -49,7 +55,10 @@ class ViewController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified View resource with validated data from the request.
+     *
+     * @param \App\Http\Requests\UpdateViewRequest $request The validated data for the update.
+     * @param \App\Models\View $view The View model instance to be updated.
      */
     public function update(UpdateViewRequest $request, View $view)
     {
@@ -57,7 +66,9 @@ class ViewController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the given View resource from storage.
+     *
+     * @param \App\Models\View $view The View model instance to delete.
      */
     public function destroy(View $view)
     {

@@ -17,7 +17,9 @@ class CommentController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new comment.
+     *
+     * Display a view containing the form used to create a new Comment resource.
      */
     public function create()
     {
@@ -25,7 +27,9 @@ class CommentController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Persist a new Comment using validated data from the request.
+     *
+     * @param StoreCommentRequest $request Validated input for creating a Comment.
      */
     public function store(StoreCommentRequest $request)
     {
@@ -33,7 +37,9 @@ class CommentController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Comment.
+     *
+     * @param \App\Models\Comment $comment The Comment model instance to display.
      */
     public function show(Comment $comment)
     {
@@ -41,7 +47,9 @@ class CommentController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified comment.
+     *
+     * @param Comment $comment The comment instance to be edited.
      */
     public function edit(Comment $comment)
     {
@@ -49,7 +57,10 @@ class CommentController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the given Comment with validated data from the request.
+     *
+     * @param UpdateCommentRequest $request Validated input for updating the comment.
+     * @param Comment $comment The Comment model instance to update.
      */
     public function update(UpdateCommentRequest $request, Comment $comment)
     {
@@ -57,7 +68,9 @@ class CommentController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete the specified comment resource.
+     *
+     * @param \App\Models\Comment $comment The Comment model instance to delete.
      */
     public function destroy(Comment $comment)
     {

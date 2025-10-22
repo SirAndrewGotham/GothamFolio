@@ -13,6 +13,13 @@ class VoteSeeder extends Seeder
 {
     protected $faker;
 
+    /**
+     * Seeds votes for posts and comments, ensuring sufficient posts, comments, and users exist.
+     *
+     * Creates biased up/down votes for a subset of users on published posts and approved comments,
+     * generates additional recent unique votes (with a bounded retry loop to avoid duplicates),
+     * and logs a summary of totals and breakdowns.
+     */
     public function run(): void
     {
         $this->faker = Faker::create();
@@ -113,6 +120,11 @@ class VoteSeeder extends Seeder
         $this->command->info('Downvotes: ' . Vote::where('type', 'downvote')->count());
     }
 
+    /**
+     * Selects a vote type with an 80% bias toward upvotes and 20% toward downvotes.
+     *
+     * @return string `'upvote'` 80% of the time, `'downvote'` 20% of the time.
+     */
     protected function getVoteTypeWithBias(): string
     {
         // 80% upvotes, 20% downvotes

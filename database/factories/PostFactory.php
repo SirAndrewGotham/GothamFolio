@@ -9,6 +9,15 @@ use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
+    /**
+     * Register an after-creation hook that updates translatable Post fields with locale tags.
+     *
+     * For each locale in ['en', 'ru', 'eo'], removes any existing " [locale]" suffix from
+     * the post's title, excerpt, content, meta_title, and meta_description, then sets the
+     * translation for that locale by appending " [locale]" to each field.
+     *
+     * @return $this The factory instance with the afterCreating callback attached.
+     */
     public function configure()
     {
         return $this->afterCreating(function (Post $post) {
@@ -26,6 +35,24 @@ class PostFactory extends Factory
 
     protected $model = Post::class;
 
+    /**
+     * Define the default attribute values used when creating a Post via the factory.
+     *
+     * @return array Associative array of Post attributes:
+     *               - `title`: generated sentence (≈6 words).
+     *               - `slug`: URL-friendly slug derived from `title`.
+     *               - `excerpt`: short paragraph summary.
+     *               - `content`: multi-paragraph article body.
+     *               - `featured_image`: placeholder image URL (1200x630).
+     *               - `published_at`: nullable DateTime between 1 year ago and 1 month ahead (present ~80% of the time).
+     *               - `is_published`: boolean flag (≈80% true).
+     *               - `is_featured`: boolean flag (≈20% true).
+     *               - `read_time`: integer minutes between 3 and 15.
+     *               - `meta_title`: same as `title`.
+     *               - `meta_description`: generated sentence (≈10 words).
+     *               - `meta_keywords`: five generated words joined by commas.
+     *               - `user_id`: associated User factory instance.
+     */
     public function definition(): array
     {
         $title = $this->faker->sentence(6);
@@ -47,6 +74,13 @@ class PostFactory extends Factory
         ];
     }
 
+    /**
+     * Configure the factory state to represent a published post.
+     *
+     * The state sets `is_published` to `true` and `published_at` to a past date between 1 and 365 days ago.
+     *
+     * @return static The factory with the published state applied.
+     */
     public function published(): static
     {
         return $this->state(fn (array $attributes) => [
@@ -55,6 +89,11 @@ class PostFactory extends Factory
         ]);
     }
 
+    /**
+     * Configure the factory to produce a draft post.
+     *
+     * @return static The factory instance with `is_published` set to `false` and `published_at` set to `null`.
+     */
     public function draft(): static
     {
         return $this->state(fn (array $attributes) => [
@@ -63,6 +102,11 @@ class PostFactory extends Factory
         ]);
     }
 
+    /**
+     * Apply a factory state that schedules the post to be published in the future.
+     *
+     * @return static Factory instance with `is_published` set to `true` and `published_at` set to a date 1–30 days from now.
+     */
     public function scheduled(): static
     {
         return $this->state(fn (array $attributes) => [
@@ -71,6 +115,11 @@ class PostFactory extends Factory
         ]);
     }
 
+    /**
+     * Mark generated posts as featured.
+     *
+     * @return static A factory state that sets `is_featured` to `true`.
+     */
     public function featured(): static
     {
         return $this->state(fn (array $attributes) => [

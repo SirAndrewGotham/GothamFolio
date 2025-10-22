@@ -17,7 +17,7 @@ class VoteController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a form for creating a new Vote resource.
      */
     public function create()
     {
@@ -25,15 +25,19 @@ class VoteController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     */
+         * Create and persist a new Vote using validated input from the request.
+         *
+         * @param \App\Http\Requests\StoreVoteRequest $request Validated data for creating a Vote.
+         */
     public function store(StoreVoteRequest $request)
     {
         //
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Vote resource.
+     *
+     * @param \App\Models\Vote $vote The route-model-bound Vote instance to display.
      */
     public function show(Vote $vote)
     {
@@ -41,7 +45,9 @@ class VoteController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the form to edit the specified Vote.
+     *
+     * @param \App\Models\Vote $vote The Vote instance to edit.
      */
     public function edit(Vote $vote)
     {
@@ -49,15 +55,20 @@ class VoteController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     */
+         * Update the given Vote using validated data from the request.
+         *
+         * @param \App\Http\Requests\UpdateVoteRequest $request Validated input for updating the vote.
+         * @param \App\Models\Vote $vote The vote instance to update.
+         */
     public function update(UpdateVoteRequest $request, Vote $vote)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified Vote resource from storage.
+     *
+     * @param \App\Models\Vote $vote The Vote instance to remove.
      */
     public function destroy(Vote $vote)
     {

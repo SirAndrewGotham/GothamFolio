@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 trait HasViews
 {
     /**
-     * Boot the HasViews trait for a model.
+     * Register model event listeners when the trait is booted.
      */
     protected static function bootHasViews(): void
     {
@@ -19,7 +19,9 @@ trait HasViews
     }
 
     /**
-     * Get all the views for the model.
+     * Define a polymorphic one-to-many relationship for the model's views.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany Collection of related View models.
      */
     public function views(): MorphMany
     {
@@ -27,7 +29,14 @@ trait HasViews
     }
 
     /**
-     * Record a view for this model.
+     * Create and persist a new View record associated with this model.
+     *
+     * The created View will be associated to the model's morph class and id,
+     * and will record request and authentication metadata (locale, IP address,
+     * user agent, and authenticated user id).
+     *
+     * @param string|null $locale The locale to associate with the view; if null, uses the current application locale.
+     * @return \App\Models\View The newly created View instance.
      */
     public function recordView(?string $locale = null): View
     {
@@ -44,7 +53,9 @@ trait HasViews
     }
 
     /**
-     * Get the total views count.
+     * Retrieve the total number of views recorded for the model.
+     *
+     * @return int The total count of related View records.
      */
     public function getViewsCountAttribute(): int
     {
@@ -52,7 +63,10 @@ trait HasViews
     }
 
     /**
-     * Get views count for a specific locale.
+     * Count views for the given locale.
+     *
+     * @param string $locale Locale identifier (e.g., "en", "fr").
+     * @return int The number of related views recorded with the specified locale.
      */
     public function getViewsCountByLocale(string $locale): int
     {
@@ -60,7 +74,9 @@ trait HasViews
     }
 
     /**
-     * Get unique views count (by IP address).
+     * Count unique views grouped by IP address.
+     *
+     * @return int The number of unique views determined by distinct `ip_address` values.
      */
     public function getUniqueViewsCountAttribute(): int
     {
@@ -68,7 +84,10 @@ trait HasViews
     }
 
     /**
-     * Check if an IP has already viewed this model.
+     * Determine whether a view from the given IP address exists for this model.
+     *
+     * @param string $ip The IP address to check.
+     * @return bool `true` if a view from the IP exists, `false` otherwise.
      */
     public function hasBeenViewedByIp(string $ip): bool
     {

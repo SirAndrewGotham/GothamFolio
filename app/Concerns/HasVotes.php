@@ -19,7 +19,9 @@ trait HasVotes
     }
 
     /**
-     * Get all the votes for the model.
+     * Get the polymorphic one-to-many relation for votes attached to the model.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany A MorphMany relation for the model's Vote records.
      */
     public function votes(): MorphMany
     {
@@ -27,7 +29,9 @@ trait HasVotes
     }
 
     /**
-     * Get upvotes for the model.
+     * Retrieve the model's votes filtered to upvotes.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany Morph many relation containing Vote models with type "upvote".
      */
     public function upvotes(): MorphMany
     {
@@ -35,7 +39,9 @@ trait HasVotes
     }
 
     /**
-     * Get downvotes for the model.
+     * Retrieve the relation for this model's votes filtered to downvotes.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany MorphMany relation containing votes with type 'downvote'.
      */
     public function downvotes(): MorphMany
     {
@@ -43,7 +49,9 @@ trait HasVotes
     }
 
     /**
-     * Get the upvotes count.
+     * Number of upvotes associated with the model.
+     *
+     * @return int The total count of votes with type "upvote" for this model.
      */
     public function getUpvotesCountAttribute(): int
     {
@@ -51,7 +59,9 @@ trait HasVotes
     }
 
     /**
-     * Get the downvotes count.
+     * Number of downvotes for the model.
+     *
+     * @return int The count of downvotes.
      */
     public function getDownvotesCountAttribute(): int
     {
@@ -59,7 +69,9 @@ trait HasVotes
     }
 
     /**
-     * Get the net votes (upvotes - downvotes).
+     * Net vote total for the model computed as upvotes minus downvotes.
+     *
+     * @return int The net number of votes (upvotes_count minus downvotes_count).
      */
     public function getNetVotesAttribute(): int
     {
@@ -67,12 +79,14 @@ trait HasVotes
     }
 
     /**
-     * Add or update a vote for the model.
+     * Create or update the authenticated user's vote on this model.
      *
-     * @param int $userId
-     * @param string $type
-     * @return \App\Models\Vote
-     * @throws \InvalidArgumentException
+     * If the user has an existing vote on the model, its type is updated; otherwise a new Vote is created.
+     *
+     * @param int $userId The identifier of the user casting the vote.
+     * @param string $type The vote type — must be either "upvote" or "downvote".
+     * @return \App\Models\Vote The Vote model instance that was created or updated.
+     * @throws \InvalidArgumentException If $type is not "upvote" or "downvote".
      */
     public function vote(int $userId, string $type): Vote
     {
@@ -97,7 +111,10 @@ trait HasVotes
     }
 
     /**
-     * Remove a user's vote from the model.
+     * Delete the vote belonging to the given user for this model.
+     *
+     * @param int $userId The ID of the user whose vote should be removed.
+     * @return bool `true` if a vote was deleted, `false` otherwise.
      */
     public function removeVote(int $userId): bool
     {
@@ -105,15 +122,21 @@ trait HasVotes
     }
 
     /**
-     * Check if a user has voted on the model.
-     */
+         * Determine whether the given user has a vote on this model.
+         *
+         * @param int $userId The user's ID to check for an existing vote.
+         * @return bool `true` if the user has a vote on the model, `false` otherwise.
+         */
     public function hasVoteFrom(int $userId): bool
     {
         return $this->votes()->where('user_id', $userId)->exists();
     }
 
     /**
-     * Get the user's vote type if they have voted.
+     * Retrieve the vote type cast by a given user on this model.
+     *
+     * @param int $userId The ID of the user whose vote to retrieve.
+     * @return string|null `'upvote'` or `'downvote'` if the user voted, `null` otherwise.
      */
     public function getUserVoteType(int $userId): ?string
     {

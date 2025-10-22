@@ -24,7 +24,9 @@ class Vote extends Model
     ];
 
     /**
-     * Get the parent votable model.
+     * Retrieve the parent model targeted by this vote.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo The polymorphic relation to the votable model.
      */
     public function votable(): MorphTo
     {
@@ -32,7 +34,9 @@ class Vote extends Model
     }
 
     /**
-     * Relationship with the user who voted.
+     * Get the user that cast the vote.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo The voter user relation.
      */
     public function user(): BelongsTo
     {
@@ -40,7 +44,10 @@ class Vote extends Model
     }
 
     /**
-     * Scope for upvotes.
+     * Add a query constraint to only include votes with type 'upvote'.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The query builder instance.
+     * @return \Illuminate\Database\Eloquent\Builder The query builder filtered to upvotes.
      */
     public function scopeUpvote($query)
     {
@@ -48,7 +55,10 @@ class Vote extends Model
     }
 
     /**
-     * Scope for downvotes.
+     * Scope the query to only votes with type "downvote".
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The query builder instance.
+     * @return \Illuminate\Database\Eloquent\Builder The query builder filtered to downvotes.
      */
     public function scopeDownvote($query)
     {

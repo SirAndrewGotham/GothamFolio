@@ -9,6 +9,16 @@ use Illuminate\Database\Seeder;
 
 class CommentSeeder extends Seeder
 {
+    /**
+     * Seeds the database with a realistic nested comment structure for published posts.
+     *
+     * Ensures published posts and users exist (creates posts/users if none found), then:
+     * - For each published post, creates 3–8 top-level comments and 0–3 replies for each top-level comment.
+     * - Adds 1–3 authenticated, approved top-level comments per post from random users.
+     * - Generates additional nested replies (replies to replies) and 5 pending comments on a random post.
+     *
+     * After seeding, outputs summary counts for total comments, top-level comments, replies, approved, and pending comments.
+     */
     public function run(): void
     {
         // Get published posts

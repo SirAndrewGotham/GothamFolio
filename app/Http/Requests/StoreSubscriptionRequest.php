@@ -7,7 +7,9 @@ use Illuminate\Foundation\Http\FormRequest;
 class StoreSubscriptionRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine whether the current user is authorized to perform the action represented by this request.
+     *
+     * @return bool `true` if the user is authorized to make the request, `false` otherwise.
      */
     public function authorize(): bool
     {
@@ -15,9 +17,9 @@ class StoreSubscriptionRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * Provide validation rules for the request's input data.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string> Mapping of field names to their validation rules.
      */
     public function rules(): array
     {

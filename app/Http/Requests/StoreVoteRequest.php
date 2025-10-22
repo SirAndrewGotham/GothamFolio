@@ -6,8 +6,10 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreVoteRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
+    / **
+     * Determine whether the current user is authorized to perform this request.
+     *
+     * @return bool `true` if the user is authorized to make this request, `false` otherwise.
      */
     public function authorize(): bool
     {

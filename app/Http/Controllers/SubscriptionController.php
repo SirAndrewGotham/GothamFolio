@@ -25,7 +25,9 @@ class SubscriptionController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Create a new Subscription from validated request data and persist it to storage.
+     *
+     * @param StoreSubscriptionRequest $request Validated request containing the subscription attributes.
      */
     public function store(StoreSubscriptionRequest $request)
     {
@@ -33,7 +35,9 @@ class SubscriptionController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified Subscription resource.
+     *
+     * @param \App\Models\Subscription $subscription The subscription instance to display.
      */
     public function show(Subscription $subscription)
     {
@@ -41,7 +45,9 @@ class SubscriptionController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified subscription.
+     *
+     * @param \App\Models\Subscription $subscription The subscription to edit.
      */
     public function edit(Subscription $subscription)
     {
@@ -49,15 +55,20 @@ class SubscriptionController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     */
+         * Update the given Subscription with validated request data.
+         *
+         * @param UpdateSubscriptionRequest $request Validated input for updating the subscription.
+         * @param Subscription $subscription The subscription instance to update.
+         */
     public function update(UpdateSubscriptionRequest $request, Subscription $subscription)
     {
         //
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Delete the specified subscription.
+     *
+     * @param \App\Models\Subscription $subscription The subscription instance to delete.
      */
     public function destroy(Subscription $subscription)
     {

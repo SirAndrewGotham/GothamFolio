@@ -7,7 +7,9 @@ use Illuminate\Foundation\Http\FormRequest;
 class UpdatePostRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine whether the user is authorized to make this request.
+     *
+     * @return bool true if the user is authorized to make the request, false otherwise.
      */
     public function authorize(): bool
     {

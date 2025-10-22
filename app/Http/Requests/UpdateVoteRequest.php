@@ -7,7 +7,11 @@ use Illuminate\Foundation\Http\FormRequest;
 class UpdateVoteRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
+     * Determine whether the current request is authorized.
+     *
+     * This implementation denies authorization for all requests.
+     *
+     * @return bool `true` if the user is authorized to make the request, `false` otherwise.
      */
     public function authorize(): bool
     {

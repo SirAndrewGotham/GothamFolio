@@ -7,7 +7,16 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration
 {
     /**
-     * Run the migrations.
+     * Create the `views` table for recording view events on any model.
+     *
+     * The table includes a primary `id`, polymorphic `viewable_type`/`viewable_id` pair,
+     * nullable `locale`, nullable `ip_address`, nullable `user_agent`, a nullable
+     * `user_id` foreign key referencing `users` that is set to null on delete, and
+     * `created_at`/`updated_at` timestamps. Adds composite indexes on
+     * (`viewable_type`, `viewable_id`, `locale`) and (`ip_address`, `viewable_type`, `viewable_id`)
+     * to optimize lookup by locale and by IP per viewable item.
+     *
+     * @return void
      */
     public function up(): void
     {
@@ -27,7 +36,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Drop the `views` table if it exists.
      */
     public function down(): void
     {

@@ -16,7 +16,10 @@ class NewPostNotification extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * Create a new message instance.
+     * Create a new NewPostNotification instance with the given post and subscription.
+     *
+     * @param Post $post The post being announced in the notification.
+     * @param Subscription $subscription The subscription (recipient context) for the notification.
      */
     public function __construct(public Post $post, public Subscription $subscription)
     {
@@ -24,7 +27,9 @@ class NewPostNotification extends Mailable
     }
 
     /**
-     * Get the message envelope.
+     * Build the message envelope using the post title for the subject.
+     *
+     * @return \Illuminate\Mail\Mailables\Envelope The envelope configured with the subject "New Post: {post title}".
      */
     public function envelope(): Envelope
     {
@@ -34,8 +39,10 @@ class NewPostNotification extends Mailable
     }
 
     /**
-     * Get the message content definition.
-     */
+         * Define the email's content: the markdown view and the data passed to it.
+         *
+         * @return Content The Content instance configured with the `emails.posts.new-post-notification` markdown template and view data containing `post` and `subscription`.
+         */
     public function content(): Content
     {
         return new Content(

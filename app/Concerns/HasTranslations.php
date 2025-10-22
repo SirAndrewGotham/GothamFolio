@@ -11,7 +11,10 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
 trait HasTranslations
 {
     /**
-     * Boot the HasTranslations trait for a model.
+     * Register a model deleted event listener that removes related translations when the model is force-deleted.
+     *
+     * Attaches to the model's deleted event and deletes all associated translation records only if the model
+     * reports a force delete via an isForceDeleting method.
      */
     protected static function bootHasTranslations(): void
     {
@@ -31,7 +34,11 @@ trait HasTranslations
     }
 
     /**
-     * Get a translation for a given key and locale.
+     * Retrieve the translation value for a specific key and locale.
+     *
+     * @param string $key The translation key to look up.
+     * @param string|null $locale The locale to use; when null, the application's current locale is used.
+     * @return string|null The translation value for the given key and locale, or `null` if no translation exists.
      */
     public function getTranslation(string $key, ?string $locale = null): ?string
     {
@@ -52,7 +59,10 @@ trait HasTranslations
     }
 
     /**
-     * Get all translations for a given key.
+     * Retrieve all translations for the given key as an associative array keyed by locale.
+     *
+     * @param string $key The translation key to retrieve values for.
+     * @return array<string,string> An array mapping locale codes to translation values.
      */
     public function getTranslations(string $key): array
     {
@@ -70,7 +80,15 @@ trait HasTranslations
     }
 
     /**
-     * Set a translation for a given key and locale.
+     * Create or update the translation for the given key in the specified locale.
+     *
+     * Throws if the model does not have an ID. When the model's `translations` relation is already loaded,
+     * it will be reloaded after the change.
+     *
+     * @param string $key The translation key.
+     * @param string $value The translation value.
+     * @param string|null $locale The locale to set the translation for; defaults to the current application locale.
+     * @throws \Exception If the model's ID is null.
      */
     public function setTranslation(string $key, string $value, ?string $locale = null): void
     {
@@ -108,7 +126,13 @@ trait HasTranslations
     }
 
     /**
-     * Get a translated attribute (for use in attribute casting).
+     * Retrieve the translated value for an attribute when available.
+     *
+     * If the model defines a `translatableAttributes` list and the attribute is listed, returns the translation for the specified locale (or the current locale when null); otherwise returns the model's raw attribute value.
+     *
+     * @param string $key The attribute name.
+     * @param string|null $locale Locale to retrieve the translation for; when null the current application locale is used.
+     * @return string|null The translated value if present, otherwise the raw attribute value or null.
      */
     public function getTranslatedAttribute(string $key, ?string $locale = null): ?string
     {
@@ -123,7 +147,15 @@ trait HasTranslations
     }
 
     /**
-     * Set a translated attribute (for use in attribute casting).
+     * Set a translated attribute value on the model, creating/updating the translation when appropriate.
+     *
+     * If the model does not define a translatableAttributes property or the given key is not listed there,
+     * the value is stored directly on the model's raw attributes. Otherwise the value is saved as a translation
+     * for the specified locale and the raw attribute is updated to the provided value.
+     *
+     * @param string $key The attribute/translation key.
+     * @param string $value The value to set.
+     * @param string|null $locale The locale for the translation; when null the current application locale is used.
      */
     public function setTranslatedAttribute(string $key, string $value, ?string $locale = null): void
     {
@@ -139,7 +171,11 @@ trait HasTranslations
     }
 
     /**
-     * Check if a translation exists for a given key and locale.
+     * Determine whether a translation exists for the given key in the specified locale.
+     *
+     * @param string $key The translation key to check.
+     * @param string|null $locale The locale to check for; defaults to the current application locale.
+     * @return bool `true` if a translation exists for the key in the locale, `false` otherwise.
      */
     public function hasTranslation(string $key, ?string $locale = null): bool
     {
@@ -152,7 +188,10 @@ trait HasTranslations
     }
 
     /**
-     * Get the available locales for a given key.
+     * Retrieve all locales that have a stored translation for the given key.
+     *
+     * @param string $key The translation key to look up.
+     * @return string[] An array of locale codes that have a translation for the key.
      */
     public function getAvailableLocales(string $key): array
     {
@@ -163,7 +202,10 @@ trait HasTranslations
     }
 
     /**
-     * Check if a translation exists in any locale for a given key.
+     * Determines whether any translation exists for the given key across all locales.
+     *
+     * @param string $key The translation key to check.
+     * @return bool `true` if at least one translation exists for the key, `false` otherwise.
      */
     public function hasAnyTranslation(string $key): bool
     {
@@ -173,7 +215,13 @@ trait HasTranslations
     }
 
     /**
-     * Mass set translations for multiple keys.
+     * Set multiple translations for the given locale.
+     *
+     * For each key in the provided array, creates or updates the translation for the specified locale (or the current app locale).
+     * Keys not present in the model's `translatableAttributes` are ignored.
+     *
+     * @param array<string,string> $translations Associative array of attribute => translated value.
+     * @param string|null $locale Locale to apply the translations to; defaults to the current application locale when null.
      */
     public function setTranslations(array $translations, ?string $locale = null): void
     {
@@ -187,7 +235,9 @@ trait HasTranslations
     }
 
     /**
-     * Get all translations for the current locale.
+     * Get translations for all translatable attributes in the current application locale.
+     *
+     * @return array<string, string|null> An associative array mapping attribute names to their translation for the current locale, or `null` if no translation exists.
      */
     public function getCurrentLocaleTranslations(): array
     {
@@ -202,8 +252,14 @@ trait HasTranslations
     }
 
     /**
-     * Get the fallback translation for a key.
-     */
+         * Retrieve a fallback translation for the given key.
+         *
+         * Attempts to return the translation for the application's configured fallback locale,
+         * and if not available returns any available translation for the key.
+         *
+         * @param string $key The translation key to look up.
+         * @return string|null The translation value from the fallback locale or any available locale, or `null` if none exists.
+         */
     public function getFallbackTranslation(string $key): ?string
     {
         $fallbackLocale = config('app.fallback_locale', 'en');
@@ -222,7 +278,13 @@ trait HasTranslations
     }
 
     /**
-     * Scope to filter by translation value.
+     * Filter the query to models that have a translation matching a given key and value for a locale.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The query builder instance.
+     * @param string $key The translation key to match.
+     * @param string $value A substring to search for within the translation value.
+     * @param string|null $locale The locale to match; defaults to the application's current locale.
+     * @return \Illuminate\Database\Eloquent\Builder The modified query builder.
      */
     public function scopeWhereTranslation($query, string $key, string $value, ?string $locale = null)
     {
@@ -236,7 +298,11 @@ trait HasTranslations
     }
 
     /**
-     * Eager load translations for specific locales.
+     * Eager-load the `translations` relationship limited to the specified locales.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The query builder instance.
+     * @param array|null $locales Locales to eager-load; when null the current app locale is used.
+     * @return \Illuminate\Database\Eloquent\Builder The query builder with the `translations` relation constrained to the provided locales.
      */
     public function scopeWithTranslations($query, array $locales = null)
     {
@@ -248,7 +314,9 @@ trait HasTranslations
     }
 
     /**
-     * Check if the model has any translations.
+     * Determine whether the model has any translations.
+     *
+     * @return bool `true` if the model has at least one translation, `false` otherwise.
      */
     public function hasTranslations(): bool
     {
@@ -256,7 +324,9 @@ trait HasTranslations
     }
 
     /**
-     * Get the count of translations for this model.
+     * Return the number of translations associated with the model.
+     *
+     * @return int The count of Translation records for this model.
      */
     public function getTranslationsCountAttribute(): int
     {
@@ -264,7 +334,9 @@ trait HasTranslations
     }
 
     /**
-     * Get translations grouped by locale.
+     * Return translations grouped by locale.
+     *
+     * @return array Associative array where each key is a locale code and each value is an associative array mapping translation keys to their translated values.
      */
     public function getTranslationsByLocale(): array
     {
@@ -278,7 +350,13 @@ trait HasTranslations
     }
 
     /**
-     * Sync translations - remove any not in the provided array.
+     * Replace all translations for the given locale with the provided key=>value set.
+     *
+     * Existing translations for the locale are removed and new translations are created
+     * only for keys listed in the model's translatableAttributes.
+     *
+     * @param array $translations Associative array of translation keys to values.
+     * @param string $locale The locale to synchronize translations for (e.g., "en").
      */
     public function syncTranslations(array $translations, string $locale): void
     {

@@ -40,7 +40,9 @@ class Subscription extends Model
     ];
 
     /**
-     * Relationship with the user.
+     * Belongs to the user that owns this subscription.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo The user relation.
      */
     public function user(): BelongsTo
     {
@@ -64,7 +66,10 @@ class Subscription extends Model
     }
 
     /**
-     * Scope for global subscriptions (no specific categories).
+     * Filter the query to subscriptions that are global (have no categories).
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The query builder instance.
+     * @return \Illuminate\Database\Eloquent\Builder The modified query builder.
      */
     public function scopeGlobal($query)
     {
@@ -72,7 +77,10 @@ class Subscription extends Model
     }
 
     /**
-     * Scope for category-specific subscriptions.
+     * Limit the query to subscriptions that are category-specific (have one or more categories).
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The query builder instance.
+     * @return \Illuminate\Database\Eloquent\Builder The query filtered to subscriptions with a non-empty `categories` array.
      */
     public function scopeWithCategories($query)
     {
@@ -88,31 +96,39 @@ class Subscription extends Model
     }
 
     /**
-     * Check if subscription is global (all categories).
+     * Indicates whether the subscription applies to all categories.
+     *
+     * @return bool `true` if the categories list is empty (subscription is global), `false` otherwise.
      */
     public function getIsGlobalAttribute(): bool
     {
         return empty($this->categories);
     }
 
-    /**
-     * Check if subscription is for specific categories.
-     */
+    / **
+         * Determines whether the subscription targets one or more specific categories.
+         *
+         * @return bool `true` if the subscription targets one or more categories, `false` otherwise.
+         */
     public function getIsCategorySpecificAttribute(): bool
     {
         return !empty($this->categories);
     }
 
     /**
-     * Check if email is verified.
-     */
+         * Indicates whether the subscription's email address has been verified.
+         *
+         * @return bool `true` if `email_verified_at` is not null, `false` otherwise.
+         */
     public function getIsVerifiedAttribute(): bool
     {
         return !is_null($this->email_verified_at);
     }
 
     /**
-     * Get the subscription type.
+     * Return the subscription type identifier.
+     *
+     * @return string `'global'` if the subscription covers all categories, `'category_specific'` otherwise.
      */
     public function getTypeAttribute(): string
     {
@@ -120,7 +136,9 @@ class Subscription extends Model
     }
 
     /**
-     * Verify the email address.
+     * Mark the subscription's email as verified by setting its verified timestamp to the current time.
+     *
+     * @return bool True if the model was successfully updated, false otherwise.
      */
     public function verifyEmail(): bool
     {
@@ -128,7 +146,9 @@ class Subscription extends Model
     }
 
     /**
-     * Unsubscribe.
+     * Mark the subscription as inactive.
+     *
+     * @return bool `true` if the subscription was successfully updated, `false` otherwise.
      */
     public function unsubscribe(): bool
     {
@@ -136,7 +156,9 @@ class Subscription extends Model
     }
 
     /**
-     * Resubscribe.
+     * Reactivates the subscription by setting its active flag to true.
+     *
+     * @return bool true if the model was successfully updated, false otherwise.
      */
     public function resubscribe(): bool
     {
@@ -144,7 +166,9 @@ class Subscription extends Model
     }
 
     /**
-     * Update last notified timestamp.
+     * Record the current time as the subscription's last notification timestamp.
+     *
+     * @return bool `true` if the model was successfully updated, `false` otherwise.
      */
     public function markAsNotified(): bool
     {
@@ -152,7 +176,10 @@ class Subscription extends Model
     }
 
     /**
-     * Check if subscription includes a specific category.
+     * Determine whether the subscription applies to the given category.
+     *
+     * @param int $categoryId The category ID to check.
+     * @return bool `true` if the subscription is global or includes the given category ID, `false` otherwise.
      */
     public function includesCategory(int $categoryId): bool
     {
@@ -164,7 +191,10 @@ class Subscription extends Model
     }
 
     /**
-     * Add categories to subscription.
+     * Add one or more category IDs to the subscription's categories, ensuring no duplicates.
+     *
+     * @param int[] $categoryIds Array of category IDs to add.
+     * @return bool `true` if the subscription was updated successfully, `false` otherwise.
      */
     public function addCategories(array $categoryIds): bool
     {
@@ -175,7 +205,12 @@ class Subscription extends Model
     }
 
     /**
-     * Remove categories from subscription.
+     * Remove the given category IDs from the subscription's categories.
+     *
+     * If the resulting category list is empty, the subscription's `categories` attribute is set to `null`.
+     *
+     * @param int[] $categoryIds Category IDs to remove.
+     * @return bool `true` if the model was successfully updated, `false` otherwise.
      */
     public function removeCategories(array $categoryIds): bool
     {
@@ -186,7 +221,9 @@ class Subscription extends Model
     }
 
     /**
-     * Generate a new unsubscribe token.
+     * Create a new 60-character unsubscribe token.
+     *
+     * @return string A 60-character random string suitable for use as an unsubscribe token.
      */
     public function generateToken(): string
     {
@@ -194,7 +231,10 @@ class Subscription extends Model
     }
 
     /**
-     * Automatically generate token before creating.
+     * Register creating event handlers to ensure required fields are populated before a model is persisted.
+     *
+     * When a Subscription is being created, this will generate and assign a token if one is not present,
+     * and will populate the `email` from the related `user` when `user_id` is set and `email` is empty.
      */
     protected static function booted(): void
     {

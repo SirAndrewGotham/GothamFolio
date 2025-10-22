@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * Create the "posts" database table for blog posts, including columns for content, SEO, publication metadata, relationships, and indexes.
+     *
+     * The table includes: an auto-incrementing primary key; title and unique slug; nullable excerpt, long content, and featured image; nullable published_at timestamp; boolean flags for is_published and is_featured (default false); nullable read_time (minutes) with comment; SEO fields (meta_title, meta_description, meta_keywords); a foreign key user_id constrained to users with cascade on delete; soft deletes; created_at and updated_at timestamps; and indexes on (is_published, published_at), (is_featured, published_at), and slug.
+     */
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
@@ -38,6 +43,9 @@ return new class extends Migration
         });
     }
 
+    /**
+     * Reverse the migration by dropping the `posts` table if it exists.
+     */
     public function down(): void
     {
         Schema::dropIfExists('posts');

@@ -65,7 +65,9 @@ class Post extends Model
     ];
 
     /**
-     * Get the name of the field that should be used for slug generation.
+     * Field name used to generate the model's slug.
+     *
+     * @return string The attribute name used for slug generation (e.g., 'title').
      */
     public function getSluggableField(): string
     {
@@ -73,7 +75,9 @@ class Post extends Model
     }
 
     /**
-     * Title attribute with translation support.
+     * Provides an Eloquent attribute accessor that returns the translated title when available, otherwise the original title.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute The attribute accessor for the `title` field.
      */
     protected function title(): Attribute
     {
@@ -83,7 +87,9 @@ class Post extends Model
     }
 
     /**
-     * Excerpt attribute with translation support.
+     * Return the excerpt attribute, preferring a translated value when available.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute The attribute accessor that yields the translated excerpt if present, otherwise the stored excerpt.
      */
     protected function excerpt(): Attribute
     {
@@ -93,7 +99,9 @@ class Post extends Model
     }
 
     /**
-     * Content attribute with translation support.
+     * Provides the "content" attribute accessor that yields a translated value when available.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute The accessor that returns the translated `content` string if present, otherwise the original `content` value.
      */
     protected function content(): Attribute
     {
@@ -103,7 +111,9 @@ class Post extends Model
     }
 
     /**
-     * Meta title attribute with translation support.
+     * Accessor for the `meta_title` attribute that returns a translated value when present.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute The attribute accessor that yields the translated `meta_title` if available, otherwise the original stored value.
      */
     protected function metaTitle(): Attribute
     {
@@ -113,7 +123,9 @@ class Post extends Model
     }
 
     /**
-     * Meta description attribute with translation support.
+     * Meta description attribute accessor that returns a translation-aware value.
+     *
+     * @return \Illuminate\Database\Eloquent\Casts\Attribute The attribute accessor which yields the translated `meta_description` when available, otherwise the stored `meta_description` value.
      */
     protected function metaDescription(): Attribute
     {
@@ -123,7 +135,9 @@ class Post extends Model
     }
 
     /**
-     * Relationship with the author (user).
+     * Get the author of the post.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo The user who authored the post.
      */
     public function author(): BelongsTo
     {
@@ -131,7 +145,9 @@ class Post extends Model
     }
 
     /**
-     * Relationship with comments.
+     * Get comments associated with the post.
+     *
+     * @return HasMany The has-many relation to Comment models.
      */
     public function comments(): HasMany
     {
@@ -139,7 +155,10 @@ class Post extends Model
     }
 
     /**
-     * Scope for published posts.
+     * Limit the query to posts marked published with a non-null published_at not later than now.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The query builder instance.
+     * @return \Illuminate\Database\Eloquent\Builder The modified query builder.
      */
     public function scopePublished($query)
     {
@@ -149,7 +168,10 @@ class Post extends Model
     }
 
     /**
-     * Scope for featured posts.
+     * Restricts the query to posts that are featured and published.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The query builder instance.
+     * @return \Illuminate\Database\Eloquent\Builder The query builder constrained to featured, published posts.
      */
     public function scopeFeatured($query)
     {
@@ -158,7 +180,9 @@ class Post extends Model
     }
 
     /**
-     * Scope for draft posts.
+     * Filter the query to posts that are drafts: either marked not published or with no `published_at`.
+     *
+     * @return \Illuminate\Database\Eloquent\Builder The query builder scoped to draft posts.
      */
     public function scopeDraft($query)
     {
@@ -167,7 +191,10 @@ class Post extends Model
     }
 
     /**
-     * Scope for scheduled posts.
+     * Filter the query to posts that are published and have a published_at datetime in the future.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query The Eloquent query builder instance.
+     * @return \Illuminate\Database\Eloquent\Builder The query builder filtered to posts marked as published with a published_at in the future.
      */
     public function scopeScheduled($query)
     {
@@ -175,8 +202,12 @@ class Post extends Model
             ->where('published_at', '>', now());
     }
 
-    /**
-     * Get the estimated reading time.
+    / **
+     * Estimate the post's reading time in minutes.
+     *
+     * Uses a baseline of 200 words per minute to convert the post content's word count into minutes.
+     *
+     * @return int The estimated reading time in minutes, at least 1.
      */
     public function calculateReadTime(): int
     {
@@ -186,7 +217,10 @@ class Post extends Model
     }
 
     /**
-     * Automatically calculate read time before saving.
+     * Recalculates and sets the model's read_time when content changes before persisting.
+     *
+     * Registers a saving model event that, if the `content` attribute was modified and is non-empty,
+     * updates the post's `read_time` with the value returned by `calculateReadTime()`.
      */
     protected static function booted(): void
     {

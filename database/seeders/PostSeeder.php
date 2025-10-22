@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\DB;
 
 class PostSeeder extends Seeder
 {
+    /**
+     * Seed the database with categories, tags, an admin user, and posts with relationships.
+     *
+     * Creates 5 categories and 10 tags, ensures an admin user exists at email admin@example.com
+     * (creating one with a default password if absent), creates 20 posts assigned to that admin,
+     * attaches 1–3 random categories and 2–5 random tags to each post, and outputs a completion message.
+     */
     public function run(): void
     {
         $categories = Category::factory()->count(5)->create();
