@@ -46,7 +46,7 @@
                                 <div class="space-y-4">
                                     <div class="flex items-center">
                                         <i class="fas fa-envelope text-primary-500 w-5 mr-3"></i>
-                                        <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-sm hover:text-primary-500">andreogotema@gmail.com</a></span>
+                                        <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-sm hover:text-primary-500">andreogotema@gmail.com</a>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-phone text-primary-500 w-5 mr-3"></i>
@@ -76,7 +76,7 @@
                                             <span class="text-sm font-bold">95%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="95%" style="width: 0%"></div>
+                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="95" style="width: 0"></div>
                                         </div>
                                     </div>
                                     <div>
@@ -85,7 +85,7 @@
                                             <span class="text-sm font-bold">90%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="90%" style="width: 0%"></div>
+                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="90" style="width: 0"></div>
                                         </div>
                                     </div>
                                     <div>
@@ -94,7 +94,7 @@
                                             <span class="text-sm font-bold">85%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="85%" style="width: 0%"></div>
+                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="85" style="width: 0"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -185,6 +185,8 @@
                                                 <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/python">Python</a></span>
                                                 <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/nginx">Nginx</a></span>
                                                 <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm">Email/Telegram Support Integration</span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/angular">Angular</a></span>
+                                                <span class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full text-sm"><a href="/competences/typescript">Typescript</a></span>
                                             </div>
                                         </div>
 
@@ -243,7 +245,7 @@
                                                         <span class="font-bold text-primary-500">95%</span>
                                                     </div>
                                                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                                        <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="95%" style="width: 0%"></div>
+                                                        <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="95" style="width: 0"></div>
                                                     </div>
                                                 </div>
                                                 <div>
@@ -252,8 +254,7 @@
                                                         <span class="font-bold text-primary-500">90%</span>
                                                     </div>
                                                     <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                                        <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="90%" style="width: 0%"></div>
-                                                        </div>
+                                                        <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="90" style="width: 0"></div>
                                                     </div>
                                                     <div>
                                                         <div class="flex justify-between mb-1">
@@ -261,7 +262,7 @@
                                                             <span class="font-bold text-primary-500">88%</span>
                                                         </div>
                                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="88%" style="width: 0%"></div>
+                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="88" style="width: 0"></div>
                                                         </div>
                                                     </div>
                                                     <div>
@@ -270,7 +271,7 @@
                                                             <span class="font-bold text-primary-500">92%</span>
                                                         </div>
                                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="92%" style="width: 0%"></div>
+                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="92" style="width: 0"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -292,7 +293,7 @@
                                                             <span class="font-bold text-primary-500">85%</span>
                                                         </div>
                                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="85%" style="width: 0%"></div>
+                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="85" style="width: 0"></div>
                                                         </div>
                                                     </div>
                                                     <div>
@@ -301,7 +302,7 @@
                                                             <span class="font-bold text-primary-500">88%</span>
                                                         </div>
                                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="88%" style="width: 0%"></div>
+                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="88" style="width: 0"></div>
                                                         </div>
                                                     </div>
                                                     <div>
@@ -310,7 +311,7 @@
                                                             <span class="font-bold text-primary-500">82%</span>
                                                             </div>
                                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="82%" style="width: 0%"></div>
+                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="88" style="width: 0"></div>
                                                         </div>
                                                     </div>
                                                     <div>
@@ -319,7 +320,7 @@
                                                             <span class="font-bold text-primary-500">80%</span>
                                                         </div>
                                                          <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                                            <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="80%" style="width: 0%"></div>
+                                                             <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="88" style="width: 0"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -361,13 +362,14 @@
                                             </a>
                                         </div>
                                     </div>
+                                </div>
                             </section>
 
                             <!-- Competences Training Section -->
                             <section id="education" class="fade-in">
                                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 print:shadow-none">
                                     <h2 class="text-2xl font-bold mb-6 flex items-center">
-                                        <i class="fas fa-graduation-cap text-primary-500 mr-3"></i>
+                                        <i class="fas fa-graduation-cap text-primary-500 mr-1"></i><i class="fas fa-tools text-primary-500 mr-3"></i>
                                         Competences Training
                                     </h2>
 
@@ -392,7 +394,7 @@
                                             <div class="text-primary-600 dark:text-primary-400 font-medium"><a href="https://eduprof.mos.ru" target="_blank">GBOU DPO "Center Professional"</a></div>
                                             <p class="text-gray-600 dark:text-gray-400 mt-2">
                                                 State-owned professional training school.
-                                                Certified as a full-stack web developer with competences in frontend and backend development, css frameworks, php rpogramming, web development process.
+                                                Certified as a full-stack web developer with competences in frontend and backend development, css frameworks, php programming, web development process.
                                             </p>
                                         </div>
                                     </div>
