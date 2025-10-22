@@ -53,7 +53,7 @@
                     </p>
                     <p class="flex items-center">
                         <i class="fab fa-whatsapp mr-2"></i>
-                        <a href="https://wa.me/+77755569244" target="_blank" class="hover:text-white">{{ __('gothamfolio.footer.whatsapp_for_messages') }}</a>
+                        <a href="https://wa.me/+77755569244" target="_blank" rel="noopener noreferrer" class="hover:text-white">{{ __('gothamfolio.footer.whatsapp_for_messages') }}</a>
                     </p>
                 </div>
             </div>
@@ -61,13 +61,13 @@
             <div>
                 <h4 class="text-white font-bold mb-4">{{ __('gothamfolio.footer.social_networks') }}</h4>
                 <div class="flex space-x-4">
-                    <a href="https://github.com/sirandrewgotham" target="_blank" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
+                    <a href="https://github.com/sirandrewgotham" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="https://vk.com/sirandrewgotham" target="_blank" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
+                    <a href="https://vk.com/sirandrewgotham" target="_blank" rel="noopener noreferrer" aria-label="VK" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
                         <i class="fab fa-vk"></i>
                     </a>
-                    <a href="https://t.me/sirandrewgotham" target="_blank" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
+                    <a href="https://t.me/sirandrewgotham" target="_blank" rel="noopener noreferrer" aria-label="Telegram" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
                         <i class="fab fa-telegram"></i>
                     </a>
                 </div>

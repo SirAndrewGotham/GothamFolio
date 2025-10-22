@@ -366,7 +366,7 @@
                             </section>
 
                             <!-- Competences Training Section -->
-                            <section id="education" class="fade-in">
+                            <section id="training" class="fade-in">
                                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 print:shadow-none">
                                     <h2 class="text-2xl font-bold mb-6 flex items-center">
                                         <i class="fas fa-graduation-cap text-primary-500 mr-1"></i><i class="fas fa-tools text-primary-500 mr-3"></i>

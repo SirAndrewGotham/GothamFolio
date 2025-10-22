@@ -112,7 +112,7 @@
     <x-frontend.partials.header />
 
     <main class="w-full">
-        {!! $slot !!}
+        {{ $slot }}
     </main>
 
     <x-frontend.partials.footer />
