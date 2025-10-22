@@ -23,8 +23,11 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LanguageSeeder::class,
             UserSeeder::class,
-//            PostSeeder::class,
-//            CommentSeeder::class,
-            ]);
+            PostSeeder::class,
+            CommentSeeder::class,
+            SubscriptionSeeder::class,
+            VoteSeeder::class,
+            ViewSeeder::class,
+        ]);
     }
 }

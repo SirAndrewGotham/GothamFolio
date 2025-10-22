@@ -1,0 +1,45 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->string('slug')->unique();
+            $table->text('excerpt')->nullable();
+            $table->longText('content')->nullable();
+            $table->string('featured_image')->nullable();
+            $table->timestamp('published_at')->nullable();
+            $table->boolean('is_published')->default(false);
+            $table->boolean('is_featured')->default(false);
+            $table->integer('read_time')->nullable()->comment('Estimated reading time in minutes');
+
+            // SEO fields
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
+
+            // Relationships
+            $table->foreignId('user_id')->constrained()->cascadeOnDelete();
+
+            $table->softDeletes();
+            $table->timestamps();
+
+            // Indexes for performance
+            $table->index(['is_published', 'published_at']);
+            $table->index(['is_featured', 'published_at']);
+            $table->index('slug');
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('posts');
+    }
+};
