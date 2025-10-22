@@ -66,7 +66,7 @@
 }
 
 /* Flux component styles (keep these) */
-[data-flux-field]:not(ui-radio, ui-checkbox) {
+[data-flux-field]:not([data-flux-radio], [data-flux-checkbox]) {
     @apply grid gap-2;
 }
 
@@ -190,4 +190,65 @@ html {
 
 .dark ::-webkit-scrollbar-thumb:hover {
     background: #6b7280;
+}
+
+.document-content {
+    line-height: 1.7;
+}
+
+.document-content h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #1f2937;
+}
+
+.dark .document-content h2 {
+    color: #f9fafb;
+}
+
+.document-content h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: #374151;
+}
+
+.dark .document-content h3 {
+    color: #e5e7eb;
+}
+
+.document-content p {
+    margin-bottom: 1rem;
+    color: #6b7280;
+}
+
+.dark .document-content p {
+    color: #d1d5db;
+}
+
+.document-content ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.document-content li {
+    margin-bottom: 0.5rem;
+    color: #6b7280;
+}
+
+.dark .document-content li {
+    color: #d1d5db;
+}
+
+.document-content strong {
+    color: #374151;
+    font-weight: 600;
+}
+
+.dark .document-content strong {
+    color: #f9fafb;
 }
