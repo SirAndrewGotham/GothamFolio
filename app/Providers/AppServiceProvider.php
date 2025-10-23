@@ -19,6 +19,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+//        View::composer('pages.blog.*', function ($view) {
+//            $posts = Post::with(['author', 'categories', 'tags'])
+//                ->published()
+//                ->latest('published_at')
+//                ->paginate(6);
+//
+//            $languageService = new LanguageService();
+//            $currentLocale = app()->getLocale();
+//            $direction = $languageService->isRtl($currentLocale) ? 'rtl' : 'ltr';
+//            $isRtl = $languageService->isRtl($currentLocale);
+//
+//            $view->with(compact('posts', 'currentLocale', 'direction', 'isRtl'));
+//        });
     }
 }

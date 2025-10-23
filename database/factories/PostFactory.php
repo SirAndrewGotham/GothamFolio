@@ -15,11 +15,11 @@ class PostFactory extends Factory
             $locales = ['en', 'ru', 'eo'];
 
             foreach ($locales as $locale) {
-                $post->setTranslation('title', str_replace(" [{$locale}]", '', $post->title) . " [{$locale}]", $locale);
-                $post->setTranslation('excerpt', str_replace(" [{$locale}]", '', $post->excerpt) . " [{$locale}]", $locale);
-                $post->setTranslation('content', str_replace(" [{$locale}]", '', $post->content) . " [{$locale}]", $locale);
-                $post->setTranslation('meta_title', str_replace(" [{$locale}]", '', $post->meta_title) . " [{$locale}]", $locale);
-                $post->setTranslation('meta_description', str_replace(" [{$locale}]", '', $post->meta_description) . " [{$locale}]", $locale);
+                $post->setTranslation('title', str_replace(" [{$locale}]", '', $post->title), $locale);
+                $post->setTranslation('excerpt', str_replace(" [{$locale}]", '', $post->excerpt), $locale);
+                $post->setTranslation('content', str_replace(" [{$locale}]", '', $post->content), $locale);
+                $post->setTranslation('meta_title', str_replace(" [{$locale}]", '', $post->meta_title), $locale);
+                $post->setTranslation('meta_description', str_replace(" [{$locale}]", '', $post->meta_description), $locale);
             }
         });
     }

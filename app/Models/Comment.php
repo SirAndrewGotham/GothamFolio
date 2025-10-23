@@ -37,6 +37,15 @@ class Comment extends Model
         'is_approved' => 'boolean',
     ];
 
+
+    /**
+     * Relationship with the author (user).
+     */
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
     /**
      * Relationship with the post.
      */
@@ -59,6 +68,14 @@ class Comment extends Model
     public function replies(): HasMany
     {
         return $this->hasMany(Comment::class, 'parent_id');
+    }
+
+    /**
+     * Relationship with votes.
+     */
+    public function votes(): HasMany
+    {
+        return $this->hasMany(Vote::class);
     }
 
     /**
