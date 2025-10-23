@@ -23,12 +23,23 @@ class Localization
         $locale = Session::get('locale');
         error_log('Localization Middleware - Initial Locale: ' . ($locale ?? 'null'));
 
-        // If no locale in session, use the database default
+        // If no locale in session, try to detect from browser, then use the database default
         if (!$locale) {
-            $defaultLanguage = $this->languageService->getDefaultLanguage();
-            $locale = $defaultLanguage ? $defaultLanguage->code : 'en';
-            Session::put('locale', $locale);
-            error_log('Localization Middleware - No locale in session, set to default: ' . $locale);
+            $browserLocales = $request->getLanguages();
+            if (!empty($browserLocales)) {
+                $detectedLocale = $this->detectBrowserLanguage($browserLocales);
+                if ($detectedLocale) {
+                    $locale = $detectedLocale;
+                    Session::put('locale', $locale);
+                    error_log('Localization Middleware - Locale detected from browser: ' . $locale);
+                }
+            }
+            if (!$locale) {
+                $defaultLanguage = $this->languageService->getDefaultLanguage();
+                $locale = $defaultLanguage ? $defaultLanguage->code : 'en';
+                Session::put('locale', $locale);
+                error_log('Localization Middleware - No locale in session and not detected from browser, set to default: ' . $locale);
+            }
         }
 
         // Set application locale to the database-driven locale

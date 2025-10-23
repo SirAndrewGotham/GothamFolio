@@ -27,7 +27,7 @@ class CommentFactory extends Factory
         }
 
         return [
-            'post_id' => null, // Post ID should always be explicitly provided
+            'post_id' => Post::factory(), // Post ID should always be explicitly provided
             'parent_id' => null, // Top-level by default
             'name' => $name,
             'email' => $email,

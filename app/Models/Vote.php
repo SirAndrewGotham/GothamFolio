@@ -39,6 +39,11 @@ class Vote extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function comment(): BelongsTo
+    {
+        return $this->belongsTo(Comment::class);
+    }
+
     /**
      * Scope for upvotes.
      */
