@@ -119,7 +119,7 @@
                                     </div>
                                     <div class="flex justify-between">
                                         <span>English</span>
-                                        <span class="text-primary-500 font-bold">C2/span>
+                                        <span class="text-primary-500 font-bold">C2</span>
                                     </div>
                                     <div class="flex justify-between">
                                         <span>Esperanto</span>

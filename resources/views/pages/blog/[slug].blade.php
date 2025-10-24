@@ -2,11 +2,11 @@
     use App\Models\Post;
     use App\Services\LanguageService;
 
-    // Simple test - just get any post
-    $post = Post::published()->first();
+    // Get the post by slug from the URL parameter
+    $post = Post::published()->where('slug', $slug)->first();
 
     if (!$post) {
-        abort(404, 'No published posts found');
+        abort(404, 'Post not found');
     }
 
     $currentLocale = app()->getLocale();

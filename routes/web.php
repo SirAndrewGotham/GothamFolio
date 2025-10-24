@@ -11,6 +11,8 @@ use Livewire\Volt\Volt;
 //     return view('welcome');
 // })->name('home');
 
+Route::get('blog/{post}', [\App\Http\Controllers\Frontend\PostController::class, 'show']);
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');

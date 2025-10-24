@@ -82,6 +82,8 @@ class SubscriptionSeeder extends Seeder
         $this->command->info('Verified subscriptions: ' . Subscription::verified()->count());
         $this->command->info('Global subscriptions: ' . Subscription::global()->count());
         $this->command->info('Category-specific subscriptions: ' . Subscription::withCategories()->count());
+
+        $this->command->info('Subscriptions seeded successfully!');
     }
 
     protected function getRandomSubscriptionType($categories): ?array

@@ -49,7 +49,8 @@ new #[Layout('components.layouts.auth')] class extends Component {
         RateLimiter::clear($this->throttleKey());
         Session::regenerate();
 
-        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+//        $this->redirectIntended(default: route('dashboard', absolute: false), navigate: true);
+        $this->redirectIntended(default: url('/'));
     }
 
     /**
@@ -107,6 +108,9 @@ new #[Layout('components.layouts.auth')] class extends Component {
     <x-auth-session-status class="text-center" :status="session('status')" />
 
     <form method="POST" wire:submit="login" class="flex flex-col gap-6">
+        <!-- Intended URL -->
+        <input type="hidden" name="intended" value="{{ session()->get('url.intended', url()->previous()) }}">
+
         <!-- Email Address -->
         <flux:input
             wire:model="email"

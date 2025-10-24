@@ -111,6 +111,8 @@ class VoteSeeder extends Seeder
         $this->command->info('Comment votes: ' . Vote::where('votable_type', Comment::class)->count());
         $this->command->info('Upvotes: ' . Vote::where('type', 'upvote')->count());
         $this->command->info('Downvotes: ' . Vote::where('type', 'downvote')->count());
+
+        $this->command->info('Votes seeded successfully!');
     }
 
     protected function getVoteTypeWithBias(): string

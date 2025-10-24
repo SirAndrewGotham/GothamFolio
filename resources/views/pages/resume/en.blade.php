@@ -90,8 +90,8 @@
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Vue.js/Livewire</span>
-                                            <span class="text-sm font-bold">85%</span>
+                                            <span>Vue.js/Livewire</span>
+                                            <span class="font-bold text-primary-500">85%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                                             <div class="skill-bar-inner bg-primary-500 h-2 rounded-full" data-width="85" style="width: 0"></div>
@@ -207,6 +207,7 @@
                                                     <li>Developed 15+ successful projects for clients from different business sectors</li>
                                                     <li>Implemented content management system for non-technical users</li>
                                                     <li>Optimized SEO metrics, increasing organic traffic by 200%</li>
+                                                    <li>Integrated various third-party APIs for enhanced functionality</li>
                                                 </ul>
                                             </div>
                                         </div>

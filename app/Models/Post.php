@@ -28,6 +28,7 @@ class Post extends Model
         'title',
         'slug',
         'excerpt',
+        'toc',
         'content',
         'featured_image',
         'published_at',
@@ -37,7 +38,9 @@ class Post extends Model
         'meta_title',
         'meta_description',
         'meta_keywords',
-        'user_id'
+        'user_id',
+        'allow_comments',
+        'allow_anonymous_comments',
     ];
 
     /**
@@ -49,6 +52,9 @@ class Post extends Model
         'published_at' => 'datetime',
         'is_published' => 'boolean',
         'is_featured' => 'boolean',
+        'allow_comments' => 'boolean',
+        'allow_anonymous_comments' => 'boolean',
+        'toc' => 'array',
     ];
 
     /**
@@ -191,9 +197,66 @@ class Post extends Model
     protected static function booted(): void
     {
         static::saving(function (Post $post) {
+            /**
+             * Calculate read time before saving.
+             */
             if ($post->isDirty('content') && $post->content) {
                 $post->read_time = $post->calculateReadTime();
             }
+            /**
+             * Automatically generate TOC before saving.
+             */
+            if ($post->isDirty('content')) {
+                $post->toc = $post->generateTableOfContents();
+            }
         });
+    }
+
+    /**
+     * Generate table of contents from post content.
+     */
+    public function generateTableOfContents(): array
+    {
+        if (empty($this->content)) {
+            return [];
+        }
+
+        $toc = [];
+        $dom = new \DOMDocument();
+
+        // Suppress warnings for malformed HTML
+        libxml_use_internal_errors(true);
+        $dom->loadHTML(mb_convert_encoding($this->content, 'HTML-ENTITIES', 'UTF-8'));
+        libxml_clear_errors();
+
+        $headings = $dom->getElementsByTagName('*');
+
+        foreach ($headings as $heading) {
+            if (in_array($heading->tagName, ['h2', 'h3', 'h4', 'h5', 'h6'])) {
+                $id = $heading->getAttribute('id');
+                $text = trim($heading->textContent);
+
+                if (!empty($id) && !empty($text)) {
+                    $toc[] = [
+                        'id' => $id,
+                        'text' => $text,
+                        'level' => (int) substr($heading->tagName, 1),
+                        'tag' => $heading->tagName
+                    ];
+                }
+            }
+        }
+
+        return $toc;
+    }
+
+    /**
+     * TOC attribute accessor.
+     */
+    protected function toc(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($value) => is_string($value) ? json_decode($value, true) : $value,
+        );
     }
 }

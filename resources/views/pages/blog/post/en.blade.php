@@ -157,9 +157,11 @@
         @endif
 
         <!-- Comments Section -->
-        <section class="mt-16 max-w-4xl mx-auto fade-in">
-            @livewire('blog-comments-volt', ['post' => $post])
-        </section>
+        @if($post->allow_comments)
+            <section class="mt-16 max-w-4xl mx-auto fade-in">
+                @livewire('blog-comments-volt', ['post' => $post], key('comments-' . $post->id))
+            </section>
+        @endif
     </div>
 </section>
 

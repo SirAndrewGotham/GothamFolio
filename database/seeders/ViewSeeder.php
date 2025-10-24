@@ -58,6 +58,8 @@ class ViewSeeder extends Seeder
 
         $this->command->info('Authenticated views: ' . View::whereNotNull('user_id')->count());
         $this->command->info('Guest views: ' . View::whereNull('user_id')->count());
+
+        $this->command->info('Views seeded successfully!');
     }
 
     protected function createPostViews(Post $post, int $totalViews, array $locales, $users): void

@@ -37,5 +37,6 @@ class UserSeeder extends Seeder
         });
 
         $this->command->getOutput()->progressFinish();
+        $this->command->info('Users seeded successfully!');
     }
 }

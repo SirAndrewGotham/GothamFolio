@@ -86,3 +86,6 @@
         </div>
     </div>
 </header>
+
+<!-- Spacer to prevent content from being hidden under fixed header -->
+<div class="h-10"></div>

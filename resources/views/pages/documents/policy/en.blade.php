@@ -1,4 +1,4 @@
-<x-frontend.layouts.app>
+<x-frontend.layouts.app title="{{ __('gothamfolio.documents.policy.title') }}">
     <!-- Main Content -->
     <main class="w-full pt-20">
         <!-- Breadcrumbs -->

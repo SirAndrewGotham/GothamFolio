@@ -93,10 +93,6 @@
         }
 
         /* Text alignment for RTL */
-        .rtl .text-left {
-            text-align: right;
-        }
-
         .rtl .text-right {
             text-align: left;
         }
@@ -105,7 +101,25 @@
         .rtl .flex-row-reverse {
             flex-direction: row-reverse;
         }
+
+        /* Add scroll padding to account for fixed header */
+        html {
+            scroll-padding-top: 6rem;
+        }
+
+        /* Alternative method for older browsers */
+        :target::before {
+            content: '';
+            display: block;
+            height: 6rem;
+            margin-top: -6rem;
+            visibility: hidden;
+        }
     </style>
+
+    @stack('section-styles')
+
+
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300">
 <div x-data="appData()" class="min-h-screen">

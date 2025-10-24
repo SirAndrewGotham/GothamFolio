@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Concerns\HasVotes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -73,9 +74,9 @@ class Comment extends Model
     /**
      * Relationship with votes.
      */
-    public function votes(): HasMany
+    public function votes(): MorphMany
     {
-        return $this->hasMany(Vote::class);
+        return $this->morphMany(Vote::class, 'votable');
     }
 
     /**
@@ -249,5 +250,10 @@ class Comment extends Model
     public function scopeOldest($query)
     {
         return $query->orderBy('created_at', 'asc');
+    }
+
+    public function getNetVotesAttribute(): int
+    {
+        return $this->upvotes_count - $this->downvotes_count;
     }
 }

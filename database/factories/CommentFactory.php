@@ -32,7 +32,7 @@ class CommentFactory extends Factory
             'name' => $name,
             'email' => $email,
             'content' => $this->faker->paragraphs(rand(1, 3), true),
-            'is_approved' => $this->faker->boolean(80),
+            'is_approved' => $isAuthenticated ? $this->faker->boolean(95) : $this->faker->boolean(20), // Auto-approve authenticated, moderate anonymous
             'user_id' => $userId,
         ];
     }

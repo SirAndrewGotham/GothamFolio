@@ -26,6 +26,16 @@ return [
         'whatsapp_for_messages' => 'WhatsApp (for messages)',
         'social_networks' => 'Social Networks',
         'copyright' => 'Copyright © 2025 Andrew Gotham. All rights to the content of this site are protected by law.',
+        'description' => 'Full-stack developer passionate about creating innovative web solutions and sharing knowledge through technical writing.',
+        'quick_links' => [
+            'title' => 'Quick Links',
+        ],
+        'contact' => [
+            'title' => 'Contact',
+        ],
+        'privacy_policy' => 'Privacy Policy',
+        'terms_of_service' => 'Terms of Service',
+        'sitemap' => 'Sitemap',
     ],
     'navigation' => [
         'home' => 'Home',
@@ -34,5 +44,58 @@ return [
         'galleries' => 'Galleries',
         'blog' => 'Blog',
         'contact' => 'Contacts',
+    ],
+    'blog' => [
+        'article' => 'Article',
+        'min_read' => 'min read',
+        'table_of_contents' => 'Table of Contents',
+        'article_contents' => 'Article Contents',
+        'share' => 'Share',
+        'share_article' => 'Share Article',
+        'view_all_categories' => 'View all categories',
+        'reply_submitted' => 'Reply submitted successfully!',
+        'default_bio' => 'Software Developer & Tech Enthusiast',
+
+        'categories' => [
+            'title' => 'Categories',
+            'programming' => 'Programming',
+        ],
+
+        'sections' => [
+            'introduction' => 'Introduction',
+            'history' => 'History',
+            'evolution' => 'Evolution',
+            'modern_features' => 'Modern Features',
+            'conclusion' => 'Conclusion',
+        ],
+
+        'comments' => [
+            'title' => 'Comments',
+            'comments_count' => 'comments',
+            'enabled' => 'Comments are enabled',
+            'disabled' => 'Comments are disabled',
+            'enabled_description' => 'Visitors can leave comments and engage in discussions',
+            'disabled_description' => 'Commenting is currently disabled for this article',
+            'enabled_status' => 'Enabled',
+            'disabled_status' => 'Disabled',
+            'submit_success' => 'Comment submitted successfully!',
+            'name_label' => 'Name',
+            'email_label' => 'Email',
+            'comment_label' => 'Comment',
+            'privacy_notice' => 'Your email address will not be published.',
+            'submit_button' => 'Post Comment',
+            'submitting' => 'Submitting...',
+            'author_badge' => 'Author',
+            'reply_button' => 'Reply',
+            'reply_placeholder' => 'Write your reply...',
+            'cancel_button' => 'Cancel',
+            'submit_reply_button' => 'Post Reply',
+        ],
+
+        'related_posts' => [
+            'title' => 'Related Articles',
+            'description' => 'Explore more articles on similar topics',
+            'read_more' => 'Read more',
+        ],
     ],
 ];
