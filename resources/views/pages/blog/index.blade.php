@@ -1,8 +1,9 @@
 @php
-    use App\Models\Post;
+    use App\Models\Language;use App\Models\Post;
     use App\Services\LanguageService;
 
-    $posts = Post::with(['author', 'categories', 'tags'])
+    $language = Language::whereCode(app()->getLocale())->first();
+    $posts = Post::where('language_id', $language->id)->with(['author', 'categories', 'tags'])
         ->published()
         ->latest('published_at')
         ->paginate(6);

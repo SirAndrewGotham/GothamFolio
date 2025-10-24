@@ -17,7 +17,7 @@
         "code": "en",
         "name_native": "English",
         "name_english": "English",
-        "regional": "en_US",
+        "regional": null,
         "script": "Latin",
         "is_rtl": false,
         "emoji": "🇺🇸",

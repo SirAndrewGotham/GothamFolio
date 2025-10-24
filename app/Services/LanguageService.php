@@ -71,6 +71,7 @@ class LanguageService
 
     public function getSupportedLocales()
     {
+//        return Language::active()->get()->pluck('code', 'code')->toArray();
         return Language::active()->get()->pluck('full_locale', 'code')->toArray();
     }
 

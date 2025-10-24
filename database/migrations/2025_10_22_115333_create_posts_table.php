@@ -30,7 +30,7 @@ return new class extends Migration
 
             // Relationships
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('post_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('post_id')->constrained('posts')->cascadeOnDelete();
             $table->foreignId('language_id')->constrained()->cascadeOnDelete();
 
             $table->softDeletes();

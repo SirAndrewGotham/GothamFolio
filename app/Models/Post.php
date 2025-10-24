@@ -9,7 +9,6 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use App\Concerns\HasSlug;
 use App\Concerns\HasCategories;
 use App\Concerns\HasTags;
-use App\Concerns\HasTranslations;
 use App\Concerns\HasViews;
 use App\Concerns\HasVotes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,7 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Post extends Model
 {
-    use HasFactory, SoftDeletes, HasSlug, HasCategories, HasTags, HasTranslations, HasViews, HasVotes;
+    use HasFactory, SoftDeletes, HasSlug, HasCategories, HasTags, HasViews, HasVotes;
 
     /**
      * The attributes that are mass assignable.
@@ -39,6 +38,8 @@ class Post extends Model
         'meta_description',
         'meta_keywords',
         'user_id',
+        'post_id',
+        'language_id',
         'allow_comments',
         'allow_anonymous_comments',
     ];
@@ -58,19 +59,6 @@ class Post extends Model
     ];
 
     /**
-     * The attributes that should be translatable.
-     *
-     * @var array<int, string>
-     */
-    protected array $translatableAttributes = [
-        'title',
-        'excerpt',
-        'content',
-        'meta_title',
-        'meta_description'
-    ];
-
-    /**
      * Get the name of the field that should be used for slug generation.
      */
     public function getSluggableField(): string
@@ -79,61 +67,27 @@ class Post extends Model
     }
 
     /**
-     * Title attribute with translation support.
-     */
-    protected function title(): Attribute
-    {
-        return Attribute::make(
-            get: fn (?string $value) => $this->getTranslatedAttribute('title') ?? $value,
-        );
-    }
-
-    /**
-     * Excerpt attribute with translation support.
-     */
-    protected function excerpt(): Attribute
-    {
-        return Attribute::make(
-            get: fn (?string $value) => $this->getTranslatedAttribute('excerpt') ?? $value,
-        );
-    }
-
-    /**
-     * Content attribute with translation support.
-     */
-    protected function content(): Attribute
-    {
-        return Attribute::make(
-            get: fn (?string $value) => $this->getTranslatedAttribute('content') ?? $value,
-        );
-    }
-
-    /**
-     * Meta title attribute with translation support.
-     */
-    protected function metaTitle(): Attribute
-    {
-        return Attribute::make(
-            get: fn (?string $value) => $this->getTranslatedAttribute('meta_title') ?? $value,
-        );
-    }
-
-    /**
-     * Meta description attribute with translation support.
-     */
-    protected function metaDescription(): Attribute
-    {
-        return Attribute::make(
-            get: fn (?string $value) => $this->getTranslatedAttribute('meta_description') ?? $value,
-        );
-    }
-
-    /**
      * Relationship with the author (user).
      */
     public function author(): BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id');
+    }
+
+    /**
+     * Relationship with the original post (self-reference).
+     */
+    public function originalPost(): BelongsTo
+    {
+        return $this->belongsTo(Post::class, 'post_id');
+    }
+
+    /**
+     * Relationship with language.
+     */
+    public function language(): BelongsTo
+    {
+        return $this->belongsTo(Language::class);
     }
 
     /**
@@ -196,6 +150,18 @@ class Post extends Model
      */
     protected static function booted(): void
     {
+        static::creating(function (Post $post) {
+            /**
+             * Automatically assign post_id - get the next available post_id
+             * If this is a new post (not translation), assign next sequence value
+             * If this is a translation, use the provided post_id
+             */
+            if (empty($post->post_id)) {
+                $maxPostId = static::max('post_id') ?? 0;
+                $post->post_id = $maxPostId + 1;
+            }
+        });
+
         static::saving(function (Post $post) {
             /**
              * Calculate read time before saving.

@@ -97,6 +97,6 @@ class Localization
 
         // Use default language from database as last resort
         $defaultLanguage = $this->languageService->getDefaultLanguage();
-        return $defaultLanguage ? $defaultLanguage->full_locale : 'en_US';
+        return $defaultLanguage ? $defaultLanguage->full_locale : 'en';
     }
 }

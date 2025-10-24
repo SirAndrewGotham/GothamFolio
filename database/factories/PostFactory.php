@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Language;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -9,21 +10,6 @@ use Illuminate\Support\Str;
 
 class PostFactory extends Factory
 {
-    public function configure()
-    {
-        return $this->afterCreating(function (Post $post) {
-            $locales = ['en', 'ru', 'eo'];
-
-            foreach ($locales as $locale) {
-                $post->setTranslation('title', str_replace(" [{$locale}]", '', $post->title), $locale);
-                $post->setTranslation('excerpt', str_replace(" [{$locale}]", '', $post->excerpt), $locale);
-                $post->setTranslation('content', str_replace(" [{$locale}]", '', $post->content), $locale);
-                $post->setTranslation('meta_title', str_replace(" [{$locale}]", '', $post->meta_title), $locale);
-                $post->setTranslation('meta_description', str_replace(" [{$locale}]", '', $post->meta_description), $locale);
-            }
-        });
-    }
-
     protected $model = Post::class;
 
     public function definition(): array
@@ -48,6 +34,10 @@ class PostFactory extends Factory
             'meta_description' => $this->faker->sentence(10),
             'meta_keywords' => implode(', ', $this->faker->words(5)),
             'user_id' => User::factory(),
+            'post_id' => null,
+            'language_id' => function () {
+                return Language::inRandomOrder()->first()->id ?? Language::factory()->create()->id;
+            },
             'allow_comments' => $this->faker->boolean(90),
             'allow_anonymous_comments' => $this->faker->boolean(70),
         ];
