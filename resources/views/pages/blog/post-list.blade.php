@@ -63,17 +63,15 @@
                             <!-- Author -->
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center">
-                                    @if($post->author->profile_photo_path)
-                                        <img src="{{ asset($post->author->profile_photo_path) }}"
-                                             alt="{{ $post->author->name }}"
-                                             class="w-8 h-8 rounded-full mr-3">
+                                    @if($post->author?->profile_photo_path)
+                                        <img src="{{ asset($post->author->profile_photo_path) }}" alt="{{ $post->author?->name ?? __('Anonymous') }}" class="w-8 h-8 rounded-full mr-3">
                                     @else
                                         <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center text-white text-sm font-medium mr-3">
-                                            {{ substr($post->author->name, 0, 1) }}
+                                            {{ isset($post->author) ? substr($post->author->name, 0, 1) : 'A' }}
                                         </div>
                                     @endif
                                     <span class="text-sm text-gray-600 dark:text-gray-400">
-                                        {{ $post->author->name }}
+                                        {{ $post->author->name ?? __('Anonymous') }}
                                     </span>
                                 </div>
 

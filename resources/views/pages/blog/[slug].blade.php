@@ -4,11 +4,12 @@
 
     // Get the post by slug from the URL parameter
     $post = Post::published()->where('slug', $slug)->first();
-    $categories = $post->categories;
 
     if (!$post) {
         abort(404, 'Post not found');
     }
+
+    $categories = $post->categories;
 
     $currentLocale = app()->getLocale();
     $baseLocale = explode('_', $currentLocale)[0];

@@ -61,6 +61,7 @@ return [
         'view_all_categories' => 'View all categories',
         'reply_submitted' => 'Reply submitted successfully!',
         'default_bio' => 'Web Developer & Photographer',
+        'link_copied' => 'Link copied to clipboard!',
 
         'categories' => [
             'title' => 'Categories',
