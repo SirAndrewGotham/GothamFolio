@@ -96,6 +96,8 @@ return [
             'reply_placeholder' => 'Skribu vian respondon...',
             'cancel_button' => 'Nuligi',
             'submit_reply_button' => 'Afiŝi Respondon',
+            'no_comments_yet' => 'Neniaj komentoj dume',
+            'first_to_share' => 'Estu la unua kunhavigi sian opinion!',
         ],
 
         'related_posts' => [
