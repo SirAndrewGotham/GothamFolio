@@ -235,13 +235,6 @@
             }).catch(err => {
                 console.error('Failed to copy: ', err);
             });
-        },
-        copyLinkMobile() {
-            navigator.clipboard.writeText(window.location.href).then(() => {
-                alert('{{ __('gothamfolio.blog.link_copied') }}');
-            }).catch(err => {
-                console.error('Failed to copy: ', err);
-            });
         }
     }" class="min-h-screen">
 
@@ -475,7 +468,7 @@
                                                     class="w-12 h-12 rounded-lg bg-blue-400 flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
                                                 <i class="fab fa-twitter"></i>
                                             </button>
-                                            <button @click="copyLinkMobile()" id="copy-link-btn-mobile"
+                                            <button @click="copyLink()" id="copy-link-btn-mobile"
                                                     class="w-12 h-12 rounded-lg bg-gray-600 flex items-center justify-center text-white hover:bg-gray-700 transition-colors">
                                                 <i class="fas fa-link"></i>
                                             </button>

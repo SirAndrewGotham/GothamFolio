@@ -3,7 +3,7 @@
     use App\Services\LanguageService;
 
     // Get the post by slug from the URL parameter
-    $post = Post::published()->where('slug', $slug)->first();
+    $post = Post::published()->where('slug', $slug)->with('categories')->first();
 
     if (!$post) {
         abort(404, 'Post not found');
