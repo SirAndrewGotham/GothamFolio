@@ -114,7 +114,7 @@ it('returns display name correctly', function () {
 
 it('returns full locale correctly', function () {
     $languageWithRegional = Language::factory()->make(['regional' => 'en_US', 'code' => 'en']);
-    expect($languageWithRegional->full_locale)->toBe('en');
+    expect($languageWithRegional->full_locale)->toBe('en_US');
 
     $languageWithoutRegional = Language::factory()->make(['regional' => null, 'code' => 'fr']);
     expect($languageWithoutRegional->full_locale)->toBe('fr');

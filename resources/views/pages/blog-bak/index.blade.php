@@ -15,8 +15,7 @@
     $isRtl = $languageService->isRtl($currentLocale);
 
     // Store the view path in a variable
-//    $viewPath = 'pages.blog.' . $baseLocale;
-    $viewPath = 'pages.blog.post-list';
+    $viewPath = 'pages.blog.' . $baseLocale;
 @endphp
 
 <x-frontend.layouts.app>
