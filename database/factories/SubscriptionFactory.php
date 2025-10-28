@@ -12,7 +12,7 @@ class SubscriptionFactory extends Factory
 {
     protected $model = Subscription::class;
 
-    public function definition(): SubscriptionFactory
+    public function definition(): array
     {
         $isUserSubscription = $this->faker->boolean(40);
 
@@ -28,7 +28,7 @@ class SubscriptionFactory extends Factory
         // 60% global, 40% category-specific
         $isGlobal = $this->faker->boolean(60);
 
-        return $this->state(fn (array $attributes) => [
+        return [
             'user_id' => $userId,
             'email' => $email,
             'categories' => $isGlobal ? null : $this->getRandomCategoryIds(),
@@ -36,7 +36,7 @@ class SubscriptionFactory extends Factory
             'token' => Str::random(60),
             'email_verified_at' => $this->faker->optional(80)->dateTime(),
             'last_notified_at' => $this->faker->optional(50)->dateTimeBetween('-1 month', 'now'),
-        ]);
+        ];
     }
 
     protected function getRandomCategoryIds(): array

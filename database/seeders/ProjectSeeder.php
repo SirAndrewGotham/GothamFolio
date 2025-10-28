@@ -27,10 +27,18 @@ class ProjectSeeder extends Seeder
             $competences = Competence::all();
         }
 
-        Project::factory()->count(10)->create(['category_id' => $categories->random()->id])->each(function ($project) use ($competences) {
+        Project::factory()->count(10)->withTranslations()->create(['category_id' => $categories->random()->id])->each(function ($project) use ($competences) {
             $project->competences()->attach(
                 $competences->random(rand(1, 3))->pluck('id')->toArray()
             );
+
+            // Set translatable fields
+            $project->setTranslation('name', 'Project '.$project->id, 'en');
+            $project->setTranslation('name', 'Проект '.$project->id, 'ru');
+            $project->setTranslation('name', 'Projeckto '.$project->id, 'eo');
+            $project->setTranslation('description', 'Description for project '.$project->id, 'en');
+            $project->setTranslation('description', 'Описание проекта '.$project->id, 'ru');
+            $project->setTranslation('description', 'Projekta priskribo '.$project->id, 'eo');
         });
     }
 }

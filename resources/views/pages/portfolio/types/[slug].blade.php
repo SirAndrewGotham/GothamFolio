@@ -1,8 +1,11 @@
 <x-frontend.layouts.app>
-    @volt('portfolio-page')
+    @volt('portfolio-type-page')
     @php
         use App\Models\Project;
-        $projects = Project::with('category')
+
+        // Get projects for this specific type
+        $projects = Project::with('competences')
+            ->where('type', $slug)  // Filter by type field
             ->where('is_active', true)
             ->orderBy('featured', 'desc')
             ->orderBy('created_at', 'desc')
@@ -10,35 +13,30 @@
     @endphp
 
     <div x-data="portfolioApp()" class="w-full pt-20">
-        {{--        <!-- Debug Output -->--}}
-        {{--        <div class="container mx-auto px-4 py-4 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200">--}}
-        {{--            <p>Total Projects: {{ Project::count() }}</p>--}}
-        {{--            <p>Active Projects: {{ Project::where('is_active', true)->count() }}</p>--}}
-        {{--            <p>Projects Variable: {{ $projects->count() }}</p>--}}
-        {{--        </div>--}}
-
-        <!-- Hero Section -->
+        <!-- Hero Section - Updated for Category -->
         <section class="py-16 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
             <div class="container mx-auto px-4 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">{{ __('gothamfolio.portfolio.hero.title') }}</h1>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    {{ ucfirst($slug) }} {{ __('gothamfolio.portfolio.hero.title') }}
+                </h1>
                 <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
-                    {{ __('gothamfolio.portfolio.hero.description') }}
+                    {{ __('gothamfolio.portfolio.hero.description') }} - {{ ucfirst($slug) }}
                 </p>
             </div>
         </section>
 
+        <!-- The rest of your portfolio index code remains the same -->
         <!-- Portfolio Content -->
         <section class="py-16">
             <div class="container mx-auto px-4">
                 @if($projects->count() > 0)
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         @foreach($projects as $project)
-                            <div> <!-- Grid column -->
+                            <div class="relative"> <!-- Grid column -->
                                 <a href="/portfolio/projects/{{ $project->slug }}/{{ app()->getLocale() }}"
-                                   class="block border-2 border-red-500">
-                                    <div
-                                        class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-primary-200 dark:hover:border-primary-800">
-                                        <!-- Project Image -->
+                                   class="block project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-primary-200 dark:hover:border-primary-800">
+
+                                    <!-- Project Image -->
                                         <div class="relative overflow-hidden h-56">
                                             <div class="w-full h-full bg-cover bg-center"
                                                  style="background-image: url('{{ $project->image }}')">

@@ -12,7 +12,7 @@ class VoteFactory extends Factory
 {
     protected $model = Vote::class;
 
-    public function definition(): VoteFactory
+    public function definition(): array
     {
         // 70% for posts, 30% for comments
         $votableType = $this->faker->boolean(70) ? Post::class : Comment::class;
@@ -25,12 +25,12 @@ class VoteFactory extends Factory
 
         $user = User::inRandomOrder()->first() ?? User::factory()->create();
 
-        return $this->state(fn (array $attributes) => [
+        return [
             'votable_type' => $votableType,
             'votable_id' => $votable->id,
             'user_id' => $user->id,
             'type' => $this->faker->randomElement(['upvote', 'downvote']),
-        ]);
+        ];
     }
 
     public function upvote(): static
