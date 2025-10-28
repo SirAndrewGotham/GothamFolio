@@ -12,18 +12,17 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-//        Tag::factory(10)->create();
+        $tags = [
+            'Backend', 'Frontend', 'Database', 'API', 'Deployment',
+            'Testing', 'UI/UX', 'Version Control', 'Cloud', 'Frameworks',
+            'JavaScript', 'PHP', 'Python', 'CSS', 'HTML', 'SQL',
+        ];
 
-        $totalTags = 10;
-
-        $this->command->getOutput()->progressStart($totalTags);
-
-        Tag::factory()->count($totalTags)->make()->each(function ($tag) {
-            $tag->save();
-            $this->command->getOutput()->progressAdvance();
-        });
-
-        $this->command->getOutput()->progressFinish();
-        $this->command->info('Tags seeded successfully!');
+        foreach ($tags as $tagName) {
+            Tag::factory()->create([
+                'name' => $tagName,
+                'slug' => \Illuminate\Support\Str::slug($tagName),
+            ]);
+        }
     }
 }

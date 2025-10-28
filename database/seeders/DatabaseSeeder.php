@@ -27,7 +27,11 @@ class DatabaseSeeder extends Seeder
             CommentSeeder::class,
             SubscriptionSeeder::class,
             VoteSeeder::class,
-            ViewSeeder::class,
+//            ViewSeeder::class,
+            CategorySeeder::class,
+            TagSeeder::class,
+            CompetenceSeeder::class,
+            ProjectSeeder::class,
         ]);
     }
 }

@@ -12,18 +12,20 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-//        Category::factory(10)->create();
+        $categories = [
+            ['en' => 'Laravel', 'ru' => 'Laravel'],
+            ['en' => 'API Development', 'ru' => 'API Разработка'],
+            ['en' => 'Python', 'ru' => 'Python'],
+            ['en' => 'Tools & Scripts', 'ru' => 'Инструменты и Скрипты'],
+            ['en' => 'Frontend', 'ru' => 'Фронтенд'],
+        ];
 
-        $totalCategories = 10;
-
-        $this->command->getOutput()->progressStart($totalCategories);
-
-        Category::factory()->count($totalCategories)->make()->each(function ($category) {
+        foreach ($categories as $categoryData) {
+            $category = new Category();
+            $category->name = $categoryData['en'];
+            $category->slug = \Illuminate\Support\Str::slug($categoryData['en']);
+            $category->is_active = true;
             $category->save();
-            $this->command->getOutput()->progressAdvance();
-        });
-
-        $this->command->getOutput()->progressFinish();
-        $this->command->info('Categories seeded successfully!');
+        }
     }
 }
