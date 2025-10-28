@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Category;
 use App\Models\Subscription;
 use App\Models\User;
-use App\Models\Category;
-use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class SubscriptionSeeder extends Seeder
 {
@@ -33,7 +33,7 @@ class SubscriptionSeeder extends Seeder
         // Create subscriptions from real users
         foreach ($users as $user) {
             // Each user has 50% chance of having a subscription and does not have an existing subscription
-            if (rand(0, 1) && !Subscription::where('user_id', $user->id)->exists()) {
+            if (rand(0, 1) && ! Subscription::where('user_id', $user->id)->exists()) {
                 Subscription::factory()
                     ->fromUser($user)
                     ->verified()
@@ -77,11 +77,11 @@ class SubscriptionSeeder extends Seeder
         }
 
         $this->command->info('Subscriptions seeded successfully!');
-        $this->command->info('Total subscriptions: ' . Subscription::count());
-        $this->command->info('Active subscriptions: ' . Subscription::active()->count());
-        $this->command->info('Verified subscriptions: ' . Subscription::verified()->count());
-        $this->command->info('Global subscriptions: ' . Subscription::global()->count());
-        $this->command->info('Category-specific subscriptions: ' . Subscription::withCategories()->count());
+        $this->command->info('Total subscriptions: '.Subscription::count());
+        $this->command->info('Active subscriptions: '.Subscription::active()->count());
+        $this->command->info('Verified subscriptions: '.Subscription::verified()->count());
+        $this->command->info('Global subscriptions: '.Subscription::global()->count());
+        $this->command->info('Category-specific subscriptions: '.Subscription::withCategories()->count());
 
         $this->command->info('Subscriptions seeded successfully!');
     }

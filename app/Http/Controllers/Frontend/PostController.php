@@ -38,7 +38,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-//        $post = Post::whereId('7')->first();
+        //        $post = Post::whereId('7')->first();
         $categories = $post->categories;
 
         return view('frontend.blog.show', compact(['post', 'categories']));

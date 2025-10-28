@@ -28,8 +28,6 @@ trait HasCategories
 
     /**
      * Add a category to the model.
-     *
-     * @param  \App\Models\Category|int  $category
      */
     public function addCategory(Category|int $category): void
     {
@@ -38,8 +36,6 @@ trait HasCategories
 
     /**
      * Remove a category from the model.
-     *
-     * @param  \App\Models\Category|int  $category
      */
     public function removeCategory(Category|int $category): void
     {
@@ -48,8 +44,6 @@ trait HasCategories
 
     /**
      * Check if the model has a category.
-     *
-     * @param  \App\Models\Category|int  $category
      */
     public function hasCategory(Category|int $category): bool
     {

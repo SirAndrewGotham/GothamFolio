@@ -3,11 +3,9 @@
 namespace Tests\Unit\Concerns;
 
 use App\Models\Tag;
-use Tests\Support\TestModelWithTags;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Tests\Support\TestModelWithTags;
 
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\assertDatabaseMissing;
@@ -16,9 +14,9 @@ uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
 
 it('can add tags', function () {
     $model = TestModelWithTags::create(['name' => 'Test Model']);
-    Log::debug('Created TestModel ID: ' . $model->id); // Log TestModel ID
+    Log::debug('Created TestModel ID: '.$model->id); // Log TestModel ID
     $tag1 = Tag::create(['name' => 'Tag 1', 'slug' => 'tag-1']);
-    Log::debug('Created Tag ID: ' . $tag1->id); // Log Tag ID
+    Log::debug('Created Tag ID: '.$tag1->id); // Log Tag ID
     $tag2 = Tag::create(['name' => 'Tag 2', 'slug' => 'tag-2']);
 
     Log::debug('Pivot Table before addTag: ', [DB::table('taggables')->get()->toArray()]);

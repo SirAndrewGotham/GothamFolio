@@ -2,21 +2,21 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Database\Eloquent\Casts\Attribute;
-use App\Concerns\HasSlug;
 use App\Concerns\HasCategories;
+use App\Concerns\HasSlug;
 use App\Concerns\HasTags;
 use App\Concerns\HasViews;
 use App\Concerns\HasVotes;
+use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use HasFactory, SoftDeletes, HasSlug, HasCategories, HasTags, HasViews, HasVotes;
+    use HasCategories, HasFactory, HasSlug, HasTags, HasViews, HasVotes, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -142,6 +142,7 @@ class Post extends Model
     {
         // Average reading speed: 200-250 words per minute
         $wordCount = str_word_count(strip_tags($this->content));
+
         return max(1, ceil($wordCount / 200));
     }
 
@@ -188,7 +189,7 @@ class Post extends Model
         }
 
         $toc = [];
-        $dom = new \DOMDocument();
+        $dom = new \DOMDocument;
 
         // Suppress warnings for malformed HTML
         libxml_use_internal_errors(true);
@@ -202,12 +203,12 @@ class Post extends Model
                 $id = $heading->getAttribute('id');
                 $text = trim($heading->textContent);
 
-                if (!empty($id) && !empty($text)) {
+                if (! empty($id) && ! empty($text)) {
                     $toc[] = [
                         'id' => $id,
                         'text' => $text,
                         'level' => (int) substr($heading->tagName, 1),
-                        'tag' => $heading->tagName
+                        'tag' => $heading->tagName,
                     ];
                 }
             }

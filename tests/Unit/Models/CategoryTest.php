@@ -3,8 +3,6 @@
 use App\Models\Category;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-use function PHPUnit\Framework\assertContains;
-
 it('uses soft deletes trait', function () {
     $uses = class_uses(Category::class);
 
@@ -12,7 +10,7 @@ it('uses soft deletes trait', function () {
 });
 
 it('has fillable attributes', function () {
-    $category = new Category();
+    $category = new Category;
     $fillable = [
         'name',
         'slug',

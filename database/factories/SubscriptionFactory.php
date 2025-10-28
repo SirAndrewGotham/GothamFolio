@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Category;
 use App\Models\Subscription;
 use App\Models\User;
-use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -12,7 +12,7 @@ class SubscriptionFactory extends Factory
 {
     protected $model = Subscription::class;
 
-    public function definition(): array
+    public function definition(): SubscriptionFactory
     {
         $isUserSubscription = $this->faker->boolean(40);
 
@@ -28,7 +28,7 @@ class SubscriptionFactory extends Factory
         // 60% global, 40% category-specific
         $isGlobal = $this->faker->boolean(60);
 
-        return [
+        return $this->state(fn (array $attributes) => [
             'user_id' => $userId,
             'email' => $email,
             'categories' => $isGlobal ? null : $this->getRandomCategoryIds(),
@@ -36,12 +36,13 @@ class SubscriptionFactory extends Factory
             'token' => Str::random(60),
             'email_verified_at' => $this->faker->optional(80)->dateTime(),
             'last_notified_at' => $this->faker->optional(50)->dateTimeBetween('-1 month', 'now'),
-        ];
+        ]);
     }
 
     protected function getRandomCategoryIds(): array
     {
         $categories = Category::inRandomOrder()->limit(rand(1, 3))->get();
+
         return $categories->pluck('id')->toArray();
     }
 

@@ -4,14 +4,13 @@ namespace Tests\Support;
 
 use App\Concerns\HasSlug;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 
 class TestModelWithSlug extends Model
 {
     use HasSlug;
 
     protected $table = 'test_model_with_slugs';
+
     protected $fillable = ['title', 'slug'];
 
     // Default sluggable field is 'title'

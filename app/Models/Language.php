@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -74,7 +75,7 @@ class Language extends Model
 
     public function getDisplayNameAttribute()
     {
-        return $this->name_native . ' (' . $this->name_english . ')';
+        return $this->name_native.' ('.$this->name_english.')';
     }
 
     public function getFullLocaleAttribute()

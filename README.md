@@ -17,6 +17,9 @@ A modern, responsive portfolio website built with Laravel 12, Livewire, Volt, an
 ## 🛠️ Tech Stack
 
 - **Backend**: Laravel 12, PHP 8.3+
+- **Required PHP Extensions**: 
+  - `ext-dom` (for HTML parsing in blog posts)
+  - `ext-libxml` (for XML error handling)
 - **Frontend**: Livewire, Volt, Alpine.js, Tailwind CSS 4
 - **Routing**: Laravel Folio for page-based routing
 - **Database**: SQLite (default), supports MySQL/PostgreSQL

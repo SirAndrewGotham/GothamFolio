@@ -19,7 +19,7 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->word(),
-            //'slug' => Str::slug($name),
+            // 'slug' => Str::slug($name),
         ];
     }
 }

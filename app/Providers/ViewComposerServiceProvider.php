@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\ServiceProvider;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -15,7 +15,7 @@ class ViewComposerServiceProvider extends ServiceProvider
                 ->latest('published_at')
                 ->paginate(6);
 
-            $languageService = new \App\Services\LanguageService();
+            $languageService = new \App\Services\LanguageService;
             $currentLocale = app()->getLocale();
             $direction = $languageService->isRtl($currentLocale) ? 'rtl' : 'ltr';
             $isRtl = $languageService->isRtl($currentLocale);

@@ -11,8 +11,6 @@ trait HasSlug
 {
     /**
      * Get the name of the field that should be used for slug generation.
-     *
-     * @return string
      */
     public function getSluggableField(): string
     {
@@ -37,8 +35,6 @@ trait HasSlug
 
     /**
      * Generate a unique slug for the model.
-     *
-     * @return string
      */
     protected function generateUniqueSlug(): string
     {
@@ -50,7 +46,7 @@ trait HasSlug
         while (static::where('slug', $slug)
             ->where($this->getKeyName(), '!=', $this->getKey())
             ->exists()) {
-            $slug = $originalSlug . '-' . $suffix++;
+            $slug = $originalSlug.'-'.$suffix++;
         }
 
         return $slug;
@@ -58,8 +54,6 @@ trait HasSlug
 
     /**
      * Get the route key for the model.
-     *
-     * @return string
      */
     public function getRouteKeyName(): string
     {

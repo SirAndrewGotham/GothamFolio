@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 class Vote extends Model
 {
@@ -15,7 +15,7 @@ class Vote extends Model
         'votable_type',
         'votable_id',
         'user_id',
-        'type'
+        'type',
     ];
 
     protected $casts = [

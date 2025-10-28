@@ -2,13 +2,9 @@
 
 namespace Tests\Unit\Concerns;
 
-use App\Models\Language;
-use Tests\Support\TestModelWithTranslations;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
-
-use function Pest\Laravel\assertDatabaseHas;
+use Tests\Support\TestModelWithTranslations;
 
 uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
 

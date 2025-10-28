@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\View;
 use App\Models\Post;
 use App\Models\User;
+use App\Models\View;
 use Illuminate\Database\Seeder;
 
 class ViewSeeder extends Seeder
@@ -48,16 +48,16 @@ class ViewSeeder extends Seeder
         }
 
         $this->command->info('Views seeded successfully!');
-        $this->command->info('Total views: ' . View::count());
+        $this->command->info('Total views: '.View::count());
 
         // Show view statistics by locale
         foreach ($locales as $locale) {
             $count = View::where('locale', $locale)->count();
-            $this->command->info("Views for {$locale}: " . $count);
+            $this->command->info("Views for {$locale}: ".$count);
         }
 
-        $this->command->info('Authenticated views: ' . View::whereNotNull('user_id')->count());
-        $this->command->info('Guest views: ' . View::whereNull('user_id')->count());
+        $this->command->info('Authenticated views: '.View::whereNotNull('user_id')->count());
+        $this->command->info('Guest views: '.View::whereNull('user_id')->count());
 
         $this->command->info('Views seeded successfully!');
     }
@@ -82,7 +82,7 @@ class ViewSeeder extends Seeder
                 'locale' => $locale,
             ];
 
-            if ($isAuthenticated && !$users->isEmpty()) {
+            if ($isAuthenticated && ! $users->isEmpty()) {
                 $viewData['user_id'] = $users->random()->id;
             }
 

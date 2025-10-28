@@ -19,7 +19,7 @@ class FeedbackReceived extends Mailable
 
     public function build()
     {
-        return $this->subject('Новое сообщение обратной связи - ' . $this->feedbackData['subject'])
+        return $this->subject('Новое сообщение обратной связи - '.$this->feedbackData['subject'])
             ->markdown('emails.feedback.received')
             ->with(['data' => $this->feedbackData]);
     }

@@ -12,8 +12,6 @@
 */
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use function Pest\Livewire\livewire;
 
 pest()->extend(Tests\TestCase::class)
     ->use(RefreshDatabase::class)

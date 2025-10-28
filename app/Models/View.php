@@ -16,7 +16,7 @@ class View extends Model
         'locale',
         'ip_address',
         'user_agent',
-        'user_id'
+        'user_id',
     ];
 
     public function viewable(): MorphTo

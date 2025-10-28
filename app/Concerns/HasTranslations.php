@@ -77,7 +77,7 @@ trait HasTranslations
         $locale = $locale ?? app()->getLocale();
 
         if (is_null($this->id)) {
-            throw new \Exception('Model ID is null when attempting to set translation for key: ' . $key);
+            throw new \Exception('Model ID is null when attempting to set translation for key: '.$key);
         }
 
         // Manual implementation to avoid updateOrCreate issues
@@ -90,7 +90,7 @@ trait HasTranslations
             // Update existing translation
             $translation->update(['value' => $value]);
         } else {
-            $newTranslation = new Translation();
+            $newTranslation = new Translation;
             $newTranslation->locale = $locale;
             $newTranslation->key = $key;
             $newTranslation->value = $value;
@@ -119,6 +119,7 @@ trait HasTranslations
         }
 
         $translation = $this->getTranslation($key, $locale);
+
         return $translation ?? $this->getAttributeFromArray($key);
     }
 
@@ -131,6 +132,7 @@ trait HasTranslations
         if (! property_exists($this, 'translatableAttributes') ||
             ! in_array($key, $this->translatableAttributes ?? [])) {
             $this->attributes[$key] = $value;
+
             return;
         }
 
@@ -238,7 +240,7 @@ trait HasTranslations
     /**
      * Eager load translations for specific locales.
      */
-    public function scopeWithTranslations($query, array $locales = null)
+    public function scopeWithTranslations($query, ?array $locales = null)
     {
         $locales = $locales ?? [app()->getLocale()];
 

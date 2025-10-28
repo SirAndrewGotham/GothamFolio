@@ -15,7 +15,7 @@ it('uses notifiable and two factor authenticatable traits', function () {
 });
 
 it('has fillable attributes', function () {
-    $user = new User();
+    $user = new User;
     $fillable = [
         'name',
         'email',
@@ -26,7 +26,7 @@ it('has fillable attributes', function () {
 });
 
 it('has hidden attributes', function () {
-    $user = new User();
+    $user = new User;
     $hidden = [
         'password',
         'two_factor_secret',

@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-use App\Models\Subscription;
-use App\Models\Post;
 use App\Mail\NewPostNotification;
+use App\Models\Post;
+use App\Models\Subscription;
 use Illuminate\Support\Facades\Mail;
 
 class SubscriptionService
@@ -12,7 +12,7 @@ class SubscriptionService
     public function notifySubscribers(Post $post): void
     {
         $subscriptions = Subscription::shouldBeNotified()
-            ->where(function($query) use ($post) {
+            ->where(function ($query) use ($post) {
                 // Global subscriptions or subscriptions that include post's categories
                 $query->whereNull('categories')
                     ->orWhereJsonContains('categories', $post->categories->pluck('id')->toArray());
@@ -31,8 +31,8 @@ class SubscriptionService
             Mail::to($subscription->email)
                 ->send(new NewPostNotification($post, $subscription));
         } catch (\Exception $e) {
-            \Log::error('Failed to send notification to: ' . $subscription->email, [
-                'error' => $e->getMessage()
+            \Log::error('Failed to send notification to: '.$subscription->email, [
+                'error' => $e->getMessage(),
             ]);
         }
     }

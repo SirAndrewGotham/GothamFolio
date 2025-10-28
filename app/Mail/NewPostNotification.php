@@ -2,14 +2,13 @@
 
 namespace App\Mail;
 
+use App\Models\Post;
+use App\Models\Subscription;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\Post;
-use App\Models\Subscription;
 
 class NewPostNotification extends Mailable
 {
@@ -29,7 +28,7 @@ class NewPostNotification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'New Post: ' . $this->post->title,
+            subject: 'New Post: '.$this->post->title,
         );
     }
 

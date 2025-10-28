@@ -69,14 +69,11 @@ trait HasVotes
     /**
      * Add or update a vote for the model.
      *
-     * @param int $userId
-     * @param string $type
-     * @return \App\Models\Vote
      * @throws \InvalidArgumentException
      */
     public function vote(int $userId, string $type): Vote
     {
-        if (!in_array($type, ['upvote', 'downvote'])) {
+        if (! in_array($type, ['upvote', 'downvote'])) {
             throw new \InvalidArgumentException('Vote type must be "upvote" or "downvote"');
         }
 
@@ -85,7 +82,7 @@ trait HasVotes
         if ($vote) {
             $vote->update(['type' => $type]);
         } else {
-            $vote = new Vote();
+            $vote = new Vote;
             $vote->votable_type = $this->getMorphClass();
             $vote->votable_id = $this->id;
             $vote->user_id = $userId;

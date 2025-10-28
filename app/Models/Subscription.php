@@ -4,9 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Str;
 
 class Subscription extends Model
 {
@@ -24,7 +23,7 @@ class Subscription extends Model
         'is_active',
         'token',
         'email_verified_at',
-        'last_notified_at'
+        'last_notified_at',
     ];
 
     /**
@@ -100,7 +99,7 @@ class Subscription extends Model
      */
     public function getIsCategorySpecificAttribute(): bool
     {
-        return !empty($this->categories);
+        return ! empty($this->categories);
     }
 
     /**
@@ -108,7 +107,7 @@ class Subscription extends Model
      */
     public function getIsVerifiedAttribute(): bool
     {
-        return !is_null($this->email_verified_at);
+        return ! is_null($this->email_verified_at);
     }
 
     /**
@@ -182,7 +181,7 @@ class Subscription extends Model
         $currentCategories = $this->categories ?? [];
         $newCategories = array_diff($currentCategories, $categoryIds);
 
-        return $this->update(['categories' => !empty($newCategories) ? $newCategories : null]);
+        return $this->update(['categories' => ! empty($newCategories) ? $newCategories : null]);
     }
 
     /**

@@ -3,11 +3,9 @@
 namespace Tests\Unit\Concerns;
 
 use App\Models\Category;
-use Tests\Support\TestModelWithCategories;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Tests\Support\TestModelWithCategories;
 
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\assertDatabaseMissing;

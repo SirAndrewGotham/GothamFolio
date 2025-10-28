@@ -2,23 +2,20 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Concerns\HasTranslations;
 use App\Concerns\HasCategories;
 use App\Concerns\HasCompetences;
-use App\Models\Category;
+use App\Concerns\HasTranslations;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Project extends Model
 {
-    use HasFactory, SoftDeletes, HasCategories, HasCompetences, HasTranslations;
+    use HasCategories, HasCompetences, HasFactory, HasTranslations, SoftDeletes;
 
     protected $fillable = [
         'uuid',
         'category_id',
-        'name',
-        'description',
         'year',
         'status',
         'duration',
@@ -31,7 +28,7 @@ class Project extends Model
 
     protected array $translatableAttributes = ['name', 'description'];
 
-    public function category()
+    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(Category::class);
     }

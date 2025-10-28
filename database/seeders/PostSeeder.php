@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Post;
-use App\Models\User;
 use App\Models\Category;
-use App\Models\Tag;
 use App\Models\Language;
+use App\Models\Post;
+use App\Models\Tag;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class PostSeeder extends Seeder
@@ -42,7 +42,7 @@ class PostSeeder extends Seeder
                     'user_id' => $admin->id,
                     'post_id' => $originalPost->post_id, // Use same post_id as original
                     'language_id' => $language->id,
-                    'title' => $originalPost->title . " [{$language->code}]",
+                    'title' => $originalPost->title." [{$language->code}]",
                 ]);
                 $posts->push($translation);
             }

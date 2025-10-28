@@ -4,7 +4,7 @@ use App\Models\Translation;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 
 it('has fillable attributes', function () {
-    $translation = new Translation();
+    $translation = new Translation;
     $fillable = [
         'locale',
         'key',
@@ -17,6 +17,6 @@ it('has fillable attributes', function () {
 });
 
 it('has a translatable relationship', function () {
-    $translation = new Translation();
+    $translation = new Translation;
     expect($translation->translatable())->toBeInstanceOf(MorphTo::class);
 });

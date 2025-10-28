@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
+use App\Concerns\HasVotes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use App\Concerns\HasVotes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
-    use HasFactory, SoftDeletes, HasVotes;
+    use HasFactory, HasVotes, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -26,7 +26,7 @@ class Comment extends Model
         'email',
         'content',
         'is_approved',
-        'user_id'
+        'user_id',
     ];
 
     /**
@@ -37,7 +37,6 @@ class Comment extends Model
     protected $casts = [
         'is_approved' => 'boolean',
     ];
-
 
     /**
      * Relationship with the author (user).
@@ -124,7 +123,7 @@ class Comment extends Model
      */
     public function getIsReplyAttribute(): bool
     {
-        return !is_null($this->parent_id);
+        return ! is_null($this->parent_id);
     }
 
     /**
@@ -188,7 +187,7 @@ class Comment extends Model
      */
     public function getIsFromAuthenticatedUserAttribute(): bool
     {
-        return !is_null($this->user_id);
+        return ! is_null($this->user_id);
     }
 
     /**

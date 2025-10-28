@@ -1,9 +1,9 @@
 <?php
 
 use App\Mail\FeedbackReceived;
-use App\Models\Feedback;
-use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Mail;
+use Livewire\Volt\Volt;
+
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Livewire\livewire;
 

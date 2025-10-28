@@ -10,7 +10,7 @@ it('uses soft deletes trait', function () {
 });
 
 it('has fillable attributes', function () {
-    $feedback = new Feedback();
+    $feedback = new Feedback;
     $fillable = [
         'name',
         'email',

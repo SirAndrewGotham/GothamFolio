@@ -31,7 +31,7 @@ trait HasViews
      */
     public function recordView(?string $locale = null): View
     {
-        $view = new View();
+        $view = new View;
         $view->viewable_type = $this->getMorphClass();
         $view->viewable_id = $this->id;
         $view->locale = $locale ?? app()->getLocale();

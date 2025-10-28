@@ -28,8 +28,6 @@ trait HasTags
 
     /**
      * Add a tag to the model.
-     *
-     * @param  \App\Models\Tag|int  $tag
      */
     public function addTag(Tag|int $tag): void
     {
@@ -38,8 +36,6 @@ trait HasTags
 
     /**
      * Remove a tag from the model.
-     *
-     * @param  \App\Models\Tag|int  $tag
      */
     public function removeTag(Tag|int $tag): void
     {
@@ -48,8 +44,6 @@ trait HasTags
 
     /**
      * Check if the model has a tag.
-     *
-     * @param  \App\Models\Tag|int  $tag
      */
     public function hasTag(Tag|int $tag): bool
     {

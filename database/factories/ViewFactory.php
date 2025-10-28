@@ -2,16 +2,16 @@
 
 namespace Database\Factories;
 
-use App\Models\View;
-use App\Models\User;
 use App\Models\Post;
+use App\Models\User;
+use App\Models\View;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ViewFactory extends Factory
 {
     protected $model = View::class;
 
-    public function definition(): array
+    public function definition(): ViewFactory
     {
         $post = Post::inRandomOrder()->first() ?? Post::factory()->create();
 
@@ -20,14 +20,14 @@ class ViewFactory extends Factory
 
         $locales = ['en', 'ru', 'eo'];
 
-        return [
+        return $this->state(fn (array $attributes) => [
             'viewable_type' => Post::class,
             'viewable_id' => $post->id,
             'locale' => $this->faker->randomElement($locales),
             'ip_address' => $this->faker->ipv4(),
             'user_agent' => $this->faker->userAgent(),
             'user_id' => $user?->id,
-        ];
+        ]);
     }
 
     public function forPost(Post $post): static

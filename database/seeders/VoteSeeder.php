@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Vote;
-use App\Models\Post;
 use App\Models\Comment;
+use App\Models\Post;
 use App\Models\User;
-use Illuminate\Database\Seeder;
+use App\Models\Vote;
 use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class VoteSeeder extends Seeder
 {
@@ -90,7 +90,7 @@ class VoteSeeder extends Seeder
                 $retries++;
             } while ($exists && $retries < $maxRetries);
 
-            if (!$exists) {
+            if (! $exists) {
                 Vote::factory()
                     ->create([
                         'votable_type' => $votableType,
@@ -106,11 +106,11 @@ class VoteSeeder extends Seeder
         }
 
         $this->command->info('Votes seeded successfully!');
-        $this->command->info('Total votes: ' . Vote::count());
-        $this->command->info('Post votes: ' . Vote::where('votable_type', Post::class)->count());
-        $this->command->info('Comment votes: ' . Vote::where('votable_type', Comment::class)->count());
-        $this->command->info('Upvotes: ' . Vote::where('type', 'upvote')->count());
-        $this->command->info('Downvotes: ' . Vote::where('type', 'downvote')->count());
+        $this->command->info('Total votes: '.Vote::count());
+        $this->command->info('Post votes: '.Vote::where('votable_type', Post::class)->count());
+        $this->command->info('Comment votes: '.Vote::where('votable_type', Comment::class)->count());
+        $this->command->info('Upvotes: '.Vote::where('type', 'upvote')->count());
+        $this->command->info('Downvotes: '.Vote::where('type', 'downvote')->count());
 
         $this->command->info('Votes seeded successfully!');
     }

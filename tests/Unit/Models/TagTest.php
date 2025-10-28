@@ -3,7 +3,7 @@
 use App\Models\Tag;
 
 it('has fillable attributes', function () {
-    $tag = new Tag();
+    $tag = new Tag;
     $fillable = [
         'name',
         'slug',

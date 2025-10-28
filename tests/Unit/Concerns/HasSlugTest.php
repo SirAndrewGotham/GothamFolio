@@ -2,10 +2,9 @@
 
 namespace Tests\Unit\Concerns;
 
-use App\Concerns\HasSlug;
-use Tests\Support\TestModelWithSlug;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Tests\Support\TestModelWithSlug;
 
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\assertDatabaseMissing;
@@ -27,7 +26,7 @@ afterEach(function () {
 });
 
 it('returns default sluggable field as title', function () {
-    $model = new TestModelWithSlug();
+    $model = new TestModelWithSlug;
     expect($model->getSluggableField())->toBe('title');
 });
 
@@ -86,6 +85,6 @@ it('generates unique slug when updating and another model has same slug', functi
 });
 
 it('returns slug as route key name', function () {
-    $model = new TestModelWithSlug();
+    $model = new TestModelWithSlug;
     expect($model->getRouteKeyName())->toBe('slug');
 });

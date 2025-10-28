@@ -2,9 +2,8 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
 use App\Models\Language;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\File;
 
 class LanguageSeeder extends Seeder
@@ -25,7 +24,7 @@ class LanguageSeeder extends Seeder
 
         // Temporarily dump JSON decoding error if it fails
         if (json_last_error() !== JSON_ERROR_NONE) {
-            dd('JSON Decode Error: ' . json_last_error_msg());
+            dd('JSON Decode Error: '.json_last_error_msg());
         }
 
         foreach ($languages as $language) {

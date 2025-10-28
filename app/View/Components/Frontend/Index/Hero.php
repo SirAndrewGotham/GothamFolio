@@ -24,4 +24,3 @@ class Hero extends Component
         return view('components.frontend.index.hero');
     }
 }
-

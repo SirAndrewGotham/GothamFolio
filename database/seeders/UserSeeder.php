@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,9 +15,9 @@ class UserSeeder extends Seeder
     {
         User::firstOrCreate([
             'name' => 'admin',
-//            'slug' => 'admin',
-//            'username' => 'Administrator',
-//            'avatar_url' => 'https://api.dicebear.com/6.x/avataaars/svg?seed=Admin',
+            //            'slug' => 'admin',
+            //            'username' => 'Administrator',
+            //            'avatar_url' => 'https://api.dicebear.com/6.x/avataaars/svg?seed=Admin',
             'password' => Hash::make('password'),
             'email' => 'admin@admin.com',
             'email_verified_at' => now(),
@@ -32,7 +31,7 @@ class UserSeeder extends Seeder
 
         User::factory()->count($totalUsers)->make()->each(function ($user) {
             $user->save();
-//            $user->roles()->attach(3); // Assign role_id 3 to each regular user
+            //            $user->roles()->attach(3); // Assign role_id 3 to each regular user
             $this->command->getOutput()->progressAdvance();
         });
 

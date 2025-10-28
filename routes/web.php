@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Log;
 use App\Models\Feedback;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
@@ -12,7 +12,7 @@ use Livewire\Volt\Volt;
 // })->name('home');
 
 // route moved to the folio file-based routing
-//Route::get('blog/{post}', [\App\Http\Controllers\Frontend\PostController::class, 'show']);
+// Route::get('blog/{post}', [\App\Http\Controllers\Frontend\PostController::class, 'show']);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
@@ -49,11 +49,12 @@ Route::get('/test-logging-db', function () {
             'category' => 'other',
             'message' => 'This is a test message from a temporary route.',
         ]);
-        Log::info('Test Logging: Dummy feedback record created with ID: ' . $testFeedback->id);
+        Log::info('Test Logging: Dummy feedback record created with ID: '.$testFeedback->id);
 
         return 'Test completed. Check logs and database for entries.';
     } catch (Exception $e) {
-        Log::error('Test Logging: Error during logging/database test: ' . $e->getMessage(), ['exception' => $e]);
+        Log::error('Test Logging: Error during logging/database test: '.$e->getMessage(), ['exception' => $e]);
+
         return 'Test failed. Check logs for error details.';
     }
 });

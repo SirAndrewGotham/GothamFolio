@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 uses(RefreshDatabase::class);
 
 it('has fillable attributes', function () {
-    $language = new Language();
+    $language = new Language;
     $fillable = [
         'code',
         'name_native',
@@ -42,7 +42,7 @@ it('casts attributes correctly', function () {
 });
 
 it('returns correct route key name', function () {
-    $language = new Language();
+    $language = new Language;
     expect($language->getRouteKeyName())->toBe('code');
 });
 

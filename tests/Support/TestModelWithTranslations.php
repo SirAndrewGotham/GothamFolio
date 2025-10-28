@@ -4,8 +4,6 @@ namespace Tests\Support;
 
 use App\Concerns\HasTranslations;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class TestModelWithTranslations extends Model
@@ -13,7 +11,9 @@ class TestModelWithTranslations extends Model
     use HasTranslations;
 
     protected $table = 'test_model_with_translations';
+
     protected $fillable = ['name'];
+
     public $timestamps = false;
 
     public array $translatable = ['name'];

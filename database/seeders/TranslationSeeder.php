@@ -14,7 +14,7 @@ class TranslationSeeder extends Seeder
     {
         // For now, we'll create some generic translations.
         // In a real scenario, these would be linked to actual models.
-//        Translation::factory(10)->create();
+        //        Translation::factory(10)->create();
 
         $totalTranslations = 10;
 
