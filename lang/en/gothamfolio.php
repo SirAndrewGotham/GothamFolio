@@ -109,4 +109,55 @@ return [
         ],
         'date_format' => 'F j, Y',
     ],
+    'portfolio' => [
+        'title' => 'Portfolio',
+        'hero' => [
+            'title' => 'Project Portfolio',
+            'description' => 'Collection of web projects demonstrating development approach and digital solutions',
+        ],
+        'stats' => [
+            'projects_completed' => '15+ completed projects',
+            'years_experience' => '2015 - present',
+            'full_stack' => 'Full-stack development',
+            'total_projects' => 'Total Projects',
+            'laravel_projects' => 'Laravel Projects',
+            'api_projects' => 'API Projects',
+            'years_experience_count' => 'Years of Experience',
+        ],
+        'search_placeholder' => 'Search projects...',
+        'sort' => [
+            'date' => 'By date',
+            'name' => 'By name',
+            'category' => 'By category',
+        ],
+        'empty' => [
+            'title' => 'No projects found',
+            'description' => 'Try changing search criteria or selecting a different category',
+            'reset_button' => 'Reset filters',
+        ],
+        'featured' => [
+            'title' => 'Featured Projects',
+            'description' => 'Key projects demonstrating experience in complex web applications',
+            'project1' => [
+                'title' => 'GothamFolio Platform',
+                'description' => 'Full-featured portfolio platform with blogging system and analytics',
+            ],
+        ],
+        'status' => [
+            'active' => 'Active',
+            'completed' => 'Completed',
+            'in_development' => 'In Development',
+            'paused' => 'Paused',
+        ],
+        'buttons' => [
+            'demo' => 'Demo',
+            'source_code' => 'Source Code',
+            'discuss_project' => 'Discuss Project',
+            'my_resume' => 'My Resume',
+        ],
+        'cta' => [
+            'title' => 'Ready to collaborate?',
+            'description' => 'Interested in creating a similar project? Let\'s discuss your ideas',
+        ],
+    ],
 ];

@@ -14,15 +14,16 @@ return new class extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->string('slug')->unique()->after('uuid');
+            $table->foreignId('project_type_id')->constrained()->onDelete('cascade');
             $table->string('year');
             $table->string('status');
             $table->string('duration');
-            $table->string('type');
             $table->string('image')->nullable();
             $table->string('demo_url')->nullable();
             $table->string('github_url')->nullable();
             $table->boolean('featured')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->softDeletes();
             $table->timestamps();
         });

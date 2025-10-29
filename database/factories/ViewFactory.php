@@ -11,7 +11,7 @@ class ViewFactory extends Factory
 {
     protected $model = View::class;
 
-    public function definition(): ViewFactory
+    public function definition(): array
     {
         $post = Post::inRandomOrder()->first() ?? Post::factory()->create();
 
@@ -40,10 +40,10 @@ class ViewFactory extends Factory
 
     public function fromUser(User $user): static
     {
-        return $this->state(fn (array $attributes) => [
+        return [
             'user_id' => $user->id,
             'ip_address' => $this->faker->ipv4(), // Still track IP for analytics
-        ]);
+        ];
     }
 
     public function fromGuest(): static

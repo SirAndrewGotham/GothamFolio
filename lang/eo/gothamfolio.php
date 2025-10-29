@@ -108,4 +108,43 @@ return [
         'author_badge' => 'Aŭtoro de Artikolo',
         'date_format' => 'j F Y',
     ],
+    'portfolio' => [
+        'title' => 'Portfolio',
+        'hero' => [
+            'title' => 'Projekta Portfolio',
+            'description' => 'Kolekto de retaj projektoj montrantaj disvolviĝan aliron kaj ciferecajn solvojn',
+        ],
+        'stats' => [
+            'projects_completed' => '15+ kompletigitaj projektoj',
+            'years_experience' => '2015 - nuntempo',
+            'full_stack' => 'Tut-staka disvolviĝo',
+            'total_projects' => 'Totalaj Projektoj',
+            'laravel_projects' => 'Laravel Projektoj',
+            'api_projects' => 'API Projektoj',
+            'years_experience_count' => 'Jaroj de Sperto',
+        ],
+        'search_placeholder' => 'Serĉi projektojn...',
+        'sort' => [
+            'date' => 'Laŭ dato',
+            'name' => 'Laŭ nomo',
+            'category' => 'Laŭ kategorio',
+        ],
+        'empty' => [
+            'title' => 'Neniuj projektoj trovitaj',
+            'description' => 'Provu ŝanĝi serĉkriteriojn aŭ elekti alian kategorion',
+            'reset_button' => 'Restarigi filtrilojn',
+        ],
+        'status' => [
+            'active' => 'Aktiva',
+            'completed' => 'Kompletigita',
+            'in_development' => 'En Disvolviĝo',
+            'paused' => 'Paŭzita',
+        ],
+        'buttons' => [
+            'demo' => 'Demo',
+            'source_code' => 'Fonta Kodo',
+            'discuss_project' => 'Diskuti Projekton',
+            'my_resume' => 'Mia Resumeo',
+        ],
+    ],
 ];

@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Project as ProjectModel;
+use App\Models\ProjectType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,15 +20,15 @@ class ProjectFactory extends Factory
     {
         return [
             'uuid' => $this->faker->uuid(),
-            'category_id' => \App\Models\Category::factory(),
+            'project_type_id' => ProjectType::factory(),
             'year' => $this->faker->year(),
-            'status' => $this->faker->randomElement(['Active', 'Completed', 'In Progress', 'Paused']),
-            'duration' => $this->faker->randomElement(['1 month', '2 months', '3 months', '6 months', '1 year']),
-            'type' => $this->faker->randomElement(['Full-stack', 'Backend', 'Frontend']),
-            'image' => $this->faker->imageUrl(),
+            'status' => $this->faker->randomElement(['Active', 'Completed', 'In Development']),
+            'duration' => $this->faker->randomElement(['1 month', '3 months', '6 months', '1 year']),
+            'image' => $this->faker->imageUrl(400, 300, 'projects'),
             'demo_url' => $this->faker->url(),
             'github_url' => $this->faker->url(),
-            'featured' => $this->faker->boolean(),
+            'featured' => $this->faker->boolean(20),
+            'is_active' => true,
         ];
     }
 
@@ -37,6 +39,16 @@ class ProjectFactory extends Factory
             $project->setTranslation('name', $this->faker->sentence(3), 'ru');
             $project->setTranslation('description', $this->faker->paragraph(), 'en');
             $project->setTranslation('description', $this->faker->paragraph(), 'ru');
+        });
+    }
+
+    public function withTranslations(): static
+    {
+        return $this->afterCreating(function (ProjectModel $project) {
+            $project->setTranslation('name', 'Project ' . $project->id, 'en');
+            $project->setTranslation('name', 'Проект ' . $project->id, 'ru');
+            $project->setTranslation('description', 'Description for project ' . $project->id, 'en');
+            $project->setTranslation('description', 'Описание проекта ' . $project->id, 'ru');
         });
     }
 }
