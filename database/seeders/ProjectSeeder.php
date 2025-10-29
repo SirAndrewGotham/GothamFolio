@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Competence;
 use App\Models\Project;
+use App\Models\ProjectType;
 use Illuminate\Database\Seeder;
 
 class ProjectSeeder extends Seeder
@@ -14,22 +15,22 @@ class ProjectSeeder extends Seeder
      */
     public function run(): void
     {
+        $projectTypes = ProjectType::all();
         $categories = Category::all();
-        $competences = Competence::all();
 
         if ($categories->isEmpty()) {
             $this->call(CategorySeeder::class);
             $categories = Category::all();
         }
 
-        if ($competences->isEmpty()) {
-            $this->call(CompetenceSeeder::class);
-            $competences = Competence::all();
+        if ($projectTypes->isEmpty()) {
+            $this->call(ProjectTypeSeeder::class);
+            $projectTypes = ProjectType::all();
         }
 
-        Project::factory()->count(10)->withTranslations()->create(['category_id' => $categories->random()->id])->each(function ($project) use ($competences) {
-            $project->competences()->attach(
-                $competences->random(rand(1, 3))->pluck('id')->toArray()
+        Project::factory()->count(10)->withTranslations()->create(['project_type_id' => $projectTypes->random()->id])->each(function ($project) use ($categories) {
+            $project->categories()->attach(
+                $categories->random(rand(1, 3))->pluck('id')->toArray()
             );
 
             // Set translatable fields

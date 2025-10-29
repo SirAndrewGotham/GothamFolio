@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Project as ProjectModel;
+use App\Models\ProjectType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,11 +20,10 @@ class ProjectFactory extends Factory
     {
         return [
             'uuid' => $this->faker->uuid(),
-            'category_id' => \App\Models\Category::factory(),
+            'project_type_id' => ProjectType::factory(),
             'year' => $this->faker->year(),
             'status' => $this->faker->randomElement(['Active', 'Completed', 'In Development']),
             'duration' => $this->faker->randomElement(['1 month', '3 months', '6 months', '1 year']),
-            'type' => $this->faker->randomElement(['Full-stack', 'Backend', 'Frontend', 'API']),
             'image' => $this->faker->imageUrl(400, 300, 'projects'),
             'demo_url' => $this->faker->url(),
             'github_url' => $this->faker->url(),

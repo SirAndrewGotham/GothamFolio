@@ -17,11 +17,10 @@ class Project extends Model
     protected $fillable = [
         'uuid',
         'slug',
-        'category_id',
+        'project_type_id',
         'year',
         'status',
         'duration',
-        'type',
         'image',
         'demo_url',
         'github_url',
@@ -58,9 +57,9 @@ class Project extends Model
 
     protected array $translatableAttributes = ['name', 'description'];
 
-    public function category(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function projectType(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(ProjectType::class);
     }
 
     public function withTranslations(): static

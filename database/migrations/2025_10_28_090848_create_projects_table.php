@@ -15,11 +15,10 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique();
             $table->string('slug')->unique()->after('uuid');
-            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('project_type_id')->constrained()->onDelete('cascade');
             $table->string('year');
             $table->string('status');
             $table->string('duration');
-            $table->string('type');
             $table->string('image')->nullable();
             $table->string('demo_url')->nullable();
             $table->string('github_url')->nullable();
