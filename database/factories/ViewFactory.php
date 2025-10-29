@@ -40,10 +40,10 @@ class ViewFactory extends Factory
 
     public function fromUser(User $user): static
     {
-        return [
+        return $this->state(fn (array $attributes) => [
             'user_id' => $user->id,
             'ip_address' => $this->faker->ipv4(), // Still track IP for analytics
-        ];
+        ]);
     }
 
     public function fromGuest(): static

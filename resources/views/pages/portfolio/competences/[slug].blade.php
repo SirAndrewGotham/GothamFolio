@@ -21,7 +21,7 @@
             ->get();
     @endphp
 
-    <div x-data="portfolioApp()" class="w-full pt-20">
+    <div x-data="portfolioApp()" x-init="init()" class="w-full pt-20">
         <!-- Hero Section - Updated for Category -->
         <section class="py-16 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
             <div class="container mx-auto px-4 text-center">
@@ -62,6 +62,9 @@
         function portfolioApp() {
             return {
                 darkMode: localStorage.getItem('darkMode') === 'true',
+                init() {
+                    document.documentElement.classList.toggle('dark', this.darkMode);
+                },
                 toggleDarkMode() {
                     this.darkMode = !this.darkMode;
                     localStorage.setItem('darkMode', this.darkMode);

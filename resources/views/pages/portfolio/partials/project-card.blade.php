@@ -17,19 +17,21 @@
                     </span>
                 </div>
                 <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                    <div class="opacity-0 hover:opacity-100 transition-opacity duration-300 flex space-x-4">
+                    <div class="opacity-0 hover:opacity-100 transition-opacity duration-300 flex space-x-4" x-data>
                         @if($project->demo_url)
-                        <div onclick="window.open('{{ $project->demo_url }}', '_blank')"
-                             class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary-500 hover:bg-primary-500 hover:text-white transition-colors cursor-pointer">
-                            <i class="fas fa-external-link-alt text-lg"></i>
-                        </div>
+                            <button @click="window.open('{{ $project->demo_url }}', '_blank', 'noopener,noreferrer')"
+                                    class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-primary-500 hover:bg-primary-500 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
+                                    aria-label="{{ __('gothamfolio.portfolio.actions.view_demo') }}">
+                                <i class="fas fa-external-link-alt text-lg"></i>
+                            </button>
                         @endif
 
                         @if($project->github_url)
-                        <div onclick="window.open('{{ $project->github_url }}', '_blank')"
-                             class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-gray-700 hover:bg-gray-800 hover:text-white transition-colors cursor-pointer">
-                            <i class="fab fa-github text-lg"></i>
-                        </div>
+                            <button @click="window.open('{{ $project->github_url }}', '_blank', 'noopener,noreferrer')"
+                                    class="w-12 h-12 rounded-full bg-white flex items-center justify-center text-gray-700 hover:bg-gray-800 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                                    aria-label="{{ __('gothamfolio.portfolio.actions.view_source') }}">
+                                <i class="fab fa-github text-lg"></i>
+                            </button>
                         @endif
                     </div>
                 </div>

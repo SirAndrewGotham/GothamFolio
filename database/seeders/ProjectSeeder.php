@@ -28,7 +28,8 @@ class ProjectSeeder extends Seeder
             $projectTypes = ProjectType::all();
         }
 
-        Project::factory()->count(10)->withTranslations()->create(['project_type_id' => $projectTypes->random()->id])->each(function ($project) use ($categories) {
+        Project::factory()->count(10)->create()->each(function ($project) use ($categories, $projectTypes) {
+            $project->update(['project_type_id' => $projectTypes->random()->id]);
             $project->categories()->attach(
                 $categories->random(rand(1, 3))->pluck('id')->toArray()
             );

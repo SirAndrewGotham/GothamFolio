@@ -62,16 +62,6 @@ class Project extends Model
         return $this->belongsTo(ProjectType::class);
     }
 
-    public function withTranslations(): static
-    {
-        return $this->afterCreating(function (\App\Models\Project $project) {
-            $project->setTranslation('name', 'Project '.$project->id, 'en');
-            $project->setTranslation('name', 'Проект '.$project->id, 'ru');
-            $project->setTranslation('description', 'Description for project '.$project->id, 'en');
-            $project->setTranslation('description', 'Описание проекта '.$project->id, 'ru');
-        });
-    }
-
     /**
      * Get the name of the field that should be used for slug generation.
      */

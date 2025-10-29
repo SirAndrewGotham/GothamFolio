@@ -9,7 +9,7 @@
             ->get();
     @endphp
 
-    <div x-data="portfolioApp()" class="w-full pt-20">
+    <div x-data="portfolioApp()" x-init="init()" class="w-full pt-20">
         {{--        <!-- Debug Output -->--}}
         {{--        <div class="container mx-auto px-4 py-4 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200">--}}
         {{--            <p>Total Projects: {{ Project::count() }}</p>--}}
@@ -54,6 +54,9 @@
         function portfolioApp() {
             return {
                 darkMode: localStorage.getItem('darkMode') === 'true',
+                init() {
+                    document.documentElement.classList.toggle('dark', this.darkMode);
+                },
                 toggleDarkMode() {
                     this.darkMode = !this.darkMode;
                     localStorage.setItem('darkMode', this.darkMode);

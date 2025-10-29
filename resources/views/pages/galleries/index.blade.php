@@ -2,10 +2,10 @@
     @volt('portfolio-page')
     @php
         use App\Models\Project;
-        $projects = Project::with('category')
+        $projects = Project::with(['projectType', 'competences'])
             ->where('is_active', true)
-            ->orderBy('featured', 'desc')
-            ->orderBy('created_at', 'desc')
+            ->orderByDesc('featured')
+            ->orderByDesc('created_at')
             ->get();
     @endphp
 
