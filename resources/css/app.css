@@ -4,6 +4,10 @@
 @import '@fortawesome/fontawesome-free/css/regular.css';
 @import '@fortawesome/fontawesome-free/css/solid.css';
 @import '@fortawesome/fontawesome-free/css/brands.css';
+/*@import '../../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css';*/
+/*@import '../../node_modules/@fortawesome/fontawesome-free/css/regular.css';*/
+/*@import '../../node_modules/@fortawesome/fontawesome-free/css/solid.css';*/
+/*@import '../../node_modules/@fortawesome/fontawesome-free/css/brands.css';*/
 @plugin "@tailwindcss/typography";
 
 /* Tailwind v4 source directives */
@@ -163,6 +167,11 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Alpine.js x-cloak utility - prevents content flash before Alpine initializes */
+[x-cloak] {
+    display: none !important;
+}
+
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
     width: 6px;
@@ -253,3 +262,57 @@ html {
 .dark .document-content strong {
     color: #f9fafb;
 }
+
+.tech-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: white;
+    font-size: 1.25rem; /* Ensure proper base size */
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Pulse glow animation for buttons */
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-glow {
+    from { box-shadow: 0 0 20px rgba(14, 165, 233, 0.3); }
+    to { box-shadow: 0 0 30px rgba(14, 165, 233, 0.6); }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Ensure smooth transitions for all interactive elements */
+.transition-all {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* Additional gradient backgrounds if needed */
+/*.bg-gradient-to-r {*/
+/*    background-image: linear-gradient(to right, var(--tw-gradient-stops));*/
+/*}*/
+
+/*.from-primary-50 {*/
+/*    --tw-gradient-from: #f0f9ff;*/
+/*    --tw-gradient-to: rgb(240 249 255 / 0);*/
+/*    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);*/
+/*}*/
+
+/*.to-blue-50 {*/
+/*    --tw-gradient-to: #eff6ff;*/
+/*}*/

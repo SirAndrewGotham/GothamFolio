@@ -13,23 +13,25 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $categories = [
-            ['en' => 'Laravel', 'ru' => 'Laravel'],
-            ['en' => 'API Development', 'ru' => 'API Разработка'],
-            ['en' => 'Python', 'ru' => 'Python'],
-            ['en' => 'Tools & Scripts', 'ru' => 'Инструменты и Скрипты'],
-            ['en' => 'Frontend', 'ru' => 'Фронтенд'],
+            ['en' => 'Backend', 'ru' => 'Бэкенд', 'eo' => 'Dorsflanko'],
+            ['en' => 'Frontend', 'ru' => 'Фронтенд', 'eo' => 'Antaŭflanko'],
+            ['en' => 'API Development', 'ru' => 'API Разработка', 'eo' => 'API-Disvolviĝo'],
+            ['en' => 'Testing', 'ru' => 'Тестирование', 'eo' => 'Testado'],
+            ['en' => 'DevOps', 'ru' => 'DevOps', 'eo' => 'DevOps'],
+            ['en' => 'Tools', 'ru' => 'Инструменты', 'eo' => 'Iloj'],
         ];
 
         foreach ($categories as $categoryData) {
-            $category = new Category;
-            $category->name = $categoryData['en'];
-            $category->slug = \Illuminate\Support\Str::slug($categoryData['en']);
-            $category->is_active = true;
-            $category->save();
+            $category = Category::create([
+                'name' => $categoryData['en'], // Set the default name attribute
+                'slug' => \Illuminate\Support\Str::slug($categoryData['en']),
+                'is_active' => true,
+                'is_featured' => fake()->boolean(30),
+            ]);
 
             $category->setTranslation('name', $categoryData['en'], 'en');
             $category->setTranslation('name', $categoryData['ru'], 'ru');
-            $category->setTranslation('name', $categoryData['ru'], 'eo');
+            $category->setTranslation('name', $categoryData['eo'], 'eo'); // Use proper Esperanto translation or a placeholder
         }
     }
 }

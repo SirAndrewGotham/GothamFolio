@@ -17,6 +17,7 @@ it('has fillable attributes', function () {
         'subject',
         'category',
         'message',
+        'ip_address',
     ];
 
     expect($feedback->getFillable())->toEqual($fillable);

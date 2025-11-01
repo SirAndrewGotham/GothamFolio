@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Category extends Model
 {
@@ -36,6 +37,14 @@ class Category extends Model
     }
 
     protected array $translatableAttributes = ['name', 'description'];
+
+    /**
+     * Get the competences that belong to this category.
+     */
+    public function competences(): MorphToMany
+    {
+        return $this->morphedByMany(Competence::class, 'categorizable');
+    }
 
     /**
      * Get the name of the field that should be used for slug generation.
