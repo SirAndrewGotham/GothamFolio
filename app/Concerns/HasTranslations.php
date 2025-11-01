@@ -38,11 +38,12 @@ trait HasTranslations
         $locale = $locale ?? app()->getLocale();
 
         if ($this->relationLoaded('translations')) {
-            return $this->translations
+            $translation = $this->translations
                 ->where('key', $key)
                 ->where('locale', $locale)
-                ->first()
-                ?->value;
+                ->first();
+
+            return $translation ? $translation->value : null;
         }
 
         return $this->translations()

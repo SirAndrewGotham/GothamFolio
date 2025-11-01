@@ -16,5 +16,6 @@ class Feedback extends Model
         'subject',
         'category',
         'message',
+        'ip_address',
     ];
 }

@@ -46,11 +46,14 @@
                 <div class="max-w-6xl mx-auto">
                     <div class="flex flex-col lg:flex-row items-center gap-8 fade-in">
                         <!-- Icon and Basic Info -->
-                        <div class="flex-shrink-0">
-                            <div class="w-24 h-24 rounded-2xl bg-gradient-to-r from-[#777BB4] to-[#4F5B93] flex items-center justify-center text-white shadow-lg">
-                                <i class="fab fa-php text-4xl"></i>
-                            </div>
+                        <div class="w-24 h-24 rounded-2xl bg-gradient-to-r from-[#777BB4] to-[#4F5B93] flex items-center justify-center text-white shadow-lg">
+                            <i class="fab fa-php text-4xl"></i>
                         </div>
+{{--                        <div class="flex-shrink-0">--}}
+{{--                            <div class="w-24 h-24 rounded-2xl bg-gradient-to-r from-[#777BB4] to-[#4F5B93] flex items-center justify-center text-white shadow-lg">--}}
+{{--                                <i class="fab fa-php text-4xl"></i>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
 
                         <!-- Main Info -->
                         <div class="flex-grow text-center lg:text-left">
