@@ -59,6 +59,9 @@ middleware(function ($request, $next) {
         // Get the data from the request
         $competences = request()->attributes->get('competences');
         $categories = request()->attributes->get('categories');
+
+//        $competences = $competences ?? collect();
+//        $categories = $categories ?? collect();
     @endphp
 
     <div x-data="competencesApp({{ $competences }}, {{ $categories }})" x-init="init()" class="min-h-screen">

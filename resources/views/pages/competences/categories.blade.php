@@ -67,7 +67,7 @@ use App\Models\Category;
                         <div class="flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-lg shadow-sm">
                             <i class="fas fa-code text-primary-500 mr-2"></i>
                             <span>
-                                {{ ($category->competences && (is_array($category->competences) || $category->competences instanceof Countable)) ? count($category->competences) : 0 }}+
+                                {{ $mappedCompetences->count() }}+
                                 {{ __('gothamfolio.competences.stats.competences_in_category') }}
                             </span>
                         </div>

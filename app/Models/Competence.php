@@ -61,16 +61,13 @@ class Competence extends Model
      */
     protected function getSlugSourceName(): string
     {
-        // If we're updating and translations exist, use English name
-        if ($this->exists && $this->translations()->where('key', 'name')->where('locale', 'en')->exists()) {
-            $name = $this->getTranslation('name', 'en');
-            if ($name) {
-                return $name;
-            }
+        $name = $this->getTranslation('name', 'en') ?? $this->getAttribute('name');
+
+        if (!empty($name)) {
+            return $name;
         }
 
-        // Fallback: use a base name or the model ID if available
-        return 'competence-'.($this->id ?? uniqid());
+        return 'competence-'.($this->getKey() ?? uniqid());
     }
 
     /**
@@ -80,7 +77,7 @@ class Competence extends Model
     public function generateSlugFromTranslation(string $locale = 'en'): void
     {
         $name = $this->getTranslation('name', $locale);
-        if ($name && empty($this->slug)) {
+        if (!empty($name)) {
             $this->slug = $this->generateUniqueSlugFromString($name);
             $this->save();
         }
