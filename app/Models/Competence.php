@@ -11,7 +11,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Competence extends Model
 {
-    use HasFactory, HasCategories, HasSlug, HasTags, HasTranslations;
+    use HasCategories, HasFactory, HasSlug, HasTags, HasTranslations;
 
     protected $fillable = [
         'slug',
@@ -32,16 +32,35 @@ class Competence extends Model
 
     protected array $translatableAttributes = ['name', 'description'];
 
-    /**
-     * Override the getSluggableField method to handle translatable names
-     * Since 'name' is translatable, we need a different approach
-     */
     public function getSluggableField(): string
     {
-        // For slug generation, we'll use a temporary approach
-        // During creation, we can't rely on translations being set yet
-        // We'll use a fallback approach
+        return 'name';
+    }
 
+    /**
+     * Override the generateUniqueSlug method to handle translatable names
+     */
+    protected function generateUniqueSlug(): string
+    {
+        $name = $this->getSlugSourceName();
+        $slug = \Illuminate\Support\Str::slug($name);
+        $originalSlug = $slug;
+        $suffix = 1;
+
+        while (static::where('slug', $slug)
+            ->where($this->getKeyName(), '!=', $this->getKey())
+            ->exists()) {
+            $slug = $originalSlug.'-'.$suffix++;
+        }
+
+        return $slug;
+    }
+
+    /**
+     * Get the source name for slug generation, handling translations
+     */
+    protected function getSlugSourceName(): string
+    {
         // If we're updating and translations exist, use English name
         if ($this->exists && $this->translations()->where('key', 'name')->where('locale', 'en')->exists()) {
             $name = $this->getTranslation('name', 'en');
@@ -51,7 +70,7 @@ class Competence extends Model
         }
 
         // Fallback: use a base name or the model ID if available
-        return 'competence-' . ($this->id ?? uniqid());
+        return 'competence-'.($this->id ?? uniqid());
     }
 
     /**
@@ -79,7 +98,7 @@ class Competence extends Model
         while (static::where('slug', $slug)
             ->where($this->getKeyName(), '!=', $this->getKey())
             ->exists()) {
-            $slug = $originalSlug . '-' . $suffix++;
+            $slug = $originalSlug.'-'.$suffix++;
         }
 
         return $slug;

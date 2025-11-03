@@ -1,54 +1,67 @@
+<?php
+use function Laravel\Folio\middleware;
+use App\Models\Competence;
+use App\Models\Category;
+
+middleware(function ($request, $next) {
+    $competences = Competence::with([
+        'categories',
+        'translations' => function($query) {
+            $query->where('locale', app()->getLocale());
+        },
+        'tags'])
+        ->where('is_active', true)
+        ->orderBy('proficiency', 'desc')
+        ->orderBy('years_experience', 'desc')
+        ->get();
+
+    $categories = Category::whereHas('competences')
+        ->with('translations')
+        ->get();
+
+    // Map the data
+    $mappedCompetences = $competences->map(function ($competence) {
+        return [
+            'id' => $competence->id,
+            'slug' => $competence->slug,
+            'name' => $competence->getTranslation('name'),
+            'description' => $competence->getTranslation('description'),
+            'icon' => $competence->icon,
+            'color' => $competence->color,
+            'proficiency' => $competence->proficiency,
+            'years' => $competence->years_experience,
+            'is_featured' => $competence->is_featured,
+            'featured' => $competence->is_featured,
+            'category' => $competence->categories->first()?->slug ?? 'other',
+            'tags' => $competence->tags->pluck('name')->toArray() ?? [],
+            'link' => url('competences/competences/' . $competence->slug . '/' . app()->getLocale()),
+        ];
+    });
+
+    $mappedCategories = $categories->map(function ($category) {
+        return [
+            'slug' => $category->slug,
+            'name' => $category->getTranslation('name', app()->getLocale()),
+        ];
+    });
+
+    // Add the data to the request
+    $request->attributes->set('competences', $mappedCompetences);
+    $request->attributes->set('categories', $mappedCategories);
+
+    return $next($request);
+});
+?>
+
 <x-frontend.layouts.app>
     @volt('competences-page')
     @php
-
-        use App\Models\Competence;
-        use App\Models\Category;
-
-        // FIRST fetch the data from database
-        $competences = Competence::with([
-            'categories',
-            'translations' => function($query) {
-                $query->where('locale', app()->getLocale());
-            },
-            'tags'])
-            ->where('is_active', true)
-            ->orderBy('proficiency', 'desc')
-            ->orderBy('years_experience', 'desc')
-            ->get();
-
-        $categories = Category::whereHas('competences')
-            ->with('translations')
-            ->get();
-
-        // THEN map to Livewire properties
-        $this->competences = $competences->map(function ($competence) {
-            return [
-                'id' => $competence->id,
-                'slug' => $competence->slug,
-                'name' => $competence->getTranslation('name'),
-                'description' => $competence->getTranslation('description'),
-                'icon' => $competence->icon,
-                'color' => $competence->color,
-                'proficiency' => $competence->proficiency,
-                'years' => $competence->years_experience,
-                'is_featured' => $competence->is_featured,
-                'featured' => $competence->is_featured,
-                'category' => $competence->categories->first()?->slug ?? 'other',
-                'tags' => $competence->tags->pluck('name')->toArray() ?? [],
-                'link' => url('competences/competences/' . $competence->slug . '/' . app()->getLocale()),
-            ];
-        });
-
-        $this->categories = $categories->map(function ($category) {
-            return [
-                'slug' => $category->slug,
-                'name' => $category->getTranslation('name', app()->getLocale()),
-            ];
-        });
+        // Get the data from the request
+        $competences = request()->attributes->get('competences');
+        $categories = request()->attributes->get('categories');
     @endphp
 
-    <div x-data="competencesApp({{ $this->competences }}, {{ $this->categories }})" x-init="init()" class="min-h-screen">
+    <div x-data="competencesApp({{ $competences }}, {{ $categories }})" x-init="init()" class="min-h-screen">
         <!-- Hero Section -->
         <section class="py-16 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
             <div class="fluid-container">
@@ -60,11 +73,11 @@
                     <div class="flex flex-wrap justify-center gap-6">
                         <div class="flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-lg shadow-sm">
                             <i class="fas fa-code text-primary-500 mr-2"></i>
-                            <span>{{ $competences->count() }}+ {{ __('gothamfolio.competences.stats.key_competences') }}</span>
+                            <span>{{ count($competences) }}+ {{ __('gothamfolio.competences.stats.key_competences') }}</span>
                         </div>
                         <div class="flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-lg shadow-sm">
                             <i class="fas fa-calendar-alt text-primary-500 mr-2"></i>
-                            <span>{{ $competences->max('years') ?? '12' }}+ {{ __('gothamfolio.competences.stats.years_experience') }}</span>
+                            <span>{{ collect($competences)->max('years') ?? '12' }}+ {{ __('gothamfolio.competences.stats.years_experience') }}</span>
                         </div>
                         <div class="flex items-center bg-white dark:bg-gray-800 px-4 py-2 rounded-lg shadow-sm">
                             <i class="fas fa-certificate text-primary-500 mr-2"></i>

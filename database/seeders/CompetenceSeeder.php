@@ -136,7 +136,13 @@ class CompetenceSeeder extends Seeder
             $competence->setTranslation('description', $competenceData['description_eo'], 'eo');
 
             // Attach categories (randomly, at least one)
-            $randomCategories = $allCategories->random(rand(1, min(3, $allCategories->count())))->pluck('id');
+            if ($allCategories->isNotEmpty()) {
+                $randomCategories = $allCategories
+                    ->random(rand(1, min(3, $allCategories->count())))
+                    ->pluck('id');
+                $competence->categories()->attach($randomCategories);
+            }
+
             $competence->categories()->attach($randomCategories);
         }
     }

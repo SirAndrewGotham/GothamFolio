@@ -3,6 +3,7 @@
     $viewPath = "pages.resume.{$locale}";
 @endphp
 
+
 @if(View::exists($viewPath))
     @include($viewPath)
 @else

@@ -38,7 +38,8 @@
     34 => 'Pest\\Laravel\\PestServiceProvider',
     35 => 'App\\Providers\\FolioServiceProvider',
     36 => 'App\\Providers\\FortifyServiceProvider',
-    37 => 'App\\Providers\\VoltServiceProvider',
+    37 => 'App\\Providers\\ViewComposerServiceProvider',
+    38 => 'App\\Providers\\VoltServiceProvider',
   ),
   'eager' => 
   array (
@@ -64,7 +65,8 @@
     19 => 'Pest\\Laravel\\PestServiceProvider',
     20 => 'App\\Providers\\FolioServiceProvider',
     21 => 'App\\Providers\\FortifyServiceProvider',
-    22 => 'App\\Providers\\VoltServiceProvider',
+    22 => 'App\\Providers\\ViewComposerServiceProvider',
+    23 => 'App\\Providers\\VoltServiceProvider',
   ),
   'deferred' => 
   array (

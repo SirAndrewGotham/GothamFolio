@@ -47,10 +47,18 @@ rules([
     },
 ]);
 
+$resetForm = function () {
+    $this->reset(['name', 'email', 'subject', 'category', 'message', 'captchaAnswer']);
+    if ($this->hideCategory && $this->defaultCategory) {
+        $this->category = $this->defaultCategory;
+    }
+    $this->generateCaptcha();
+};
+
 $generateCaptcha = function () {
     $num1 = rand(1, 10);
     $num2 = rand(1, 10);
-    $this->captchaQuestion = "Сколько будет $num1 + $num2?";
+    $this->captchaQuestion = __('gothamfolio.feedback_form.captcha_question', ['num1' => $num1, 'num2' => $num2]);
     $this->captchaCorrectAnswer = $num1 + $num2;
 };
 
@@ -59,22 +67,20 @@ $submit = function () {
     if (time() - $this->submissionTime < 3) {
         // Silently fail - show success but don't actually process
         $this->formSubmitted = true;
-        $this->reset(['name', 'email', 'subject', 'category', 'message', 'captchaAnswer']);
-        $this->generateCaptcha();
+        $this->resetForm();
         return;
     }
 
     // Honeypot check - silent failure
     if (!empty($this->honeypot)) {
         $this->formSubmitted = true;
-        $this->reset(['name', 'email', 'subject', 'category', 'message', 'captchaAnswer']);
-        $this->generateCaptcha();
+        $this->resetForm();
         return;
     }
 
     // CAPTCHA validation - show error only for this one (users might make mistakes)
     if ($this->captchaAnswer != $this->captchaCorrectAnswer) {
-        $this->addError('captchaAnswer', 'Неверный ответ. Попробуйте еще раз.');
+        $this->addError('captchaAnswer', __('gothamfolio.feedback_form.captcha_error'));
         return;
     }
 
@@ -86,8 +92,7 @@ $submit = function () {
 
     if ($recentSubmissions >= 3) {
         $this->formSubmitted = true;
-        $this->reset(['name', 'email', 'subject', 'category', 'message', 'captchaAnswer']);
-        $this->generateCaptcha();
+        $this->resetForm();
         return;
     }
 
@@ -116,26 +121,25 @@ $submit = function () {
     Mail::to(config('mail.to.address', config('mail.from.address')))->send(new FeedbackReceived($feedback->toArray()));
 
     $this->formSubmitted = true;
-    $this->reset(['name', 'email', 'subject', 'category', 'message', 'captchaAnswer']);
-    $this->generateCaptcha();
+    $this->resetForm();
     $this->formSubmitting = false;
 };
 ?>
 
 <div>
     <div x-show="!$wire.formSubmitted" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-        <h2 class="text-2xl font-bold mb-6">Отправить сообщение</h2>
+        <h2 class="text-2xl font-bold mb-6">{{ __('gothamfolio.feedback_form.send_message') }}</h2>
 
         <form wire:submit="submit" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label for="name" class="block text-sm font-medium mb-2">Имя *</label>
+                    <label for="name" class="block text-sm font-medium mb-2">{{ __('gothamfolio.feedback_form.name') }} *</label>
                     <input
                         type="text"
                         id="name"
                         wire:model="name"
                         class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors @error('name') border-red-500 @enderror"
-                        placeholder="Ваше имя"
+                        placeholder="{{ __('gothamfolio.feedback_form.your_name') }}"
                     >
                     @error('name')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -143,7 +147,7 @@ $submit = function () {
                 </div>
 
                 <div>
-                    <label for="email" class="block text-sm font-medium mb-2">Email *</label>
+                    <label for="email" class="block text-sm font-medium mb-2">{{ __('gothamfolio.feedback_form.email') }} *</label>
                     <input
                         type="email"
                         id="email"
@@ -158,13 +162,13 @@ $submit = function () {
             </div>
 
             <div>
-                <label for="subject" class="block text-sm font-medium mb-2">Тема *</label>
+                <label for="subject" class="block text-sm font-medium mb-2">{{ __('gothamfolio.feedback_form.subject') }} *</label>
                 <input
                     type="text"
                     id="subject"
                     wire:model="subject"
                     class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors @error('subject') border-red-500 @enderror"
-                    placeholder="Тема сообщения"
+                    placeholder="{{ __('gothamfolio.feedback_form.subject_placeholder') }}"
                 >
                 @error('subject')
                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -173,19 +177,19 @@ $submit = function () {
 
             @if(!$hideCategory)
                 <div>
-                    <label for="category" class="block text-sm font-medium mb-2">Категория *</label>
+                    <label for="category" class="block text-sm font-medium mb-2">{{ __('gothamfolio.feedback_form.category') }} *</label>
                     <select
                         id="category"
                         wire:model="category"
                         class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors @error('category') border-red-500 @enderror"
                     >
-                        <option value="">Выберите категорию</option>
-                        <option value="project">Обсуждение проекта</option>
-                        <option value="collaboration">Сотрудничество</option>
-                        <option value="question">Вопрос по разработке</option>
-                        <option value="feedback">Вопрос о компетенциях</option>
-                        <option value="feedback">Отзыв о работе</option>
-                        <option value="other">Другое</option>
+                        <option value="">{{ __('gothamfolio.feedback_form.select_category') }}</option>
+                        <option value="project">{{ __('gothamfolio.feedback_form.category_project') }}</option>
+                        <option value="collaboration">{{ __('gothamfolio.feedback_form.category_collaboration') }}</option>
+                        <option value="question">{{ __('gothamfolio.feedback_form.category_question') }}</option>
+                        <option value="competence_question">{{ __('gothamfolio.feedback_form.category_competence_question') }}</option>
+                        <option value="feedback">{{ __('gothamfolio.feedback_form.category_feedback') }}</option>
+                        <option value="other">{{ __('gothamfolio.feedback_form.category_other') }}</option>
                     </select>
                     @error('category')
                     <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -196,13 +200,13 @@ $submit = function () {
             @endif
 
             <div>
-                <label for="message" class="block text-sm font-medium mb-2">Сообщение *</label>
+                <label for="message" class="block text-sm font-medium mb-2">{{ __('gothamfolio.feedback_form.message') }} *</label>
                 <textarea
                     id="message"
                     rows="6"
                     wire:model="message"
                     class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors @error('message') border-red-500 @enderror"
-                    placeholder="Опишите вашу задачу или вопрос..."
+                    placeholder="{{ __('gothamfolio.feedback_form.message_placeholder') }}"
                 ></textarea>
                 @error('message')
                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -211,7 +215,7 @@ $submit = function () {
 
             <!-- Honeypot field -->
             <div style="display: none;">
-                <label for="website">Website</label>
+                <label for="website">{{ __('gothamfolio.feedback_form.website') }}</label>
                 <input
                     type="text"
                     id="website"
@@ -230,7 +234,7 @@ $submit = function () {
                     id="captchaAnswer"
                     wire:model="captchaAnswer"
                     class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors @error('captchaAnswer') border-red-500 @enderror"
-                    placeholder="Введите ответ"
+                    placeholder="{{ __('gothamfolio.feedback_form.enter_answer') }}"
                 >
                 @error('captchaAnswer')
                 <p class="mt-1 text-sm text-red-500">{{ $message }}</p>
@@ -245,7 +249,7 @@ $submit = function () {
                     class="w-4 h-4 text-primary-500 rounded focus:ring-2 focus:ring-primary-500"
                 >
                 <label for="privacy" class="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                    Я соглашаюсь с <a href="/privacy" class="text-primary-500 hover:underline">политикой конфиденциальности</a>
+                    {{ __('gothamfolio.feedback_form.privacy_agreement') }} <a href="/privacy" class="text-primary-500 hover:underline">{{ __('gothamfolio.feedback_form.privacy_policy') }}</a>
                 </label>
             </div>
 
@@ -254,10 +258,10 @@ $submit = function () {
                 wire:loading.attr="disabled"
                 class="w-full px-6 py-4 bg-primary-500 hover:bg-primary-600 disabled:bg-primary-400 text-white rounded-lg font-medium transition-colors shadow-lg flex items-center justify-center"
             >
-                <span x-show="!$wire.formSubmitting">Отправить сообщение</span>
+                <span x-show="!$wire.formSubmitting">{{ __('gothamfolio.feedback_form.send_message') }}</span>
                 <span x-show="$wire.formSubmitting" class="flex items-center">
                     <i class="fas fa-spinner fa-spin mr-2"></i>
-                    Отправка...
+                        {{ __('gothamfolio.feedback_form.sending') }}...
                 </span>
             </button>
         </form>
@@ -268,15 +272,15 @@ $submit = function () {
         <div class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500 mx-auto mb-4">
             <i class="fas fa-check text-2xl"></i>
         </div>
-        <h2 class="text-2xl font-bold mb-4">Сообщение отправлено!</h2>
+        <h2 class="text-2xl font-bold mb-4">{{ __('gothamfolio.feedback_form.message_sent') }}</h2>
         <p class="text-gray-600 dark:text-gray-400 mb-6">
-            Спасибо за ваше сообщение. Я свяжусь с вами в ближайшее время.
+            {{ __('gothamfolio.feedback_form.message_sent_thank_you') }}
         </p>
         <button
             wire:click="$set('formSubmitted', false)"
             class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors"
         >
-            Отправить еще одно сообщение
+            {{ __('gothamfolio.feedback_form.send_another_message') }}
         </button>
     </div>
 </div>

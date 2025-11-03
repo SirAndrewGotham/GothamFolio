@@ -3,7 +3,7 @@
         <div class="w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center mr-2">
             <i class="fas fa-question text-white text-xs"></i>
         </div>
-        <h4 class="font-semibold text-sm text-gray-800 dark:text-gray-200">Частые вопросы</h4>
+        <h4 class="font-semibold text-sm text-gray-800 dark:text-gray-200">{{ __('gothamfolio.faq_accordion.title') }}</h4>
     </div>
 
     <div class="faq-accordion" x-data="{
@@ -17,28 +17,28 @@
                 $compactFaqs = [
                     [
                         'icon' => 'fas fa-clock',
-                        'question' => 'Сколько времени занимает ответ?',
-                        'answer' => 'Обычно я отвечаю в течение 24 часов. В рабочие дни ответ приходит ещё быстрее — обычно в течение 2-6 часов.'
+                        'question' => __('gothamfolio.faq_accordion.q1'),
+                        'answer' => __('gothamfolio.faq_accordion.a1'),
                     ],
                     [
                         'icon' => 'fas fa-handshake',
-                        'question' => 'Можно ли обсудить проект до заключения договора?',
-                        'answer' => 'Конечно! Я всегда готов провести бесплатную консультацию, обсудить ваши идеи и предложить оптимальное решение перед началом сотрудничества.'
+                        'question' => __('gothamfolio.faq_accordion.q2'),
+                        'answer' => __('gothamfolio.faq_accordion.a2'),
                     ],
                     [
                         'icon' => 'fas fa-globe',
-                        'question' => 'Работаете ли вы с международными клиентами?',
-                        'answer' => 'Да, я работаю с клиентами по всему миру. Имею опыт удаленной работы с командами из разных стран и временных зон.'
+                        'question' => __('gothamfolio.faq_accordion.q3'),
+                        'answer' => __('gothamfolio.faq_accordion.a3'),
                     ],
                     [
                         'icon' => 'fas fa-code',
-                        'question' => 'Какие технологии вы используете в работе?',
-                        'answer' => 'Основной стек: Laravel, Livewire, Alpine.js, Tailwind CSS, Vue.js, MySQL/PostgreSQL. Также работаю с различными API, системами платежей и облачными сервисами.'
+                        'question' => __('gothamfolio.faq_accordion.q4'),
+                        'answer' => __('gothamfolio.faq_accordion.a4'),
                     ],
                     [
                         'icon' => 'fas fa-headset',
-                        'question' => 'Предоставляете ли вы техническую поддержку?',
-                        'answer' => 'Да, я предоставляю техническую поддержку и обслуживание проектов. Мы можем обсудить различные варианты поддержки в зависимости от ваших потребностей.'
+                        'question' => __('gothamfolio.faq_accordion.q5'),
+                        'answer' => __('gothamfolio.faq_accordion.a5'),
                     ]
                 ];
             @endphp

@@ -1,19 +1,19 @@
-<x-frontend.layouts.app title="Обратная связь">
+<x-frontend.layouts.app title="{{ __('gothamfolio.contact_page.title') }}">
     <section class="py-16 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-800 dark:to-gray-900 pt-20">
         <div class="fluid-container">
             <div class="max-w-4xl mx-auto text-center fade-in">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">Обратная связь</h1>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">{{ __('gothamfolio.contact_page.heading') }}</h1>
                 <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
-                    Есть вопросы, предложения или хотите обсудить проект? Буду рад вас выслышать!
+                    {{ __('gothamfolio.contact_page.description') }}
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
                     <div class="flex items-center">
                         <i class="fas fa-reply text-primary-500 mr-2"></i>
-                        <span>Отвечаю в течение 24 часов</span>
+                        <span>{{ __('gothamfolio.contact_page.response_time') }}</span>
                     </div>
                     <div class="flex items-center">
                         <i class="fas fa-shield-alt text-primary-500 mr-2"></i>
-                        <span>Конфиденциально и безопасно</span>
+                        <span>{{ __('gothamfolio.contact_page.privacy_security') }}</span>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <!-- Contact Information (static) -->
                 <div class="lg:col-span-1 fade-in">
-                    <h2 class="text-2xl font-bold mb-6">Свяжитесь со мной</h2>
+                    <h2 class="text-2xl font-bold mb-6">{{ __('gothamfolio.contact_page.get_in_touch') }}</h2>
 
                     <div class="space-y-6 mb-8">
                         <div class="flex items-start">
@@ -35,7 +35,7 @@
                             <div>
                                 <h4 class="font-semibold">Email</h4>
                                 <p class="text-gray-600 dark:text-gray-400">andreogotema@gmail.com</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">Основной способ связи</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">{{ __('gothamfolio.contact_page.email_description') }}</p>
                             </div>
                         </div>
 
@@ -46,7 +46,7 @@
                             <div>
                                 <h4 class="font-semibold">Telegram</h4>
                                 <p class="text-gray-600 dark:text-gray-400">@sirandrewgotham</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">Быстрый ответ</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">{{ __('gothamfolio.contact_page.telegram_description') }}</p>
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@
                             <div>
                                 <h4 class="font-semibold">WhatsApp</h4>
                                 <p class="text-gray-600 dark:text-gray-400">+7 (123) 456-78-90</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">Для сообщений</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">{{ __('gothamfolio.contact_page.whatsapp_description') }}</p>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
     <section class="py-16 bg-gray-50 dark:bg-gray-800/30 w-full">
         <div class="fluid-container">
             <div class="max-w-4xl mx-auto text-center fade-in">
-                <h2 class="text-3xl font-bold mb-12">Другие способы связи</h2>
+                <h2 class="text-3xl font-bold mb-12">{{ __('gothamfolio.contact_page.other_ways_to_connect') }}</h2>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
@@ -105,10 +105,10 @@
                         </div>
                         <h3 class="text-xl font-bold mb-3">GitHub</h3>
                         <p class="text-gray-600 dark:text-gray-400 mb-4">
-                            Посмотрите мои проекты и исходный код
+                            {{ __('gothamfolio.contact_page.github_description') }}
                         </p>
                         <a href="https://github.com/sirandrewgotham" target="_blank" class="text-primary-500 hover:text-primary-600 font-medium">
-                            Перейти на GitHub
+                            {{ __('gothamfolio.contact_page.go_to_github') }}
                         </a>
                     </div>
 
@@ -118,10 +118,10 @@
                         </div>
                         <h3 class="text-xl font-bold mb-3">ВКонтакте</h3>
                         <p class="text-gray-600 dark:text-gray-400 mb-4">
-                            Свяжитесь со мной через социальную сеть
+                            {{ __('gothamfolio.contact_page.vk_description') }}
                         </p>
                         <a href="https://vk.com/sirandrewgotham" target="_blank" class="text-primary-500 hover:text-primary-600 font-medium">
-                            Перейти в ВК
+                            {{ __('gothamfolio.contact_page.go_to_vk') }}
                         </a>
                     </div>
 
@@ -131,10 +131,10 @@
                         </div>
                         <h3 class="text-xl font-bold mb-3">Блог</h3>
                         <p class="text-gray-600 dark:text-gray-400 mb-4">
-                            Оставьте комментарий к моим статьям
+                            {{ __('gothamfolio.contact_page.blog_description') }}
                         </p>
                         <a href="/blog" class="text-primary-500 hover:text-primary-600 font-medium">
-                            Перейти в блог
+                            {{ __('gothamfolio.contact_page.go_to_blog') }}
                         </a>
                     </div>
                 </div>
