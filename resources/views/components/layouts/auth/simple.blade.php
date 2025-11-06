@@ -1,23 +1,54 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         @include('partials.head')
     </head>
-    <body class="min-h-screen bg-white antialiased dark:bg-linear-to-b dark:from-neutral-950 dark:to-neutral-900">
-        <div class="bg-background flex min-h-svh flex-col items-center justify-center gap-6 p-6 md:p-10">
-            <div class="flex w-full max-w-sm flex-col gap-2">
-{{--                <a href="{{ route('home') }}" class="flex flex-col items-center gap-2 font-medium" wire:navigate>--}}
-                <a href="{{ url('/') }}" class="text-2xl font-bold text-gray-900 dark:text-white">
-                    <span class="flex h-9 w-9 mb-1 items-center justify-center rounded-md">
-                        <x-app-logo-icon class="size-9 fill-current text-black dark:text-white" />
-                    </span>
-                    <span class="sr-only">{{ config('app.name', 'Laravel') }}</span>
-                </a>
-                <div class="flex flex-col gap-6">
-                    {{ $slot }}
-                </div>
-            </div>
+    <body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 font-sans transition-colors duration-300" x-data="appData()">
+        <div class="min-h-screen">
+            <x-frontend.partials.header />
+
+            <main class="w-full">
+                {{ $slot }}
+            </main>
+
+            <x-frontend.partials.footer />
         </div>
+
+        <script>
+            function appData() {
+                return {
+                    darkMode: localStorage.getItem('darkMode') === 'true',
+                    mobileMenuOpen: false,
+                    currentLocale: '{{ app()->getLocale() }}',
+                    init() {
+                        document.querySelectorAll('.fade-in').forEach(element => {
+                            element.classList.add('visible');
+                        });
+                        this.$watch('darkMode', value => {
+                            localStorage.setItem('darkMode', value);
+                            if (value) {
+                                document.documentElement.classList.add('dark');
+                            } else {
+                                document.documentElement.classList.remove('dark');
+                            }
+                        });
+                        if (this.darkMode) {
+                            document.documentElement.classList.add('dark');
+                        } else {
+                            document.documentElement.classList.remove('dark');
+                        }
+
+                        // Close mobile menu on route change
+                        Livewire.on('navigation-start', () => {
+                            this.mobileMenuOpen = false;
+                        });
+                    },
+                    toggleDarkMode() {
+                        this.darkMode = !this.darkMode;
+                    }
+                }
+            }
+        </script>
         @fluxScripts
     </body>
 </html>

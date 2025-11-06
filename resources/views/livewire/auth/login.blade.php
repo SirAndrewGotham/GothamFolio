@@ -101,60 +101,150 @@ new #[Layout('components.layouts.auth')] class extends Component {
     }
 }; ?>
 
-<div class="flex flex-col gap-6">
-    <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
+<div class="fluid-container">
+    <div class="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-7xl mx-auto">
+        <!-- Left Column - Welcome Message -->
+        <div class="lg:w-1/2 text-center lg:text-left fade-in">
+            <div class="max-w-lg mx-auto lg:mx-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    {{ __('gothamfolio.auth.welcome_back') }}
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
+                    {{ __('gothamfolio.auth.welcome_message') }}
+                </p>
 
-    <!-- Session Status -->
-    <x-auth-session-status class="text-center" :status="session('status')" />
+                <div class="space-y-4">
+                    <div class="flex items-center justify-center lg:justify-start">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center text-white mr-4">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">{{ __('gothamfolio.auth.secure_login') }}</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.auth.secure_connection') }}</p>
+                        </div>
+                    </div>
 
-    <form method="POST" wire:submit="login" class="flex flex-col gap-6">
-        <!-- Intended URL -->
-        <input type="hidden" name="intended" value="{{ session()->get('url.intended', url()->previous()) }}">
-
-        <!-- Email Address -->
-        <flux:input
-            wire:model="email"
-            :label="__('Email address')"
-            type="email"
-            required
-            autofocus
-            autocomplete="email"
-            placeholder="email@example.com"
-        />
-
-        <!-- Password -->
-        <div class="relative">
-            <flux:input
-                wire:model="password"
-                :label="__('Password')"
-                type="password"
-                required
-                autocomplete="current-password"
-                :placeholder="__('Password')"
-                viewable
-            />
-
-            @if (Route::has('password.request'))
-                <flux:link class="absolute top-0 text-sm end-0" :href="route('password.request')" wire:navigate>
-                    {{ __('Forgot your password?') }}
-                </flux:link>
-            @endif
+                    <div class="flex items-center justify-center lg:justify-start">
+                        <div class="w-12 h-12 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white mr-4">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold">{{ __('gothamfolio.auth.fast_access') }}</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.auth.instant_access') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Remember Me -->
-        <flux:checkbox wire:model="remember" :label="__('Remember me')" />
+        <!-- Right Column - Login Form -->
+        <div class="lg:w-1/2 w-full max-w-md fade-in" style="transition-delay: 0.2s;">
+            <div class="auth-card bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+                <div class="text-center mb-8">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-xl mx-auto mb-4">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold">{{ __('gothamfolio.auth.login_title') }}</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">
+                        {{ __('gothamfolio.auth.login_instructions') }}
+                    </p>
+                </div>
 
-        <div class="flex items-center justify-end">
-            <flux:button variant="primary" type="submit" class="w-full" data-test="login-button">
-                {{ __('Log in') }}
-            </flux:button>
-        </div>
-    </form>
+                <form method="POST" wire:submit="login">
+                    @csrf
 
-    @if (Route::has('register'))
-        <div class="space-x-1 text-sm text-center rtl:space-x-reverse text-zinc-600 dark:text-zinc-400">
-            <span>{{ __('Don\'t have an account?') }}</span>
-            <flux:link :href="route('register')" wire:navigate>{{ __('Sign up') }}</flux:link>
+                    <!-- Email Address -->
+                    <div class="mb-6">
+                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            {{ __('gothamfolio.auth.email_address') }}
+                        </label>
+                        <div class="relative">
+                            <input
+                                id="email"
+                                type="email"
+                                name="email"
+                                value="{{ old('email') }}"
+                                required
+                                autofocus
+                                autocomplete="email"
+                                class="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors @error('email') border-red-500 @enderror"
+                                placeholder="your@email.com"
+                                wire:model="email"
+                            >
+                            <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                        @error('email')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Password -->
+                    <div class="mb-6">
+                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                            {{ __('gothamfolio.auth.password') }}
+                        </label>
+                        <div class="relative">
+                            <input
+                                id="password"
+                                type="password"
+                                name="password"
+                                required
+                                autocomplete="current-password"
+                                class="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors @error('password') border-red-500 @enderror"
+                                placeholder="••••••••"
+                                wire:model="password"
+                            >
+                            <i class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        </div>
+                        @error('password')
+                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <!-- Remember Me and Forgot Password -->
+                    <div class="flex items-center justify-between mb-6">
+                        <label for="remember_me" class="flex items-center">
+                            <input
+                                id="remember_me"
+                                type="checkbox"
+                                name="remember"
+                                class="rounded border-gray-300 text-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700"
+                                wire:model="remember"
+                            >
+                            <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">
+                                {{ __('gothamfolio.auth.remember_me') }}
+                            </span>
+                        </label>
+
+                        @if (Route::has('password.request'))
+                            <a href="{{ route('password.request') }}" class="text-sm text-primary-500 hover:text-primary-400 transition-colors" wire:navigate>
+                                {{ __('gothamfolio.auth.forgot_password') }}
+                            </a>
+                        @endif
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button
+                        type="submit"
+                        class="w-full bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg"
+                    >
+                        <i class="fas fa-sign-in-alt mr-2"></i>
+                        {{ __('gothamfolio.auth.login_button') }}
+                    </button>
+
+                    <!-- Register Link -->
+                    @if (Route::has('register'))
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                {{ __('gothamfolio.auth.no_account') }}
+                                <a href="{{ route('register') }}" class="font-medium text-primary-500 hover:text-primary-400 transition-colors" wire:navigate>
+                                    {{ __('gothamfolio.auth.register_link') }}
+                                </a>
+                            </p>
+                        </div>
+                    @endif
+                </form>
+            </div>
         </div>
-    @endif
+    </div>
 </div>

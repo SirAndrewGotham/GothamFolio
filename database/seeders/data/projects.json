@@ -1,217 +1,364 @@
 {
-  "projects": [
-    {
-      "uuid": "550e8400-e29b-41d4-a716-446655440001",
-      "slug": "gothamfolio-platform",
-      "project_type": "full-stack",
-      "year": "2024",
-      "status": "Active",
-      "duration": "3 months",
-      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      "demo_url": "https://gothamfolio.test",
-      "github_url": "https://github.com/SirAndrewGotham/gothamfolio",
-      "featured": true,
-      "is_active": true,
-      "translations": {
-        "en": {
-          "name": "GothamFolio Platform",
-          "description": "Full-featured personal portfolio management platform with integrated blogging system, galleries, and performance analytics. Modern Laravel application built from scratch with Livewire and Tailwind CSS."
+    "projects": [
+        {
+            "uuid": "550e8400-e29b-41d4-a716-446655440001",
+            "slug": "gothamfolio-platform",
+            "project_type": "full-stack",
+            "year": "2024",
+            "status": "Active",
+            "duration": "3 months",
+            "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "demo_url": "https://gothamfolio.test",
+            "github_url": "https://github.com/SirAndrewGotham/gothamfolio",
+            "featured": true,
+            "is_active": true,
+            "translations": {
+                "en": {
+                    "name": "GothamFolio Platform",
+                    "description": "Full-featured personal portfolio management platform with integrated blogging system, galleries, and performance analytics. Modern Laravel application built from scratch with Livewire and Tailwind CSS."
+                },
+                "ru": {
+                    "name": "Платформа GothamFolio",
+                    "description": "Полнофункциональная платформа для управления персональным портфолио с интегрированной системой блогинга, галереями и аналитикой производительности. Современное приложение на Laravel, созданное с нуля с использованием Livewire и Tailwind CSS."
+                },
+                "eo": {
+                    "name": "GothamFolio Platformo",
+                    "description": "Plen-funkcia platformo por persona portfoli-administrado kun integrita blog-sistemo, galerioj kaj performo-analitiko. Moderna Laravel-aplikaĵo konstruita de nulo kun Livewire kaj Tailwind CSS."
+                }
+            },
+            "categories": [
+                "web-development",
+                "cms",
+                "portfolio"
+            ],
+            "competences": [
+                "laravel",
+                "livewire",
+                "tailwind-css",
+                "mysql",
+                "nginx",
+                "redis"
+            ]
         },
-        "ru": {
-          "name": "Платформа GothamFolio",
-          "description": "Полнофункциональная платформа для управления персональным портфолио с интегрированной системой блогинга, галереями и аналитикой производительности. Современное приложение на Laravel, созданное с нуля с использованием Livewire и Tailwind CSS."
+        {
+            "uuid": "550e8400-e29b-41d4-a716-446655440002",
+            "slug": "taris-corporate-website",
+            "project_type": "legacy",
+            "year": "2022-2024",
+            "status": "Maintenance",
+            "duration": "2+ years",
+            "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "demo_url": "https://taris.ru",
+            "github_url": null,
+            "featured": false,
+            "is_active": true,
+            "translations": {
+                "en": {
+                    "name": "Taris Corporate Website",
+                    "description": "Technical support and development of corporate website on legacy Yii 1.1 platform. Stabilization of work, critical bug fixes, and creation of procedures for long-term legacy code support."
+                },
+                "ru": {
+                    "name": "Корпоративный сайт ТАРИС",
+                    "description": "Техническая поддержка и развитие корпоративного сайта на устаревшей платформе Yii 1.1. Стабилизация работы, исправление критических ошибок и создание процедур для долгосрочной поддержки legacy-кода."
+                },
+                "eo": {
+                    "name": "Taris Korporacia Retejo",
+                    "description": "Teknika subteno kaj evoluo de korporacia retejo sur malnova Yii 1.1 platformo. Stabiligo de funkciado, korekto de kritikaj eraroj kaj kreado de proceduroj por longdaŭra subteno de legacy-kodo."
+                }
+            },
+            "categories": [
+                "legacy",
+                "corporate",
+                "cms"
+            ],
+            "competences": [
+                "yii",
+                "php",
+                "mysql",
+                "jquery",
+                "bootstrap",
+                "apache"
+            ]
         },
-        "eo": {
-          "name": "GothamFolio Platformo",
-          "description": "Plen-funkcia platformo por persona portfoli-administrado kun integrita blog-sistemo, galerioj kaj performo-analitiko. Moderna Laravel-aplikaĵo konstruita de nulo kun Livewire kaj Tailwind CSS."
+        {
+            "uuid": "550e8400-e29b-41d4-a716-446655440003",
+            "slug": "chagan-community-platform",
+            "project_type": "full-stack",
+            "year": "2024",
+            "status": "Active",
+            "duration": "6 months",
+            "image": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "demo_url": "https://chagan.su",
+            "github_url": "https://github.com/SirAndrewGotham/chagan",
+            "featured": true,
+            "is_active": true,
+            "translations": {
+                "en": {
+                    "name": "Chagan.su Community Platform",
+                    "description": "Digital home for the Chagan community - preserving history, reuniting former residents, and honoring the unique heritage of the military town near the 'Bear' airbase. Complete modernization of legacy system."
+                },
+                "ru": {
+                    "name": "Платформа сообщества Chagan.su",
+                    "description": "Цифровой дом для сообщества Чагана - сохранение истории, воссоединение бывших жителей и чествование уникального наследия военного городка у авиабазы «Медведь». Полная модернизация legacy-системы."
+                },
+                "eo": {
+                    "name": "Chagan.su Komunuma Platformo",
+                    "description": "Cifereca hejmo por la Chagan-komunumo - konservado de historio, reunuigo de iamaj loĝantoj kaj honorado de unika heredaĵo de la militurbo apud la 'Urso' aerbazo. Plena modernigo de legacy-sistemo."
+                }
+            },
+            "categories": [
+                "community",
+                "migration",
+                "cms"
+            ],
+            "competences": [
+                "laravel",
+                "livewire",
+                "tailwind-css",
+                "mysql",
+                "migration",
+                "redis"
+            ]
+        },
+        {
+            "uuid": "550e8400-e29b-41d4-a716-446655440004",
+            "slug": "stagephoto-portfolio",
+            "project_type": "frontend",
+            "year": "2023",
+            "status": "Completed",
+            "duration": "2 months",
+            "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "demo_url": "https://stagephoto.example.com",
+            "github_url": null,
+            "featured": false,
+            "is_active": true,
+            "translations": {
+                "en": {
+                    "name": "StagePhoto Portfolio",
+                    "description": "Professional photography portfolio website with gallery management, client proofing, and online booking system. Focus on visual presentation and user experience."
+                },
+                "ru": {
+                    "name": "Портфолио StagePhoto",
+                    "description": "Профессиональный сайт-портфолио фотографа с управлением галереями, системой подтверждения для клиентов и онлайн-бронированием. Акцент на визуальной презентации и пользовательском опыте."
+                },
+                "eo": {
+                    "name": "StagePhoto Portfoliao",
+                    "description": "Profesia fotista portfoli-retejo kun galerio-administrado, klienta aprobado kaj reta rezerv-sistemo. Fokuso sur vida prezentado kaj uzanto-sperto."
+                }
+            },
+            "categories": [
+                "portfolio",
+                "photography",
+                "frontend"
+            ],
+            "competences": [
+                "html-css",
+                "javascript",
+                "responsive-design",
+                "ux-ui"
+            ]
+        },
+        {
+            "uuid": "550e8400-e29b-41d4-a716-446655440005",
+            "slug": "telescan-diagnostics",
+            "project_type": "backend",
+            "year": "2022",
+            "status": "Completed",
+            "duration": "4 months",
+            "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "demo_url": "https://telescan.example.com",
+            "github_url": null,
+            "featured": false,
+            "is_active": true,
+            "translations": {
+                "en": {
+                    "name": "Telescan Diagnostics System",
+                    "description": "Backend system for medical diagnostics equipment with real-time data processing, reporting, and integration with hospital information systems. High-performance API development with focus on data accuracy and security."
+                },
+                "ru": {
+                    "name": "Система диагностики Telescan",
+                    "description": "Бэкенд-система для медицинского диагностического оборудования с обработкой данных в реальном времени, отчетностью и интеграцией с больничными информационными системами. Высокопроизводительная разработка API с акцентом на точность данных и безопасность."
+                },
+                "eo": {
+                    "name": "Telescan Diagnostika Sistemo",
+                    "description": "Malantaŭa sistemo por medicina diagnoza ekipaĵo kun realtempa datum-prilaborado, raportado kaj integriĝo kun malsanulejaj informaj sistemoj. Alt-efika API-disvolviĝo kun fokuso sur datum-precizeco kaj sekureco."
+                }
+            },
+            "categories": [
+                "medical",
+                "backend",
+                "api"
+            ],
+            "competences": [
+                "laravel",
+                "api-development",
+                "mysql",
+                "security",
+                "performance-optimization"
+            ]
+        },
+        {
+            "uuid": "550e8400-e29b-41d4-a716-446655440006",
+            "slug": "imus-city-portal",
+            "project_type": "full-stack",
+            "year": "2023",
+            "status": "Active",
+            "duration": "5 months",
+            "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "demo_url": "https://imus-city.example.com",
+            "github_url": null,
+            "featured": true,
+            "is_active": true,
+            "translations": {
+                "en": {
+                    "name": "Imus City Portal",
+                    "description": "Municipal government portal with citizen services, document management, and public information system. Multi-department integration with secure authentication and role-based access control."
+                },
+                "ru": {
+                    "name": "Портал городских коммунальных служб Imus",
+                    "description": "Муниципальный правительственный портал с услугами для граждан, управлением документами и системой общественной информации. Интеграция нескольких департаментов с безопасной аутентификацией и контролем доступа на основе ролей."
+                },
+                "eo": {
+                    "name": "Imus Urba Portalo",
+                    "description": "Municipa registara portalo kun civitanaj servoj, dokument-administrado kaj publika informa sistemo. Plurdepartementa integriĝo kun sekura aŭtentikigo kaj rolbazita alir-kontrolo."
+                }
+            },
+            "categories": [
+                "government",
+                "cms",
+                "enterprise"
+            ],
+            "competences": [
+                "laravel",
+                "livewire",
+                "mysql",
+                "security",
+                "role-based-access",
+                "integration"
+            ]
+        },
+        {
+            "uuid": "550e8400-e29b-41d4-a716-446655320006",
+            "slug": "taris-corporate-website",
+            "project_type": "full-stack",
+            "year": "2025",
+            "status": "Completed",
+            "duration": "3 months",
+            "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "demo_url": "https://taris.ru",
+            "github_url": null,
+            "featured": null,
+            "is_active": true,
+            "translations": {
+                "en": {
+                    "name": "Taris Corporate Website",
+                    "description": "Corporate website of LLC \"TARIS\" — leading Russian manufacturer of equipment for pipeline diagnostics and cleaning. The website operates on outdated Yii 1.1 platform created over 10 years ago."
+                },
+                "ru": {
+                    "name": "Корпоративный портал ООО Тарис",
+                    "description": "Корпоративный сайт ООО «ТАРИС» — ведущего российского производителя оборудования для диагностики и очистки трубопроводов. Сайт работает на устаревшей платформе Yii 1.1, созданной более 10 лет назад."
+                },
+                "eo": {
+                    "name": "Taris Korporacia Portalo",
+                    "description": "Firmaa retejo de LLC \"TARIS\" — ĉefa rusa fabrikanto de ekipaĵo por diagnozo kaj purigado de duktoj. La retejo funkcias per la malmoderna platformo Yii 1.1 kreita antaŭ pli ol 10 jaroj."
+                }
+            },
+            "categories": [
+                "corporate",
+                "cms",
+                "legacy"
+            ],
+            "competences": [
+                "yii",
+                "mysql",
+                "security",
+                "bootstrap",
+                "php"
+            ]
+        },
+        {
+            "uuid": "550e8400-e29b-41d4-a716-446655440007",
+            "slug": "gotham-forum",
+            "project_type": "full-stack",
+            "year": "2025",
+            "status": "In Progress",
+            "duration": "1 month",
+            "image": "https://images.unsplash.com/photo-1511376770912-7592478a536d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "demo_url": null,
+            "github_url": "https://github.com/SirAndrewGotham/gotham-forum",
+            "featured": true,
+            "is_active": true,
+            "translations": {
+                "en": {
+                    "name": "Gotham Forum",
+                    "description": "A modern forum platform built with Laravel, Livewire, and Tailwind CSS. Features include user authentication, post creation, commenting, and real-time notifications."
+                },
+                "ru": {
+                    "name": "Форум Gotham",
+                    "description": "Современная платформа форума, созданная с использованием Laravel, Livewire и Tailwind CSS. Функции включают аутентификацию пользователей, создание сообщений, комментирование и уведомления в реальном времени."
+                },
+                "eo": {
+                    "name": "Gotham Forumo",
+                    "description": "Moderna foruma platformo konstruita per Laravel, Livewire, kaj Tailwind CSS. Trajtoj inkluzivas uzant-aŭtentigon, afiŝo-kreon, komenton, kaj realtempajn sciigojn."
+                }
+            },
+            "categories": [
+                "web-development",
+                "community",
+                "forum"
+            ],
+            "competences": [
+                "laravel",
+                "livewire",
+                "tailwind-css",
+                "mysql",
+                "redis",
+                "websockets"
+            ]
+        },
+        {
+            "uuid": "550e8400-e29b-41d4-a716-446655440008",
+            "slug": "moskva-esperanto",
+            "project_type": "full-stack",
+            "year": "2024",
+            "status": "In Development",
+            "duration": "3-4 months",
+            "image": "https://images.unsplash.com/photo-1543169733-5c1a7b4f5b5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+            "demo_url": "https://moskva-esperanto.example.com",
+            "github_url": null,
+            "featured": false,
+            "is_active": true,
+            "translations": {
+                "en": {
+                    "name": "Moskva Esperanto Community Web Site",
+                    "description": "Multilingual community platform for Moscow's Esperanto community featuring events, news, blogs, and member networking in Esperanto, Russian, and English."
+                },
+                "ru": {
+                    "name": "Веб-сайт Московского Эсперанто-сообщества",
+                    "description": "Многоязычная общественная платформа для московского эсперанто-сообщества с мероприятиями, новостями, блогами и сетевым взаимодействием участников на эсперанто, русском и английском языках."
+                },
+                "eo": {
+                    "name": "Moskva Esperanto Komunuma Retejo",
+                    "description": "Multlingva komunuma platformo por la moskva Esperanto-komunumo kun eventoj, novaĵoj, blogoj kaj membrar-interkonektado en Esperanto, la rusa kaj la angla."
+                }
+            },
+            "categories": [
+                "community",
+                "multilingual",
+                "cms"
+            ],
+            "competences": [
+                "laravel",
+                "php",
+                "sqlite",
+                "mysql",
+                "livewire",
+                "tailwind-css",
+                "alpine-js",
+                "multilingual",
+                "folio-pages",
+                "volt-components"
+            ]
         }
-      },
-      "categories": ["web-development", "cms", "portfolio"],
-      "competences": ["laravel", "livewire", "tailwind-css", "mysql", "nginx", "redis"]
-    },
-    {
-      "uuid": "550e8400-e29b-41d4-a716-446655440002",
-      "slug": "taris-corporate-website",
-      "project_type": "legacy",
-      "year": "2022-2024",
-      "status": "Maintenance",
-      "duration": "2+ years",
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      "demo_url": "https://taris.ru",
-      "github_url": null,
-      "featured": false,
-      "is_active": true,
-      "translations": {
-        "en": {
-          "name": "Taris Corporate Website",
-          "description": "Technical support and development of corporate website on legacy Yii 1.1 platform. Stabilization of work, critical bug fixes, and creation of procedures for long-term legacy code support."
-        },
-        "ru": {
-          "name": "Корпоративный сайт ТАРИС",
-          "description": "Техническая поддержка и развитие корпоративного сайта на устаревшей платформе Yii 1.1. Стабилизация работы, исправление критических ошибок и создание процедур для долгосрочной поддержки legacy-кода."
-        },
-        "eo": {
-          "name": "Taris Korporacia Retejo",
-          "description": "Teknika subteno kaj evoluo de korporacia retejo sur malnova Yii 1.1 platformo. Stabiligo de funkciado, korekto de kritikaj eraroj kaj kreado de proceduroj por longdaŭra subteno de legacy-kodo."
-        }
-      },
-      "categories": ["legacy", "corporate", "cms"],
-      "competences": ["yii", "php", "mysql", "jquery", "bootstrap", "apache"]
-    },
-    {
-      "uuid": "550e8400-e29b-41d4-a716-446655440003",
-      "slug": "chagan-community-platform",
-      "project_type": "full-stack",
-      "year": "2024",
-      "status": "Active",
-      "duration": "6 months",
-      "image": "https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      "demo_url": "https://chagan.su",
-      "github_url": "https://github.com/SirAndrewGotham/chagan",
-      "featured": true,
-      "is_active": true,
-      "translations": {
-        "en": {
-          "name": "Chagan.su Community Platform",
-          "description": "Digital home for the Chagan community - preserving history, reuniting former residents, and honoring the unique heritage of the military town near the 'Bear' airbase. Complete modernization of legacy system."
-        },
-        "ru": {
-          "name": "Платформа сообщества Chagan.su",
-          "description": "Цифровой дом для сообщества Чагана - сохранение истории, воссоединение бывших жителей и чествование уникального наследия военного городка у авиабазы «Медведь». Полная модернизация legacy-системы."
-        },
-        "eo": {
-          "name": "Chagan.su Komunuma Platformo",
-          "description": "Cifereca hejmo por la Chagan-komunumo - konservado de historio, reunuigo de iamaj loĝantoj kaj honorado de unika heredaĵo de la militurbo apud la 'Urso' aerbazo. Plena modernigo de legacy-sistemo."
-        }
-      },
-      "categories": ["community", "migration", "cms"],
-      "competences": ["laravel", "livewire", "tailwind-css", "mysql", "migration", "redis"]
-    },
-    {
-      "uuid": "550e8400-e29b-41d4-a716-446655440004",
-      "slug": "stagephoto-portfolio",
-      "project_type": "frontend",
-      "year": "2023",
-      "status": "Completed",
-      "duration": "2 months",
-      "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      "demo_url": "https://stagephoto.example.com",
-      "github_url": null,
-      "featured": false,
-      "is_active": true,
-      "translations": {
-        "en": {
-          "name": "StagePhoto Portfolio",
-          "description": "Professional photography portfolio website with gallery management, client proofing, and online booking system. Focus on visual presentation and user experience."
-        },
-        "ru": {
-          "name": "Портфолио StagePhoto",
-          "description": "Профессиональный сайт-портфолио фотографа с управлением галереями, системой подтверждения для клиентов и онлайн-бронированием. Акцент на визуальной презентации и пользовательском опыте."
-        },
-        "eo": {
-          "name": "StagePhoto Portfoliao",
-          "description": "Profesia fotista portfoli-retejo kun galerio-administrado, klienta aprobado kaj reta rezerv-sistemo. Fokuso sur vida prezentado kaj uzanto-sperto."
-        }
-      },
-      "categories": ["portfolio", "photography", "frontend"],
-      "competences": ["html-css", "javascript", "responsive-design", "ux-ui"]
-    },
-    {
-      "uuid": "550e8400-e29b-41d4-a716-446655440005",
-      "slug": "telescan-diagnostics",
-      "project_type": "backend",
-      "year": "2022",
-      "status": "Completed",
-      "duration": "4 months",
-      "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      "demo_url": "https://telescan.example.com",
-      "github_url": null,
-      "featured": false,
-      "is_active": true,
-      "translations": {
-        "en": {
-          "name": "Telescan Diagnostics System",
-          "description": "Backend system for medical diagnostics equipment with real-time data processing, reporting, and integration with hospital information systems. High-performance API development with focus on data accuracy and security."
-        },
-        "ru": {
-          "name": "Система диагностики Telescan",
-          "description": "Бэкенд-система для медицинского диагностического оборудования с обработкой данных в реальном времени, отчетностью и интеграцией с больничными информационными системами. Высокопроизводительная разработка API с акцентом на точность данных и безопасность."
-        },
-        "eo": {
-          "name": "Telescan Diagnostika Sistemo",
-          "description": "Malantaŭa sistemo por medicina diagnoza ekipaĵo kun realtempa datum-prilaborado, raportado kaj integriĝo kun malsanulejaj informaj sistemoj. Alt-efika API-disvolviĝo kun fokuso sur datum-precizeco kaj sekureco."
-        }
-      },
-      "categories": ["medical", "backend", "api"],
-      "competences": ["laravel", "api-development", "mysql", "security", "performance-optimization"]
-    },
-    {
-      "uuid": "550e8400-e29b-41d4-a716-446655440006",
-      "slug": "imus-city-portal",
-      "project_type": "full-stack",
-      "year": "2023",
-      "status": "Active",
-      "duration": "5 months",
-      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-      "demo_url": "https://imus-city.example.com",
-      "github_url": null,
-      "featured": true,
-      "is_active": true,
-      "translations": {
-        "en": {
-          "name": "Imus City Portal",
-          "description": "Municipal government portal with citizen services, document management, and public information system. Multi-department integration with secure authentication and role-based access control."
-        },
-        "ru": {
-          "name": "Портал городских коммунальных служб Imus",
-          "description": "Муниципальный правительственный портал с услугами для граждан, управлением документами и системой общественной информации. Интеграция нескольких департаментов с безопасной аутентификацией и контролем доступа на основе ролей."
-        },
-        "eo": {
-          "name": "Imus Urba Portalo",
-          "description": "Municipa registara portalo kun civitanaj servoj, dokument-administrado kaj publika informa sistemo. Plurdepartementa integriĝo kun sekura aŭtentikigo kaj rolbazita alir-kontrolo."
-        }
-      },
-      "categories": ["government", "cms", "enterprise"],
-      "competences": ["laravel", "livewire", "mysql", "security", "role-based-access", "integration"]
-    },
-      {
-          "uuid": "550e8400-e29b-41d4-a716-446655320006",
-          "slug": "taris-corporate-website",
-          "project_type": "full-stack",
-          "year": "2025",
-          "status": "Completed",
-          "duration": "3 months",
-          "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-          "demo_url": "https://taris.ru",
-          "github_url": null,
-          "featured": null,
-          "is_active": true,
-          "translations": {
-              "en": {
-                  "name": "Taris Corporate Website",
-                  "description": "Corporate website of LLC \"TARIS\" — leading Russian manufacturer of equipment for pipeline diagnostics and cleaning. The website operates on outdated Yii 1.1 platform created over 10 years ago."
-              },
-              "ru": {
-                  "name": "Корпоративный портал ООО Тарис",
-                  "description": "Корпоративный сайт ООО «ТАРИС» — ведущего российского производителя оборудования для диагностики и очистки трубопроводов. Сайт работает на устаревшей платформе Yii 1.1, созданной более 10 лет назад."
-              },
-              "eo": {
-                  "name": "Taris Korporacia Portalo",
-                  "description": "Firmaa retejo de LLC \"TARIS\" — ĉefa rusa fabrikanto de ekipaĵo por diagnozo kaj purigado de duktoj. La retejo funkcias per la malmoderna platformo Yii 1.1 kreita antaŭ pli ol 10 jaroj."
-              }
-          },
-          "categories": [
-              "corporate",
-              "cms",
-              "legacy"
-          ],
-          "competences": [
-              "yii",
-              "mysql",
-              "security",
-              "bootstrap",
-              "php"
-          ]
-      }
-  ]
+    ]
 }
