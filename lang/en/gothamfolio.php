@@ -112,7 +112,7 @@ return [
     'portfolio' => [
         'title' => 'Portfolio',
         'hero' => [
-            'title' => 'Project Portfolio',
+            'title' => 'Projects Portfolio',
             'description' => 'Collection of web projects demonstrating development approach and digital solutions',
         ],
         'stats' => [
@@ -326,6 +326,7 @@ return [
         'email_address' => 'Email Address',
         'password' => 'Password',
         'remember_me' => 'Remember me',
+        'new_password' => 'New Password',
         'forgot_password' => 'Forgot your password?',
         'login_button' => 'Login',
         'no_account' => 'Don\'t have an account yet?',
@@ -350,6 +351,11 @@ return [
         'reset_password_title' => 'Reset Password',
         'create_new_password_account' => 'Create a new password for your account',
         'update_password_button' => 'Update Password',
+        'confirm_password_title' => 'Confirm Password',
+        'confirm_password_message' => 'This is a secure area of the application. Please confirm your password to continue.',
+        'confirm_button' => 'Confirm',
+        'forgot_password_link' => 'Forgot Your Password?',
+        'email_placeholder' => 'your@email.com',
     ],
     'verify_email' => [
         'title' => 'Verify Your Email Address',
@@ -377,5 +383,9 @@ return [
         'register_button' => 'Register',
         'already_have_account' => 'Already have an account?',
         'login_link' => 'Login',
+        'email' => 'Email Address',
+        'name_placeholder' => 'Your Name',
+        'password' => 'Password',
+        'confirm_password' => 'Confirm Password',
     ],
 ];

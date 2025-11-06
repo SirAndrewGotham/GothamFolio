@@ -39,7 +39,7 @@
                         }
 
                         // Close mobile menu on route change
-                        Livewire.on('navigation-start', () => {
+                        document.addEventListener('livewire:navigating', () => {
                             this.mobileMenuOpen = false;
                         });
                     },

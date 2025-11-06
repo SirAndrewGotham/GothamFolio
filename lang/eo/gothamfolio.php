@@ -111,7 +111,7 @@ return [
     'portfolio' => [
         'title' => 'Portfolio',
         'hero' => [
-            'title' => 'Projekta Portfolio',
+            'title' => 'Portfolio de Projektoj',
             'description' => 'Kolekto de retaj projektoj montrantaj disvolviĝan aliron kaj ciferecajn solvojn',
         ],
         'stats' => [
@@ -313,6 +313,7 @@ return [
         'login_instructions' => 'Enigu viajn akreditaĵojn por ensaluti',
         'email_address' => 'Retpoŝta Adreso',
         'password' => 'Pasvorto',
+        'new_password' => 'Nova Pasvorto',
         'remember_me' => 'Memoru min',
         'forgot_password' => 'Ĉu vi forgesis vian pasvorton?',
         'login_button' => 'Ensaluti',

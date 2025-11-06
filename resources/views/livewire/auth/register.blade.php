@@ -102,7 +102,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                                 autofocus
                                 autocomplete="name"
                                 class="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors @error('name') border-red-500 @enderror"
-                                placeholder="Ваше имя"
+                                placeholder="{{ __('gothamfolio.registration.name_placeholder') }}"
                                 wire:model="name"
                             >
                             <i class="fas fa-user absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
@@ -115,7 +115,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                     <!-- Email Address -->
                     <div class="mb-6">
                         <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Email адрес') }}
+                            {{ __('gothamfolio.registration.email') }}
                         </label>
                         <div class="relative">
                             <input
@@ -139,7 +139,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                     <!-- Password -->
                     <div class="mb-6">
                         <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Пароль') }}
+                            {{ __('gothamfolio.registration.password') }}
                         </label>
                         <div class="relative">
                             <input
@@ -162,7 +162,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                     <!-- Confirm Password -->
                     <div class="mb-6">
                         <label for="password_confirmation" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Подтвердите пароль') }}
+                            {{ __('gothamfolio.registration.confirm_password') }}
                         </label>
                         <div class="relative">
                             <input

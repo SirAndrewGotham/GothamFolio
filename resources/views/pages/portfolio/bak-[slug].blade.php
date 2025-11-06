@@ -1,8 +1,24 @@
 <x-frontend.layouts.app>
-    @volt('portfolio-page')
+    @volt('portfolio-competence-page')
     @php
         use App\Models\Project;
-        $projects = Project::with(['projectType', 'categories'])
+        use App\Models\ProjectType;
+        use App\Models\Category;
+
+        // Get the slug from the current request route
+        $slug = request()->route('slug');
+
+        // Get Project Type by slug
+        $projectType = ProjectType::where('slug', $slug)
+            ->with(['translations' => function ($query) {
+                $query->where('locale', app()->getLocale());
+            }])
+            ->firstOrFail();
+
+        // Get projects for this specific Project Type
+        $projects = Project::whereHas('projectType', function($query) use ($slug) {
+                $query->where('slug', $slug);
+            })
             ->where('is_active', true)
             ->orderBy('featured', 'desc')
             ->orderBy('created_at', 'desc')
@@ -13,9 +29,11 @@
         <!-- Hero Section -->
         <section class="py-16 bg-gradient-to-br from-primary-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
             <div class="container mx-auto px-4 text-center">
-                <h1 class="text-4xl md:text-5xl font-bold mb-6">{{ __('gothamfolio.portfolio.hero.title') }}</h1>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">
+                    {{ $projectType->getTranslation('name') ?? $projectType->name }} Projects
+                </h1>
                 <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
-                    {{ __('gothamfolio.portfolio.hero.description') }}
+                    Projects categorized under: {{ $projectType->getTranslation('name') ?? $projectType->name }}
                 </p>
             </div>
         </section>
@@ -31,12 +49,13 @@
                     </div>
                 @else
                     <div class="text-center py-12">
-                        <div
-                            class="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 mx-auto mb-4">
+                        <div class="w-24 h-24 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-400 mx-auto mb-4">
                             <i class="fas fa-folder-open text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-semibold mb-2">No projects found</h3>
-                        <p class="text-gray-600 dark:text-gray-400">There are no active projects in the database.</p>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            There are no active projects in the "{{ $category->getTranslation('name') }}" category.
+                        </p>
                     </div>
                 @endif
             </div>
@@ -60,3 +79,4 @@
     </script>
     @endvolt
 </x-frontend.layouts.app>
+

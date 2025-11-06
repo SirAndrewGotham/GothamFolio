@@ -16,6 +16,7 @@ class ProjectTypeSeeder extends Seeder
                 'icon' => 'fas fa-layer-group',
                 'order' => 1,
                 'translations' => [
+                    'en' => ['name' => 'Full-stack', 'description' => 'Complete web applications with both frontend and backend'],
                     'ru' => ['name' => 'Фулстек', 'description' => 'Полные веб-приложения с фронтендом и бэкендом'],
                     'eo' => ['name' => 'Plena-stako', 'description' => 'Kompletaj retaplikaĵoj kun antaŭaĵo kaj malantaŭaĵo'],
                 ],
@@ -26,6 +27,7 @@ class ProjectTypeSeeder extends Seeder
                 'icon' => 'fas fa-paint-brush',
                 'order' => 2,
                 'translations' => [
+                    'en' => ['name' => 'Frontend', 'description' => 'User interface and client-side applications'],
                     'ru' => ['name' => 'Фронтенд', 'description' => 'Пользовательский интерфейс и клиентские приложения'],
                     'eo' => ['name' => 'Antaŭaĵo', 'description' => 'Uzantinterfaco kaj klientflankaj aplikaĵoj'],
                 ],
@@ -36,6 +38,7 @@ class ProjectTypeSeeder extends Seeder
                 'icon' => 'fas fa-server',
                 'order' => 3,
                 'translations' => [
+                    'en' => ['name' => 'Backend', 'description' => 'Server-side applications and APIs'],
                     'ru' => ['name' => 'Бэкенд', 'description' => 'Серверные приложения и API'],
                     'eo' => ['name' => 'Malantaŭaĵo', 'description' => 'Servilflankaj aplikaĵoj kaj API'],
                 ],
@@ -46,6 +49,7 @@ class ProjectTypeSeeder extends Seeder
                 'icon' => 'fas fa-code',
                 'order' => 4,
                 'translations' => [
+                    'en' => ['name' => 'API', 'description' => 'RESTful APIs and web services'],
                     'ru' => ['name' => 'API', 'description' => 'RESTful API и веб-сервисы'],
                     'eo' => ['name' => 'API', 'description' => 'RESTful API kaj retservoj'],
                 ],
@@ -55,15 +59,7 @@ class ProjectTypeSeeder extends Seeder
         foreach ($types as $typeData) {
             $projectType = ProjectType::create(collect($typeData)->except('translations')->toArray());
 
-            // Use provided translations if present; otherwise fall back to EN from $typeData
-            $translations = $typeData['translations'] ?? [
-                'en' => [
-                    'name' => $typeData['name'],
-                    'description' => $typeData['description'],
-                ],
-            ];
-
-            foreach ($translations as $locale => $t) {
+            foreach ($typeData['translations'] as $locale => $t) {
                 $projectType->setTranslation('name', $t['name'], $locale);
                 $projectType->setTranslation('description', $t['description'], $locale);
             }

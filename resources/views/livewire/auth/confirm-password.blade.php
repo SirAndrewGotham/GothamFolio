@@ -8,12 +8,12 @@
 
             <!-- Title -->
             <h1 class="text-2xl font-bold text-center mb-2">
-                {{ __('Подтвердите пароль') }}
+                {{ __('gothamfolio.auth.confirm_password_title') }}
             </h1>
 
             <!-- Message -->
             <p class="text-gray-600 dark:text-gray-400 text-center mb-8">
-                {{ __('Это защищенная область приложения. Пожалуйста, подтвердите ваш пароль, чтобы продолжить.') }}
+                {{ __('gothamfolio.auth.confirm_password_message') }}
             </p>
 
             <form method="POST" action="{{ route('password.confirm.store') }}">
@@ -22,7 +22,7 @@
                 <!-- Password -->
                 <div class="mb-6">
                     <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                        {{ __('Пароль') }}
+                        {{ __('gothamfolio.auth.password') }}
                     </label>
                     <div class="relative">
                         <input
@@ -48,14 +48,14 @@
                     class="w-full bg-gradient-to-r from-primary-500 to-purple-500 hover:from-primary-600 hover:to-purple-600 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-lg"
                 >
                     <i class="fas fa-check mr-2"></i>
-                    {{ __('Подтвердить') }}
+                    {{ __('gothamfolio.auth.confirm_button') }}
                 </button>
 
                 <!-- Forgot Password -->
                 @if (Route::has('password.request'))
                     <div class="mt-4 text-center">
                         <a href="{{ route('password.request') }}" class="text-sm text-primary-500 hover:text-primary-400 transition-colors" wire:navigate>
-                            {{ __('Забыли пароль?') }}
+                            {{ __('gothamfolio.auth.forgot_password_link') }}
                         </a>
                     </div>
                 @endif

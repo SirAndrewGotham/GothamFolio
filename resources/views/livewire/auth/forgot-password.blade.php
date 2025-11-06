@@ -84,7 +84,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                     <!-- Email Address -->
                     <div class="mb-6">
                         <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                            {{ __('Email адрес') }}
+                            {{ __('gothamfolio.auth.email') }}
                         </label>
                         <div class="relative">
                             <input
@@ -96,7 +96,7 @@ new #[Layout('components.layouts.auth')] class extends Component {
                                 autofocus
                                 autocomplete="email"
                                 class="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors @error('email') border-red-500 @enderror"
-                                placeholder="your@email.com"
+                                placeholder="{{ __('gothamfolio.auth.email_placeholder') }}"
                                 wire:model="email"
                             >
                             <i class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>

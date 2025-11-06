@@ -35,7 +35,7 @@
                         @foreach($projects as $project)
                             <div> <!-- Grid column -->
                                 <a href="/portfolio/projects/{{ $project->slug }}/{{ app()->getLocale() }}"
-                                   class="block border-2 border-red-500">
+                                   class="block">
                                     <div
                                         class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-primary-200 dark:hover:border-primary-800">
                                         <!-- Project Image -->

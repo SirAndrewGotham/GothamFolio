@@ -67,7 +67,7 @@
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                     <div>
-                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">2024</div>
+                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">2025</div>
                                         <div class="text-sm text-gray-600 dark:text-gray-400">Год разработки</div>
                                     </div>
                                 </div>

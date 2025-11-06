@@ -1,6 +1,6 @@
 <div>
     <!-- Grid column -->
-    <a href="/portfolio/projects/{{ $project->slug }}" class="block">
+    <a href="/portfolio/{{ $project->slug }}" class="block">
         <div class="project-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-transparent hover:border-primary-200 dark:hover:border-primary-800">
             <!-- Project Image -->
             <div class="relative overflow-hidden h-56">
@@ -75,7 +75,7 @@
                         <i class="fas fa-layer-group mr-2"></i>
                         <a href="/portfolio/{{ $project->projectType->slug }}"
                            class="hover:text-primary-500 transition-colors">
-                            {{ $project->projectType->getTranslation('name') ?? 'N/A' }}
+                            {{ $project->projectType->getTranslatedAttribute('name') ?? 'N/A' }}
                         </a>
                     </div>
                 </div>
