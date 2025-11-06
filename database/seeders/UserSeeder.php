@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -13,27 +14,28 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::firstOrCreate([
-            'name' => 'admin',
-            //            'slug' => 'admin',
-            //            'username' => 'Administrator',
-            //            'avatar_url' => 'https://api.dicebear.com/6.x/avataaars/svg?seed=Admin',
-            'password' => Hash::make('password'),
-            'email' => 'admin@admin.com',
-            'email_verified_at' => now(),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]); // Assign role_id 1 to the admin user
+        User::firstOrCreate(
+            ['email' => 'admin@admin.com'],
+            [
+                'name' => 'admin',
+                'password' => Hash::make('password'),
+                'email_verified_at' => now(),
+                'created_at' => now(),
+                'updated_at' => now(),
+                'role_id' => Role::where('name', 'admin')->first()->id,
+            ]
+        );
 
-        $totalUsers = 50;
+        $totalUsers = 5;
 
         $this->command->getOutput()->progressStart($totalUsers);
 
-        User::factory()->count($totalUsers)->make()->each(function ($user) {
-            $user->save();
-            //            $user->roles()->attach(3); // Assign role_id 3 to each regular user
-            $this->command->getOutput()->progressAdvance();
-        });
+        User::factory()
+            ->count($totalUsers)
+            ->create(['role_id' => Role::where('name', 'user')->first()->id])
+            ->each(function () {
+                $this->command->getOutput()->progressAdvance();
+            });
 
         $this->command->getOutput()->progressFinish();
         $this->command->info('Users seeded successfully!');

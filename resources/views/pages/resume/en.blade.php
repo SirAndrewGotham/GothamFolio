@@ -133,18 +133,17 @@
                         <div class="lg:col-span-3 space-y-8">
                             <!-- Experience Section -->
                             <section id="experience" class="fade-in">
-                                <span class="flex justify-between">
-                                    <span>&nbsp;</span>
-                                    <a href="#" class="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-xs transition-colors">
-                                        <span>Download Resume PDF</span>
-                                        <i class="fas fa-download ml-2"></i>
-                                    </a>
-                                </span>
                                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 print:shadow-none">
-                                    <h2 class="text-2xl font-bold mb-6 flex items-center">
-                                        <i class="fas fa-briefcase text-primary-500 mr-3"></i>
-                                        Work Experience
-                                    </h2>
+                                    <div class="flex items-center justify-between mb-6">
+                                        <h2 class="text-2xl font-bold flex items-center">
+                                            <i class="fas fa-briefcase text-primary-500 mr-3"></i>
+                                            Work Experience
+                                        </h2>
+                                        <a href="#" class="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors shadow-lg">
+                                            <i class="fas fa-download mr-2"></i>
+                                            <span>Download Resume PDF</span>
+                                        </a>
+                                    </div>
 
                                     <div class="space-y-8">
                                         <!-- Current Job -->

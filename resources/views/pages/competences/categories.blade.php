@@ -46,7 +46,7 @@ use App\Models\Category;
                 'featured' => $competence->is_featured,
                 'category' => $categorySlug,
                 'tags' => $competence->tags->pluck('name')->toArray() ?? [],
-                'link' => url('competences/competences/' . $competence->slug . '/' . app()->getLocale()),
+                'link' => url('competences/' . $competence->slug),
             ];
         });
 
@@ -112,7 +112,7 @@ use App\Models\Category;
                 <!-- Competences Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8" x-show="paginatedCompetences.length > 0">
                     <template x-for="competence in paginatedCompetences" :key="competence.id">
-                        @include('pages.competences.partials.competence-card')
+                        @include('components.frontend.competences.competence-card')
                     </template>
                 </div>
 

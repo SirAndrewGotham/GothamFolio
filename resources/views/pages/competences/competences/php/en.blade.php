@@ -15,7 +15,7 @@
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <a href="/competences" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
-                                    Компетенции
+                                    Competences
                                 </a>
                             </div>
                         </li>
@@ -49,11 +49,6 @@
                         <div class="w-24 h-24 rounded-2xl bg-gradient-to-r from-[#777BB4] to-[#4F5B93] flex items-center justify-center text-white shadow-lg">
                             <i class="fab fa-php text-4xl"></i>
                         </div>
-{{--                        <div class="flex-shrink-0">--}}
-{{--                            <div class="w-24 h-24 rounded-2xl bg-gradient-to-r from-[#777BB4] to-[#4F5B93] flex items-center justify-center text-white shadow-lg">--}}
-{{--                                <i class="fab fa-php text-4xl"></i>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
 
                         <!-- Main Info -->
                         <div class="flex-grow text-center lg:text-left">
@@ -62,12 +57,12 @@
                                 <div class="flex items-center justify-center sm:justify-end space-x-4">
                                         <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
                                             <i class="fas fa-history mr-1"></i>
-                                            С 1998 года
+                                            Since 1998
                                         </span>
                                 </div>
                             </div>
                             <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
-                                Серверный язык программирования, прошедший путь от простых скриптов до современных enterprise-приложений
+                                Server-side programming language that has evolved from simple scripts to modern enterprise applications
                             </p>
 
                             <!-- Stats -->
@@ -78,7 +73,7 @@
                                     </div>
                                     <div>
                                         <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">70%</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Уровень владения</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Proficiency Level</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
@@ -86,8 +81,8 @@
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                     <div>
-                                        <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">25+ лет</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Опыт с PHP 3.3</div>
+                                        <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">25+ years</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Experience since PHP 3.3</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
@@ -96,7 +91,7 @@
                                     </div>
                                     <div>
                                         <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">v8.3/8.4</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Текущие версии</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Current Versions</div>
                                     </div>
                                 </div>
                             </div>
@@ -117,25 +112,25 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-road text-[#777BB4] mr-3"></i>
-                                    Эволюция PHP и мой путь
+                                    PHP Evolution and My Journey
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        <strong>PHP</strong> — это язык, который я наблюдал и использовал с момента его становления.
-                                        Начиная с PHP 3.3 в 1998 году, я прошел через все основные вехи развития языка —
-                                        от простых скриптов для генерации HTML до создания сложных объектно-ориентированных систем.
+                                        <strong>PHP</strong> is a language I have observed and used since its inception.
+                                        Starting with PHP 3.3 in 1998, I have gone through all major milestones of the language's development -
+                                        from simple HTML generation scripts to creating complex object-oriented systems.
                                     </p>
 
-                                    <h3>Историческая перспектива</h3>
+                                    <h3>Historical Perspective</h3>
                                     <div class="space-y-6 mt-6">
                                         <div class="timeline-item">
                                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
                                                 <h4 class="text-lg font-semibold">PHP 3.3 (1998)</h4>
-                                                <span class="text-[#777BB4] font-medium bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm md:mt-1">Начало пути</span>
+                                                <span class="text-[#777BB4] font-medium bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm md:mt-1">Beginning of the Journey</span>
                                             </div>
                                             <p class="text-gray-600 dark:text-gray-400">
-                                                Первые проекты на PHP: простые веб-сайты, гостевые книги, формы обратной связи.
-                                                Работа в procedural стиле, встраивание PHP в HTML.
+                                                First PHP projects: simple websites, guest books, feedback forms.
+                                                Working in procedural style, embedding PHP in HTML.
                                             </p>
                                         </div>
 
@@ -145,41 +140,41 @@
                                                 <span class="text-[#777BB4] font-medium bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm md:mt-1">Zend Engine</span>
                                             </div>
                                             <p class="text-gray-600 dark:text-gray-400">
-                                                Внедрение Zend Engine, первые попытки ООП. Разработка более сложных приложений,
-                                                начало работы с базами данных через mysql_* функции.
+                                                Introduction of Zend Engine, first attempts at OOP. Development of more complex applications,
+                                                beginning work with databases through mysql_* functions.
                                             </p>
                                         </div>
 
                                         <div class="timeline-item">
                                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
                                                 <h4 class="text-lg font-semibold">PHP 5 (2004-2015)</h4>
-                                                <span class="text-[#777BB4] font-medium bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm md:mt-1">Настоящее ООП</span>
+                                                <span class="text-[#777BB4] font-medium bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm md:mt-1">Real OOP</span>
                                             </div>
                                             <p class="text-gray-600 dark:text-gray-400">
-                                                Полноценная объектно-ориентированная модель, исключения, пространства имен.
-                                                Переход на PDO для работы с базами данных, появление первых фреймворков.
+                                                Full-fledged object-oriented model, exceptions, namespaces.
+                                                Transition to PDO for database work, emergence of first frameworks.
                                             </p>
                                         </div>
 
                                         <div class="timeline-item">
                                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                                                <h4 class="text-lg font-semibold">PHP 7+ (2015-настоящее)</h4>
-                                                <span class="text-[#777BB4] font-medium bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm md:mt-1">Современная эра</span>
+                                                <h4 class="text-lg font-semibold">PHP 7+ (2015-Present)</h4>
+                                                <span class="text-[#777BB4] font-medium bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm md:mt-1">Modern Era</span>
                                             </div>
                                             <p class="text-gray-600 dark:text-gray-400">
-                                                Значительное повышение производительности, скалярные типы, возвращаемые типы,
-                                                spaceship operator, null coalescing operator. Работа с современными фреймворками.
+                                                Significant performance improvement, scalar types, return types,
+                                                spaceship operator, null coalescing operator. Working with modern frameworks.
                                             </p>
                                         </div>
 
                                         <div class="timeline-item">
                                             <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-2">
-                                                <h4 class="text-lg font-semibold">PHP 8.x (2020-настоящее)</h4>
-                                                <span class="text-[#777BB4] font-medium bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm md:mt-1">JIT и современные возможности</span>
+                                                <h4 class="text-lg font-semibold">PHP 8.x (2020-Present)</h4>
+                                                <span class="text-[#777BB4] font-medium bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full text-sm md:mt-1">JIT and Modern Features</span>
                                             </div>
                                             <p class="text-gray-600 dark:text-gray-400">
-                                                Attributes, union types, match expression, nullsafe operator, JIT компиляция.
-                                                Активная разработка на PHP 8.3 и тестирование PHP 8.4.
+                                                Attributes, union types, match expression, nullsafe operator, JIT compilation.
+                                                Active development on PHP 8.3 and testing PHP 8.4.
                                             </p>
                                         </div>
                                     </div>
@@ -190,56 +185,56 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-archive text-[#777BB4] mr-3"></i>
-                                    Работа с legacy кодом и миграция
+                                    Legacy Code Work and Migration
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        Одна из моих ключевых специализаций — работа с унаследованным кодом и его адаптация
-                                        к современным стандартам разработки. Это включает в себя как поддержку старых проектов,
-                                        так и их полную миграцию на современные технологии.
+                                        One of my key specializations is working with legacy code and adapting it
+                                        to modern development standards. This includes both supporting old projects
+                                        and their complete migration to modern technologies.
                                     </p>
 
-                                    <h3>Подход к legacy коду</h3>
+                                    <h3>Approach to Legacy Code</h3>
                                     <ul>
-                                        <li><strong>Анализ и понимание</strong> — глубокое изучение существующей кодовой базы без документации</li>
-                                        <li><strong>Рефакторинг</strong> — постепенное улучшение кода без нарушения функциональности</li>
-                                        <li><strong>Безопасная миграция</strong> — перенос функциональности с сохранением бизнес-логики</li>
-                                        <li><strong>Тестирование</strong> — создание тестов для legacy кода перед изменениями</li>
+                                        <li><strong>Analysis and Understanding</strong> — deep study of existing codebase without documentation</li>
+                                        <li><strong>Refactoring</strong> — gradual code improvement without breaking functionality</li>
+                                        <li><strong>Safe Migration</strong> — transferring functionality while preserving business logic</li>
+                                        <li><strong>Testing</strong> — creating tests for legacy code before making changes</li>
                                     </ul>
 
-                                    <h3>Типичные сценарии миграции</h3>
+                                    <h3>Typical Migration Scenarios</h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                         <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
                                             <h4 class="font-semibold text-[#777BB4] mb-2">Procedural → OOP</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Преобразование процедурного кода в объектно-ориентированную архитектуру
+                                                Converting procedural code to object-oriented architecture
                                             </p>
                                         </div>
                                         <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
                                             <h4 class="font-semibold text-[#777BB4] mb-2">Custom Framework → Laravel</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Миграция самописных решений на современные фреймворки
+                                                Migration from custom solutions to modern frameworks
                                             </p>
                                         </div>
                                         <div class="bg-purple-50 dark:bg-purple-900/20 p-4 rounded-lg">
                                             <h4 class="font-semibold text-[#777BB4] mb-2">PHP 5.x → PHP 8.x</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Обновление версий PHP с адаптацией устаревшего синтаксиса
+                                                Updating PHP versions with adaptation of outdated syntax
                                             </p>
                                         </div>
                                         <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
                                             <h4 class="font-semibold text-[#777BB4] mb-2">mysql_* → PDO/Eloquent</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Замена устаревших функций работы с БД на современные подходы
+                                                Replacing outdated database functions with modern approaches
                                             </p>
                                         </div>
                                     </div>
 
-                                    <h3>Реальные примеры миграции</h3>
+                                    <h3>Real Migration Examples</h3>
                                     <ul>
-                                        <li><strong>Интернет-магазин на PHP 5.3</strong> → полная переработка на Laravel 10 с сохранением всех бизнес-процессов</li>
-                                        <li><strong>Корпоративный портал</strong> → миграция с самописного фреймворка на современную архитектуру</li>
-                                        <li><strong>API сервис</strong> → рефакторинг procedural кода в RESTful API с автодокументацией</li>
+                                        <li><strong>E-commerce site on PHP 5.3</strong> → complete overhaul to Laravel 10 while preserving all business processes</li>
+                                        <li><strong>Corporate portal</strong> → migration from custom framework to modern architecture</li>
+                                        <li><strong>API service</strong> → refactoring procedural code into RESTful API with auto-documentation</li>
                                     </ul>
                                 </div>
                             </div>
@@ -248,56 +243,56 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-rocket text-[#777BB4] mr-3"></i>
-                                    Современная разработка на PHP
+                                    Modern PHP Development
                                 </h2>
                                 <div class="content-section">
-                                    <h3>Современные практики и инструменты</h3>
+                                    <h3>Modern Practices and Tools</h3>
                                     <p>
-                                        Несмотря на опыт работы с legacy кодом, я активно использую и продвигаю современные
-                                        подходы к разработке на PHP:
+                                        Despite experience with legacy code, I actively use and promote modern
+                                        approaches to PHP development:
                                     </p>
                                     <ul>
-                                        <li><strong>Composer</strong> — управление зависимостями и автозагрузка классов</li>
-                                        <li><strong>PSR стандарты</strong> — следование стандартам сообщества</li>
-                                        <li><strong>Type declarations</strong> — строгая типизация для надежности кода</li>
-                                        <li><strong>Тестирование</strong> — PHPUnit, Pest для автоматизированного тестирования</li>
-                                        <li><strong>Статический анализ</strong> — PHPStan, Psalm для поиска ошибок</li>
-                                        <li><strong>Контейнеризация</strong> — Docker для среды разработки и продакшена</li>
+                                        <li><strong>Composer</strong> — dependency management and class autoloading</li>
+                                        <li><strong>PSR Standards</strong> — following community standards</li>
+                                        <li><strong>Type Declarations</strong> — strict typing for code reliability</li>
+                                        <li><strong>Testing</strong> — PHPUnit, Pest for automated testing</li>
+                                        <li><strong>Static Analysis</strong> — PHPStan, Psalm for error detection</li>
+                                        <li><strong>Containerization</strong> — Docker for development and production environments</li>
                                     </ul>
 
-                                    <h3>Ключевые компетенции в современном PHP</h3>
+                                    <h3>Key Competencies in Modern PHP</h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Объектно-ориентированное программирование</span>
+                                            <span>Object-Oriented Programming</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Пространства имен и автозагрузка</span>
+                                            <span>Namespaces and Autoloading</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Работа с исключениями и ошибками</span>
+                                            <span>Working with Exceptions and Errors</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Современные функции PHP 8.x</span>
+                                            <span>Modern PHP 8.x Features</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Интеграция с frontend технологиями</span>
+                                            <span>Integration with Frontend Technologies</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Оптимизация производительности</span>
+                                            <span>Performance Optimization</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Безопасность веб-приложений</span>
+                                            <span>Web Application Security</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>REST API разработка</span>
+                                            <span>REST API Development</span>
                                         </div>
                                     </div>
                                 </div>
@@ -310,12 +305,12 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-chart-bar text-[#777BB4] mr-2"></i>
-                                    Уровень владения
+                                    Proficiency Level
                                 </h3>
                                 <div class="space-y-4">
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Общее владение</span>
+                                            <span class="text-sm">Overall Proficiency</span>
                                             <span class="text-sm font-bold text-[#777BB4]">70%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
@@ -357,24 +352,24 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-lightbulb text-[#777BB4] mr-2"></i>
-                                    Быстрые факты
+                                    Quick Facts
                                 </h3>
                                 <div class="space-y-3">
                                     <div class="flex items-center">
                                         <i class="fas fa-calendar text-[#777BB4] w-5 mr-3"></i>
-                                        <span class="text-sm">Опыт: <strong>25+ лет</strong></span>
+                                        <span class="text-sm">Experience: <strong>25+ years</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-code text-[#777BB4] w-5 mr-3"></i>
-                                        <span class="text-sm">Версия: <strong>PHP 8.3/8.4</strong></span>
+                                        <span class="text-sm">Version: <strong>PHP 8.3/8.4</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-project-diagram text-[#777BB4] w-5 mr-3"></i>
-                                        <span class="text-sm">Проектов: <strong>100+</strong></span>
+                                        <span class="text-sm">Projects: <strong>100+</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-history text-[#777BB4] w-5 mr-3"></i>
-                                        <span class="text-sm">С PHP: <strong>с 1998</strong></span>
+                                        <span class="text-sm">With PHP: <strong>since 1998</strong></span>
                                     </div>
                                 </div>
                             </div>
@@ -383,7 +378,7 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-network-wired text-[#777BB4] mr-2"></i>
-                                    Связанные компетенции
+                                    Related Competences
                                 </h3>
                                 <div class="space-y-2">
                                     <a href="/competences/laravel" class="flex items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors group">
@@ -392,7 +387,7 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-[#777BB4] transition-colors">Laravel</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">90% владения</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">90% proficiency</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-[#777BB4] transition-colors"></i>
                                     </a>
@@ -402,7 +397,7 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-[#777BB4] transition-colors">MySQL</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">88% владения</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">88% proficiency</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-[#777BB4] transition-colors"></i>
                                     </a>
@@ -412,7 +407,7 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-[#777BB4] transition-colors">Composer</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">80% владения</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">80% proficiency</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-[#777BB4] transition-colors"></i>
                                     </a>
@@ -421,13 +416,13 @@
 
                             <!-- Back to Competences -->
                             <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-6 text-center fade-in">
-                                <h3 class="font-semibold mb-3">Все компетенции</h3>
+                                <h3 class="font-semibold mb-3">All Competences</h3>
                                 <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                                    Изучите полный спектр моих технических навыков и компетенций
+                                    Explore the full spectrum of my technical skills and competences
                                 </p>
                                 <a href="/competences" class="inline-flex items-center px-4 py-2 bg-[#777BB4] hover:bg-[#4F5B93] text-white rounded-lg font-medium transition-colors text-sm">
                                     <i class="fas fa-arrow-left mr-2"></i>
-                                    <span>К списку компетенций</span>
+                                    <span>Back to Competences List</span>
                                 </a>
                             </div>
                         </div>

@@ -296,4 +296,21 @@ return [
         'captcha_question' => 'How much is :num1 + :num2?',
         'captcha_error' => 'Incorrect answer. Please try again.',
     ],
+    'missing' => [
+        'page_not_found' => 'Page not found',
+        'competence_page_not_found_message' => 'Unfortunately, the requested competence page does not exist or has been moved. Perhaps you entered an incorrect address or the page was deleted.',
+        'competence_not_described_message' => 'Perhaps this competence is not yet described in the system, or I have another solution based on the technology stack used. Write to me and I will definitely consider your request!',
+        'back_to_main' => 'To the main page',
+        'back_to_main_description' => 'Return to the home page',
+        'portfolio' => 'Portfolio',
+        'portfolio_description' => 'View my projects',
+        'blog' => 'Blog',
+        'blog_description' => 'Read articles and notes',
+        'need_help' => 'Need help?',
+        'contact_message' => 'If you cannot find what you are looking for, or have questions, contact me directly.',
+        'write_message' => 'Write a message',
+        'send_email' => 'Send email',
+        'portfolio_page_not_found_message' => 'Unfortunately, the requested project page does not exist or has been moved. Perhaps you entered an incorrect address or the page was deleted.',
+        'portfolio_not_described_message' => 'Perhaps this project is not yet described in the system. Write to me and I will definitely consider your request!'
+    ]
 ];

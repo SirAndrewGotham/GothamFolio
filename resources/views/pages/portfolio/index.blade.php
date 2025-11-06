@@ -33,7 +33,7 @@
                 @if($projects->count() > 0)
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         @foreach($projects as $project)
-                            @include('pages.portfolio.partials.project-card', ['project' => $project])
+                            <x-frontend.portfolio.project-card :project="$project" />
                         @endforeach
                     </div>
                 @else

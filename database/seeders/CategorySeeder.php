@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class CategorySeeder extends Seeder
 {
@@ -12,26 +13,27 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        $categories = [
-            ['en' => 'Backend', 'ru' => 'Бэкенд', 'eo' => 'Dorsflanko'],
-            ['en' => 'Frontend', 'ru' => 'Фронтенд', 'eo' => 'Antaŭflanko'],
-            ['en' => 'API Development', 'ru' => 'API Разработка', 'eo' => 'API-Disvolviĝo'],
-            ['en' => 'Testing', 'ru' => 'Тестирование', 'eo' => 'Testado'],
-            ['en' => 'DevOps', 'ru' => 'DevOps', 'eo' => 'DevOps'],
-            ['en' => 'Tools', 'ru' => 'Инструменты', 'eo' => 'Iloj'],
-        ];
+        $json = File::get(database_path('seeders/data/competences.json'));
+        $data = json_decode($json, true);
 
-        foreach ($categories as $categoryData) {
-            $category = Category::create([
-                'name' => $categoryData['en'], // Set the default name attribute
-                'slug' => \Illuminate\Support\Str::slug($categoryData['en']),
-                'is_active' => true,
-                'is_featured' => fake()->boolean(30),
-            ]);
+        foreach ($data['categories'] as $categoryData) {
+            $category = Category::firstOrCreate(
+                ['slug' => $categoryData['slug']],
+                [
+                    'name' => $categoryData['name']['en'], // Set default name for firstOrCreate
+                    'is_featured' => $categoryData['is_featured'] ?? false,
+                    'is_active' => $categoryData['is_active'] ?? true,
+                ]
+            );
 
-            $category->setTranslation('name', $categoryData['en'], 'en');
-            $category->setTranslation('name', $categoryData['ru'], 'ru');
-            $category->setTranslation('name', $categoryData['eo'], 'eo'); // Use proper Esperanto translation or a placeholder
+            foreach ($categoryData['name'] as $locale => $name) {
+                $category->setTranslation('name', $name, $locale);
+            }
+
+            foreach ($categoryData['description'] as $locale => $description) {
+                $category->setTranslation('description', $description, $locale);
+            }
+            $category->save();
         }
     }
 }

@@ -2,6 +2,12 @@
 
 use App\Models\User;
 use Livewire\Volt\Volt;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class)
+    ->beforeEach(function () {
+        $this->seed(\Database\Seeders\RoleSeeder::class);
+    });
 
 test('profile page is displayed', function () {
     $this->actingAs($user = User::factory()->create());

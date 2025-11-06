@@ -249,7 +249,7 @@ $submit = function () {
                     class="w-4 h-4 text-primary-500 rounded focus:ring-2 focus:ring-primary-500"
                 >
                 <label for="privacy" class="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                    {{ __('gothamfolio.feedback_form.privacy_agreement') }} <a href="/privacy" class="text-primary-500 hover:underline">{{ __('gothamfolio.feedback_form.privacy_policy') }}</a>
+                    {{ __('gothamfolio.feedback_form.privacy_agreement') }} <a href="/documents/privacy" class="text-primary-500 hover:underline">{{ __('gothamfolio.feedback_form.privacy_policy') }}</a>
                 </label>
             </div>
 

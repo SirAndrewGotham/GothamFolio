@@ -7,10 +7,11 @@ use Laravel\Fortify\Features;
 use Laravel\Fortify\Fortify;
 use Livewire\Attributes\Locked;
 use Livewire\Attributes\Validate;
+use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 use Symfony\Component\HttpFoundation\Response;
 
-new class extends Component {
+new #[Layout('components.backend.layouts.app')] class extends Component {
     #[Locked]
     public bool $twoFactorEnabled;
 

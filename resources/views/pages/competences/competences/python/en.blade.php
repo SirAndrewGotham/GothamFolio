@@ -15,7 +15,7 @@
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <a href="/competences" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
-                                    Компетенции
+                                    Competences
                                 </a>
                             </div>
                         </li>
@@ -59,13 +59,13 @@
                                 <div class="flex items-center justify-center sm:justify-end space-x-4">
                                         <span class="px-3 py-1 bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded-full text-sm font-medium">
                                             <i class="fas fa-seedling mr-1"></i>
-                                            Активно развиваю
+                                            Actively Developing
                                         </span>
                                 </div>
                             </div>
                             <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
-                                Универсальный язык программирования для веб-разработки, анализа данных и автоматизации.
-                                Активно изучаю и применяю в проектах с 2023 года.
+                                Versatile programming language for web development, data analysis, and automation.
+                                Actively learning and applying in projects since 2023.
                             </p>
 
                             <!-- Stats -->
@@ -76,7 +76,7 @@
                                     </div>
                                     <div>
                                         <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">70%</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Уровень владения</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Proficiency Level</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
@@ -84,8 +84,8 @@
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                     <div>
-                                        <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">1+ год</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Коммерческий опыт</div>
+                                        <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">1+ year</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Commercial Experience</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
@@ -93,7 +93,7 @@
                                         <i class="fas fa-graduation-cap"></i>
                                     </div>
                                     <div>
-                                        <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">Сертификат</div>
+                                        <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">Certificate</div>
                                         <div class="text-sm text-gray-600 dark:text-gray-400">Data Analytics</div>
                                     </div>
                                 </div>
@@ -115,36 +115,36 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-info-circle text-blue-500 mr-3"></i>
-                                    О Python
+                                    About Python
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        <strong>Python</strong> — это высокоуровневый язык программирования общего назначения,
-                                        который отличается простым и чистым синтаксисом, что делает его идеальным для начинающих
-                                        и профессионалов. Благодаря огромной экосистеме библиотек, Python применяется в веб-разработке,
-                                        анализе данных, машинном обучении, автоматизации и научных вычислениях.
+                                        <strong>Python</strong> is a high-level, general-purpose programming language
+                                        known for its simple and clean syntax, making it ideal for both beginners
+                                        and professionals. Thanks to its vast ecosystem of libraries, Python is used in web development,
+                                        data analysis, machine learning, automation, and scientific computing.
                                     </p>
 
-                                    <h3>Ключевые преимущества</h3>
+                                    <h3>Key Advantages</h3>
                                     <ul>
-                                        <li><strong>Простой синтаксис</strong> — легко читаемый и понятный код</li>
-                                        <li><strong>Многофункциональность</strong> — подходит для различных областей применения</li>
-                                        <li><strong>Богатая экосистема</strong> — огромное количество библиотек и фреймворков</li>
-                                        <li><strong>Кроссплатформенность</strong> — работает на разных операционных системах</li>
-                                        <li><strong>Сильное сообщество</strong> — активная поддержка и развитие</li>
-                                        <li><strong>Быстрое прототипирование</strong> — идеален для MVP и исследовательских проектов</li>
+                                        <li><strong>Simple Syntax</strong> — easily readable and understandable code</li>
+                                        <li><strong>Versatility</strong> — suitable for various application areas</li>
+                                        <li><strong>Rich Ecosystem</strong> — huge number of libraries and frameworks</li>
+                                        <li><strong>Cross-platform</strong> — works on different operating systems</li>
+                                        <li><strong>Strong Community</strong> — active support and development</li>
+                                        <li><strong>Rapid Prototyping</strong> — ideal for MVP and research projects</li>
                                     </ul>
 
-                                    <h3>Основные области применения</h3>
+                                    <h3>Main Application Areas</h3>
                                     <p>
-                                        Python универсален и эффективен в различных сферах:
+                                        Python is versatile and effective in various fields:
                                     </p>
                                     <ul>
-                                        <li><strong>Веб-разработка</strong> — Django, FastAPI, Flask</li>
-                                        <li><strong>Наука о данных</strong> — анализ, визуализация, машинное обучение</li>
-                                        <li><strong>Автоматизация</strong> — скрипты, боты, системное администрирование</li>
-                                        <li><strong>Научные вычисления</strong> — математическое моделирование, исследования</li>
-                                        <li><strong>Разработка игр</strong> — прототипирование, инструменты</li>
+                                        <li><strong>Web Development</strong> — Django, FastAPI, Flask</li>
+                                        <li><strong>Data Science</strong> — analysis, visualization, machine learning</li>
+                                        <li><strong>Automation</strong> — scripts, bots, system administration</li>
+                                        <li><strong>Scientific Computing</strong> — mathematical modeling, research</li>
+                                        <li><strong>Game Development</strong> — prototyping, tools</li>
                                     </ul>
                                 </div>
                             </div>
@@ -153,34 +153,34 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-road text-blue-500 mr-3"></i>
-                                    Мой путь с Python
+                                    My Python Journey
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        Начал изучать Python в 2023 году, сосредоточившись на анализе данных и веб-разработке.
-                                        Прошел сертификационный курс "Data Analytics with Python" в государственной школе Москвы,
-                                        где изучил основы анализа данных, визуализации и прогнозирования.
+                                        Started learning Python in 2023, focusing on data analysis and web development.
+                                        Completed the certification course "Data Analytics with Python" at a Moscow state school,
+                                        where I studied the fundamentals of data analysis, visualization, and forecasting.
                                     </p>
 
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                                         <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-6">
                                             <h3 class="text-lg font-bold mb-3 flex items-center">
                                                 <i class="fas fa-chart-bar text-blue-500 mr-2"></i>
-                                                Анализ Данных
+                                                Data Analysis
                                             </h3>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Изучил полный цикл анализа данных: сбор, очистка, анализ, визуализация
-                                                и построение прогнозных моделей с использованием библиотек Pandas, NumPy, Matplotlib.
+                                                Studied the full data analysis cycle: collection, cleaning, analysis, visualization
+                                                and building predictive models using Pandas, NumPy, Matplotlib libraries.
                                             </p>
                                         </div>
                                         <div class="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-6">
                                             <h3 class="text-lg font-bold mb-3 flex items-center">
                                                 <i class="fas fa-globe text-green-500 mr-2"></i>
-                                                Веб-разработка
+                                                Web Development
                                             </h3>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Освоил создание REST API с FastAPI и веб-приложений с Django.
-                                                Изучаю лучшие практики Python для бэкенд-разработки.
+                                                Mastered creating REST API with FastAPI and web applications with Django.
+                                                Studying Python best practices for backend development.
                                             </p>
                                         </div>
                                     </div>
@@ -191,51 +191,51 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-user-check text-blue-500 mr-3"></i>
-                                    Мой опыт с Python
+                                    My Python Experience
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        Активно развиваю навыки Python с 2023 года, применяя язык в различных проектах
-                                        и постоянно расширяя знания через практику и обучение.
+                                        Actively developing Python skills since 2023, applying the language in various projects
+                                        and continuously expanding knowledge through practice and learning.
                                     </p>
 
-                                    <h3>Основные навыки</h3>
+                                    <h3>Core Skills</h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Основы языка и ООП</span>
+                                            <span>Language Basics and OOP</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Анализ данных с Pandas</span>
+                                            <span>Data Analysis with Pandas</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Визуализация с Matplotlib/Seaborn</span>
+                                            <span>Visualization with Matplotlib/Seaborn</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>REST API с FastAPI</span>
+                                            <span>REST API with FastAPI</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Веб-фреймворк Django</span>
+                                            <span>Django Web Framework</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Автоматизация скриптов</span>
+                                            <span>Automation Scripts</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Работа с базами данных</span>
+                                            <span>Database Work</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Основы машинного обучения</span>
+                                            <span>Machine Learning Basics</span>
                                         </div>
                                     </div>
 
-                                    <h3>Технологический стек</h3>
+                                    <h3>Technology Stack</h3>
                                     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
                                         <span class="px-3 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm text-center">Pandas</span>
                                         <span class="px-3 py-2 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-lg text-sm text-center">NumPy</span>
@@ -247,12 +247,12 @@
                                         <span class="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm text-center">SQLAlchemy</span>
                                     </div>
 
-                                    <h3>Текущие проекты изучения</h3>
+                                    <h3>Current Learning Projects</h3>
                                     <ul>
-                                        <li><strong>Углубленное изучение FastAPI</strong> — создание высокопроизводительных API</li>
-                                        <li><strong>Машинное обучение</strong> — изучение Scikit-learn и основ нейронных сетей</li>
-                                        <li><strong>Асинхронное программирование</strong> — освоение asyncio для веб-приложений</li>
-                                        <li><strong>Тестирование</strong> — pytest и best practices для тестирования Python-кода</li>
+                                        <li><strong>Advanced FastAPI Study</strong> — creating high-performance APIs</li>
+                                        <li><strong>Machine Learning</strong> — studying Scikit-learn and neural network basics</li>
+                                        <li><strong>Asynchronous Programming</strong> — mastering asyncio for web applications</li>
+                                        <li><strong>Testing</strong> — pytest and best practices for Python code testing</li>
                                     </ul>
                                 </div>
                             </div>
@@ -261,7 +261,7 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-award text-yellow-500 mr-3"></i>
-                                    Сертификация
+                                    Certification
                                 </h2>
                                 <div class="content-section">
                                     <div class="flex flex-col md:flex-row items-center gap-6">
@@ -273,12 +273,12 @@
                                         <div>
                                             <h3 class="text-xl font-bold mb-2">Data Analytics with Python</h3>
                                             <p class="text-gray-600 dark:text-gray-400 mb-3">
-                                                Государственная школа Москвы • 2023
+                                                Moscow State School • 2023
                                             </p>
                                             <p>
-                                                Комплексный курс, охватывающий полный цикл анализа данных: от сбора и очистки
-                                                до визуализации и построения прогнозных моделей. Изучены основные библиотеки
-                                                для работы с данными и статистического анализа.
+                                                Comprehensive course covering the full data analysis cycle: from collection and cleaning
+                                                to visualization and building predictive models. Studied main libraries
+                                                for data work and statistical analysis.
                                             </p>
                                         </div>
                                     </div>
@@ -289,21 +289,21 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fab fa-github text-blue-500 mr-3"></i>
-                                    Проекты на GitHub
+                                    GitHub Projects
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        Некоторые из моих Python проектов можно найти на GitHub:
+                                        Some of my Python projects can be found on GitHub:
                                     </p>
                                     <div class="mt-4">
                                         <a href="https://github.com/SirAndrewGotham" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg font-medium transition-colors">
                                             <i class="fab fa-github mr-2"></i>
-                                            <span>SirAndrewGotham на GitHub</span>
+                                            <span>SirAndrewGotham on GitHub</span>
                                         </a>
                                     </div>
                                     <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
-                                        Постоянно добавляю новые Python проекты, отражающие мой прогресс в изучении языка
-                                        и его применении в реальных задачах.
+                                        Constantly adding new Python projects reflecting my progress in learning the language
+                                        and its application in real-world tasks.
                                     </p>
                                 </div>
                             </div>
@@ -315,12 +315,12 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-chart-bar text-blue-500 mr-2"></i>
-                                    Уровень владения
+                                    Proficiency Level
                                 </h3>
                                 <div class="space-y-4">
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Общее владение</span>
+                                            <span class="text-sm">Overall Proficiency</span>
                                             <span class="text-sm font-bold text-blue-500">70%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
@@ -330,7 +330,7 @@
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Анализ данных</span>
+                                            <span class="text-sm">Data Analysis</span>
                                             <span class="text-sm font-bold text-green-500">75%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -339,7 +339,7 @@
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Веб-разработка</span>
+                                            <span class="text-sm">Web Development</span>
                                             <span class="text-sm font-bold text-purple-500">65%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -348,7 +348,7 @@
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Автоматизация</span>
+                                            <span class="text-sm">Automation</span>
                                             <span class="text-sm font-bold text-yellow-500">70%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -357,7 +357,7 @@
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Библиотеки данных</span>
+                                            <span class="text-sm">Data Libraries</span>
                                             <span class="text-sm font-bold text-red-500">72%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -371,28 +371,28 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-lightbulb text-blue-500 mr-2"></i>
-                                    Быстрые факты
+                                    Quick Facts
                                 </h3>
                                 <div class="space-y-3">
                                     <div class="flex items-center">
                                         <i class="fas fa-calendar text-blue-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Опыт: <strong>1+ год</strong></span>
+                                        <span class="text-sm">Experience: <strong>1+ year</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-code text-blue-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Версия: <strong>Python 3.11+</strong></span>
+                                        <span class="text-sm">Version: <strong>Python 3.11+</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-project-diagram text-blue-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Проектов: <strong>10+</strong></span>
+                                        <span class="text-sm">Projects: <strong>10+</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-certificate text-blue-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Сертификат: <strong>Data Analytics</strong></span>
+                                        <span class="text-sm">Certificate: <strong>Data Analytics</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-rocket text-blue-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Статус: <strong>Активно развиваю</strong></span>
+                                        <span class="text-sm">Status: <strong>Actively Developing</strong></span>
                                     </div>
                                 </div>
                             </div>
@@ -401,44 +401,44 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-graduation-cap text-blue-500 mr-2"></i>
-                                    План развития
+                                    Development Plan
                                 </h3>
                                 <div class="space-y-3">
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-check text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Основы Python и ООП</span>
+                                        <span class="text-sm">Python Basics and OOP</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-check text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Анализ данных (Pandas, NumPy)</span>
+                                        <span class="text-sm">Data Analysis (Pandas, NumPy)</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-check text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Визуализация (Matplotlib, Seaborn)</span>
+                                        <span class="text-sm">Visualization (Matplotlib, Seaborn)</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-spinner text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Веб-фреймворки (FastAPI, Django)</span>
+                                        <span class="text-sm">Web Frameworks (FastAPI, Django)</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-clock text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Машинное обучение</span>
+                                        <span class="text-sm">Machine Learning</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-clock text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Асинхронное программирование</span>
+                                        <span class="text-sm">Asynchronous Programming</span>
                                     </div>
                                 </div>
                             </div>
@@ -447,7 +447,7 @@
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-network-wired text-blue-500 mr-2"></i>
-                                    Связанные компетенции
+                                    Related Competences
                                 </h3>
                                 <div class="space-y-2">
                                     <a href="/competences/data-science" class="flex items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors group">
@@ -456,7 +456,7 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-blue-500 transition-colors">Data Science</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">65% владения</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">65% proficiency</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-blue-500 transition-colors"></i>
                                     </a>
@@ -466,7 +466,7 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-blue-500 transition-colors">SQL</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">80% владения</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">80% proficiency</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-blue-500 transition-colors"></i>
                                     </a>
@@ -476,7 +476,7 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-blue-500 transition-colors">API Development</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">85% владения</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">85% proficiency</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-blue-500 transition-colors"></i>
                                     </a>
@@ -485,11 +485,11 @@
 
                             <!-- Call to Action -->
                             <div class="bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl shadow-lg p-6 text-white fade-in">
-                                <h3 class="text-lg font-bold mb-2">Интересует сотрудничество?</h3>
-                                <p class="text-sm mb-4">Готов обсудить проекты с использованием Python</p>
+                                <h3 class="text-lg font-bold mb-2">Interested in collaboration?</h3>
+                                <p class="text-sm mb-4">Ready to discuss projects using Python</p>
                                 <a href="/contact" class="inline-flex items-center justify-center w-full px-4 py-2 bg-white text-blue-600 font-medium rounded-lg hover:bg-gray-100 transition-colors">
                                     <i class="fas fa-envelope mr-2"></i>
-                                    Связаться со мной
+                                    Contact Me
                                 </a>
                             </div>
                         </div>

@@ -15,24 +15,25 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+//        User::factory()->create([
+//            'name' => 'Test User',
+//            'email' => 'test@example.com',
+//        ]);
 
         $this->call([
+            RoleSeeder::class,
             LanguageSeeder::class,
             UserSeeder::class,
-            PostSeeder::class,
-            CommentSeeder::class,
-            SubscriptionSeeder::class,
-            VoteSeeder::class,
+            //            PostSeeder::class,
+            //            CommentSeeder::class,
+            //            SubscriptionSeeder::class,
+            //            VoteSeeder::class,
             //            ViewSeeder::class,
+            ProjectTypeSeeder::class,
+            ProjectSeeder::class,
             CategorySeeder::class,
             TagSeeder::class,
             CompetenceSeeder::class,
-            ProjectTypeSeeder::class,
-            ProjectSeeder::class,
         ]);
     }
 }

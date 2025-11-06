@@ -51,7 +51,7 @@ return [
         'min_read' => 'min lego',
         'views' => 'vidoj',
         'read_more' => 'Legu plu',
-        'no_articles_yet' => 'Neniam artikoloj ankoraŭ',
+        'no_articles_yet' => 'Artikoloj ankoraŭ mankas',
         'no_articles_description' => 'Revenu baldaŭ por nova enhavo. Ni laboras pri iuj bonegaj artikoloj por vi!',
         'article' => 'Artikolo',
         'table_of_contents' => 'Enhavotabelo',
@@ -284,4 +284,21 @@ return [
         'captcha_question' => 'Kiom estas :num1 + :num2?',
         'captcha_error' => 'Malĝusta respondo. Bonvolu provi denove.',
     ],
+    'missing' => [
+        'page_not_found' => 'Paĝo ne trovita',
+        'competence_page_not_found_message' => 'Bedaŭrinde, la petita kompetenta paĝo ne ekzistas aŭ estis movita. Eble vi enmetis malĝustan adreson aŭ la paĝo estis forigita.',
+        'competence_not_described_message' => 'Eble ĉi tiu kompetento ankoraŭ ne estas priskribita en la sistemo, aŭ mi havas alian solvon bazitan sur la uzata teknologia stako. Skribu al mi kaj mi certe konsideros vian peton!',
+        'back_to_main' => 'Al la ĉefa paĝo',
+        'back_to_main_description' => 'Reiri al la hejmpaĝo',
+        'portfolio' => 'Portfolio',
+        'portfolio_description' => 'Rigardi miajn projektojn',
+        'blog' => 'Blogo',
+        'blog_description' => 'Legi artikolojn kaj notojn',
+        'need_help' => 'Ĉu vi bezonas helpon?',
+        'contact_message' => 'Se vi ne povas trovi tion, kion vi serĉas, aŭ havas demandojn, kontaktu min rekte.',
+        'write_message' => 'Skribu mesaĝon',
+        'send_email' => 'Sendi retpoŝton',
+        'portfolio_page_not_found_message' => 'Bedaŭrinde, la petita projektpaĝo ne ekzistas aŭ estis movita. Eble vi enmetis malĝustan adreson aŭ la paĝo estis forigita.',
+        'portfolio_not_described_message' => 'Eble ĉi tiu projekto ankoraŭ ne estas priskribita en la sistemo. Skribu al mi kaj mi certe konsideros vian peton!'
+    ]
 ];

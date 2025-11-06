@@ -34,7 +34,7 @@ middleware(function ($request, $next) {
             'featured' => $competence->is_featured,
             'category' => $competence->categories->first()?->slug ?? 'other',
             'tags' => $competence->tags->pluck('name')->toArray() ?? [],
-            'link' => url('competences/competences/' . $competence->slug . '/' . app()->getLocale()),
+            'link' => url('competences/' . $competence->slug),
         ];
     });
 
@@ -133,7 +133,7 @@ middleware(function ($request, $next) {
                     </div>
 
                     <!-- Search and Sort -->
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex flex-col gap-4">
                         <!-- Search -->
                         <div class="relative">
                             <input
@@ -141,7 +141,7 @@ middleware(function ($request, $next) {
                                 x-model="searchQuery"
                                 @input="currentPage = 1"
                                 placeholder="{{ __('gothamfolio.competences.search_placeholder') }}"
-                                class="pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors w-full sm:w-64"
+                                class="pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors w-full"
                             >
                             <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                         </div>
@@ -201,7 +201,9 @@ middleware(function ($request, $next) {
                 <!-- Competences Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8" x-show="paginatedCompetences.length > 0">
                     <template x-for="competence in paginatedCompetences" :key="competence.id">
-                        @include('pages.competences.partials.competence-card')
+{{--                        {{ dd($competence) }}--}}
+{{--                        <x-frontend.competences.competence-card :competence="$competence" />--}}
+                        @include('components.frontend.competences.competence-card')
                     </template>
                 </div>
 

@@ -9,4 +9,9 @@ Route::middleware('web')
         Route::get('/', function () {
             return view('admin.dashboard');
         })->name('dashboard');
+
+
+        Route::get('blog', function () {
+            return view('admin.blog.index');
+        })->name('blog');
     });

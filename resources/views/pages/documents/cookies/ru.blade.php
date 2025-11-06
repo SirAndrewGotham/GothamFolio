@@ -32,7 +32,7 @@
                         <i class="fas fa-cookie-bite text-2xl"></i>
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold mb-6">Политика использования Cookies</h1>
-                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">Последнее обновление: 15 января 2024 года</p>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">Последнее обновление: 5 ноября 2025 года</p>
                     <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
                         <div class="flex items-center"><i class="fas fa-clock text-primary-500 mr-2"></i><span>Время чтения: 6 минут</span></div>
                         <div class="flex items-center"><i class="fas fa-info-circle text-primary-500 mr-2"></i><span>Информационный документ</span></div>
