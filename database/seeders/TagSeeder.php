@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Tag;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\File;
 
 class TagSeeder extends Seeder
 {
@@ -12,17 +13,14 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-        $tags = [
-            'Backend', 'Frontend', 'Database', 'API', 'Deployment',
-            'Testing', 'UI/UX', 'Version Control', 'Cloud', 'Frameworks',
-            'JavaScript', 'PHP', 'Python', 'CSS', 'HTML', 'SQL',
-        ];
+        $json = File::get(database_path('seeders/data/competences.json'));
+        $data = json_decode($json, true);
 
-        foreach ($tags as $tagName) {
-            Tag::factory()->create([
-                'name' => $tagName,
-                'slug' => \Illuminate\Support\Str::slug($tagName),
-            ]);
+        foreach ($data['tags'] as $tagData) {
+            Tag::firstOrCreate(
+                ['slug' => $tagData['slug']],
+                ['name' => $tagData['name']]
+            );
         }
     }
 }

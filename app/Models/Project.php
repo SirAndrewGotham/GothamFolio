@@ -49,7 +49,7 @@ class Project extends Model
         while (static::where('slug', $slug)
             ->where($this->getKeyName(), '!=', $this->getKey())
             ->exists()) {
-            $slug = $originalSlug . '-' . $suffix++;
+            $slug = $originalSlug.'-'.$suffix++;
         }
 
         return $slug;

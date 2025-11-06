@@ -63,7 +63,7 @@ class Competence extends Model
     {
         $name = $this->getTranslation('name', 'en') ?? $this->getAttribute('name');
 
-        if (!empty($name)) {
+        if (! empty($name)) {
             return $name;
         }
 
@@ -77,7 +77,7 @@ class Competence extends Model
     public function generateSlugFromTranslation(string $locale = 'en'): void
     {
         $name = $this->getTranslation('name', $locale);
-        if (!empty($name)) {
+        if (! empty($name)) {
             $this->slug = $this->generateUniqueSlugFromString($name);
             $this->save();
         }

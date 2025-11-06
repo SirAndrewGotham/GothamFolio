@@ -3,6 +3,12 @@
 use App\Models\User;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class)
+    ->beforeEach(function () {
+        $this->seed(\Database\Seeders\RoleSeeder::class);
+    });
 
 test('two factor challenge redirects to login when not authenticated', function () {
     if (! Features::canManageTwoFactorAuthentication()) {

@@ -1,4 +1,4 @@
-<x-frontend.layouts.app title="{{ __('gothamfolio.documents.policy.title') }}">
+<x-frontend.layouts.app>
     <!-- Main Content -->
     <main class="w-full pt-20">
         <!-- Breadcrumbs -->
@@ -15,7 +15,7 @@
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <a href="/documents" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
-                                    {{ __('gothamfolio.documents.title') }}
+                                    Documents
                                 </a>
                             </div>
                         </li>
@@ -23,7 +23,7 @@
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <span class="text-gray-700 dark:text-gray-300 text-sm font-medium">
-                                        {{ __('gothamfolio.documents.policy.title') }}
+                                        Privacy Policy
                                     </span>
                             </div>
                         </li>
@@ -39,18 +39,18 @@
                     <div class="w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mx-auto mb-6">
                         <i class="fas fa-shield-alt text-2xl"></i>
                     </div>
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6">{{ __('gothamfolio.documents.policy.title') }}</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Privacy Policy</h1>
                     <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                        {{ __('gothamfolio.documents.policy.last_updated', ['date' => 'January 15, 2024']) }}
+                        Last updated: November 5, 2025
                     </p>
                     <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
                         <div class="flex items-center">
                             <i class="fas fa-clock text-primary-500 mr-2"></i>
-                            <span>{{ __('gothamfolio.documents.policy.reading_time', ['minutes' => 8]) }}</span>
+                            <span>Reading time: 8 minutes</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-file-alt text-primary-500 mr-2"></i>
-                            <span>{{ __('gothamfolio.documents.policy.legal_document') }}</span>
+                            <span>Legal document</span>
                         </div>
                     </div>
                 </div>
@@ -64,19 +64,19 @@
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 md:p-12 fade-in">
                         <!-- Quick Navigation -->
                         <div class="mb-8 p-6 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                            <h3 class="font-semibold mb-4 text-gray-800 dark:text-gray-200">{{ __('gothamfolio.documents.policy.quick_navigation') }}:</h3>
+                            <h3 class="font-semibold mb-4 text-gray-800 dark:text-gray-200">Quick navigation:</h3>
                             <div class="flex flex-wrap gap-2">
                                 <a href="#data-collection" class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">
-                                    {{ __('gothamfolio.documents.policy.data_collection_nav') }}
+                                    Data Collection
                                 </a>
                                 <a href="#data-usage" class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">
-                                    {{ __('gothamfolio.documents.policy.data_usage_nav') }}
+                                    Usage
                                 </a>
                                 <a href="#cookies" class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">
-                                    {{ __('gothamfolio.documents.policy.cookies_nav') }}
+                                    Cookies
                                 </a>
                                 <a href="#rights" class="px-3 py-1 bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 rounded-full text-sm hover:bg-primary-200 dark:hover:bg-primary-800/50 transition-colors">
-                                    {{ __('gothamfolio.documents.policy.your_rights_nav') }}
+                                    Your Rights
                                 </a>
                             </div>
                         </div>
@@ -84,95 +84,95 @@
                         <!-- Document Content -->
                         <div class="document-content prose dark:prose-invert max-w-none">
                             <p class="text-lg mb-6">
-                                {{ __('gothamfolio.documents.policy.introduction') }}
+                                This Privacy Policy explains how we collect, use, store, and protect your personal information on the Andrew Gotham website.
                             </p>
 
-                            <h2 id="data-collection">{{ __('gothamfolio.documents.policy.collection_heading') }}</h2>
+                            <h2 id="data-collection">1. Information Collection</h2>
 
-                            <h3>{{ __('gothamfolio.documents.policy.personal_info_subheading') }}</h3>
-                            <p>{{ __('gothamfolio.documents.policy.personal_info_description') }}</p>
+                            <h3>1.1. Personal Information</h3>
+                            <p>We may collect the following personal information:</p>
                             <ul>
-                                <li><strong>{{ __('gothamfolio.documents.policy.contact_data') }}:</strong> {{ __('gothamfolio.documents.policy.contact_data_details') }}</li>
-                                <li><strong>{{ __('gothamfolio.documents.policy.professional_info') }}:</strong> {{ __('gothamfolio.documents.policy.professional_info_details') }}</li>
-                                <li><strong>{{ __('gothamfolio.documents.policy.technical_data') }}:</strong> {{ __('gothamfolio.documents.policy.technical_data_details') }}</li>
-                                <li><strong>{{ __('gothamfolio.documents.policy.usage_data') }}:</strong> {{ __('gothamfolio.documents.policy.usage_data_details') }}</li>
+                                <li><strong>Contact details:</strong> name, email address, phone number</li>
+                                <li><strong>Professional information:</strong> position, company, work experience</li>
+                                <li><strong>Technical data:</strong> IP address, browser type, device data</li>
+                                <li><strong>Usage data:</strong> information about how you use our website</li>
                             </ul>
 
-                            <h3>{{ __('gothamfolio.documents.policy.automatic_collection_subheading') }}</h3>
-                            <p>{{ __('gothamfolio.documents.policy.automatic_collection_description') }}</p>
+                            <h3>1.2. Automatic Data Collection</h3>
+                            <p>When you visit our website, we automatically collect:</p>
                             <ul>
-                                <li>{{ __('gothamfolio.documents.policy.device_connection_data') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.browsing_history') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.site_interaction') }}</li>
+                                <li>Data about your device and internet connection</li>
+                                <li>Browsing history and search queries</li>
+                                <li>Information about your interaction with the website</li>
                             </ul>
 
-                            <h2 id="data-usage">{{ __('gothamfolio.documents.policy.usage_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.usage_description') }}</p>
+                            <h2 id="data-usage">2. Information Usage</h2>
+                            <p>We use the collected information for:</p>
                             <ul>
-                                <li>{{ __('gothamfolio.documents.policy.provide_improve_services') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.process_requests') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.personalize_experience') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.analyze_optimize_site') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.legal_obligations') }}</li>
+                                <li>Providing and improving our services</li>
+                                <li>Processing requests and messages</li>
+                                <li>Personalizing the user experience</li>
+                                <li>Analyzing website usage and optimizing its performance</li>
+                                <li>Complying with legal obligations</li>
                             </ul>
 
-                            <h2 id="cookies">{{ __('gothamfolio.documents.policy.cookies_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.cookies_description') }}</p>
+                            <h2 id="cookies">3. Cookies and Similar Technologies</h2>
+                            <p>We use cookies for:</p>
                             <ul>
-                                <li>{{ __('gothamfolio.documents.policy.remember_preferences') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.analyze_traffic') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.personalized_content') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.improve_functionality') }}</li>
+                                <li>Remembering your preferences and settings</li>
+                                <li>Analyzing traffic and website usage</li>
+                                <li>Providing personalized content</li>
+                                <li>Improving website functionality</li>
                             </ul>
-                            <p>{{ __('gothamfolio.documents.policy.manage_cookies_browser') }}</p>
+                            <p>You can manage cookie settings through your browser. However, disabling cookies may limit website functionality.</p>
 
-                            <h2>{{ __('gothamfolio.documents.policy.data_protection_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.data_protection_description') }}</p>
+                            <h2>4. Data Protection</h2>
+                            <p>We have implemented appropriate technical and organizational security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.</p>
 
-                            <h2>{{ __('gothamfolio.documents.policy.third_party_sharing_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.third_party_sharing_description') }}</p>
+                            <h2>5. Data Sharing with Third Parties</h2>
+                            <p>We do not sell or transfer your personal information to third parties, except:</p>
                             <ul>
-                                <li>{{ __('gothamfolio.documents.policy.explicit_consent') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.legal_obligations_sharing') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.service_providers') }}</li>
+                                <li>With your explicit consent</li>
+                                <li>To fulfill legal obligations</li>
+                                <li>To service providers who help us with website operation (provided they maintain confidentiality)</li>
                             </ul>
 
-                            <h2 id="rights">{{ __('gothamfolio.documents.policy.your_rights_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.your_rights_description') }}</p>
+                            <h2 id="rights">6. Your Rights</h2>
+                            <p>You have the right to:</p>
                             <ul>
-                                <li>{{ __('gothamfolio.documents.policy.access_personal_info') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.correct_inaccurate_data') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.delete_data') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.restrict_processing') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.data_portability') }}</li>
-                                <li>{{ __('gothamfolio.documents.policy.object_to_processing') }}</li>
+                                <li>Access your personal information</li>
+                                <li>Correct inaccurate data</li>
+                                <li>Delete your data</li>
+                                <li>Restrict processing</li>
+                                <li>Data portability</li>
+                                <li>Object to processing</li>
                             </ul>
-                            <p>{{ __('gothamfolio.documents.policy.contact_for_rights', ['email' => 'privacy@andrewgotham.com']) }}</p>
+                            <p>To exercise these rights, contact us at: <a href="mailto:privacy@andrewgotham.com" class="text-primary-500 hover:underline">privacy@andrewgotham.com</a></p>
 
-                            <h2>{{ __('gothamfolio.documents.policy.data_retention_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.data_retention_description') }}</p>
+                            <h2>7. Data Storage</h2>
+                            <p>We store your personal information only for the time necessary to achieve the purposes for which it was collected, or to comply with legal requirements.</p>
 
-                            <h2>{{ __('gothamfolio.documents.policy.international_transfer_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.international_transfer_description') }}</p>
+                            <h2>8. International Data Transfer</h2>
+                            <p>Your information may be processed and stored in countries outside your country of residence. We ensure appropriate protection during international data transfers.</p>
 
-                            <h2>{{ __('gothamfolio.documents.policy.third_party_links_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.third_party_links_description') }}</p>
+                            <h2>9. Links to Third-Party Websites</h2>
+                            <p>Our website may contain links to third-party websites. We are not responsible for the privacy policies or content of these sites.</p>
 
-                            <h2>{{ __('gothamfolio.documents.policy.policy_changes_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.policy_changes_description') }}</p>
+                            <h2>10. Changes to the Privacy Policy</h2>
+                            <p>We may periodically update this Privacy Policy. We will notify you of significant changes through our website or by email.</p>
 
-                            <h2>{{ __('gothamfolio.documents.policy.contact_info_heading') }}</h2>
-                            <p>{{ __('gothamfolio.documents.policy.contact_info_description') }}</p>
+                            <h2>11. Contact Information</h2>
+                            <p>If you have questions regarding this Privacy Policy, please contact us:</p>
                             <div class="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-lg mt-4">
-                                <p><strong>{{ __('gothamfolio.documents.policy.email_label') }}:</strong> <a href="mailto:privacy@andrewgotham.com" class="text-primary-500 hover:underline">privacy@andrewgotham.com</a></p>
-                                <p><strong>{{ __('gothamfolio.documents.policy.postal_address_label') }}:</strong> {{ __('gothamfolio.documents.policy.your_legal_address') }}</p>
-                                <p><strong>{{ __('gothamfolio.documents.policy.phone_label') }}:</strong> {{ __('gothamfolio.documents.policy.your_contact_phone') }}</p>
+                                <p><strong>Email:</strong> <a href="mailto:privacy@andrewgotham.com" class="text-primary-500 hover:underline">privacy@andrewgotham.com</a></p>
+                                <p><strong>Mailing address:</strong> [Your legal address]</p>
+                                <p><strong>Phone:</strong> [Your contact phone]</p>
                             </div>
 
                             <div class="mt-12 p-6 bg-primary-50 dark:bg-primary-900/20 rounded-lg border border-primary-200 dark:border-primary-800">
-                                <h3 class="font-semibold text-primary-800 dark:text-primary-200 mb-2">{{ __('gothamfolio.documents.policy.consent_heading') }}</h3>
+                                <h3 class="font-semibold text-primary-800 dark:text-primary-200 mb-2">Agreement with Terms</h3>
                                 <p class="text-primary-700 dark:text-primary-300">
-                                    {{ __('gothamfolio.documents.policy.consent_description') }}
+                                    By using this website, you agree to the terms of this Privacy Policy. If you do not agree with these terms, please do not use our website.
                                 </p>
                             </div>
                         </div>
@@ -180,17 +180,17 @@
 
                     <!-- Related Documents -->
                     <div class="mt-12 fade-in">
-                        <h3 class="text-2xl font-bold mb-8 text-center">{{ __('gothamfolio.documents.other_documents') }}</h3>
+                        <h3 class="text-2xl font-bold mb-8 text-center">Other Documents</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <a href="/documents/tos" class="group bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-transparent hover:border-primary-200 dark:hover:border-primary-800">
                                 <div class="flex items-center mb-4">
                                     <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mr-4">
                                         <i class="fas fa-file-contract"></i>
                                     </div>
-                                    <h4 class="text-lg font-semibold group-hover:text-primary-500 transition-colors">{{ __('gothamfolio.documents.tos.title') }}</h4>
+                                    <h4 class="text-lg font-semibold group-hover:text-primary-500 transition-colors">Terms of Service</h4>
                                 </div>
                                 <p class="text-gray-600 dark:text-gray-400 text-sm">
-                                    {{ __('gothamfolio.documents.tos.description') }}
+                                    Rules and conditions for using Andrew Gotham's website and services
                                 </p>
                             </a>
 
@@ -199,10 +199,10 @@
                                     <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mr-4">
                                         <i class="fas fa-cookie"></i>
                                     </div>
-                                    <h4 class="text-lg font-semibold group-hover:text-primary-500 transition-colors">{{ __('gothamfolio.documents.cookies.title') }}</h4>
+                                    <h4 class="text-lg font-semibold group-hover:text-primary-500 transition-colors">Cookies Policy</h4>
                                 </div>
                                 <p class="text-gray-600 dark:text-gray-400 text-sm">
-                                    {{ __('gothamfolio.documents.cookies.description') }}
+                                    Detailed information about the use of cookies on our website
                                 </p>
                             </a>
                         </div>

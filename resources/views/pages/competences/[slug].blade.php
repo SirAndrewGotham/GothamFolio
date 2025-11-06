@@ -8,34 +8,23 @@
 
     if($category)
     {
-//        dd($category);
         $viewPath = "pages.competences.categories";
-//        dd([
-//    'viewPath' => $viewPath,
-//    'viewExists' => View::exists($viewPath),
-//    'category' => $category
-//]);
-//        dd($viewPath);
     } else {
         $viewPath = "pages.competences.competences.{$slug}.{$locale}";
     }
-
-//    $viewPath = "pages.competences.competences.{$slug}.{$locale}";
 @endphp
 
 @if(View::exists($viewPath))
     @include($viewPath)
 @else
     @php
-        $fallbackPath = "pages.competences.missing";
+        $fallbackPath = "pages.competences.competences.{$slug}.en";
     @endphp
 
     @if(View::exists($fallbackPath))
         @include($fallbackPath)
     @else
-        <div class="text-center py-20">
-            <p class="text-gray-500">Competence Category content not available.</p>
-        </div>
+        <x-frontend.competences.missing />
     @endif
 @endif
 

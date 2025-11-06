@@ -32,7 +32,7 @@
                         <i class="fas fa-file-contract text-2xl"></i>
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold mb-6">Условия использования</h1>
-                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">Последнее обновление: 15 января 2024 года</p>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">Последнее обновление: 5 ноября 2025 года</p>
                     <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
                         <div class="flex items-center"><i class="fas fa-clock text-primary-500 mr-2"></i><span>Время чтения: 10 минут</span></div>
                         <div class="flex items-center"><i class="fas fa-scale-balanced text-primary-500 mr-2"></i><span>Юридический документ</span></div>
@@ -128,7 +128,7 @@
                             <p>По вопросам, связанным с настоящими Условиями использования, обращайтесь:</p>
                             <div class="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-lg mt-4">
                                 <p><strong>Электронная почта:</strong> <a href="mailto:legal@andrewgotham.com" class="text-primary-500 hover:underline">legal@andrewgotham.com</a></p>
-                                <p><strong>Почтовый адрес:</strong> [Ваш юридический адрес]</p>
+{{--                                <p><strong>Почтовый адрес:</strong> [Ваш юридический адрес]</p>--}}
                             </div>
 
                             <div class="mt-12 p-6 bg-primary-50 dark:bg-primary-900/20 rounded-lg border border-primary-200 dark:border-primary-800">

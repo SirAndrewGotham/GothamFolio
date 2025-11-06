@@ -5,7 +5,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 
-uses(RefreshDatabase::class);
+uses(RefreshDatabase::class)
+    ->beforeEach(function () {
+        $this->seed(\Database\Seeders\RoleSeeder::class);
+    });
 
 it('uses notifiable and two factor authenticatable traits', function () {
     $uses = class_uses(User::class);
@@ -20,6 +23,7 @@ it('has fillable attributes', function () {
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     expect($user->getFillable())->toEqual($fillable);

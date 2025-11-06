@@ -3,136 +3,138 @@
 use App\Models\Comment;
 use App\Models\Post;
 use Livewire\WithPagination;
+use Livewire\Attributes\Layout;
 use function Livewire\Volt\{state, rules, mount, computed};
 
-state([
-    'post' => null,
-    'content' => '',
-    'name' => '',
-    'email' => '',
-    'parentId' => null,
-    'refreshTrigger' => 0,
-]);
+new #[Layout('components.frontend.layouts.app')] class extends Component {
+    state([
+        'post' => null,
+        'content' => '',
+        'name' => '',
+        'email' => '',
+        'parentId' => null,
+        'refreshTrigger' => 0,
+    ]);
 
-mount(function (Post $post) {
-    $this->post = $post;
-});
+    mount(function (Post $post) {
+        $this->post = $post;
+    });
 
-// Use computed property for paginated comments
-$comments = computed(function () {
-    return $this->post->comments()
-        ->whereNull('parent_id')
-        ->approved()
-        ->with(['author',
-            'replies' => function ($query) {
-                $query->with(['author', 'votes'])
-                    ->withCount(['upvotes as upvotes_count', 'downvotes as downvotes_count']);
-            },
-            'votes'])
-        ->withCount(['upvotes as upvotes_count', 'downvotes as downvotes_count'])
-        ->latest()
-        ->paginate(3);
-});
+    // Use computed property for paginated comments
+    $comments = computed(function () {
+        return $this->post->comments()
+            ->whereNull('parent_id')
+            ->approved()
+            ->with(['author',
+                'replies' => function ($query) {
+                    $query->with(['author', 'votes'])
+                        ->withCount(['upvotes as upvotes_count', 'downvotes as downvotes_count']);
+                },
+                'votes'])
+            ->withCount(['upvotes as upvotes_count', 'downvotes as downvotes_count'])
+            ->latest()
+            ->paginate(3);
+    });
 
-$redirectToLogin = function () {
-    return redirect()->route('login');
-};
+    $redirectToLogin = function () {
+        return redirect()->route('login');
+    };
 
-rules([
-    'content' => 'required|string|max:1000',
-    'name' => 'required_if:parentId,null|string|max:255|nullable',
-    'email' => 'required_if:parentId,null|email|max:255|nullable',
-]);
+    rules([
+        'content' => 'required|string|max:1000',
+        'name' => 'required_if:parentId,null|string|max:255|nullable',
+        'email' => 'required_if:parentId,null|email|max:255|nullable',
+    ]);
 
-$store = function () {
-    $this->validate();
+    $store = function () {
+        $this->validate();
 
-    $commentData = [
-        'content' => $this->content,
-        'post_id' => $this->post->id,
-        'parent_id' => $this->parentId,
-    ];
+        $commentData = [
+            'content' => $this->content,
+            'post_id' => $this->post->id,
+            'parent_id' => $this->parentId,
+        ];
 
-    if (auth()->check()) {
-        $commentData['user_id'] = auth()->id();
-        $commentData['is_approved'] = true;
-    } else {
-        $commentData['name'] = $this->name;
-        $commentData['email'] = $this->email;
-        $commentData['is_approved'] = false;
-    }
+        if (auth()->check()) {
+            $commentData['user_id'] = auth()->id();
+            $commentData['is_approved'] = true;
+        } else {
+            $commentData['name'] = $this->name;
+            $commentData['email'] = $this->email;
+            $commentData['is_approved'] = false;
+        }
 
-    $comment = Comment::create($commentData);
+        $comment = Comment::create($commentData);
 
-    // Reset form fields
-    $this->content = '';
-    $this->name = '';
-    $this->email = '';
-    $this->parentId = null;
+        // Reset form fields
+        $this->content = '';
+        $this->name = '';
+        $this->email = '';
+        $this->parentId = null;
 
-    // Refresh the computed property
-    $this->comments();
-};
+        // Refresh the computed property
+        $this->comments();
+    };
 
-$destroy = function (Comment $comment) {
-    if ($comment->user_id !== auth()->id() && !auth()->user()->isAdmin()) {
-        abort(403, 'Unauthorized action.');
-    }
+    $destroy = function (Comment $comment) {
+        if ($comment->user_id !== auth()->id() && !auth()->user()->isAdmin()) {
+            abort(403, 'Unauthorized action.');
+        }
 
-    $comment->delete();
-    $this->comments();
-};
+        $comment->delete();
+        $this->comments();
+    };
 
-$setParent = function ($commentId) {
-    $this->parentId = $commentId;
-};
+    $setParent = function ($commentId) {
+        $this->parentId = $commentId;
+    };
 
-$cancelReply = function () {
-    $this->parentId = null;
-};
+    $cancelReply = function () {
+        $this->parentId = null;
+    };
 
-$upvote = function ($commentId) {
-    if (!auth()->check()) {
-        session()->put('url.intended', url()->current());
-        return $this->redirect(route('login'));
-    }
+    $upvote = function ($commentId) {
+        if (!auth()->check()) {
+            session()->put('url.intended', url()->current());
+            return $this->redirect(route('login'));
+        }
 
-    $comment = Comment::findOrFail($commentId);
-    $comment->vote(auth()->id(), 'upvote');
+        $comment = Comment::findOrFail($commentId);
+        $comment->vote(auth()->id(), 'upvote');
 
-    // Increment refresh trigger to force re-render
-    $this->refreshTrigger++;
+        // Increment refresh trigger to force re-render
+        $this->refreshTrigger++;
 
-    // Refresh comments
-    $this->comments();
-};
+        // Refresh comments
+        $this->comments();
+    };
 
-$downvote = function ($commentId) {
-    if (!auth()->check()) {
-        session()->put('url.intended', url()->current());
-        return $this->redirect(route('login'));
-    }
+    $downvote = function ($commentId) {
+        if (!auth()->check()) {
+            session()->put('url.intended', url()->current());
+            return $this->redirect(route('login'));
+        }
 
-    $comment = Comment::findOrFail($commentId);
-    $comment->vote(auth()->id(), 'downvote');
+        $comment = Comment::findOrFail($commentId);
+        $comment->vote(auth()->id(), 'downvote');
 
-    // Increment refresh trigger to force re-render
-    $this->refreshTrigger++;
+        // Increment refresh trigger to force re-render
+        $this->refreshTrigger++;
 
-    // Refresh comments
-    $this->comments();
-};
+        // Refresh comments
+        $this->comments();
+    };
 
-$getUserVoteType = function ($commentId) {
-    if (!auth()->check()) {
-        return null;
-    }
+    $getUserVoteType = function ($commentId) {
+        if (!auth()->check()) {
+            return null;
+        }
 
-    $comment = Comment::findOrFail($commentId);
-    return $comment->getUserVoteType(auth()->id());
-};
+        $comment = Comment::findOrFail($commentId);
+        return $comment->getUserVoteType(auth()->id());
+    };
 
-?>
+}; ?>
 
 <div wire:key="comments-{{ $post->id }}-{{ $refreshTrigger }}-{{ now()->timestamp }}">
 

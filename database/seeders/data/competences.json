@@ -1,0 +1,2221 @@
+{
+  "competences": [
+    {
+      "slug": "laravel",
+      "icon": "fab fa-laravel",
+      "color": "#ff2d20",
+      "proficiency": 95,
+      "years_experience": 8,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel",
+          "ru": "Laravel",
+          "eo": "Laravel"
+        },
+        "description": {
+          "en": "Full-stack PHP framework for elegant web development",
+          "ru": "Full-stack PHP фреймворк для элегантной веб-разработки",
+          "eo": "Full-stack PHP kadro por eleganta reta disvolviĝo"
+        }
+      },
+      "categories": ["backend", "php-frameworks"],
+      "tags": ["mvc", "eloquent", "blade", "artisan", "migrations"]
+    },
+    {
+      "slug": "php",
+      "icon": "fab fa-php",
+      "color": "#777bb4",
+      "proficiency": 90,
+      "years_experience": 10,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "PHP",
+          "ru": "PHP",
+          "eo": "PHP"
+        },
+        "description": {
+          "en": "Server-side scripting language for web development",
+          "ru": "Серверный язык программирования для веб-разработки",
+          "eo": "Servflanka skriptlingvo por reta disvolviĝo"
+        }
+      },
+      "categories": ["backend", "programming-languages"],
+      "tags": ["oop", "composer", "psr", "php8"]
+    },
+    {
+      "slug": "python",
+      "icon": "fab fa-python",
+      "color": "#3776ab",
+      "proficiency": 85,
+      "years_experience": 6,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Python",
+          "ru": "Python",
+          "eo": "Python"
+        },
+        "description": {
+          "en": "Versatile programming language for web development and data analysis",
+          "ru": "Универсальный язык программирования для веб-разработки и анализа данных",
+          "eo": "Multcela programlingvo por reta disvolviĝo kaj datumanalizo"
+        }
+      },
+      "categories": ["backend", "programming-languages", "data-science"],
+      "tags": ["django", "flask", "data-analysis", "automation"]
+    },
+    {
+      "slug": "pandas",
+      "icon": "fas fa-table",
+      "color": "#150458",
+      "proficiency": 80,
+      "years_experience": 4,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Pandas",
+          "ru": "Pandas",
+          "eo": "Pandas"
+        },
+        "description": {
+          "en": "Data analysis and manipulation library for Python",
+          "ru": "Библиотека для анализа и манипуляции данными в Python",
+          "eo": "Datumanaliza kaj manipula biblioteko por Python"
+        }
+      },
+      "categories": ["data-science"],
+      "tags": ["data-analysis", "dataframes", "python", "data-manipulation"]
+    },
+    {
+      "slug": "numpy",
+      "icon": "fas fa-calculator",
+      "color": "#4D77CB",
+      "proficiency": 78,
+      "years_experience": 4,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "NumPy",
+          "ru": "NumPy",
+          "eo": "NumPy"
+        },
+        "description": {
+          "en": "Scientific computing library for numerical operations",
+          "ru": "Библиотека для научных вычислений и численных операций",
+          "eo": "Scienca komputada biblioteko por numeraj operacioj"
+        }
+      },
+      "categories": ["data-science"],
+      "tags": ["numerical-computing", "arrays", "python", "scientific"]
+    },
+    {
+      "slug": "matplotlib",
+      "icon": "fas fa-chart-line",
+      "color": "#11557C",
+      "proficiency": 75,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Matplotlib",
+          "ru": "Matplotlib",
+          "eo": "Matplotlib"
+        },
+        "description": {
+          "en": "Comprehensive data visualization library for Python",
+          "ru": "Комплексная библиотека для визуализации данных в Python",
+          "eo": "Kompleta datuma vida biblioteko por Python"
+        }
+      },
+      "categories": ["data-science"],
+      "tags": ["data-visualization", "plots", "charts", "python"]
+    },
+    {
+      "slug": "scikit-learn",
+      "icon": "fas fa-brain",
+      "color": "#F7931E",
+      "proficiency": 70,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Scikit-learn",
+          "ru": "Scikit-learn",
+          "eo": "Scikit-learn"
+        },
+        "description": {
+          "en": "Machine learning library for Python with simple tools",
+          "ru": "Библиотека машинного обучения для Python с простыми инструментами",
+          "eo": "Maŝinlerna biblioteko por Python kun simplaj iloj"
+        }
+      },
+      "categories": ["data-science"],
+      "tags": ["machine-learning", "ml", "python", "algorithms"]
+    },
+    {
+      "slug": "tensorflow",
+      "icon": "fas fa-robot",
+      "color": "#FF6F00",
+      "proficiency": 65,
+      "years_experience": 2,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "TensorFlow",
+          "ru": "TensorFlow",
+          "eo": "TensorFlow"
+        },
+        "description": {
+          "en": "Open-source platform for machine learning and deep learning",
+          "ru": "Платформа с открытым исходным кодом для машинного и глубокого обучения",
+          "eo": "Malfermita platformo por maŝinlernado kaj profunda lernado"
+        }
+      },
+      "categories": ["data-science"],
+      "tags": ["deep-learning", "neural-networks", "ml", "python"]
+    },
+    {
+      "slug": "requests",
+      "icon": "fas fa-globe",
+      "color": "#44A5CB",
+      "proficiency": 85,
+      "years_experience": 5,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Requests",
+          "ru": "Requests",
+          "eo": "Requests"
+        },
+        "description": {
+          "en": "Elegant HTTP library for Python",
+          "ru": "Элегантная HTTP библиотека для Python",
+          "eo": "Eleganta HTTP biblioteko por Python"
+        }
+      },
+      "categories": ["data-science", "backend"],
+      "tags": ["http", "api", "web-requests", "python"]
+    },
+    {
+      "slug": "beautiful-soup",
+      "icon": "fas fa-code",
+      "color": "#3A833A",
+      "proficiency": 80,
+      "years_experience": 4,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Beautiful Soup",
+          "ru": "Beautiful Soup",
+          "eo": "Beautiful Soup"
+        },
+        "description": {
+          "en": "Python library for web scraping and parsing HTML/XML",
+          "ru": "Python библиотека для веб-скрапинга и парсинга HTML/XML",
+          "eo": "Python biblioteko por reta skrapado kaj analizado de HTML/XML"
+        }
+      },
+      "categories": ["data-science"],
+      "tags": ["web-scraping", "parsing", "html", "xml", "python"]
+    },
+    {
+      "slug": "adobe-lightroom",
+      "icon": "fas fa-image",
+      "color": "#31A8FF",
+      "proficiency": 90,
+      "years_experience": 8,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Adobe Lightroom",
+          "ru": "Adobe Lightroom",
+          "eo": "Adobe Lightroom"
+        },
+        "description": {
+          "en": "Professional photo editing and management software",
+          "ru": "Профессиональное программное обеспечение для редактирования и управления фотографиями",
+          "eo": "Profesia foto-redaktado kaj administrado-programaro"
+        }
+      },
+      "categories": ["photography"],
+      "tags": ["photo-editing", "raw-processing", "catalog", "color-grading"]
+    },
+    {
+      "slug": "adobe-photoshop",
+      "icon": "fas fa-paint-brush",
+      "color": "#31A8FF",
+      "proficiency": 85,
+      "years_experience": 7,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Adobe Photoshop",
+          "ru": "Adobe Photoshop",
+          "eo": "Adobe Photoshop"
+        },
+        "description": {
+          "en": "Industry-standard image editing and graphic design software",
+          "ru": "Отраслевой стандарт для редактирования изображений и графического дизайна",
+          "eo": "Industria normo por bilda redaktado kaj grafika dezajno"
+        }
+      },
+      "categories": ["photography", "design"],
+      "tags": ["image-editing", "graphic-design", "layers", "retouching"]
+    },
+    {
+      "slug": "adobe-indesign",
+      "icon": "fas fa-file-alt",
+      "color": "#FF3366",
+      "proficiency": 75,
+      "years_experience": 5,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Adobe InDesign",
+          "ru": "Adobe InDesign",
+          "eo": "Adobe InDesign"
+        },
+        "description": {
+          "en": "Desktop publishing and page layout design software",
+          "ru": "Программное обеспечение для настольных издательских систем и верстки страниц",
+          "eo": "Desktopa eldonado kaj paĝaranĝa dezajnprogramaro"
+        }
+      },
+      "categories": ["photography", "design"],
+      "tags": ["layout", "publishing", "typography", "print-design"]
+    },
+    {
+      "slug": "capture-one",
+      "icon": "fas fa-camera",
+      "color": "#00A4EF",
+      "proficiency": 80,
+      "years_experience": 4,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Capture One",
+          "ru": "Capture One",
+          "eo": "Capture One"
+        },
+        "description": {
+          "en": "Professional RAW image processing and tethered shooting software",
+          "ru": "Профессиональное программное обеспечение для обработки RAW изображений и съемки по кабелю",
+          "eo": "Profesia RAW-bilda prilaborado kaj kabla fotado-programaro"
+        }
+      },
+      "categories": ["photography"],
+      "tags": ["raw-processing", "tethering", "color-grading", "professional"]
+    },
+    {
+      "slug": "communication-skills",
+      "icon": "fas fa-comments",
+      "color": "#4CAF50",
+      "proficiency": 92,
+      "years_experience": 12,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Communication Skills",
+          "ru": "Коммуникативные навыки",
+          "eo": "Komunikaj kapabloj"
+        },
+        "description": {
+          "en": "Effective verbal and written communication with teams and clients",
+          "ru": "Эффективная вербальная и письменная коммуникация с командами и клиентами",
+          "eo": "Efika parola kaj skriba komunikado kun teamoj kaj klientoj"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["teamwork", "client-relations", "presentation", "negotiation"]
+    },
+    {
+      "slug": "problem-solving",
+      "icon": "fas fa-puzzle-piece",
+      "color": "#FF9800",
+      "proficiency": 95,
+      "years_experience": 12,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Problem Solving",
+          "ru": "Решение проблем",
+          "eo": "Problemo-solvado"
+        },
+        "description": {
+          "en": "Analytical thinking and creative solutions for complex challenges",
+          "ru": "Аналитическое мышление и креативные решения для сложных задач",
+          "eo": "Analiza pensado kaj kreivaj solvoj por kompleksaj defioj"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["analytical", "creative", "critical-thinking", "innovation"]
+    },
+    {
+      "slug": "project-management",
+      "icon": "fas fa-tasks",
+      "color": "#2196F3",
+      "proficiency": 88,
+      "years_experience": 8,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Project Management",
+          "ru": "Управление проектами",
+          "eo": "Projekta administrado"
+        },
+        "description": {
+          "en": "Planning, execution, and delivery of complex technical projects",
+          "ru": "Планирование, выполнение и поставка сложных технических проектов",
+          "eo": "Planado, efektivigo kaj liverado de kompleksaj teknikaj projektoj"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["planning", "agile", "scrum", "deadlines", "budgeting"]
+    },
+    {
+      "slug": "team-leadership",
+      "icon": "fas fa-users-cog",
+      "color": "#9C27B0",
+      "proficiency": 85,
+      "years_experience": 6,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Team Leadership",
+          "ru": "Лидерство команды",
+          "eo": "Team-gvidado"
+        },
+        "description": {
+          "en": "Leading and mentoring development teams to achieve project goals",
+          "ru": "Лидерство и менторство разработческих команд для достижения целей проекта",
+          "eo": "Gvidado kaj mentorado de disvolvigteamoj por atingi projektojn"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["mentoring", "motivation", "delegation", "team-building"]
+    },
+    {
+      "slug": "time-management",
+      "icon": "fas fa-clock",
+      "color": "#607D8B",
+      "proficiency": 90,
+      "years_experience": 10,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Time Management",
+          "ru": "Тайм-менеджмент",
+          "eo": "Tempo-administrado"
+        },
+        "description": {
+          "en": "Efficient organization and prioritization of tasks and deadlines",
+          "ru": "Эффективная организация и приоритизация задач и сроков",
+          "eo": "Efika organizado kaj prioritizado de taskoj kaj limdatoj"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["prioritization", "deadlines", "productivity", "organization"]
+    },
+    {
+      "slug": "adaptability",
+      "icon": "fas fa-exchange-alt",
+      "color": "#FF5722",
+      "proficiency": 92,
+      "years_experience": 12,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Adaptability",
+          "ru": "Адаптивность",
+          "eo": "Adaptiĝemo"
+        },
+        "description": {
+          "en": "Quick adaptation to new technologies, methodologies, and changing requirements",
+          "ru": "Быстрая адаптация к новым технологиям, методологиям и изменяющимся требованиям",
+          "eo": "Rapida adaptiĝo al novaj teknologioj, metodologioj kaj ŝanĝiĝantaj postuloj"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["flexibility", "learning", "change-management", "resilience"]
+    },
+    {
+      "slug": "javascript",
+      "icon": "fab fa-js",
+      "color": "#f7df1e",
+      "proficiency": 85,
+      "years_experience": 9,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "JavaScript",
+          "ru": "JavaScript",
+          "eo": "JavaScript"
+        },
+        "description": {
+          "en": "Frontend programming language for interactive web pages",
+          "ru": "Фронтенд язык программирования для интерактивных веб-страниц",
+          "eo": "Frontenda programlingvo por interaktivaj retpaĝoj"
+        }
+      },
+      "categories": ["frontend", "programming-languages"],
+      "tags": ["es6", "dom-manipulation", "async", "frontend"]
+    },
+    {
+      "slug": "tailwind-css",
+      "icon": "fab fa-css3-alt",
+      "color": "#06b6d4",
+      "proficiency": 88,
+      "years_experience": 4,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Tailwind CSS",
+          "ru": "Tailwind CSS",
+          "eo": "Tailwind CSS"
+        },
+        "description": {
+          "en": "Utility-first CSS framework for rapid UI development",
+          "ru": "Utility-first CSS фреймворк для быстрой разработки UI",
+          "eo": "Utility-unua CSS kadro por rapida UI-disvolviĝo"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["utility-first", "responsive", "components", "design-system"]
+    },
+    {
+      "slug": "alpine-js",
+      "icon": "fas fa-mountain",
+      "color": "#8b5cf6",
+      "proficiency": 82,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Alpine.js",
+          "ru": "Alpine.js",
+          "eo": "Alpine.js"
+        },
+        "description": {
+          "en": "Minimalist JavaScript framework for adding interactivity",
+          "ru": "Минималистичный JavaScript фреймворк для добавления интерактивности",
+          "eo": "Minimalisma JavaScript kadro por aldoni interaktivecon"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["reactive", "lightweight", "declarative", "components"]
+    },
+    {
+      "slug": "mysql",
+      "icon": "fas fa-database",
+      "color": "#4479a1",
+      "proficiency": 87,
+      "years_experience": 8,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "MySQL",
+          "ru": "MySQL",
+          "eo": "MySQL"
+        },
+        "description": {
+          "en": "Relational database management system",
+          "ru": "Реляционная система управления базами данных",
+          "eo": "Rilata datumbaza administra sistemo"
+        }
+      },
+      "categories": ["backend", "databases"],
+      "tags": ["sql", "indexing", "optimization", "migrations"]
+    },
+    {
+      "slug": "livewire",
+      "icon": "fas fa-bolt",
+      "color": "#fb7185",
+      "proficiency": 92,
+      "years_experience": 3,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Livewire",
+          "ru": "Livewire",
+          "eo": "Livewire"
+        },
+        "description": {
+          "en": "Full-stack framework for Laravel with dynamic UI",
+          "ru": "Full-stack фреймворк для Laravel с динамическим UI",
+          "eo": "Full-stack kadro por Laravel kun dinamika UI"
+        }
+      },
+      "categories": ["frontend", "backend"],
+      "tags": ["components", "real-time", "laravel", "reactive"]
+    },
+    {
+      "slug": "vue-js",
+      "icon": "fab fa-vuejs",
+      "color": "#4fc08d",
+      "proficiency": 78,
+      "years_experience": 4,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Vue.js",
+          "ru": "Vue.js",
+          "eo": "Vue.js"
+        },
+        "description": {
+          "en": "Progressive JavaScript framework for building user interfaces",
+          "ru": "Прогрессивный JavaScript фреймворк для создания пользовательских интерфейсов",
+          "eo": "Progresema JavaScript kadro por konstrui uzantinterfacojn"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["components", "vuex", "vue-router", "composition-api"]
+    },
+    {
+      "slug": "rest-api",
+      "icon": "fas fa-exchange-alt",
+      "color": "#10b981",
+      "proficiency": 85,
+      "years_experience": 5,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "REST API",
+          "ru": "REST API",
+          "eo": "REST API"
+        },
+        "description": {
+          "en": "Designing and developing APIs for web services",
+          "ru": "Проектирование и разработка API для веб-сервисов",
+          "eo": "Projektado kaj disvolviĝo de API-oj por retservoj"
+        }
+      },
+      "categories": ["backend", "api"],
+      "tags": ["json", "authentication", "documentation", "endpoints"]
+    },
+    {
+      "slug": "git",
+      "icon": "fab fa-git-alt",
+      "color": "#f05032",
+      "proficiency": 90,
+      "years_experience": 7,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Git",
+          "ru": "Git",
+          "eo": "Git"
+        },
+        "description": {
+          "en": "Distributed version control system for tracking changes",
+          "ru": "Распределенная система контроля версий для отслеживания изменений",
+          "eo": "Distribuita versia kontrolsistemo por spuri ŝanĝojn"
+        }
+      },
+      "categories": ["tools", "devops"],
+      "tags": ["version-control", "branching", "merge", "github", "gitlab"]
+    },
+    {
+      "slug": "docker",
+      "icon": "fab fa-docker",
+      "color": "#2496ed",
+      "proficiency": 75,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Docker",
+          "ru": "Docker",
+          "eo": "Docker"
+        },
+        "description": {
+          "en": "Containerization platform for application deployment",
+          "ru": "Платформа контейнеризации для развертывания приложений",
+          "eo": "Konteneriga platformo por aplikaĵa disvastigo"
+        }
+      },
+      "categories": ["devops"],
+      "tags": ["containers", "docker-compose", "images", "orchestration"]
+    },
+    {
+      "slug": "nginx",
+      "icon": "fas fa-server",
+      "color": "#009639",
+      "proficiency": 85,
+      "years_experience": 6,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Nginx",
+          "ru": "Nginx",
+          "eo": "Nginx"
+        },
+        "description": {
+          "en": "High-performance web server and reverse proxy",
+          "ru": "Высокопроизводительный веб-сервер и обратный прокси",
+          "eo": "Altpresta retservilo kaj inversa prokurilo"
+        }
+      },
+      "categories": ["devops"],
+      "tags": ["reverse-proxy", "load-balancing", "caching", "ssl"]
+    },
+    {
+      "slug": "postgresql",
+      "icon": "fas fa-database",
+      "color": "#336791",
+      "proficiency": 80,
+      "years_experience": 5,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "PostgreSQL",
+          "ru": "PostgreSQL",
+          "eo": "PostgreSQL"
+        },
+        "description": {
+          "en": "Advanced open-source object-relational database system",
+          "ru": "Продвинутая объектно-реляционная система управления базами данных",
+          "eo": "Progresinta malfermita objekto-rilata datumbaza sistemo"
+        }
+      },
+      "categories": ["backend", "databases"],
+      "tags": ["sql", "json", "extensions", "performance"]
+    },
+    {
+      "slug": "redis",
+      "icon": "fas fa-bolt",
+      "color": "#DC382D",
+      "proficiency": 82,
+      "years_experience": 4,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Redis",
+          "ru": "Redis",
+          "eo": "Redis"
+        },
+        "description": {
+          "en": "In-memory data structure store used as database, cache, and message broker",
+          "ru": "Хранилище структур данных в памяти, используемое как база данных, кэш и брокер сообщений",
+          "eo": "Enmemora datumstruktura stokuzata kiel datumbazo, kaŝmemoro kaj mesaĝa peranto"
+        }
+      },
+      "categories": ["backend", "devops"],
+      "tags": ["caching", "queues", "in-memory", "session-storage"]
+    },
+    {
+      "slug": "aws",
+      "icon": "fab fa-aws",
+      "color": "#FF9900",
+      "proficiency": 75,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "AWS",
+          "ru": "AWS",
+          "eo": "AWS"
+        },
+        "description": {
+          "en": "Cloud computing platform for deployment and scaling",
+          "ru": "Облачная платформа для развертывания и масштабирования",
+          "eo": "Nuba komputada platformo por disvastigo kaj skalado"
+        }
+      },
+      "categories": ["devops"],
+      "tags": ["ec2", "s3", "rds", "lambda", "cloudfront"]
+    },
+    {
+      "slug": "phpunit",
+      "icon": "fas fa-flask",
+      "color": "#28A745",
+      "proficiency": 85,
+      "years_experience": 5,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "PHPUnit",
+          "ru": "PHPUnit",
+          "eo": "PHPUnit"
+        },
+        "description": {
+          "en": "Testing framework for PHP with unit and integration testing capabilities",
+          "ru": "Фреймворк для тестирования PHP с возможностями модульного и интеграционного тестирования",
+          "eo": "Testa kadro por PHP kun unuopaj kaj integraj testkapabloj"
+        }
+      },
+      "categories": ["testing"],
+      "tags": ["unit-tests", "integration-tests", "tdd", "php"]
+    },
+    {
+      "slug": "pest-php",
+      "icon": "fas fa-vial",
+      "color": "#7CFC00",
+      "proficiency": 80,
+      "years_experience": 2,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Pest PHP",
+          "ru": "Pest PHP",
+          "eo": "Pest PHP"
+        },
+        "description": {
+          "en": "Elegant PHP testing framework with expressive syntax",
+          "ru": "Элегантный фреймворк для тестирования PHP с выразительным синтаксисом",
+          "eo": "Eleganta PHP-testa kadro kun esprima sintakso"
+        }
+      },
+      "categories": ["testing"],
+      "tags": ["testing", "php", "expressive", "modern"]
+    },
+    {
+      "slug": "laravel-nova",
+      "icon": "fas fa-cogs",
+      "color": "#FF2D20",
+      "proficiency": 75,
+      "years_experience": 2,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Nova",
+          "ru": "Laravel Nova",
+          "eo": "Laravel Nova"
+        },
+        "description": {
+          "en": "Administrative panel for application data management",
+          "ru": "Административная панель для управления данными приложения",
+          "eo": "Administra panelo por aplikaĵa datuma administrado"
+        }
+      },
+      "categories": ["backend"],
+      "tags": ["admin-panel", "crud", "dashboard", "resource-management"]
+    },
+    {
+      "slug": "laravel-horizon",
+      "icon": "fas fa-tachometer-alt",
+      "color": "#FF6B6B",
+      "proficiency": 80,
+      "years_experience": 4,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Horizon",
+          "ru": "Laravel Horizon",
+          "eo": "Laravel Horizon"
+        },
+        "description": {
+          "en": "Dashboard and monitoring system for Laravel queues",
+          "ru": "Панель мониторинга и управления для Laravel очередей",
+          "eo": "Panelo kaj monitora sistemo por Laravel-vicoj"
+        }
+      },
+      "categories": ["backend", "devops"],
+      "tags": ["queues", "monitoring", "dashboard", "jobs"]
+    },
+    {
+      "slug": "laravel-telescope",
+      "icon": "fas fa-search",
+      "color": "#4A90E2",
+      "proficiency": 88,
+      "years_experience": 4,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Telescope",
+          "ru": "Laravel Telescope",
+          "eo": "Laravel Telescope"
+        },
+        "description": {
+          "en": "Debug assistant for monitoring requests, exceptions, and database queries",
+          "ru": "Отладочный помощник для мониторинга запросов, исключений и запросов к БД",
+          "eo": "Senerariga helpanto por monitori petojn, esceptojn kaj datumbazajn demandojn"
+        }
+      },
+      "categories": ["backend", "devops"],
+      "tags": ["debugging", "monitoring", "requests", "exceptions"]
+    },
+    {
+      "slug": "laravel-sanctum",
+      "icon": "fas fa-shield-alt",
+      "color": "#10B981",
+      "proficiency": 85,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Sanctum",
+          "ru": "Laravel Sanctum",
+          "eo": "Laravel Sanctum"
+        },
+        "description": {
+          "en": "Lightweight authentication system for SPAs and mobile applications",
+          "ru": "Легковесная система аутентификации для SPA и мобильных приложений",
+          "eo": "Malpeza aŭtentikiga sistemo por SPA-oj kaj mobilaj aplikaĵoj"
+        }
+      },
+      "categories": ["backend"],
+      "tags": ["authentication", "api-tokens", "spa", "mobile"]
+    },
+    {
+      "slug": "laravel-fortify",
+      "icon": "fas fa-lock",
+      "color": "#3B82F6",
+      "proficiency": 82,
+      "years_experience": 2,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Fortify",
+          "ru": "Laravel Fortify",
+          "eo": "Laravel Fortify"
+        },
+        "description": {
+          "en": "Backend implementation for authentication and registration with ready features",
+          "ru": "Backend implementation для аутентификации и регистрации с готовыми функциями",
+          "eo": "Backend efektivigo por aŭtentikigo kaj registrado kun pretaj funkcioj"
+        }
+      },
+      "categories": ["backend"],
+      "tags": ["authentication", "registration", "backend", "security"]
+    },
+    {
+      "slug": "laravel-breeze",
+      "icon": "fas fa-wind",
+      "color": "#60A5FA",
+      "proficiency": 85,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Breeze",
+          "ru": "Laravel Breeze",
+          "eo": "Laravel Breeze"
+        },
+        "description": {
+          "en": "Minimalist starter kit for authentication with Blade, React or Vue",
+          "ru": "Минималистичный стартовый набор для аутентификации с Blade, React или Vue",
+          "eo": "Minimalisma starta kit por aŭtentikigo kun Blade, React aŭ Vue"
+        }
+      },
+      "categories": ["backend", "frontend"],
+      "tags": ["authentication", "starter-kit", "blade", "react", "vue"]
+    },
+    {
+      "slug": "laravel-socialite",
+      "icon": "fas fa-users",
+      "color": "#10B981",
+      "proficiency": 85,
+      "years_experience": 5,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Socialite",
+          "ru": "Laravel Socialite",
+          "eo": "Laravel Socialite"
+        },
+        "description": {
+          "en": "Simplified authentication through OAuth providers (Google, GitHub, etc.)",
+          "ru": "Упрощенная аутентификация через OAuth провайдеров (Google, GitHub, etc.)",
+          "eo": "Simpligita aŭtentikigo tra OAuth-provizantoj (Google, GitHub, ktp.)"
+        }
+      },
+      "categories": ["backend"],
+      "tags": ["oauth", "social-auth", "google", "github", "facebook"]
+    },
+    {
+      "slug": "laravel-octane",
+      "icon": "fas fa-bolt",
+      "color": "#8B5CF6",
+      "proficiency": 72,
+      "years_experience": 2,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Octane",
+          "ru": "Laravel Octane",
+          "eo": "Laravel Octane"
+        },
+        "description": {
+          "en": "Performance accelerator using Swoole/RoadRunner",
+          "ru": "Ускоритель производительности с использованием Swoole/RoadRunner",
+          "eo": "Presto-akcelilo uzante Swoole/RoadRunner"
+        }
+      },
+      "categories": ["backend", "devops"],
+      "tags": ["performance", "swoole", "roadrunner", "high-load"]
+    },
+    {
+      "slug": "laravel-cashier",
+      "icon": "fas fa-credit-card",
+      "color": "#8B5CF6",
+      "proficiency": 78,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Cashier",
+          "ru": "Laravel Cashier",
+          "eo": "Laravel Cashier"
+        },
+        "description": {
+          "en": "Library for managing subscriptions and payments with Stripe/Paddle",
+          "ru": "Библиотека для управления подписками и платежами с Stripe/Paddle",
+          "eo": "Biblioteko por administri abonojn kaj pagojn kun Stripe/Paddle"
+        }
+      },
+      "categories": ["backend"],
+      "tags": ["subscriptions", "payments", "stripe", "paddle", "billing"]
+    },
+    {
+      "slug": "graphql",
+      "icon": "fas fa-project-diagram",
+      "color": "#E535AB",
+      "proficiency": 78,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "GraphQL",
+          "ru": "GraphQL",
+          "eo": "GraphQL"
+        },
+        "description": {
+          "en": "Query language for APIs with flexible data fetching",
+          "ru": "Язык запросов для API с гибким получением данных",
+          "eo": "Demanda lingvo por API-oj kun fleksebla datumakiro"
+        }
+      },
+      "categories": ["api"],
+      "tags": ["api", "query-language", "flexible-data", "lighthouse"]
+    },
+    {
+      "slug": "typescript",
+      "icon": "fab fa-js-square",
+      "color": "#3178C6",
+      "proficiency": 80,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "TypeScript",
+          "ru": "TypeScript",
+          "eo": "TypeScript"
+        },
+        "description": {
+          "en": "Typed superset of JavaScript for scalable applications",
+          "ru": "Типизированное надмножество JavaScript для масштабируемых приложений",
+          "eo": "Tajpita superaro de JavaScript por skaleblaj aplikaĵoj"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["javascript", "type-safety", "scalability", "vue", "react"]
+    },
+    {
+      "slug": "bootstrap",
+      "icon": "fab fa-bootstrap",
+      "color": "#7952B3",
+      "proficiency": 85,
+      "years_experience": 8,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Bootstrap",
+          "ru": "Bootstrap",
+          "eo": "Bootstrap"
+        },
+        "description": {
+          "en": "Popular CSS framework for rapid responsive interface development",
+          "ru": "Популярный CSS фреймворк для быстрой разработки адаптивных интерфейсов",
+          "eo": "Populara CSS kadro por rapida adaptiĝema interfaca disvolviĝo"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["css-framework", "responsive", "components", "grid-system"]
+    },
+    {
+      "slug": "css",
+      "icon": "fab fa-css3-alt",
+      "color": "#1572B6",
+      "proficiency": 88,
+      "years_experience": 12,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "CSS",
+          "ru": "CSS",
+          "eo": "CSS"
+        },
+        "description": {
+          "en": "Cascading Style Sheets for web page styling",
+          "ru": "Каскадные таблицы стилей для оформления веб-страниц",
+          "eo": "Kaskadaj stiltabeloj por retpaĝa stiligado"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["styling", "responsive", "animations", "grid", "flexbox"]
+    },
+    {
+      "slug": "creative-thinking",
+      "icon": "fas fa-lightbulb",
+      "color": "#FFD700",
+      "proficiency": 88,
+      "years_experience": 10,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Creative Thinking",
+          "ru": "Креативное мышление",
+          "eo": "Krea pensado"
+        },
+        "description": {
+          "en": "Innovative approach to problem-solving and design challenges",
+          "ru": "Инновационный подход к решению проблем и дизайнерским задачам",
+          "eo": "Noviga aliro al problemo-solvado kaj dezajnaj defioj"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["innovation", "design-thinking", "brainstorming", "ideation"]
+    },
+    {
+      "slug": "attention-to-detail",
+      "icon": "fas fa-search-plus",
+      "color": "#4CAF50",
+      "proficiency": 93,
+      "years_experience": 12,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Attention to Detail",
+          "ru": "Внимание к деталям",
+          "eo": "Atento al detaloj"
+        },
+        "description": {
+          "en": "Meticulous focus on quality, precision, and thoroughness in work",
+          "ru": "Скрупулезное внимание к качеству, точности и тщательности в работе",
+          "eo": "Zorgema fokuso al kvalito, precizeco kaj zorgemo en laboro"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["quality", "precision", "thoroughness", "excellence"]
+    },
+    {
+      "slug": "continuous-learning",
+      "icon": "fas fa-graduation-cap",
+      "color": "#2196F3",
+      "proficiency": 95,
+      "years_experience": 12,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Continuous Learning",
+          "ru": "Непрерывное обучение",
+          "eo": "Daŭra lernado"
+        },
+        "description": {
+          "en": "Commitment to ongoing professional development and skill acquisition",
+          "ru": "Приверженность постоянному профессиональному развитию и приобретению навыков",
+          "eo": "Engaĝiĝo al daŭra profesia disvolviĝo kaj kapablo-akiro"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["professional-development", "skill-acquisition", "growth-mindset", "adaptability"]
+    },
+    {
+      "slug": "collaboration",
+      "icon": "fas fa-handshake",
+      "color": "#FF9800",
+      "proficiency": 90,
+      "years_experience": 10,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Collaboration",
+          "ru": "Коллаборация",
+          "eo": "Kunlaborado"
+        },
+        "description": {
+          "en": "Effective teamwork and cooperation with diverse stakeholders",
+          "ru": "Эффективная командная работа и сотрудничество с различными заинтересованными сторонами",
+          "eo": "Efika teamlaboro kaj kunlaborado kun diversaj interesuloj"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["teamwork", "cooperation", "stakeholder-management", "synergy"]
+    },
+    {
+      "slug": "technical-writing",
+      "icon": "fas fa-pen-fancy",
+      "color": "#607D8B",
+      "proficiency": 85,
+      "years_experience": 8,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Technical Writing",
+          "ru": "Техническое письмо",
+          "eo": "Teknika skribado"
+        },
+        "description": {
+          "en": "Clear and concise documentation of technical processes and systems",
+          "ru": "Четкая и лаконичная документация технических процессов и систем",
+          "eo": "Klara kaj konciza dokumentado de teknikaj procezoj kaj sistemoj"
+        }
+      },
+      "categories": ["soft-skills"],
+      "tags": ["documentation", "clarity", "conciseness", "knowledge-sharing"]
+    }
+  ],
+  "categories": [
+    {
+      "slug": "backend",
+      "name": {
+        "en": "Backend Development",
+        "ru": "Бэкенд разработка",
+        "eo": "Backend Disvolviĝo"
+      },
+      "description": {
+        "en": "Server-side programming and database management",
+        "ru": "Серверное программирование и управление базами данных",
+        "eo": "Servflanka programado kaj datumbaza administrado"
+      },
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "slug": "frontend",
+      "name": {
+        "en": "Frontend Development",
+        "ru": "Фронтенд разработка",
+        "eo": "Frontend Disvolviĝo"
+      },
+      "description": {
+        "en": "Client-side programming and user interface design",
+        "ru": "Клиентское программирование и дизайн пользовательского интерфейса",
+        "eo": "Klientflanka programado kaj uzantinterfaca dezajno"
+      },
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "slug": "data-science",
+      "name": {
+        "en": "Data Science",
+        "ru": "Дата-саенс",
+        "eo": "Datuma Scienco"
+      },
+      "description": {
+        "en": "Data analysis, machine learning, and statistical modeling",
+        "ru": "Анализ данных, машинное обучение и статистическое моделирование",
+        "eo": "Datumanalizo, maŝinlernado kaj statistika modelado"
+      },
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "slug": "photography",
+      "name": {
+        "en": "Photography",
+        "ru": "Фотография",
+        "eo": "Fotografio"
+      },
+      "description": {
+        "en": "Digital photography, editing, and post-processing skills",
+        "ru": "Цифровая фотография, редактирование и постобработка",
+        "eo": "Cifereca fotografio, redaktado kaj postprilaborado"
+      },
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "slug": "soft-skills",
+      "name": {
+        "en": "Soft Skills",
+        "ru": "Гибкие навыки",
+        "eo": "Mildaj kapabloj"
+      },
+      "description": {
+        "en": "Interpersonal, communication, and professional skills",
+        "eo": "Interpersonaj, komunikaj kaj profesiaj kapabloj"
+      },
+      "is_featured": true,
+      "is_active": true
+    },
+    {
+      "slug": "api",
+      "name": {
+        "en": "API Development",
+        "ru": "Разработка API",
+        "eo": "API-Disvolviĝo"
+      },
+      "description": {
+        "en": "Design and implementation of application programming interfaces",
+        "ru": "Проектирование и реализация программных интерфейсов приложений",
+        "eo": "Projektado kaj efektivigo de aplikaĵaj programinterfacoj"
+      },
+      "is_featured": false,
+      "is_active": true
+    },
+    {
+      "slug": "testing",
+      "name": {
+        "en": "Testing",
+        "ru": "Тестирование",
+        "eo": "Testado"
+      },
+      "description": {
+        "en": "Quality assurance and software testing methodologies",
+        "ru": "Обеспечение качества и методологии тестирования программного обеспечения",
+        "eo": "Kvalito-asekuro kaj programtestaj metodologioj"
+      },
+      "is_featured": false,
+      "is_active": true
+    },
+    {
+      "slug": "devops",
+      "name": {
+        "en": "DevOps",
+        "ru": "DevOps",
+        "eo": "DevOps"
+      },
+      "description": {
+        "en": "Infrastructure, deployment, and operational automation",
+        "ru": "Инфраструктура, развертывание и операционная автоматизация",
+        "eo": "Infrastrukturo, disvastigo kaj operacia aŭtomatigo"
+      },
+      "is_featured": false,
+      "is_active": true
+    },
+    {
+      "slug": "databases",
+      "name": {
+        "en": "Databases",
+        "ru": "Базы данных",
+        "eo": "Datumbazoj"
+      },
+      "description": {
+        "en": "Database management systems and data storage solutions",
+        "ru": "Системы управления базами данных и решения для хранения данных",
+        "eo": "Datumbazaj administraj sistemoj kaj datumstokaj solvoj"
+      },
+      "is_featured": false,
+      "is_active": true
+    },
+    {
+      "slug": "tools",
+      "name": {
+        "en": "Development Tools",
+        "ru": "Инструменты разработки",
+        "eo": "Disvolvigaj iloj"
+      },
+      "description": {
+        "en": "Software development tools and environments",
+        "ru": "Инструменты и среды разработки программного обеспечения",
+        "eo": "Programdisvolvigaj iloj kaj medioj"
+      },
+      "is_featured": false,
+      "is_active": true
+    },
+    {
+      "slug": "programming-languages",
+      "name": {
+        "en": "Programming Languages",
+        "ru": "Языки программирования",
+        "eo": "Programlingvoj"
+      },
+      "description": {
+        "en": "Programming languages and their ecosystems",
+        "ru": "Языки программирования и их экосистемы",
+        "eo": "Programlingvoj kaj iliaj ekosistemoj"
+      },
+      "is_featured": false,
+      "is_active": true
+    },
+    {
+      "slug": "design",
+      "name": {
+        "en": "Design",
+        "ru": "Дизайн",
+        "eo": "Dezajno"
+      },
+      "description": {
+        "en": "Graphic design and visual communication",
+        "ru": "Графический дизайн и визуальная коммуникация",
+        "eo": "Grafika dezajno kaj vida komunikado"
+      },
+      "is_featured": false,
+      "is_active": true
+    },
+    {
+      "slug": "php-frameworks",
+      "name": {
+        "en": "PHP Frameworks",
+        "ru": "PHP Фреймворки",
+        "eo": "PHP-Kadroj"
+      },
+      "description": {
+        "en": "PHP-based web application frameworks",
+        "ru": "Веб-фреймворки на основе PHP",
+        "eo": "PHP-bazitaj retaplikaĵaj kadroj"
+      },
+      "is_featured": false,
+      "is_active": true
+    }
+  ],
+  "tags": [
+    {
+      "slug": "mvc",
+      "name": "MVC Pattern"
+    },
+    {
+      "slug": "oop",
+      "name": "Object-Oriented Programming"
+    },
+    {
+      "slug": "eloquent",
+      "name": "Eloquent ORM"
+    },
+    {
+      "slug": "composer",
+      "name": "Composer"
+    },
+    {
+      "slug": "data-analysis",
+      "name": "Data Analysis"
+    },
+    {
+      "slug": "machine-learning",
+      "name": "Machine Learning"
+    },
+    {
+      "slug": "photo-editing",
+      "name": "Photo Editing"
+    },
+    {
+      "slug": "raw-processing",
+      "name": "RAW Processing"
+    },
+    {
+      "slug": "teamwork",
+      "name": "Teamwork"
+    },
+    {
+      "slug": "communication",
+      "name": "Communication"
+    },
+    {
+      "slug": "problem-solving",
+      "name": "Problem Solving"
+    },
+    {
+      "slug": "api",
+      "name": "API"
+    },
+    {
+      "slug": "testing",
+      "name": "Testing"
+    },
+    {
+      "slug": "devops",
+      "name": "DevOps"
+    },
+    {
+      "slug": "database",
+      "name": "Database"
+    },
+    {
+      "slug": "frontend",
+      "name": "Frontend"
+    },
+    {
+      "slug": "backend",
+      "name": "Backend"
+    },
+    {
+      "slug": "components",
+      "name": "Components"
+    },
+    {
+      "slug": "responsive",
+      "name": "Responsive Design"
+    },
+    {
+      "slug": "authentication",
+      "name": "Authentication"
+    },
+    {
+      "slug": "performance",
+      "name": "Performance"
+    },
+    {
+      "slug": "optimization",
+      "name": "Optimization"
+    },
+    {
+      "slug": "version-control",
+      "name": "Version Control"
+    },
+    {
+      "slug": "agile",
+      "name": "Agile Methodology"
+    },
+    {
+      "slug": "scrum",
+      "name": "Scrum"
+    },
+    {
+      "slug": "documentation",
+      "name": "Documentation"
+    },
+    {
+      "slug": "quality",
+      "name": "Quality Assurance"
+    },
+    {
+      "slug": "innovation",
+      "name": "Innovation"
+    },
+    {
+      "slug": "learning",
+      "name": "Continuous Learning"
+    },
+    {
+      "slug": "collaboration",
+      "name": "Collaboration"
+    },
+    {
+      "slug": "leadership",
+      "name": "Leadership"
+    },
+    {
+      "slug": "planning",
+      "name": "Planning"
+    },
+    {
+      "slug": "productivity",
+      "name": "Productivity"
+    },
+    {
+      "slug": "organization",
+      "name": "Organization"
+    },
+    {
+      "slug": "flexibility",
+      "name": "Flexibility"
+    },
+    {
+      "slug": "resilience",
+      "name": "Resilience"
+    },
+    {
+      "slug": "critical-thinking",
+      "name": "Critical Thinking"
+    },
+    {
+      "slug": "analytical",
+      "name": "Analytical"
+    },
+    {
+      "slug": "creative",
+      "name": "Creative"
+    },
+    {
+      "slug": "mentoring",
+      "name": "Mentoring"
+    },
+    {
+      "slug": "motivation",
+      "name": "Motivation"
+    },
+    {
+      "slug": "delegation",
+      "name": "Delegation"
+    },
+    {
+      "slug": "team-building",
+      "name": "Team Building"
+    },
+    {
+      "slug": "prioritization",
+      "name": "Prioritization"
+    },
+    {
+      "slug": "deadlines",
+      "name": "Deadlines"
+    },
+    {
+      "slug": "client-relations",
+      "name": "Client Relations"
+    },
+    {
+      "slug": "presentation",
+      "name": "Presentation"
+    },
+    {
+      "slug": "negotiation",
+      "name": "Negotiation"
+    },
+    {
+      "slug": "design-thinking",
+      "name": "Design Thinking"
+    },
+    {
+      "slug": "brainstorming",
+      "name": "Brainstorming"
+    },
+    {
+      "slug": "ideation",
+      "name": "Ideation"
+    },
+    {
+      "slug": "precision",
+      "name": "Precision"
+    },
+    {
+      "slug": "thoroughness",
+      "name": "Thoroughness"
+    },
+    {
+      "slug": "excellence",
+      "name": "Excellence"
+    },
+    {
+      "slug": "professional-development",
+      "name": "Professional Development"
+    },
+    {
+      "slug": "skill-acquisition",
+      "name": "Skill Acquisition"
+    },
+    {
+      "slug": "growth-mindset",
+      "name": "Growth Mindset"
+    },
+    {
+      "slug": "stakeholder-management",
+      "name": "Stakeholder Management"
+    },
+    {
+      "slug": "synergy",
+      "name": "Synergy"
+    },
+    {
+      "slug": "clarity",
+      "name": "Clarity"
+    },
+    {
+      "slug": "conciseness",
+      "name": "Conciseness"
+    },
+    {
+      "slug": "knowledge-sharing",
+      "name": "Knowledge Sharing"
+    },
+    {
+      "slug": "web-scraping",
+      "name": "Web Scraping"
+    },
+    {
+      "slug": "parsing",
+      "name": "Parsing"
+    },
+    {
+      "slug": "html",
+      "name": "HTML"
+    },
+    {
+      "slug": "xml",
+      "name": "XML"
+    },
+    {
+      "slug": "catalog",
+      "name": "Catalog"
+    },
+    {
+      "slug": "color-grading",
+      "name": "Color Grading"
+    },
+    {
+      "slug": "image-editing",
+      "name": "Image Editing"
+    },
+    {
+      "slug": "graphic-design",
+      "name": "Graphic Design"
+    },
+    {
+      "slug": "layers",
+      "name": "Layers"
+    },
+    {
+      "slug": "retouching",
+      "name": "Retouching"
+    },
+    {
+      "slug": "layout",
+      "name": "Layout"
+    },
+    {
+      "slug": "publishing",
+      "name": "Publishing"
+    },
+    {
+      "slug": "typography",
+      "name": "Typography"
+    },
+    {
+      "slug": "print-design",
+      "name": "Print Design"
+    },
+    {
+      "slug": "tethering",
+      "name": "Tethering"
+    },
+    {
+      "slug": "professional",
+      "name": "Professional"
+    },
+    {
+      "slug": "numerical-computing",
+      "name": "Numerical Computing"
+    },
+    {
+      "slug": "arrays",
+      "name": "Arrays"
+    },
+    {
+      "slug": "scientific",
+      "name": "Scientific"
+    },
+    {
+      "slug": "data-visualization",
+      "name": "Data Visualization"
+    },
+    {
+      "slug": "plots",
+      "name": "Plots"
+    },
+    {
+      "slug": "charts",
+      "name": "Charts"
+    },
+    {
+      "slug": "ml",
+      "name": "Machine Learning"
+    },
+    {
+      "slug": "algorithms",
+      "name": "Algorithms"
+    },
+    {
+      "slug": "deep-learning",
+      "name": "Deep Learning"
+    },
+    {
+      "slug": "neural-networks",
+      "name": "Neural Networks"
+    },
+    {
+      "slug": "http",
+      "name": "HTTP"
+    },
+    {
+      "slug": "web-requests",
+      "name": "Web Requests"
+    },
+    {
+      "slug": "data-manipulation",
+      "name": "Data Manipulation"
+    },
+    {
+      "slug": "dataframes",
+      "name": "DataFrames"
+    },
+    {
+      "slug": "django",
+      "name": "Django"
+    },
+    {
+      "slug": "flask",
+      "name": "Flask"
+    },
+    {
+      "slug": "automation",
+      "name": "Automation"
+    },
+    {
+      "slug": "blade",
+      "name": "Blade"
+    },
+    {
+      "slug": "artisan",
+      "name": "Artisan"
+    },
+    {
+      "slug": "migrations",
+      "name": "Migrations"
+    },
+    {
+      "slug": "psr",
+      "name": "PSR"
+    },
+    {
+      "slug": "php8",
+      "name": "PHP 8"
+    },
+    {
+      "slug": "es6",
+      "name": "ES6"
+    },
+    {
+      "slug": "dom-manipulation",
+      "name": "DOM Manipulation"
+    },
+    {
+      "slug": "async",
+      "name": "Async"
+    },
+    {
+      "slug": "utility-first",
+      "name": "Utility First"
+    },
+    {
+      "slug": "design-system",
+      "name": "Design System"
+    },
+    {
+      "slug": "reactive",
+      "name": "Reactive"
+    },
+    {
+      "slug": "lightweight",
+      "name": "Lightweight"
+    },
+    {
+      "slug": "declarative",
+      "name": "Declarative"
+    },
+    {
+      "slug": "sql",
+      "name": "SQL"
+    },
+    {
+      "slug": "indexing",
+      "name": "Indexing"
+    },
+    {
+      "slug": "optimization",
+      "name": "Optimization"
+    },
+    {
+      "slug": "real-time",
+      "name": "Real Time"
+    },
+    {
+      "slug": "vuex",
+      "name": "Vuex"
+    },
+    {
+      "slug": "vue-router",
+      "name": "Vue Router"
+    },
+    {
+      "slug": "composition-api",
+      "name": "Composition API"
+    },
+    {
+      "slug": "json",
+      "name": "JSON"
+    },
+    {
+      "slug": "endpoints",
+      "name": "Endpoints"
+    },
+    {
+      "slug": "branching",
+      "name": "Branching"
+    },
+    {
+      "slug": "merge",
+      "name": "Merge"
+    },
+    {
+      "slug": "github",
+      "name": "GitHub"
+    },
+    {
+      "slug": "gitlab",
+      "name": "GitLab"
+    },
+    {
+      "slug": "containers",
+      "name": "Containers"
+    },
+    {
+      "slug": "docker-compose",
+      "name": "Docker Compose"
+    },
+    {
+      "slug": "images",
+      "name": "Images"
+    },
+    {
+      "slug": "orchestration",
+      "name": "Orchestration"
+    },
+    {
+      "slug": "reverse-proxy",
+      "name": "Reverse Proxy"
+    },
+    {
+      "slug": "load-balancing",
+      "name": "Load Balancing"
+    },
+    {
+      "slug": "caching",
+      "name": "Caching"
+    },
+    {
+      "slug": "ssl",
+      "name": "SSL"
+    },
+    {
+      "slug": "json",
+      "name": "JSON"
+    },
+    {
+      "slug": "extensions",
+      "name": "Extensions"
+    },
+    {
+      "slug": "session-storage",
+      "name": "Session Storage"
+    },
+    {
+      "slug": "ec2",
+      "name": "EC2"
+    },
+    {
+      "slug": "s3",
+      "name": "S3"
+    },
+    {
+      "slug": "rds",
+      "name": "RDS"
+    },
+    {
+      "slug": "lambda",
+      "name": "Lambda"
+    },
+    {
+      "slug": "cloudfront",
+      "name": "CloudFront"
+    },
+    {
+      "slug": "unit-tests",
+      "name": "Unit Tests"
+    },
+    {
+      "slug": "integration-tests",
+      "name": "Integration Tests"
+    },
+    {
+      "slug": "tdd",
+      "name": "TDD"
+    },
+    {
+      "slug": "expressive",
+      "name": "Expressive"
+    },
+    {
+      "slug": "modern",
+      "name": "Modern"
+    },
+    {
+      "slug": "admin-panel",
+      "name": "Admin Panel"
+    },
+    {
+      "slug": "crud",
+      "name": "CRUD"
+    },
+    {
+      "slug": "dashboard",
+      "name": "Dashboard"
+    },
+    {
+      "slug": "resource-management",
+      "name": "Resource Management"
+    },
+    {
+      "slug": "queues",
+      "name": "Queues"
+    },
+    {
+      "slug": "jobs",
+      "name": "Jobs"
+    },
+    {
+      "slug": "debugging",
+      "name": "Debugging"
+    },
+    {
+      "slug": "requests",
+      "name": "Requests"
+    },
+    {
+      "slug": "exceptions",
+      "name": "Exceptions"
+    },
+    {
+      "slug": "api-tokens",
+      "name": "API Tokens"
+    },
+    {
+      "slug": "spa",
+      "name": "SPA"
+    },
+    {
+      "slug": "mobile",
+      "name": "Mobile"
+    },
+    {
+      "slug": "registration",
+      "name": "Registration"
+    },
+    {
+      "slug": "security",
+      "name": "Security"
+    },
+    {
+      "slug": "starter-kit",
+      "name": "Starter Kit"
+    },
+    {
+      "slug": "react",
+      "name": "React"
+    },
+    {
+      "slug": "vue",
+      "name": "Vue"
+    },
+    {
+      "slug": "oauth",
+      "name": "OAuth"
+    },
+    {
+      "slug": "social-auth",
+      "name": "Social Auth"
+    },
+    {
+      "slug": "google",
+      "name": "Google"
+    },
+    {
+      "slug": "github",
+      "name": "GitHub"
+    },
+    {
+      "slug": "facebook",
+      "name": "Facebook"
+    },
+    {
+      "slug": "performance",
+      "name": "Performance"
+    },
+    {
+      "slug": "swoole",
+      "name": "Swoole"
+    },
+    {
+      "slug": "roadrunner",
+      "name": "RoadRunner"
+    },
+    {
+      "slug": "high-load",
+      "name": "High Load"
+    },
+    {
+      "slug": "subscriptions",
+      "name": "Subscriptions"
+    },
+    {
+      "slug": "payments",
+      "name": "Payments"
+    },
+    {
+      "slug": "stripe",
+      "name": "Stripe"
+    },
+    {
+      "slug": "paddle",
+      "name": "Paddle"
+    },
+    {
+      "slug": "billing",
+      "name": "Billing"
+    },
+    {
+      "slug": "query-language",
+      "name": "Query Language"
+    },
+    {
+      "slug": "flexible-data",
+      "name": "Flexible Data"
+    },
+    {
+      "slug": "lighthouse",
+      "name": "Lighthouse"
+    },
+    {
+      "slug": "type-safety",
+      "name": "Type Safety"
+    },
+    {
+      "slug": "scalability",
+      "name": "Scalability"
+    },
+    {
+      "slug": "css-framework",
+      "name": "CSS Framework"
+    },
+    {
+      "slug": "grid-system",
+      "name": "Grid System"
+    },
+    {
+      "slug": "styling",
+      "name": "Styling"
+    },
+    {
+      "slug": "animations",
+      "name": "Animations"
+    },
+    {
+      "slug": "grid",
+      "name": "Grid"
+    },
+    {
+      "slug": "flexbox",
+      "name": "Flexbox"
+    },
+    {
+      "slug": "innovation",
+      "name": "Innovation"
+    },
+    {
+      "slug": "design-thinking",
+      "name": "Design Thinking"
+    },
+    {
+      "slug": "brainstorming",
+      "name": "Brainstorming"
+    },
+    {
+      "slug": "ideation",
+      "name": "Ideation"
+    },
+    {
+      "slug": "quality",
+      "name": "Quality"
+    },
+    {
+      "slug": "precision",
+      "name": "Precision"
+    },
+    {
+      "slug": "thoroughness",
+      "name": "Thoroughness"
+    },
+    {
+      "slug": "excellence",
+      "name": "Excellence"
+    },
+    {
+      "slug": "professional-development",
+      "name": "Professional Development"
+    },
+    {
+      "slug": "skill-acquisition",
+      "name": "Skill Acquisition"
+    },
+    {
+      "slug": "growth-mindset",
+      "name": "Growth Mindset"
+    },
+    {
+      "slug": "stakeholder-management",
+      "name": "Stakeholder Management"
+    },
+    {
+      "slug": "synergy",
+      "name": "Synergy"
+    },
+    {
+      "slug": "clarity",
+      "name": "Clarity"
+    },
+    {
+      "slug": "conciseness",
+      "name": "Conciseness"
+    },
+    {
+      "slug": "knowledge-sharing",
+      "name": "Knowledge Sharing"
+    }
+  ]
+}

@@ -23,7 +23,7 @@ trait HasTranslations
     }
 
     /**
-     * Get all of the translations for the model.
+     * Get all translations for the model.
      */
     public function translations(): MorphMany
     {
@@ -43,13 +43,43 @@ trait HasTranslations
                 ->where('locale', $locale)
                 ->first();
 
-            return $translation ? $translation->value : null;
+            if ($translation) {
+                return $translation->value;
+            }
+
+            // Fallback to default locale if current locale translation doesn't exist
+            $fallbackLocale = config('app.fallback_locale', 'en');
+            if ($locale !== $fallbackLocale) {
+                $fallbackTranslation = $this->translations
+                    ->where('key', $key)
+                    ->where('locale', $fallbackLocale)
+                    ->first();
+
+                if ($fallbackTranslation) {
+                    return $fallbackTranslation->value;
+                }
+            }
+
+            return null;
         }
 
-        return $this->translations()
+        // Database query with fallback
+        $translation = $this->translations()
             ->where('key', $key)
             ->where('locale', $locale)
             ->value('value');
+
+        if (is_null($translation)) {
+            $fallbackLocale = config('app.fallback_locale', 'en');
+            if ($locale !== $fallbackLocale) {
+                $translation = $this->translations()
+                    ->where('key', $key)
+                    ->where('locale', $fallbackLocale)
+                    ->value('value');
+            }
+        }
+
+        return $translation;
     }
 
     /**

@@ -3,6 +3,12 @@
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Volt\Volt;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+
+uses(RefreshDatabase::class)
+    ->beforeEach(function () {
+        $this->seed(\Database\Seeders\RoleSeeder::class);
+    });
 
 test('password can be updated', function () {
     $user = User::factory()->create([

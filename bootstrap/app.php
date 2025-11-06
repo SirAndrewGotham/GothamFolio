@@ -14,7 +14,7 @@ return Application::configure(basePath: dirname(__DIR__))
         channels: __DIR__.'/../routes/channels.php',
         health: '/up',
         then: function () {
-            Route::middleware('web')
+            Route::middleware(['web', 'auth'])
                 ->group(base_path('routes/admin.php'));
         },
     )

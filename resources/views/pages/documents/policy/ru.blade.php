@@ -41,7 +41,7 @@
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold mb-6">Политика конфиденциальности</h1>
                     <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">
-                        Последнее обновление: 15 января 2024 года
+                        Последнее обновление: 5 ноября 2025 года
                     </p>
                     <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
                         <div class="flex items-center">

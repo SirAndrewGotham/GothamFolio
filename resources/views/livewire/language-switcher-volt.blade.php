@@ -1,35 +1,38 @@
 <?php
 
-use function Livewire\Volt\{state, mount};
 use App\Services\LanguageService;
+use Illuminate\Support\Collection;
+use Livewire\Attributes\Layout;
+use Livewire\Volt\Component;
 
-state([
-    'currentLanguage' => null,
-    'availableLanguages' => [],
-]);
+new #[Layout('components.frontend.layouts.app')] class extends Component {
+    public ?object $currentLanguage = null;
+    public Collection $availableLanguages;
 
-mount(function (LanguageService $languageService) {
-    $this->currentLanguage = $languageService->getCurrentLanguage();
-    $this->availableLanguages = $languageService->getAvailableLanguages();
-});
-
-$changeLanguage = function ($languageCode, LanguageService $languageService) {
-    if ($languageService->setLanguage($languageCode)) {
+    public function mount(LanguageService $languageService): void
+    {
         $this->currentLanguage = $languageService->getCurrentLanguage();
-        $this->dispatch('languageChanged', $languageCode);
-
-        // For Folio routing, we need to use a different approach
-        // Instead of redirect()->back(), we'll refresh the page
-        if (!app()->runningUnitTests()) {
-            $this->js('window.location.reload()');
-        }
+        $this->availableLanguages = $languageService->getAvailableLanguages();
     }
-    
-    // Add a console log to check if languageChanged event is dispatched
-    $this->js("console.log(\"Language changed to: {$languageCode}\");");
-};
 
-?>
+    public function changeLanguage(string $languageCode, LanguageService $languageService): void
+    {
+        if ($languageService->setLanguage($languageCode)) {
+            $this->currentLanguage = $languageService->getCurrentLanguage();
+            $this->dispatch('languageChanged', $languageCode);
+
+            // For Folio routing, we need to use a different approach
+            // Instead of redirect()->back(), we'll refresh the page
+            if (!app()->runningUnitTests()) {
+                $this->js('window.location.reload()');
+            }
+        }
+
+        // Add a console log to check if languageChanged event is dispatched
+        $this->js("console.log(\"Language changed to: {$languageCode}\");");
+    }
+
+}; ?>
 
 <div class="relative" x-data="{ open: false }">
     <button @click="open = !open" class="flex items-center space-x-1 px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">

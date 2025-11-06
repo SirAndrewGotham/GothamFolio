@@ -32,7 +32,7 @@
                         <i class="fas fa-file-contract text-2xl"></i>
                     </div>
                     <h1 class="text-4xl md:text-5xl font-bold mb-6">Servokondiĉoj</h1>
-                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">Lasta ĝisdatigo: 15-a de januaro, 2024</p>
+                    <p class="text-xl text-gray-600 dark:text-gray-400 mb-4">Lasta ĝisdatigo: 5-a de novembro, 2025</p>
                     <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
                         <div class="flex items-center"><i class="fas fa-clock text-primary-500 mr-2"></i><span>Legotempo: 10 minutoj</span></div>
                         <div class="flex items-center"><i class="fas fa-balance-scale text-primary-500 mr-2"></i><span>Jura dokumento</span></div>
@@ -127,7 +127,7 @@
                             <p>Por demandoj rilate al ĉi tiuj Servokondiĉoj, bonvolu kontakti nin:</p>
                             <div class="bg-gray-50 dark:bg-gray-700/50 p-6 rounded-lg mt-4">
                                 <p><strong>Retpoŝto:</strong> <a href="mailto:legal@andrewgotham.com" class="text-primary-500 hover:underline">legal@andrewgotham.com</a></p>
-                                <p><strong>Poŝta adreso:</strong> [Via jura adreso]</p>
+{{--                                <p><strong>Poŝta adreso:</strong> [Via jura adreso]</p>--}}
                             </div>
 
                             <div class="mt-12 p-6 bg-primary-50 dark:bg-primary-900/20 rounded-lg border border-primary-200 dark:border-primary-800">
