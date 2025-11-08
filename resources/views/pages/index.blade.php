@@ -1,24 +1,34 @@
 <x-frontend.layouts.app>
-    <x-frontend.index.hero />
-    <x-frontend.index.features />
+    @if(config('gothamfolio.banner') === 'on')
+        <x-frontend.index.banner />
+    @endif
 
-    <div class="section-divider my-16 w-full"></div>
+    @if(config('gothamfolio.features') === 'on')
+        <x-frontend.index.features />
+    @endif
 
-    <x-frontend.index.resume />
+    @if(config('gothamfolio.resume') === 'on')
+        <div class="section-divider my-16 w-full"></div>
+        <x-frontend.index.resume />
+    @endif
 
-    <div class="section-divider my-16 w-full"></div>
+    @if(config('gothamfolio.portfolio') === 'on')
+        <div class="section-divider my-16 w-full"></div>
+        <x-frontend.index.portfolio />
+    @endif
 
-    <x-frontend.index.works />
+    @if(config('gothamfolio.galleries') === 'on')
+        <div class="section-divider my-16 w-full"></div>
+        <x-frontend.index.galleries />
+    @endif
 
-    <div class="section-divider my-16 w-full"></div>
+    @if(config('gothamfolio.blog') === 'on')
+        <div class="section-divider my-16 w-full"></div>
+        <x-frontend.index.blog />
+    @endif
 
-    <x-frontend.index.galleries />
-
-    <div class="section-divider my-16 w-full"></div>
-
-    <x-frontend.index.blog />
-
-    <div class="section-divider my-16 w-full"></div>
-
-    <x-frontend.index.contacts />
+    @if(config('gothamfolio.contacts') === 'on')
+        <div class="section-divider my-16 w-full"></div>
+        <x-frontend.index.contacts />
+    @endif
 </x-frontend.layouts.app>

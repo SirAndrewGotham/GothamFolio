@@ -69,4 +69,26 @@ class Project extends Model
     {
         return 'name';
     }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', true);
+    }
+
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('order')->orderBy('created_at', 'desc');
+    }
+
+    public function scopeWithCurrentTranslations($query)
+    {
+        return $query->with(['translations' => function ($q) {
+            $q->whereIn('locale', [app()->getLocale(), config('app.fallback_locale', 'en')]);
+        }]);
+    }
 }

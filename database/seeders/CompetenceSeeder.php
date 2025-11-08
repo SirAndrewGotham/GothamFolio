@@ -41,14 +41,14 @@ class CompetenceSeeder extends Seeder
             $competence->save(); // Save translations
 
             // Attach categories
-            if (!empty($competenceData['categories'])) {
+            if (! empty($competenceData['categories'])) {
                 $categorySlugs = $competenceData['categories'];
                 $categories = Category::whereIn('slug', $categorySlugs)->get();
                 $competence->categories()->sync($categories->pluck('id'));
             }
 
             // Attach tags
-            if (!empty($competenceData['tags'])) {
+            if (! empty($competenceData['tags'])) {
                 $tagSlugs = $competenceData['tags'];
                 $tags = Tag::whereIn('slug', $tagSlugs)->get();
                 $competence->tags()->sync($tags->pluck('id'));

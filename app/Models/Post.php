@@ -34,6 +34,7 @@ class Post extends Model
         'is_published',
         'is_featured',
         'read_time',
+        'views_count',
         'meta_title',
         'meta_description',
         'meta_keywords',
@@ -56,6 +57,7 @@ class Post extends Model
         'allow_comments' => 'boolean',
         'allow_anonymous_comments' => 'boolean',
         'toc' => 'array',
+        'views_count' => 'integer',
     ];
 
     /**
@@ -133,6 +135,14 @@ class Post extends Model
     {
         return $query->where('is_published', true)
             ->where('published_at', '>', now());
+    }
+
+    /**
+     * Scope for active posts (alias for published).
+     */
+    public function scopeActive($query)
+    {
+        return $query->published();
     }
 
     /**

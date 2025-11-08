@@ -6,15 +6,6 @@
                 <x-frontend.partials.logo size="default" />
             </a>
         </div>
-        <!-- Logo -->
-{{--        <div class="flex items-center">--}}
-{{--            <a href="{{ url('/') }}" class="flex items-center">--}}
-{{--                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-lg">--}}
-{{--                    A--}}
-{{--                </div>--}}
-{{--                <span class="{{ $is_rtl ? 'mr-2' : 'ml-2' }} text-xl font-bold gradient-text">AndrewGotham</span>--}}
-{{--            </a>--}}
-{{--        </div>--}}
 
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex space-x-8 {{ $is_rtl ? 'flex-row-reverse' : '' }}">
@@ -22,32 +13,50 @@
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('/') ? 'text-primary-500' : '' }}">
                 {{ __('gothamfolio.navigation.home') }}
             </a>
-            <a href="{{ url('/resume') }}"
-               class="font-medium hover:text-primary-500 transition-colors {{ request()->is('resume') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.resume') }}
-            </a>
-            <a href="{{ url('/portfolio') }}"
-               class="font-medium hover:text-primary-500 transition-colors {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.portfolio') }}
-            </a>
-            <a href="{{ url('/galleries') }}"
-               class="font-medium hover:text-primary-500 transition-colors {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.galleries') }}
-            </a>
-            <a href="{{ url('/blog') }}"
-               class="font-medium hover:text-primary-500 transition-colors {{ request()->is('blog') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.blog') }}
-            </a>
-            <a href="{{ url('/contact') }}"
-               class="font-medium hover:text-primary-500 transition-colors {{ request()->is('contact') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.contact') }}
-            </a>
+            @if(config('gothamfolio.resume') === 'on')
+                <a href="{{ url('/resume') }}"
+                   class="font-medium hover:text-primary-500 transition-colors {{ request()->is('resume') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.resume') }}
+                </a>
+            @endif
+            @if(config('gothamfolio.competences') === 'on')
+                <a href="{{ url('/competences') }}"
+                   class="font-medium hover:text-primary-500 transition-colors {{ request()->is('competences') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.competences') }}
+                </a>
+            @endif
+            @if(config('gothamfolio.portfolio') === 'on')
+                <a href="{{ url('/portfolio') }}"
+                   class="font-medium hover:text-primary-500 transition-colors {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.portfolio') }}
+                </a>
+            @endif
+            @if(config('gothamfolio.galleries') === 'on')
+                <a href="{{ url('/galleries') }}"
+                   class="font-medium hover:text-primary-500 transition-colors {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.galleries') }}
+                </a>
+            @endif
+            @if(config('gothamfolio.blog') === 'on')
+                <a href="{{ url('/blog') }}"
+                   class="font-medium hover:text-primary-500 transition-colors {{ request()->is('blog') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.blog') }}
+                </a>
+            @endif
+            @if(config('gothamfolio.contacts') === 'on')
+                <a href="{{ url('/contact') }}"
+                   class="font-medium hover:text-primary-500 transition-colors {{ request()->is('contact') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.contact') }}
+                </a>
+            @endif
         </nav>
 
         <!-- Controls -->
         <div class="flex items-center space-x-4 {{ $is_rtl ? 'flex-row-reverse' : '' }}">
-            <!-- Language Switcher -->
-            <livewire:language-switcher-volt :wire:key="'language-switcher-' . $current_locale" />
+            @if(\App\Models\Language::active()->count() > 1)
+                <!-- Language Switcher -->
+                <livewire:language-switcher-volt :wire:key="'language-switcher-' . $current_locale" />
+            @endif
 
             <!-- Theme Toggle -->
             <button @click="toggleDarkMode" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
@@ -68,21 +77,31 @@
             <a href="{{ url('/') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('/') ? 'text-primary-500' : '' }}">
                 {{ __('gothamfolio.navigation.home') }}
             </a>
-            <a href="{{ url('/resume') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('resume') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.resume') }}
-            </a>
-            <a href="{{ url('/portfolio') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.portfolio') }}
-            </a>
-            <a href="{{ url('/galleries') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.galleries') }}
-            </a>
-            <a href="{{ url('/blog') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('blog') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.blog') }}
-            </a>
-            <a href="{{ url('/contact') }}" class="font-medium py-2 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('contact') ? 'text-primary-500' : '' }}">
-                {{ __('gothamfolio.navigation.contact') }}
-            </a>
+            @if(config('gothamfolio.resume') === 'on')
+                <a href="{{ url('/resume') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('resume') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.resume') }}
+                </a>
+            @endif
+            @if(config('gothamfolio.portfolio') === 'on')
+                <a href="{{ url('/portfolio') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.portfolio') }}
+                </a>
+            @endif
+            @if(config('gothamfolio.galleries') === 'on')
+                <a href="{{ url('/galleries') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.galleries') }}
+                </a>
+            @endif
+            @if(config('gothamfolio.blog') === 'on')
+                <a href="{{ url('/blog') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('blog') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.blog') }}
+                </a>
+            @endif
+            @if(config('gothamfolio.contacts') === 'on')
+                <a href="{{ url('/contact') }}" class="font-medium py-2 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('contact') ? 'text-primary-500' : '' }}">
+                    {{ __('gothamfolio.navigation.contact') }}
+                </a>
+            @endif
         </div>
     </div>
 </header>
