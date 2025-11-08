@@ -19,15 +19,20 @@ state([
     'submissionTime' => 0,
 ]);
 
-rules([
+rules(fn () => [
     'name' => 'required|min:2',
     'email' => 'required|email',
     'subject' => 'required|min:5',
     'message' => 'required|min:10',
     'honeypot' => 'max:0', // Honeypot must be empty
-    'captchaAnswer' => function ($value) {
-        return 'required|in:'.$this->captchaCorrectAnswer;
-    },
+    'captchaAnswer' => [
+        'required',
+        function (string $attribute, $value, $fail) {
+            if ((int) $value !== $this->captchaCorrectAnswer) {
+                $fail(__('gothamfolio.feedback_form.captcha_error'));
+            }
+        },
+    ],
 ]);
 
 mount(function () {
@@ -51,6 +56,7 @@ $submit = function () {
     // Time-based protection - silent failure
     if (time() - $this->submissionTime < 3) {
         $this->formSubmitted = true;
+        $this->formSubmitted = true;
         // $this->resetForm();  // Remove this line
         return;
     }
@@ -65,12 +71,13 @@ $submit = function () {
     // ... CAPTCHA validation and other code ...
 
     // If we get here, it's a legitimate submission
-    $this->validate([
-        'name' => 'required|min:2',
-        'email' => 'required|email',
-        'subject' => 'required|min:5',
-        'message' => 'required|min:10',
-    ]);
+//    $this->validate([
+//        'name' => 'required|min:2',
+//        'email' => 'required|email',
+//        'subject' => 'required|min:5',
+//        'message' => 'required|min:10',
+//    ]);
+    $this->validate();
 
     $this->formSubmitting = true;
 

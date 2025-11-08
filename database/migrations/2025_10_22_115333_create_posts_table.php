@@ -44,9 +44,4 @@ return new class extends Migration
             $table->index('slug');
         });
     }
-
-    public function down(): void
-    {
-        Schema::dropIfExists('posts');
-    }
 };

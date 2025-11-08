@@ -418,7 +418,7 @@ return [
         'all_competences' => 'Все компетенции',
         'full_version' => 'Полная версия резюме',
         'full_version_description' => 'На отдельной странице вы найдете детальную информацию о моем опыте работы, образовании, профессиональных навыках, сертификатах',
-        'open_full_resume' => 'Open Full Resume',
+        'open_full_resume' => 'Перейти к полному резюме',
     ],
     'galleries' => [
         'title' => 'Фотогалереи',
@@ -515,7 +515,7 @@ return [
         'equipment_mobile' => 'Для мобильной съемки',
         'equipment_tripods' => 'Профессиональные штативы Manfrotto',
         'equipment_flashes' => 'Кольцевые и боковые макровспышки',
-        '极速加速器equipment_rails' => 'Рельсовые системы для точной фокусировки',
+        'equipment_rails' => 'Рельсовые системы для точной фокусировки',
         'settings_aperture' => 'Диафрагма',
         'settings_shutter' => 'Выдержка',
         'settings_seconds' => 'с',

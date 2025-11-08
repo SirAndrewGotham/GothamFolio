@@ -1634,29 +1634,6 @@
       "tags": ["os", "ubuntu", "centos", "debian"]
     },
     {
-      "slug": "laravel",
-      "icon": "fab fa-laravel",
-      "color": "#FF2D20",
-      "proficiency": 90,
-      "years_experience": 8,
-      "is_featured": true,
-      "is_active": true,
-      "translations": {
-        "name": {
-          "en": "Laravel",
-          "ru": "Laravel",
-          "eo": "Laravel"
-        },
-        "description": {
-          "en": "Full-stack PHP framework for elegant web development",
-          "ru": "Full-stack PHP фреймворк для элегантной веб-разработки",
-          "eo": "Full-stack PHP kadro por eleganta reta disvolviĝo"
-        }
-      },
-      "categories": ["backend", "php-frameworks"],
-      "tags": ["mvc", "eloquent", "blade", "artisan", "migrations"]
-    },
-    {
       "slug": "php-8-1",
       "icon": "fab fa-php",
       "color": "#777BB4",

@@ -17,7 +17,7 @@ class ResumeSummarySeeder extends Seeder
         $exp1 = ResumeSummary::create([
             'type' => 'experience',
             'icon' => 'fa-briefcase',
-            'duration' => '2020 - настоящее время',
+            'duration' => '2020 - present',
             'order' => 0,
             'is_active' => true,
         ]);

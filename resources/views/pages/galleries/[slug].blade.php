@@ -32,15 +32,15 @@ $sortedImages = computed(function () {
 
     switch ($this->sortBy) {
         case 'date':
-            return $images->sortByDesc('year');
+            return $images->sortByDesc('year')->values();
         case 'name':
-            return $images->sortBy('title');
+            return $images->sortBy('title')->values();
         case 'category':
             return $images->sortBy(function ($image) {
                 return $image->tags->first()?->name ?? '';
-            });
+            })->values();
         default:
-            return $images;
+            return $images->values();
     }
 });
 
@@ -61,7 +61,13 @@ $openLightbox = function ($image) {
 };
 
 $navigateLightbox = function ($direction) {
-    $this->currentImageIndex = ($this->currentImageIndex + $direction + $this->sortedImages->count()) % $this->sortedImages->count();
+    $count = $this->sortedImages->count();
+
+    if ($count === 0) {
+        return;
+    }
+
+    $this->currentImageIndex = ($this->currentImageIndex + $direction + $count) % $count;
 };
 
 ?>

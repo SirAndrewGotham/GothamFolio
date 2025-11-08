@@ -4,7 +4,7 @@
     use App\Models\Category;
 
     $currentLocale = app()->getLocale();
-    $language = Language::whereCode($currentLocale)->first();
+    $language = \App\Models\Language::whereCode($currentLocale)->first();
 
     if (!$language) {
         $language = Language::whereCode('en')->first();
@@ -12,7 +12,7 @@
 
     // Get categories that have posts for the current language
     // Using a simpler approach - get categories from existing posts
-    $categories = Post::where('language_id', $language->id)
+    $categories = \App\Models\Post::where('language_id', $language->id)
         ->published()
         ->with('categories')
         ->get()
@@ -22,7 +22,7 @@
         ->toArray();
 
     // Get featured posts
-    $featuredPosts = Post::where('language_id', $language->id)
+    $featuredPosts = \App\Models\Post::where('language_id', $language->id)
         ->with(['author', 'categories'])
         ->published()
         ->featured()
@@ -31,9 +31,12 @@
         ->get();
 
     // Get all posts with pagination
-    $posts = Post::where('language_id', $language->id)
+    $posts = \App\Models\Post::where('language_id', $language->id)
         ->with(['author', 'categories', 'tags'])
         ->published()
+        ->when($selectedCategory !== 'all', function ($query) use ($selectedCategory) {
+            $query->whereHas('categories', fn ($categoryQuery) => $categoryQuery->where('slug', $selectedCategory));
+        })
         ->latest('published_at')
         ->paginate(9);
 

@@ -24,7 +24,7 @@ class GallerySeeder extends Seeder
         // Get tags for images
         $tags = Tag::whereIn('name', [
             'sunset', 'mountains', 'urban', 'portrait', 'architecture', 'nature',
-            'black-and-white', 'color', '极速加速器travel', 'macro', 'details', 'textures'
+            'black-and-white', 'color', 'travel', 'macro', 'details', 'textures'
         ])->get();
 
         // If no tags exist, create some default ones

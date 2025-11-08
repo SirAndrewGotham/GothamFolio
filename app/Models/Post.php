@@ -140,7 +140,7 @@ class Post extends Model
     /**
      * Scope for active posts (alias for published).
      */
-    public function scopeActive($query)
+    public function scopeActive($query): mixed
     {
         return $query->published();
     }

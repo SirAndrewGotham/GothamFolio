@@ -13,7 +13,7 @@
     // Get all categories for the sidebar - simplest approach
     $categories = Category::where('language_id', $language->id)
         ->get()
-        ->mapWithKeys(fn($category极) => [$category->slug => $category->name])
+        ->mapWithKeys(fn($category) => [$category->slug => $category->name])
         ->toArray();
 
     // Get all categories for the sidebar - simplest approach
@@ -180,7 +180,7 @@
                             <h4 class="font-semibold text-gray-900 dark:text-white mb-3">{{ __('gothamfolio.blog.share') }}</h4>
                             <div class="flex space-x-3">
                                 <a href="https://t.me/share/url?url={{ urlencode(url()->current()) }}&text={{ urlencode($post->title) }}" target="_blank" class="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
-                                    <i class极fab fa-telegram-plane"></i>
+                                    <i class="fab fa-telegram-plane"></i>
                                 </a>
                                 <a href="https://vk.com/share.php?url={{ urlencode(url()->current()) }}&title={{ urlencode($post->title) }}" target="_blank" class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
                                     <i class="fab fa-vk"></i>

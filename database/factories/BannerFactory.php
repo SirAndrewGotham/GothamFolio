@@ -24,7 +24,7 @@ class BannerFactory extends Factory
         ];
     }
 
-    public function configure()
+    public function configure(): static
     {
         return $this->afterCreating(function ($banner) {
             // Add English translations

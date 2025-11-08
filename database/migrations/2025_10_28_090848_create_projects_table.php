@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('github_url')->nullable();
             $table->boolean('featured')->default(false);
             $table->boolean('is_active')->default(true);
+            $table->unsignedBigInteger('order')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });
