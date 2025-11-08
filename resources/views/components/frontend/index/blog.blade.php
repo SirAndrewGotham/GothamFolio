@@ -1,54 +1,101 @@
+<?php
+
+use App\Models\Post;
+use Illuminate\Support\Facades\DB;
+use function Livewire\Volt\{computed};
+
+$recentPosts = computed(fn() => Post::published()
+    ->with(['categories', 'author', 'language'])
+    ->where(function ($query) {
+        // Get posts in current language or fallback language
+        $currentLocale = app()->getLocale();
+        $fallbackLocale = config('app.fallback_locale', 'en');
+
+        $query->whereHas('language', function ($q) use ($currentLocale) {
+            $q->where('code', $currentLocale);
+        })->orWhere(function ($q) use ($fallbackLocale, $currentLocale) {
+            $q->whereHas('language', function ($langQ) use ($fallbackLocale) {
+                $langQ->where('code', $fallbackLocale);
+            })->whereNotExists(function ($existsQ) use ($currentLocale) {
+                $existsQ->select(DB::raw(1))
+                    ->from('posts as p2')
+                    ->whereRaw('p2.post_id = posts.post_id')
+                    ->whereHas('language', function ($langQ) use ($currentLocale) {
+                        $langQ->where('code', $currentLocale);
+                    });
+            });
+        });
+    })
+    ->orderBy('published_at', 'desc')
+    ->limit(2)
+    ->get());
+
+?>
+
+@volt('blog-component')
 <section id="blog" class="py-16 bg-gray-50 dark:bg-gray-800/30 w-full">
     <div class="fluid-container">
-        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">Блог</h2>
+        <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in">{{ __('gothamfolio.blog.title') }}</h2>
 
+        @if($this->recentPosts->count() > 0)
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- Blog Post 1 -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg fade-in">
-                <div class="h-48 bg-cover bg-center w-full" style="background-image: url('assets/frontend/img/blog/01.jpg')"></div>
-                <div class="p-6">
-                    <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
-                        <span>15 июня 2023</span>
-                        <span class="mx-2">•</span>
-                        <span>Веб-разработка</span>
+            @foreach($this->recentPosts as $post)
+            <a href="{{ url('/blog/' . $post->slug) }}" class="group block bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg fade-in transition-transform hover:scale-105">
+                <!-- Post Image -->
+                <div class="h-48 bg-cover bg-center w-full" style="background-image: url('{{ $post->featured_image ?? asset('assets/frontend/img/blog/default.jpg') }}')">
+                    @if(!$post->featured_image)
+                    <div class="w-full h-full bg-gradient-to-r from-primary-400 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-newspaper text-white text-5xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Выше знамя PHP!</h3>
-                    <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        С незапамятных времен (ну, практически с того момента, когда родился Интернет) я разрабатываю Веб-сайты на PHP. Учитывая сказанное, нетрудно понять, что передо мной прошла вся история языка...
-                    </p>
-                    <a href="https://laranotes.ru/" target="_blank" class="text-primary-500 font-medium hover:text-primary-600 inline-flex items-center">
-                        <span>Читать далее на LaraNotes</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
+                    @endif
                 </div>
-            </div>
-
-            <!-- Blog Post 2 -->
-            <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg fade-in">
-                <div class="h-48 bg-cover bg-center w-full" style="background-image: url('assets/frontend/img/blog/02.jpg')"></div>
+                
                 <div class="p-6">
+                    <!-- Post Meta -->
                     <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
-                        <span>2 июня 2023</span>
+                        <span>{{ $post->published_at?->format('d M Y') ?? $post->created_at->format('d M Y') }}</span>
+                        @if($post->categories->count() > 0)
                         <span class="mx-2">•</span>
-                        <span>Фотография</span>
+                        <span>{{ $post->categories->first()->name }}</span>
+                        @endif
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Свет в пейзажной фотографии</h3>
+                    
+                    <!-- Post Title -->
+                    <h3 class="text-xl font-bold mb-3 group-hover:text-primary-500 transition-colors">{{ $post->title }}</h3>
+                    
+                    <!-- Post Excerpt -->
                     <p class="text-gray-600 dark:text-gray-400 mb-4">
-                        Как использовать естественное освещение для создания драматических и эмоциональных пейзажей. Советы и техники для фотографов всех уровней.
+                        {{ $post->excerpt ?? \Illuminate\Support\Str::limit(strip_tags($post->content), 150) }}
                     </p>
-                    <a href="#" class="text-primary-500 font-medium hover:text-primary-600 inline-flex items-center">
-                        <span>Читать далее</span>
-                        <i class="fas fa-arrow-right ml-2 text-sm"></i>
-                    </a>
+                    
+                    <!-- Read More Link (now just decorative) -->
+                    <div class="text-primary-500 font-medium inline-flex items-center">
+                        <span>{{ __('gothamfolio.blog.read_more') }}</span>
+                        <i class="fas fa-arrow-right ml-2 text-sm group-hover:translate-x-1 transition-transform"></i>
+                    </div>
                 </div>
+            </a>
+            @endforeach
+        </div>
+        @else
+        <!-- No Articles Placeholder -->
+        <div class="text-center py-12 fade-in">
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+                <i class="fas fa-newspaper text-5xl text-gray-400 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">{{ __('gothamfolio.blog.no_articles_yet') }}</h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    {{ __('gothamfolio.blog.no_articles_description') }}
+                </p>
             </div>
         </div>
+        @endif
 
         <div class="text-center mt-12 fade-in">
-            <a href="#" class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors inline-flex items-center">
-                <span>Все статьи</span>
+            <a href="{{ url('/blog') }}" class="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors inline-flex items-center">
+                <span>{{ __('gothamfolio.blog.view_all_articles') }}</span>
                 <i class="fas fa-arrow-right ml-2"></i>
             </a>
         </div>
     </div>
 </section>
+@endvolt

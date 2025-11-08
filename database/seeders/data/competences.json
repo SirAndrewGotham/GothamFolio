@@ -1218,6 +1218,489 @@
       },
       "categories": ["soft-skills"],
       "tags": ["documentation", "clarity", "conciseness", "knowledge-sharing"]
+    },
+    {
+      "slug": "websockets",
+      "icon": "fas fa-comments",
+      "color": "#60A5FA",
+      "proficiency": 70,
+      "years_experience": 1,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "WebSockets",
+          "ru": "WebSockets",
+          "eo": "WebSockets"
+        },
+        "description": {
+          "en": "Bidirectional communication protocol over a single TCP connection",
+          "ru": "Двунаправленный протокол связи по одному TCP-соединению",
+          "eo": "Dudirekta komunika protokolo per ununura TCP-konekto"
+        }
+      },
+      "categories": ["backend", "api"],
+      "tags": ["real-time", "communication"]
+    },
+    {
+      "slug": "composer",
+      "icon": "fas fa-box",
+      "color": "#885D3B",
+      "proficiency": 80,
+      "years_experience": 6,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Composer",
+          "ru": "Composer",
+          "eo": "Composer"
+        },
+        "description": {
+          "en": "Dependency Manager for PHP",
+          "ru": "Менеджер зависимостей для PHP",
+          "eo": "Dependecadministranto por PHP"
+        }
+      },
+      "categories": ["tools", "php-frameworks"],
+      "tags": ["package-manager", "php", "dependencies"]
+    },
+    {
+      "slug": "sqlite",
+      "icon": "fas fa-database",
+      "color": "#003B57",
+      "proficiency": 75,
+      "years_experience": 5,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "SQLite",
+          "ru": "SQLite",
+          "eo": "SQLite"
+        },
+        "description": {
+          "en": "Self-contained, serverless, zero-configuration, transactional SQL database engine",
+          "ru": "Автономная, бессерверная, безконфигурационная, транзакционная система управления базами данных SQL",
+          "eo": "Memstara, servilo-malpli, nul-agorda, transakcia SQL-datumbaza motoro"
+        }
+      },
+      "categories": ["databases"],
+      "tags": ["sql", "embedded-database", "serverless"]
+    },
+    {
+      "slug": "multilingual",
+      "icon": "fas fa-language",
+      "color": "#C0392B",
+      "proficiency": 80,
+      "years_experience": 6,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Multilingual",
+          "ru": "Многоязычность",
+          "eo": "Multlingveco"
+        },
+        "description": {
+          "en": "Support for multiple languages in web applications",
+          "ru": "Поддержка нескольких языков в веб-приложениях",
+          "eo": "Subteno por pluraj lingvoj en retaplikaĵoj"
+        }
+      },
+      "categories": ["frontend", "backend"],
+      "tags": ["i18n", "localization", "translation"]
+    },
+    {
+      "slug": "laravel-folio-pages",
+      "icon": "fab fa-laravel",
+      "color": "#FF2D20",
+      "proficiency": 70,
+      "years_experience": 1,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel Folio Pages",
+          "ru": "Laravel Folio Pages",
+          "eo": "Laravel Folio Paĝoj"
+        },
+        "description": {
+          "en": "Blade-powered routing for Laravel applications",
+          "ru": "Маршрутизация на основе Blade для Laravel-приложений",
+          "eo": "Blade-funkciigita enrutado por Laravel-aplikaĵoj"
+        }
+      },
+      "categories": ["php-frameworks", "frontend"],
+      "tags": ["laravel", "routing", "blade"]
+    },
+    {
+      "slug": "volt-components",
+      "icon": "fas fa-charging-station",
+      "color": "#8B5CF6",
+      "proficiency": 70,
+      "years_experience": 1,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Volt Components",
+          "ru": "Volt Components",
+          "eo": "Volt Komponantoj"
+        },
+        "description": {
+          "en": "Single-file Livewire components with Blade templates",
+          "ru": "Однофайловые Livewire-компоненты с шаблонами Blade",
+          "eo": "Unu-dosieraj Livewire-komponantoj kun Blade-ŝablonoj"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["livewire", "blade", "components"]
+    },
+    {
+      "slug": "laravel-10",
+      "icon": "fab fa-laravel",
+      "color": "#FF2D20",
+      "proficiency": 80,
+      "years_experience": 2,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel 10",
+          "ru": "Laravel 10",
+          "eo": "Laravel 10"
+        },
+        "description": {
+          "en": "Laravel 10 Framework",
+          "ru": "Фреймворк Laravel 10",
+          "eo": "Laravel 10 Kadro"
+        }
+      },
+      "categories": ["backend", "php-frameworks"],
+      "tags": ["laravel", "php"]
+    },
+    {
+      "slug": "php-8-2",
+      "icon": "fab fa-php",
+      "color": "#777BB4",
+      "proficiency": 85,
+      "years_experience": 1,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "PHP 8.2",
+          "ru": "PHP 8.2",
+          "eo": "PHP 8.2"
+        },
+        "description": {
+          "en": "PHP 8.2 Programming Language",
+          "ru": "Язык программирования PHP 8.2",
+          "eo": "PHP 8.2 Programlingvo"
+        }
+      },
+      "categories": ["backend", "programming-languages"],
+      "tags": ["php"]
+    },
+    {
+      "slug": "vue-js-3",
+      "icon": "fab fa-vuejs",
+      "color": "#4FC08D",
+      "proficiency": 80,
+      "years_experience": 2,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Vue.js 3",
+          "ru": "Vue.js 3",
+          "eo": "Vue.js 3"
+        },
+        "description": {
+          "en": "Vue.js 3 Framework",
+          "ru": "Фреймворк Vue.js 3",
+          "eo": "Vue.js 3 Kadro"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["vue", "javascript", "composition-api"]
+    },
+    {
+      "slug": "pinia",
+      "icon": "fas fa-leaf",
+      "color": "#FFD700",
+      "proficiency": 75,
+      "years_experience": 1,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Pinia",
+          "ru": "Pinia",
+          "eo": "Pinia"
+        },
+        "description": {
+          "en": "The enjoyable Vue Store",
+          "ru": "Приятный Vue Store",
+          "eo": "La ĝuebla Vue Store"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["vue", "state-management", "javascript"]
+    },
+    {
+      "slug": "jwt",
+      "icon": "fas fa-key",
+      "color": "#F7931E",
+      "proficiency": 80,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "JWT",
+          "ru": "JWT",
+          "eo": "JWT"
+        },
+        "description": {
+          "en": "JSON Web Tokens for secure information exchange",
+          "ru": "JSON Web Tokens для безопасного обмена информацией",
+          "eo": "JSON Retaj Tokenoj por sekura informinterŝanĝo"
+        }
+      },
+      "categories": ["backend", "api"],
+      "tags": ["security", "authentication", "api-tokens"]
+    },
+    {
+      "slug": "yii-1-1",
+      "icon": "fab fa-php",
+      "color": "#0073B7",
+      "proficiency": 60,
+      "years_experience": 2,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Yii 1.1",
+          "ru": "Yii 1.1",
+          "eo": "Yii 1.1"
+        },
+        "description": {
+          "en": "Yii 1.1 PHP Framework",
+          "ru": "Фреймворк Yii 1.1 PHP",
+          "eo": "Yii 1.1 PHP Kadro"
+        }
+      },
+      "categories": ["backend", "php-frameworks"],
+      "tags": ["php", "legacy"]
+    },
+    {
+      "slug": "php-5-6",
+      "icon": "fab fa-php",
+      "color": "#777BB4",
+      "proficiency": 60,
+      "years_experience": 2,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "PHP 5.6",
+          "ru": "PHP 5.6",
+          "eo": "PHP 5.6"
+        },
+        "description": {
+          "en": "PHP 5.6 Programming Language",
+          "ru": "Язык программирования PHP 5.6",
+          "eo": "PHP 5.6 Programlingvo"
+        }
+      },
+      "categories": ["backend", "programming-languages"],
+      "tags": ["php", "legacy"]
+    },
+    {
+      "slug": "jquery",
+      "icon": "fab fa-js",
+      "color": "#0769AD",
+      "proficiency": 70,
+      "years_experience": 8,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "jQuery",
+          "ru": "jQuery",
+          "eo": "jQuery"
+        },
+        "description": {
+          "en": "JavaScript library for DOM manipulation",
+          "ru": "Библиотека JavaScript для манипуляции DOM",
+          "eo": "JavaScript biblioteko por DOM-manipulado"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["javascript", "dom", "library"]
+    },
+    {
+      "slug": "bootstrap-3",
+      "icon": "fab fa-bootstrap",
+      "color": "#563D7C",
+      "proficiency": 70,
+      "years_experience": 6,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Bootstrap 3",
+          "ru": "Bootstrap 3",
+          "eo": "Bootstrap 3"
+        },
+        "description": {
+          "en": "Bootstrap 3 CSS Framework",
+          "ru": "CSS Фреймворк Bootstrap 3",
+          "eo": "Bootstrap 3 CSS Kadro"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["css-framework", "responsive", "legacy"]
+    },
+    {
+      "slug": "tinymce",
+      "icon": "fas fa-edit",
+      "color": "#222222",
+      "proficiency": 70,
+      "years_experience": 5,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "TinyMCE",
+          "ru": "TinyMCE",
+          "eo": "TinyMCE"
+        },
+        "description": {
+          "en": "Rich text editor",
+          "ru": "Редактор форматированного текста",
+          "eo": "Riĉteksta redaktilo"
+        }
+      },
+      "categories": ["frontend"],
+      "tags": ["editor", "wysiwyg", "javascript"]
+    },
+    {
+      "slug": "apache",
+      "icon": "fas fa-server",
+      "color": "#D22128",
+      "proficiency": 80,
+      "years_experience": 7,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Apache",
+          "ru": "Apache",
+          "eo": "Apache"
+        },
+        "description": {
+          "en": "Apache HTTP Server",
+          "ru": "HTTP-сервер Apache",
+          "eo": "Apache HTTP Servilo"
+        }
+      },
+      "categories": ["devops"],
+      "tags": ["web-server", "http", "hosting"]
+    },
+    {
+      "slug": "linux",
+      "icon": "fab fa-linux",
+      "color": "#FCC624",
+      "proficiency": 85,
+      "years_experience": 10,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Linux",
+          "ru": "Linux",
+          "eo": "Linux"
+        },
+        "description": {
+          "en": "Open-source operating system",
+          "ru": "Операционная система с открытым исходным кодом",
+          "eo": "Malfermita operaciumo"
+        }
+      },
+      "categories": ["devops"],
+      "tags": ["os", "ubuntu", "centos", "debian"]
+    },
+    {
+      "slug": "laravel",
+      "icon": "fab fa-laravel",
+      "color": "#FF2D20",
+      "proficiency": 90,
+      "years_experience": 8,
+      "is_featured": true,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "Laravel",
+          "ru": "Laravel",
+          "eo": "Laravel"
+        },
+        "description": {
+          "en": "Full-stack PHP framework for elegant web development",
+          "ru": "Full-stack PHP фреймворк для элегантной веб-разработки",
+          "eo": "Full-stack PHP kadro por eleganta reta disvolviĝo"
+        }
+      },
+      "categories": ["backend", "php-frameworks"],
+      "tags": ["mvc", "eloquent", "blade", "artisan", "migrations"]
+    },
+    {
+      "slug": "php-8-1",
+      "icon": "fab fa-php",
+      "color": "#777BB4",
+      "proficiency": 80,
+      "years_experience": 3,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "PHP 8.1",
+          "ru": "PHP 8.1",
+          "eo": "PHP 8.1"
+        },
+        "description": {
+          "en": "PHP 8.1 Programming Language",
+          "ru": "Язык программирования PHP 8.1",
+          "eo": "PHP 8.1 Programlingvo"
+        }
+      },
+      "categories": ["backend", "programming-languages"],
+      "tags": ["php"]
+    },
+    {
+      "slug": "imus-city-api",
+      "icon": "fas fa-city",
+      "color": "#2D6090",
+      "proficiency": 70,
+      "years_experience": 1,
+      "is_featured": false,
+      "is_active": true,
+      "translations": {
+        "name": {
+          "en": "IMUS City API",
+          "ru": "IMUS City API",
+          "eo": "IMUS City API"
+        },
+        "description": {
+          "en": "API for IMUS City system integration",
+          "ru": "API для интеграции с системой IMUS City",
+          "eo": "API por IMUS City-sistemintegriĝo"
+        }
+      },
+      "categories": ["api"],
+      "tags": ["integration", "rest-api"]
     }
   ],
   "categories": [
@@ -1411,6 +1894,21 @@
         "en": "PHP-based web application frameworks",
         "ru": "Веб-фреймворки на основе PHP",
         "eo": "PHP-bazitaj retaplikaĵaj kadroj"
+      },
+      "is_featured": false,
+      "is_active": true
+    },
+    {
+      "slug": "general",
+      "name": {
+        "en": "General",
+        "ru": "Общее",
+        "eo": "Ĝenerala"
+      },
+      "description": {
+        "en": "General competence or technology",
+        "ru": "Общая компетенция или технология",
+        "eo": "Ĝenerala kompetento aŭ teknologio"
       },
       "is_featured": false,
       "is_active": true
@@ -1858,10 +2356,6 @@
       "name": "Indexing"
     },
     {
-      "slug": "optimization",
-      "name": "Optimization"
-    },
-    {
       "slug": "real-time",
       "name": "Real Time"
     },
@@ -1932,10 +2426,6 @@
     {
       "slug": "ssl",
       "name": "SSL"
-    },
-    {
-      "slug": "json",
-      "name": "JSON"
     },
     {
       "slug": "extensions",
@@ -2170,10 +2660,6 @@
       "name": "Ideation"
     },
     {
-      "slug": "quality",
-      "name": "Quality"
-    },
-    {
       "slug": "precision",
       "name": "Precision"
     },
@@ -2216,6 +2702,10 @@
     {
       "slug": "knowledge-sharing",
       "name": "Knowledge Sharing"
+    },
+    {
+      "slug": "general",
+      "name": "General"
     }
   ]
 }

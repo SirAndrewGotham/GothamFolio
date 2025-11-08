@@ -22,8 +22,8 @@
                         <li>
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-                                <a href="/portfolio/laravel" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
-                                    Проекты на Laravel
+                                <a href="/portfolio/types/full-stack" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
+                                    Проекты полного цикла (Full-stack)
                                 </a>
                             </div>
                         </li>

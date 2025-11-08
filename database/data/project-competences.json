@@ -1,0 +1,84 @@
+{
+    "gothamfolio-platform": [
+        "laravel",
+        "php",
+        "mysql",
+        "livewire",
+        "tailwind",
+        "alpinejs",
+        "git",
+        "nginx",
+        "composer"
+    ],
+    "telescan-diagnostics": [
+        "laravel",
+        "php",
+        "mysql",
+        "vuejs",
+        "chartjs",
+        "api",
+        "git",
+        "nginx"
+    ],
+    "taris-corporate-website": [
+        "laravel",
+        "php",
+        "mysql",
+        "alpinejs",
+        "tailwind",
+        "git",
+        "nginx"
+    ],
+    "chagan-community-platform": [
+        "laravel",
+        "php",
+        "mysql",
+        "livewire",
+        "tailwind",
+        "alpinejs",
+        "git",
+        "nginx",
+        "redis"
+    ],
+    "gotham-forum": [
+        "laravel",
+        "php",
+        "mysql",
+        "livewire",
+        "tailwind",
+        "alpinejs",
+        "git",
+        "nginx"
+    ],
+    "imus-city-portal": [
+        "laravel",
+        "php",
+        "mysql",
+        "vuejs",
+        "tailwind",
+        "api",
+        "git",
+        "nginx"
+    ],
+    "moskva-esperanto": [
+        "laravel",
+        "php",
+        "mysql",
+        "livewire",
+        "tailwind",
+        "alpinejs",
+        "git",
+        "nginx"
+    ],
+    "stagephoto": [
+        "laravel",
+        "php",
+        "mysql",
+        "livewire",
+        "tailwind",
+        "alpinejs",
+        "git",
+        "nginx",
+        "image-processing"
+    ]
+}

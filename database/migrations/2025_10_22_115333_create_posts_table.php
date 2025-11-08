@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('is_published')->default(false);
             $table->boolean('is_featured')->default(false);
             $table->integer('read_time')->nullable()->comment('Estimated reading time in minutes');
+            $table->unsignedInteger('views_count')->default(0)->after('read_time');
             $table->boolean('allow_comments')->default(true);
             $table->boolean('allow_anonymous_comments')->default(true);
 
