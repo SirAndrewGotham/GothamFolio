@@ -10,6 +10,8 @@
         $language = Language::whereCode('en')->first();
     }
 
+    $selectedCategory = request()->input('category', 'all');
+
     // Get categories that have posts for the current language
     // Using a simpler approach - get categories from existing posts
     $categories = \App\Models\Post::where('language_id', $language->id)
@@ -39,8 +41,6 @@
         })
         ->latest('published_at')
         ->paginate(9);
-
-    $selectedCategory = request()->input('category', 'all');
 @endphp
 
 <x-frontend.layouts.app>

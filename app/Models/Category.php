@@ -47,10 +47,44 @@ class Category extends Model
     }
 
     /**
+     * Get the galleries that belong to this category.
+     */
+    public function galleries(): MorphToMany
+    {
+        return $this->morphedByMany(Gallery::class, 'categorizable');
+    }
+
+    /**
+     * Get the projects that belong to this category.
+     */
+    public function projects(): MorphToMany
+    {
+        return $this->morphedByMany(\App\Models\Project::class, 'categorizable');
+    }
+
+    /**
      * Get the name of the field that should be used for slug generation.
      */
     public function getSluggableField(): string
     {
         return 'name';
+    }
+
+    public function getNameAttribute(?string $value): ?string
+    {
+        return $this->getTranslatedAttribute('name');
+    }
+
+    public function getDescriptionAttribute(?string $value): ?string
+    {
+        return $this->getTranslatedAttribute('description');
+    }
+
+    /**
+     * Get all categorizable models for this category.
+     */
+    public function categorizables(): MorphToMany
+    {
+        return $this->morphToMany(\Illuminate\Database\Eloquent\Model::class, 'categorizable');
     }
 }

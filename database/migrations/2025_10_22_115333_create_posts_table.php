@@ -10,6 +10,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('post_id')->nullable()->comment('Group identifier for translations');
             $table->string('title');
             $table->string('slug')->unique();
             $table->json('toc')->nullable()->comment('Table of Contents generated from post content');
@@ -31,7 +32,6 @@ return new class extends Migration
 
             // Relationships
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('post_id')->constrained('posts')->cascadeOnDelete();
             $table->foreignId('language_id')->constrained()->cascadeOnDelete();
 
             $table->softDeletes();
@@ -42,6 +42,7 @@ return new class extends Migration
             $table->index(['is_published', 'published_at']);
             $table->index(['is_featured', 'published_at']);
             $table->index('slug');
+            $table->index('post_id');
         });
     }
 };

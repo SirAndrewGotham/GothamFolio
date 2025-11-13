@@ -4,9 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Competence;
 use App\Models\Project;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
 class ProjectCompetenceSeeder extends Seeder
@@ -14,15 +12,16 @@ class ProjectCompetenceSeeder extends Seeder
     public function run(): void
     {
         // Load project-competence relationships from JSON file
-        $projectCompetences = json_decode(File::get(database_path('data/project-competences.json')), true);
+        $projectCompetences = json_decode(File::get(database_path('seeders/data/project-competences.json')), true);
 
         $competenceIds = Competence::pluck('id', 'slug')->toArray();
 
         foreach ($projectCompetences as $projectSlug => $competenceSlugs) {
             $project = Project::where('slug', $projectSlug)->first();
 
-            if (!$project) {
+            if (! $project) {
                 $this->command->warn("Project with slug '{$projectSlug}' not found.");
+
                 continue;
             }
 
@@ -36,9 +35,9 @@ class ProjectCompetenceSeeder extends Seeder
                 }
             }
 
-            if (!empty($competenceIdsToAttach)) {
+            if (! empty($competenceIdsToAttach)) {
                 $project->competences()->sync($competenceIdsToAttach);
-                $this->command->info("Attached " . count($competenceIdsToAttach) . " competences to project '{$projectSlug}'.");
+                $this->command->info('Attached '.count($competenceIdsToAttach)." competences to project '{$projectSlug}'.");
             }
         }
     }

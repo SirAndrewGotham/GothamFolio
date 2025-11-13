@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Log;
 
 class Localization
 {
@@ -21,8 +22,9 @@ class Localization
 
     public function handle(Request $request, Closure $next): Response
     {
+        // die('Localization middleware hit!'); // Removed for further debugging
         $locale = Session::get('locale');
-        error_log('Localization Middleware - Initial Locale: '.($locale ?? 'null'));
+        Log::info('Localization Middleware - Initial Locale: '.($locale ?? 'null'));
 
         // If no locale in session, try to detect from browser, then use the database default
         if (! $locale) {
@@ -32,26 +34,27 @@ class Localization
                 if ($detectedLocale) {
                     $locale = $detectedLocale;
                     Session::put('locale', $locale);
-                    error_log('Localization Middleware - Locale detected from browser: '.$locale);
+                    Log::info('Localization Middleware - Locale detected from browser: '.$locale);
                 }
             }
             if (! $locale) {
                 $defaultLanguage = $this->languageService->getDefaultLanguage();
                 $locale = $defaultLanguage ? $defaultLanguage->code : 'en';
                 Session::put('locale', $locale);
-                error_log('Localization Middleware - No locale in session and not detected from browser, set to default: '.$locale);
+                Log::info('Localization Middleware - No locale in session and not detected from browser, set to default: '.$locale);
             }
         }
 
         // Set application locale to the database-driven locale
         App::setLocale(Session::get('locale'));
-        error_log('Localization Middleware - App Locale after set: '.App::getLocale());
+        Log::info('Localization Middleware - App Locale after set: '.App::getLocale());
+        Log::info('Localization Middleware - Session Locale after App::setLocale: '.Session::get('locale'));
 
         // Set fallback locale to the database fallback
         $fallbackLanguage = $this->languageService->getFallbackLanguage();
         if ($fallbackLanguage) {
             App::setFallbackLocale($fallbackLanguage->code);
-            error_log('Localization Middleware - Fallback Locale set to: '.$fallbackLanguage->code);
+            Log::info('Localization Middleware - Fallback Locale set to: '.$fallbackLanguage->code);
         }
 
         // Share application locale data with all views

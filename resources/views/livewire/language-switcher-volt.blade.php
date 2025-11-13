@@ -4,6 +4,8 @@ use App\Services\LanguageService;
 use Illuminate\Support\Collection;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Log;
 
 new #[Layout('components.frontend.layouts.app')] class extends Component {
     public ?object $currentLanguage = null;
@@ -21,10 +23,13 @@ new #[Layout('components.frontend.layouts.app')] class extends Component {
             $this->currentLanguage = $languageService->getCurrentLanguage();
             $this->dispatch('languageChanged', $languageCode);
 
+            Log::info('LanguageSwitcherVolt - Session locale set to: '. Session::get('locale'));
+
             // For Folio routing, we need to use a different approach
             // Instead of redirect()->back(), we'll refresh the page
             if (!app()->runningUnitTests()) {
-                $this->js('window.location.reload()');
+                Log::info('LanguageSwitcherVolt - Reloading page with locale: '.Session::get('locale'));
+                $this->js('window.location.reload(true)'); // Pass true to force reload from server
             }
         }
 

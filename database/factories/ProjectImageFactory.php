@@ -1,0 +1,27 @@
+<?php
+
+namespace Database\Factories;
+
+use Illuminate\Database\Eloquent\Factories\Factory;
+
+/**
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ProjectImage>
+ */
+class ProjectImageFactory extends Factory
+{
+    /**
+     * Define the model's default state.
+     *
+     * @return array<string, mixed>
+     */
+    public function definition(): array
+    {
+        return [
+            'project_id' => \App\Models\Project::factory(),
+            'image_path' => $this->faker->imageUrl(800, 600, 'projects', true),
+            'alt_text' => $this->faker->sentence(3),
+            'order' => $this->faker->numberBetween(0, 10),
+            'is_active' => $this->faker->boolean(90),
+        ];
+    }
+}

@@ -139,7 +139,7 @@
                                             <i class="fas fa-briefcase text-primary-500 mr-3"></i>
                                             Work Experience
                                         </h2>
-                                        <a href="#" class="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors shadow-lg">
+                                        <a href="/resume/download" target="_blank" class="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors shadow-lg">
                                             <i class="fas fa-download mr-2"></i>
                                             <span>Download Resume PDF</span>
                                         </a>

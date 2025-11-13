@@ -15,7 +15,7 @@ class BannerSeeder extends Seeder
     {
         $banner1 = Banner::create([
             'image_path' => 'assets/frontend/img/carousel/bg1.png',
-            'button_link' => '#resume',
+            'button_link' => '/resume',
             'is_active' => true,
             'order' => 0,
         ]);
@@ -35,7 +35,7 @@ class BannerSeeder extends Seeder
 
         $banner2 = Banner::create([
             'image_path' => 'assets/frontend/img/carousel/bg2.jpg',
-            'button_link' => '#works',
+            'button_link' => '/portfolio',
             'is_active' => true,
             'order' => 1,
         ]);
@@ -55,7 +55,7 @@ class BannerSeeder extends Seeder
 
         $banner3 = Banner::create([
             'image_path' => 'assets/frontend/img/carousel/bg3.jpg',
-            'button_link' => '#contacts',
+            'button_link' => '/contact',
             'is_active' => true,
             'order' => 2,
         ]);

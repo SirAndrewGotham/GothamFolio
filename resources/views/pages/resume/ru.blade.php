@@ -4,7 +4,7 @@
         <section class="py-12 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto text-center fade-in">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Резюме Эндрю Готэма</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Резюме Андрея Готэма</h1>
                     <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
                         Senior Full-Stack разработчик с более чем 30-летним опытом в веб-разработке.
                         Специализация на создании современных, масштабируемых веб-приложений и backend API с использованием экосистемы Laravel.
@@ -39,7 +39,7 @@
                                 <div class="w-24 h-24 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
                                     A
                                 </div>
-                                <h2 class="text-xl font-bold">Эндрю Готэм</h2>
+                                <h2 class="text-xl font-bold">Андрей Готэм</h2>
                                 <p class="text-primary-500">Senior Full-Stack разработчик</p>
                             </div>
 
@@ -139,7 +139,7 @@
                                         <i class="fas fa-briefcase text-primary-500 mr-3"></i>
                                         Опыт работы
                                     </h2>
-                                    <a href="#" class="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors shadow-lg">
+                                    <a href="/resume/download" target="_blank" class="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors shadow-lg">
                                         <i class="fas fa-download mr-2"></i>
                                         <span>Скачать резюме (PDF)</span>
                                     </a>
