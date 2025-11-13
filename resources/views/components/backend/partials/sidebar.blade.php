@@ -1,0 +1,124 @@
+<flux:sidebar sticky class="w-64 border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900 h-screen">
+    <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
+
+    <a href="{{ route('admin.dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
+        <x-app-logo />
+    </a>
+
+    <flux:navlist variant="outline">
+        <flux:navlist.group :heading="__('Platform')" class="grid">
+            <flux:navlist.item icon="home" :href="route('admin.dashboard')" :current="request()->routeIs('admin.dashboard')" wire:navigate>{{ __('Admin Dashboard') }}</flux:navlist.item>
+        </flux:navlist.group>
+
+        <flux:spacer />
+
+        <flux:navlist.group :heading="__('Homepage')" class="grid">
+            <flux:navlist.item icon="photo" :href="route('admin.banner.index')" :current="request()->routeIs('admin.banner.*')" wire:navigate>
+                {{ __('Banner') }}
+            </flux:navlist.item>
+            <flux:navlist.item icon="sparkles" :href="route('admin.features.index')" :current="request()->routeIs('admin.features.*')" wire:navigate>
+                {{ __('Features') }}
+            </flux:navlist.item>
+            <flux:navlist.item icon="academic-cap" :href="route('admin.resume.index')" :current="request()->routeIs('admin.resume.*')" wire:navigate>
+                {{ __('Resume') }}
+            </flux:navlist.item>
+        </flux:navlist.group>
+
+        <flux:spacer />
+
+        <flux:navlist.group :heading="__('Blog')" class="grid">
+            <flux:navlist.item icon="tag" :href="route('admin.categories.index')" :current="request()->routeIs('admin.categories.*')" wire:navigate>
+                {{ __('Categories') }}
+            </flux:navlist.item>
+            <flux:navlist.item icon="document-text" :href="route('admin.posts.index')" :current="request()->routeIs('admin.posts.*')" wire:navigate>
+                {{ __('Posts') }}
+            </flux:navlist.item>
+        </flux:navlist.group>
+
+        <flux:spacer />
+
+        <flux:navlist.group :heading="__('Photo')" class="grid">
+            <flux:navlist.item icon="tag" :href="route('admin.categories.index')" :current="request()->routeIs('admin.categories.*')" wire:navigate>
+                {{ __('Categories') }}
+            </flux:navlist.item>
+            <flux:navlist.item icon="folder-git-2" :href="route('admin.galleries.index')" :current="request()->routeIs('admin.galleries.*')" wire:navigate>
+                {{ __('Galleries') }}
+            </flux:navlist.item>
+            <flux:navlist.item icon="book-open-text" :href="route('admin.images.index')" :current="request()->routeIs('admin.images.*')" wire:navigate>
+                {{ __('All Images') }}
+            </flux:navlist.item>
+        </flux:navlist.group>
+
+        <flux:spacer />
+
+        <!-- ADD PORTFOLIO GROUP HERE -->
+        <flux:navlist.group :heading="__('Portfolio')" class="grid">
+            <flux:navlist.item icon="briefcase" :href="route('admin.portfolio.categories.index')" :current="request()->routeIs('admin.portfolio.categories.*')" wire:navigate>
+                {{ __('Portfolio Categories') }}
+            </flux:navlist.item>
+            <flux:navlist.item icon="rocket-launch" :href="route('admin.projects.index')" :current="request()->routeIs('admin.projects.*')" wire:navigate>
+                {{ __('Projects') }}
+            </flux:navlist.item>
+        </flux:navlist.group>
+
+        <flux:spacer />
+    </flux:navlist>
+
+    <flux:spacer />
+
+    <flux:navlist variant="outline">
+        <flux:navlist.item icon="folder-git-2" href="https://github.com/laravel/livewire-starter-kit" target="_blank">
+            {{ __('Repository') }}
+        </flux:navlist.item>
+
+        <flux:navlist.item icon="book-open-text" href="https://laravel.com/docs/starter-kits#livewire" target="_blank">
+            {{ __('Documentation') }}
+        </flux:navlist.item>
+    </flux:navlist>
+
+    <!-- Desktop User Menu -->
+    <flux:dropdown class="hidden lg:block" position="bottom" align="start">
+        <flux:profile
+            :name="auth()->user()->name"
+            :initials="auth()->user()->initials()"
+            icon:trailing="chevrons-up-down"
+            data-test="sidebar-menu-button"
+        />
+
+        <flux:menu class="w-[220px]">
+            <flux:menu.radio.group>
+                <div class="p-0 text-sm font-normal">
+                    <div class="flex items-center gap-2 px-1 py-1.5 text-start text-sm">
+                                <span class="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-lg">
+                                    <span
+                                        class="flex h-full w-full items-center justify-center rounded-lg bg-neutral-200 text-black dark:bg-neutral-700 dark:text-white"
+                                    >
+                                        {{ auth()->user()->initials() }}
+                                    </span>
+                                </span>
+
+                        <div class="grid flex-1 text-start text-sm leading-tight">
+                            <span class="truncate font-semibold">{{ auth()->user()->name }}</span>
+                            <span class="truncate text-xs">{{ auth()->user()->email }}</span>
+                        </div>
+                    </div>
+                </div>
+            </flux:menu.radio.group>
+
+            <flux:menu.separator />
+
+            <flux:menu.radio.group>
+                <flux:menu.item :href="route('profile.edit')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
+            </flux:menu.radio.group>
+
+            <flux:menu.separator />
+
+            <form method="POST" action="{{ route('logout') }}" class="w-full">
+                @csrf
+                <flux:menu.item as="button" type="submit" icon="arrow-right-start-on-rectangle" class="w-full" data-test="logout-button">
+                    {{ __('Log Out') }}
+                </flux:menu.item>
+            </form>
+        </flux:menu>
+    </flux:dropdown>
+</flux:sidebar>

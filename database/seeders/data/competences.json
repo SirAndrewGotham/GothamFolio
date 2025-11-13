@@ -1678,7 +1678,70 @@
       },
       "categories": ["api"],
       "tags": ["integration", "rest-api"]
-    }
+    },
+      {
+          "slug": "image-processing",
+          "icon": "fas fa-image",
+          "color": "#4A90E2",
+          "proficiency": 75,
+          "years_experience": 3,
+          "is_featured": false,
+          "is_active": true,
+          "translations": {
+              "name": {
+                  "en": "Image Processing",
+                  "ru": "Обработка изображений",
+                  "eo": "Bilda prilaborado"
+              },
+              "description": {
+                  "en": "Digital image manipulation and processing techniques",
+                  "ru": "Цифровая манипуляция и обработка изображений",
+                  "eo": "Cifereca bilda manipulado kaj prilaboraj teknikoj"
+              }
+          },
+          "categories": [
+              "photography",
+              "data-science"
+          ],
+          "tags": [
+              "image-manipulation",
+              "digital-processing",
+              "filters",
+              "enhancement"
+          ]
+      },
+      {
+          "slug": "chart-js",
+          "icon": "fas fa-chart-bar",
+          "color": "#FF6384",
+          "proficiency": 80,
+          "years_experience": 2,
+          "is_featured": false,
+          "is_active": true,
+          "translations": {
+              "name": {
+                  "en": "Chart.js",
+                  "ru": "Chart.js",
+                  "eo": "Chart.js"
+              },
+              "description": {
+                  "en": "JavaScript library for creating responsive charts and graphs",
+                  "ru": "JavaScript библиотека для создания адаптивных диаграмм и графиков",
+                  "eo": "JavaScript biblioteko por krei adaptiĝemajn diagramojn kaj grafikojn"
+              }
+          },
+          "categories": [
+              "frontend",
+              "data-science"
+          ],
+          "tags": [
+              "data-visualization",
+              "charts",
+              "graphs",
+              "javascript",
+              "responsive"
+          ]
+      }
   ],
   "categories": [
     {

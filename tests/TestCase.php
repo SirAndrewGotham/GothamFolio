@@ -10,5 +10,8 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
         session()->start();
+
+        // Manually register FluxServiceProvider for tests
+        $this->app->register(\Flux\FluxServiceProvider::class);
     }
 }

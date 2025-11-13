@@ -8,23 +8,24 @@ $recentPosts = computed(fn() => Post::published()
     ->with(['categories', 'author', 'language'])
     ->where(function ($query) {
         // Get posts in current language or fallback language
-        $currentLocale = app()->getLocale();
-        $fallbackLocale = config('app.fallback_locale', 'en');
+        // Get posts in current language or fallback language
+        $languageService = app(\App\Services\LanguageService::class);
+        $currentLanguage = $languageService->getCurrentLanguage();
+        $fallbackLanguage = $languageService->getFallbackLanguage();
 
-        $query->whereHas('language', function ($q) use ($currentLocale) {
-            $q->where('code', $currentLocale);
-        })->orWhere(function ($q) use ($fallbackLocale, $currentLocale) {
-            $q->whereHas('language', function ($langQ) use ($fallbackLocale) {
-                $langQ->where('code', $fallbackLocale);
-            })->whereNotExists(function ($existsQ) use ($currentLocale) {
-                $existsQ->select(DB::raw(1))
-                    ->from('posts as p2')
-                    ->whereRaw('p2.post_id = posts.post_id')
-                    ->whereHas('language', function ($langQ) use ($currentLocale) {
-                        $langQ->where('code', $currentLocale);
+        $currentLanguageId = $currentLanguage ? $currentLanguage->id : null;
+        $fallbackLanguageId = $fallbackLanguage ? $fallbackLanguage->id : null;
+
+        $query->where('language_id', $currentLanguageId)
+            ->orWhere(function ($q) use ($fallbackLanguageId, $currentLanguageId) {
+                $q->where('language_id', $fallbackLanguageId)
+                    ->whereNotExists(function ($existsQ) use ($currentLanguageId) {
+                        $existsQ->select(DB::raw(1))
+                            ->from('posts as p2')
+                            ->whereRaw('p2.post_id = posts.post_id')
+                            ->where('language_id', $currentLanguageId);
                     });
             });
-        });
     })
     ->orderBy('published_at', 'desc')
     ->limit(2)
@@ -49,7 +50,7 @@ $recentPosts = computed(fn() => Post::published()
                     </div>
                     @endif
                 </div>
-                
+
                 <div class="p-6">
                     <!-- Post Meta -->
                     <div class="flex items-center text-sm text-gray-500 dark:text-gray-400 mb-2">
@@ -59,15 +60,15 @@ $recentPosts = computed(fn() => Post::published()
                         <span>{{ $post->categories->first()->name }}</span>
                         @endif
                     </div>
-                    
+
                     <!-- Post Title -->
                     <h3 class="text-xl font-bold mb-3 group-hover:text-primary-500 transition-colors">{{ $post->title }}</h3>
-                    
+
                     <!-- Post Excerpt -->
                     <p class="text-gray-600 dark:text-gray-400 mb-4">
                         {{ $post->excerpt ?? \Illuminate\Support\Str::limit(strip_tags($post->content), 150) }}
                     </p>
-                    
+
                     <!-- Read More Link (now just decorative) -->
                     <div class="text-primary-500 font-medium inline-flex items-center">
                         <span>{{ __('gothamfolio.blog.read_more') }}</span>

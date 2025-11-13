@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PostSeeder::class,
             CommentSeeder::class,
-            SubscriptionSeeder::class,
+//            SubscriptionSeeder::class,
             VoteSeeder::class,
 //            ViewSeeder::class,
             ProjectTypeSeeder::class,

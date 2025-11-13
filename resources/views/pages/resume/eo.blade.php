@@ -4,7 +4,7 @@
         <section class="py-12 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto text-center fade-in">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Andrew Gotham Kariertabelo</h1>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Andreo Gotema Kariertabelo</h1>
                     <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto">
                         Spertplena Full-Stack Programisto kun pli ol 30 jaroj da sperto en reteja evoluigo.
                         Specialiĝanta je kreado de modernaj, skaleblaj retejaj aplikaĵoj kaj backend API-oj uzante Laravel ekosistemon.
@@ -39,7 +39,7 @@
                                 <div class="w-24 h-24 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
                                     A
                                 </div>
-                                <h2 class="text-xl font-bold">Andrew Gotham</h2>
+                                <h2 class="text-xl font-bold">Andreo Gotema</h2>
                                 <p class="text-primary-500">Spertplena Full-Stack Programisto</p>
                             </div>
 
@@ -139,7 +139,7 @@
                                         <i class="fas fa-briefcase text-primary-500 mr-3"></i>
                                         Labora Sperto
                                     </h2>
-                                    <a href="#" class="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors shadow-lg">
+                                    <a href="/resume/download" target="_blank" class="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white rounded-lg font-medium transition-colors shadow-lg">
                                         <i class="fas fa-download mr-2"></i>
                                         <span>Elŝuti Rekomenco PDF</span>
                                     </a>

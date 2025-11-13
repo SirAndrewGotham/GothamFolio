@@ -1,4 +1,4 @@
-<header class="fixed w-full z-50 glass-effect py-4">
+<header class="fixed w-full z-50 glass-effect py-4" wire:key="'header-' . $current_locale" x-data="{ mobileMenuOpen: false }">
     <div class="fluid-container flex justify-between items-center">
         <!-- Logo Component -->
         <div class="flex items-center">

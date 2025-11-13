@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
@@ -235,5 +236,42 @@ class Post extends Model
         return Attribute::make(
             get: fn ($value) => is_string($value) ? json_decode($value, true) : $value,
         );
+    }
+
+    /**
+     * Attach categories to all posts in the same group (same post_id)
+     */
+    public function attachCategoriesToGroup(array $categoryIds): void
+    {
+        // Get all posts in the same group
+        $postsInGroup = static::where('post_id', $this->post_id)->get();
+
+        foreach ($postsInGroup as $post) {
+            $post->categories()->syncWithoutDetaching($categoryIds);
+        }
+    }
+
+    /**
+     * Detach categories from all posts in the same group (same post_id)
+     */
+    public function detachCategoriesFromGroup(array $categoryIds): void
+    {
+        $postsInGroup = static::where('post_id', $this->post_id)->get();
+
+        foreach ($postsInGroup as $post) {
+            $post->categories()->detach($categoryIds);
+        }
+    }
+
+    /**
+     * Sync categories for all posts in the same group (same post_id)
+     */
+    public function syncCategoriesForGroup(array $categoryIds): void
+    {
+        $postsInGroup = static::where('post_id', $this->post_id)->get();
+
+        foreach ($postsInGroup as $post) {
+            $post->categories()->sync($categoryIds);
+        }
     }
 }

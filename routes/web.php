@@ -11,8 +11,8 @@ use Livewire\Volt\Volt;
 //     return view('welcome');
 // })->name('home');
 
-// route moved to the folio file-based routing
-// Route::get('blog/{post}', [\App\Http\Controllers\Frontend\PostController::class, 'show']);
+//Route::get('blog', [\App\Http\Controllers\Frontend\PostController::class, 'index'])->name('blog.index');
+//Route::get('blog/{slug}', [\App\Http\Controllers\Frontend\PostController::class, 'show'])->name('blog.show');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

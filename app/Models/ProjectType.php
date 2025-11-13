@@ -2,40 +2,39 @@
 
 namespace App\Models;
 
-use App\Concerns\HasSlug;
-use App\Concerns\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ProjectType extends Model
 {
-    use HasFactory, HasSlug, HasTranslations, SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'name',
         'slug',
         'description',
-        'icon',
         'is_active',
-        'order',
+        'sort_order'
     ];
 
     protected $casts = [
         'is_active' => 'boolean',
-        'order' => 'integer',
+        'sort_order' => 'integer'
     ];
 
-    protected array $translatableAttributes = ['name', 'description'];
-
-    public function projects(): HasMany
+    public function projects()
     {
         return $this->hasMany(Project::class);
     }
 
-    public function getSluggableField(): string
+    public function scopeActive($query)
     {
-        return 'name';
+        return $query->where('is_active', true);
+    }
+
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('sort_order')->orderBy('name');
     }
 }

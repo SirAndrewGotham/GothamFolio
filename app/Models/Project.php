@@ -62,6 +62,11 @@ class Project extends Model
         return $this->belongsTo(ProjectType::class);
     }
 
+    public function images(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(ProjectImage::class);
+    }
+
     /**
      * Get the name of the field that should be used for slug generation.
      */
@@ -90,5 +95,20 @@ class Project extends Model
         return $query->with(['translations' => function ($q) {
             $q->whereIn('locale', [app()->getLocale(), config('app.fallback_locale', 'en')]);
         }]);
+    }
+
+    public function getImageUrlsAttribute()
+    {
+        $imageService = app(\App\Services\PortfolioImageService::class);
+
+        return $imageService->getProjectImageUrls($this->id, 'card');
+    }
+
+    public function hasImages()
+    {
+        $imageService = app(\App\Services\PortfolioImageService::class);
+        $images = $imageService->getProjectImageUrls($this->id, 'card');
+
+        return ! empty($images);
     }
 }
