@@ -179,6 +179,10 @@ return [
             'description' => 'Interested in creating a similar project? Let\'s discuss your ideas.',
         ],
         'view_all_projects' => 'All projects',
+        'gallery' => [
+            'more_images' => '+:count more images',
+            'no_images' => 'No project images available'
+        ],
     ],
     'competences' => [
         'seo' => [

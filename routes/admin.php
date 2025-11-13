@@ -35,6 +35,10 @@ Route::middleware('web')
 
         // Image management routes
         Route::prefix('galleries/{gallery}')->name('galleries.')->group(function () {
+            // Multi-image upload - MUST come before the resource route
+            Route::get('images/upload-multiple', [ImageController::class, 'createMultiple'])->name('images.create-multiple');
+            Route::post('images/upload-multiple', [ImageController::class, 'storeMultiple'])->name('images.store-multiple');
+
             Route::resource('images', ImageController::class)
                 ->names([
                     'index' => 'images.index',
