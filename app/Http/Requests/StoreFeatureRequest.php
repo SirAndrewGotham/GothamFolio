@@ -20,7 +20,7 @@ class StoreFeatureRequest extends FormRequest
             'title' => 'required|array',
             'title.*' => 'required|string|max:255',
             'description' => 'nullable|array',
-            'description.*' => 'nullable|string',
+            'description.*' => 'nullable|string|max:1000',
         ];
     }
 }

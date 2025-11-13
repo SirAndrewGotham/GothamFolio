@@ -32,7 +32,9 @@ class PostSeeder extends Seeder
                 'excerpt' => $postData['excerpt'],
                 'content' => $postData['content'],
                 'featured_image' => $postData['featured_image'],
-                'published_at' => Carbon::parse($postData['published_at']),
+                'published_at' => $postData['published_at']
+                    ? Carbon::parse($postData['published_at'])
+                    : null,
                 'is_published' => $postData['is_published'],
                 'is_featured' => $postData['is_featured'],
                 'read_time' => $postData['read_time'],
@@ -42,8 +44,12 @@ class PostSeeder extends Seeder
                 'meta_title' => $postData['meta_title'],
                 'meta_description' => $postData['meta_description'],
                 'meta_keywords' => $postData['meta_keywords'],
-                'created_at' => Carbon::parse($postData['created_at']),
-                'updated_at' => Carbon::parse($postData['updated_at'])
+                'created_at' => $postData['created_at']
+                    ? Carbon::parse($postData['created_at'])
+                    : null,
+                'updated_at' => $postData['updated_at']
+                    ? Carbon::parse($postData['updated_at'])
+                    : null
             ]);
 
             // Attach categories
@@ -57,7 +63,7 @@ class PostSeeder extends Seeder
                         'is_featured' => $categorySlug === 'web-development'
                     ]
                 );
-                $post->categories()->attach($category->id);
+                $post->categories()->syncWithoutDetaching($category->id);
             }
 
             // Attach tags
@@ -66,7 +72,7 @@ class PostSeeder extends Seeder
                     ['slug' => $tagSlug],
                     ['name' => ucfirst(str_replace('-', ' ', $tagSlug))]
                 );
-                $post->tags()->attach($tag->id);
+                $post->tags()->syncWithoutDetaching($tag->id);
             }
         }
 

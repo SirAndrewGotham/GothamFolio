@@ -17,7 +17,7 @@ class HandleModelTranslations
             if (isset($validatedData[$attribute]) && is_array($validatedData[$attribute])) {
                 foreach ($validatedData[$attribute] as $locale => $value) {
                     if (!empty($value)) {
-                        $model->updateTranslation($attribute, $value, $locale);
+                        $model->setTranslation($attribute, $value, $locale);
                     }
                 }
             }

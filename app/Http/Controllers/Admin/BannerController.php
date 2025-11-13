@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreBannerRequest;
 use App\Http\Requests\Admin\UpdateBannerRequest;
 use App\Models\Banner;
+use App\Models\Language;
 
 class BannerController extends Controller
 {
@@ -21,9 +22,8 @@ class BannerController extends Controller
 
     public function create()
     {
-        @php
-            $languages = \App\Models\Language::active()->ordered()->get();
-        @endphp
+        $languages = Language::active()->ordered()->get();
+
         return view('admin.homepage.banner.create', compact('languages'));
     }
 

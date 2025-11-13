@@ -10,6 +10,8 @@ use App\Actions\HandleModelTranslations;
 
 class FeaturesController extends Controller
 {
+    protected array $translatableAttributes = ['title', 'description', 'button_text'];
+
     public function index()
     {
         $features = Feature::withCurrentTranslations()->ordered()->get();

@@ -6,6 +6,7 @@ use App\Concerns\HasCategories;
 use App\Concerns\HasCompetences;
 use App\Concerns\HasSlug;
 use App\Concerns\HasTranslations;
+use App\Services\PortfolioImageService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -13,6 +14,25 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Project extends Model
 {
     use HasCategories, HasCompetences, HasFactory, HasSlug, HasTranslations, SoftDeletes;
+
+    protected PortfolioImageService $imageService;
+
+    public function __construct(array $attributes = [])
+    {
+        parent::__construct($attributes);
+        $this->imageService = app(PortfolioImageService::class);
+    }
+
+    public function getImageUrlsAttribute()
+    {
+        return $this->imageService->getProjectImageUrls($this->id, 'card');
+    }
+
+    public function hasImages()
+    {
+        $images = $this->imageService->getProjectImageUrls($this->id, 'card');
+        return !empty($images);
+    }
 
     protected $fillable = [
         'uuid',
@@ -95,20 +115,5 @@ class Project extends Model
         return $query->with(['translations' => function ($q) {
             $q->whereIn('locale', [app()->getLocale(), config('app.fallback_locale', 'en')]);
         }]);
-    }
-
-    public function getImageUrlsAttribute()
-    {
-        $imageService = app(\App\Services\PortfolioImageService::class);
-
-        return $imageService->getProjectImageUrls($this->id, 'card');
-    }
-
-    public function hasImages()
-    {
-        $imageService = app(\App\Services\PortfolioImageService::class);
-        $images = $imageService->getProjectImageUrls($this->id, 'card');
-
-        return ! empty($images);
     }
 }

@@ -39,10 +39,9 @@ class CategoryController extends Controller
             ->with('success', 'Category created successfully');
     }
 
-    public function show(Gallery $gallery, Image $image)
+    public function show(Category $category)
     {
-        $image->load('translations'); // Add this line
-        return view('admin.galleries.images.show', compact('gallery', 'image'));
+        return view('admin.categories.show', compact('category'));
     }
 
     public function edit(Category $category)

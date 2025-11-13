@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Project;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,7 @@ class ProjectImageFactory extends Factory
     public function definition(): array
     {
         return [
-            'project_id' => \App\Models\Project::factory(),
+            'project_id' => Project::factory(),
             'image_path' => $this->faker->imageUrl(800, 600, 'projects', true),
             'alt_text' => $this->faker->sentence(3),
             'order' => $this->faker->numberBetween(0, 10),
