@@ -174,12 +174,33 @@
         }
 
         .blog-content pre {
-            background-color: #1f2937;
-            color: #f9fafb;
+            background-color: #f8fafc;
+            color: #1f2937;
             padding: 1.25rem;
             border-radius: 0.5rem;
             overflow-x: auto;
             margin: 1.5rem 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .dark .blog-content pre {
+            background-color: #1f2937;
+            color: #f9fafb;
+            border: 1px solid #374151;
+        }
+
+        .blog-content code {
+            background-color: #f1f5f9;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.875rem;
+            color: #1f2937;
+        }
+
+        .dark .blog-content code {
+            background-color: #374151;
+            color: #e5e7eb;
         }
 
         .blog-content img {

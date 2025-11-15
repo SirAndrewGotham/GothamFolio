@@ -67,7 +67,9 @@ class ProjectController extends Controller
             $processedImages = $this->imageService->processProjectImage(
                 $request->file('image'),
                 $project->id, // Use project ID instead of slug
-                'card'
+                'card',
+                null,  // custom folder (use default)
+                'images/projects' // base folder
             );
 
             // Update the project with the image path
@@ -139,22 +141,38 @@ class ProjectController extends Controller
 
     public function update(UpdateProjectRequest $request, Project $project)
     {
+        dd(1);
         $data = $request->validated();
 
         // Handle project image update
         if ($request->hasFile('image')) {
             // Delete old images if they exist
-            $this->deleteProjectImages($project->id); // Changed to use project ID
+            $this->deleteProjectImages($project->id);
 
             $processedImages = $this->imageService->processProjectImage(
                 $request->file('image'),
-                $project->id, // Use project ID instead of slug
-                'card'
+                $project->id,
+                'card',
+                null,
+                'images/projects'
             );
             $data['image'] = $processedImages['xl']['webp'] ?? null;
         }
 
         $project->update($data);
+
+        // Save translations for each language - THIS WAS MISSING!
+        if ($request->has('name') || $request->has('description')) {
+            $translations = $request->only(['name', 'description']);
+
+            foreach ($translations as $key => $values) {
+                foreach ($values as $locale => $value) {
+                    if (!empty($value)) {
+                        $project->setTranslation($key, $value, $locale);
+                    }
+                }
+            }
+        }
 
         // Handle project gallery images upload in edit mode
         if ($request->hasFile('project_images')) {
@@ -162,16 +180,15 @@ class ProjectController extends Controller
                 $processedImages = $this->imageService->processProjectImage(
                     $galleryImage,
                     $project->id,
-                    'lightbox', // Use lightbox sizes for gallery images
-                    'images'    // Store in portfolio/{id}/images/ folder
+                    'lightbox',
+                    'images'
                 );
 
-                // Create ProjectImage record
                 \App\Models\ProjectImage::create([
                     'project_id' => $project->id,
                     'image_path' => $processedImages['original']['webp'] ?? null,
-                    'alt_text' => '', // You might want to generate alt text
-                    'order' => 0,     // You might want to set proper order
+                    'alt_text' => '',
+                    'order' => 0,
                     'is_active' => true
                 ]);
             }

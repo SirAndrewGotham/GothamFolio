@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('web')
@@ -72,7 +73,7 @@ Route::middleware('web')
                 ]);
         });
 
-        Route::resource('projects', \App\Http\Controllers\Admin\ProjectController::class);
+        Route::resource('projects', ProjectController::class);
         // Project images deletion route
-        Route::delete('project-images/{id}', [\App\Http\Controllers\Admin\ProjectController::class, 'destroyImage'])->name('project-images.destroy');
+        Route::delete('project-images/{id}', [ProjectController::class, 'destroyImage'])->name('project-images.destroy');
     });

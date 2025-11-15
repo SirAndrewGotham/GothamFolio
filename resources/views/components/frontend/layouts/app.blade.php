@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', $current_locale) }}"
-      dir="{{ $direction }}"
-      class="scroll-smooth {{ $is_rtl ? 'rtl' : 'ltr' }}">
+<html lang="{{ str_replace('_', '-', $current_locale ?? app()->getLocale()) }}"
+      dir="{{ $direction ?? (new \App\Services\LanguageService())->getApplicationDirection() }}"
+      class="scroll-smooth {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

@@ -3,16 +3,39 @@
 use App\Models\Feedback;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
+
+// Serve images from storage - add this before any Folio routes
+Route::get('blog/{postId}/card/{size}/{filename}', function ($postId, $size, $filename) {
+    $path = "blog/{$postId}/card/{$size}/{$filename}";
+
+    if (Storage::exists($path)) {
+        return response()->file(Storage::path($path));
+    }
+
+    abort(404);
+})->where('filename', '.*');
+
+// Also add a route for the new images/blogs path if you changed it
+Route::get('images/blogs/{postId}/card/{size}/{filename}', function ($postId, $size, $filename) {
+    $path = "images/blogs/{$postId}/card/{$size}/{$filename}";
+
+    if (Storage::exists($path)) {
+        return response()->file(Storage::path($path));
+    }
+
+    abort(404);
+})->where('filename', '.*');
 
 // Remove or comment out this line since Folio will handle the home page
 // Route::get('/', function () {
 //     return view('welcome');
 // })->name('home');
 
-//Route::get('blog', [\App\Http\Controllers\Frontend\PostController::class, 'index'])->name('blog.index');
-//Route::get('blog/{slug}', [\App\Http\Controllers\Frontend\PostController::class, 'show'])->name('blog.show');
+// Route::get('blog', [\App\Http\Controllers\Frontend\PostController::class, 'index'])->name('blog.index');
+// Route::get('blog/{slug}', [\App\Http\Controllers\Frontend\PostController::class, 'show'])->name('blog.show');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

@@ -56,8 +56,7 @@
                             </div>
                             <div>
                                 <h4 class="font-semibold">WhatsApp</h4>
-                                <p class="text-gray-600 dark:text-gray-400">+7 (123) 456-78-90</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">{{ __('gothamfolio.contact_page.whatsapp_description') }}</p>
+                                <p class="text-gray-600 dark:text-gray-400">+7 (775) 556-9244</p>
                             </div>
                         </div>
                     </div>

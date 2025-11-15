@@ -46,11 +46,19 @@
                             <div class="space-y-4">
                                 <div class="flex items-center">
                                     <i class="fas fa-envelope text-primary-500 w-5 mr-3"></i>
-                                    <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-sm hover:text-primary-500">andreogotema@gmail.com</a>
+                                    <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-xs hover:text-primary-500">andreogotema@gmail.com</a>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-phone text-primary-500 w-5 mr-3"></i>
-                                    <span class="text-sm">+7 (123) 456-78-90</span>
+                                    <i class="fab fa-telegram-plane text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://t.me/SirAndrewGotham" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">@SirAndrewGotham</span>
+                                    </a>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fa-brands fa-square-whatsapp text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://wa.me/+77755569244" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">WhatsApp</span>
+                                    </a>
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-primary-500 w-5 mr-3"></i>

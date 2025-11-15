@@ -485,35 +485,29 @@
                                                     </div>
                                                 @endforeach
                                             </div>
-                                        @endif
+                                        </div>
+                                    @endif
 
                                     <!-- Preview container for multiple images -->
-                                    <div id="project-images-preview"
-                                         class="hidden mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
+                                    <div id="project-images-preview" class="hidden mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
                                         <!-- Preview images will be added here by JavaScript -->
                                     </div>
                                 </div>
 
-                                <!-- Preview container for multiple images -->
-                                <div id="project-images-preview" class="hidden mt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-                                    <!-- Preview images will be added here by JavaScript -->
-                                </div>
+                                @error('project_images')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
+
+                                <p class="mt-3 text-sm text-zinc-500 dark:text-zinc-400">
+                                    <span class="font-medium text-indigo-600 dark:text-indigo-400">{{ __('admin.portfolio.projects.pro_tip') }}</span>
+                                    {{ __('admin.portfolio.projects.gallery_images_tip') }}
+                                </p>
                             </div>
-
-                            @error('project_images')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                            @enderror
-
-                            <p class="mt-3 text-sm text-zinc-500 dark:text-zinc-400">
-                                <span class="font-medium text-indigo-600 dark:text-indigo-400">{{ __('admin.portfolio.projects.pro_tip') }}</span>
-                                {{ __('admin.portfolio.projects.gallery_images_tip') }}
-                            </p>
                         </div>
-                </div>
 
+                        <!-- Submit buttons -->
                         <div class="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-700">
-                            <div class="mt-8 pt-6 border-t border-zinc-200 dark:border-zinc-700">
-                                <div class="flex justify-end space-x-3">
+                            <div class="flex justify-end space-x-3">
                                 <a href="{{ route('admin.projects.index') }}" class="btn btn-gray">{{ __('admin.portfolio.projects.cancel') }}</a>
                                 <button type="submit" class="btn btn-primary">{{ __('admin.portfolio.projects.update_project') }}</button>
                             </div>

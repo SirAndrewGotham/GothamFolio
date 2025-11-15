@@ -132,10 +132,10 @@ $submit = function () {
                             <i class="fas fa-phone text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold">{{ __('gothamfolio.footer.whatsapp_for_messages') }}</h4>
+                            <h4 class="font-semibold">WhatsApp</h4>
                             <a href="https://wa.me/+77755569244" target="_blank"
                                class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
-                                +7 (123) 456-78-90
+                                +7 (775) 556-9244
                             </a>
                         </div>
                     </div>
@@ -149,7 +149,7 @@ $submit = function () {
                             <h4 class="font-semibold">Telegram</h4>
                             <a href="https://t.me/sirandrewgotham" target="_blank"
                                class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
-                                @sirandrewgotham
+                                @SirAndrewGotham
                             </a>
                         </div>
                     </div>

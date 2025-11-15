@@ -43,6 +43,46 @@
         ->paginate(9);
 @endphp
 
+@push('section-styles')
+    <style>
+        .blog-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-card img {
+            border-radius: 0.75rem 0.75rem 0 0 !important;
+        }
+
+        .blog-card > div:first-child {
+            border-radius: 0.75rem 0.75rem 0 0 !important;
+        }
+
+        .category-badge {
+            transition: all 0.3s ease;
+        }
+
+        .category-badge:hover {
+            transform: scale(1.05);
+        }
+
+        .fluid-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .fluid-container {
+                padding: 0 2rem;
+            }
+        }
+    </style>
+@endpush
+
 <x-frontend.layouts.app>
     <!-- Hero Section -->
     <section class="py-16 bg-gradient-to-br from-primary-50 to-blue-50 dark:from-gray-800 dark:to-gray-900">
@@ -80,11 +120,12 @@
                             <a href="{{ url('/blog', $post->slug) }}"
                                class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl border border-transparent hover:border-primary-200 dark:hover:border-primary-800">
                                 @if($post->featured_image)
-                                    <div class="h-64 bg-cover bg-center w-full"
-                                         style="background-image: url('{{ asset($post->featured_image) }}')"></div>
+                                    <div class="h-64 overflow-hidden rounded-t-xl relative">
+                                        <img src="{{ asset($post->featured_image) }}" alt="{{ $post->title }}"
+                                             class="absolute inset-0 w-full h-full object-cover">
+                                    </div>
                                 @else
-                                    <div
-                                        class="h-64 bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
+                                    <div class="h-64 bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center rounded-t-xl">
                                         <i class="fas fa-newspaper text-white text-4xl"></i>
                                     </div>
                                 @endif
@@ -155,11 +196,12 @@
                             <a href="{{ url('/blog', $post->slug) }}"
                                class="blog-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl border border-transparent hover:border-primary-200 dark:hover:border-primary-800">
                                 @if($post->featured_image)
-                                    <div class="h-48 bg-cover bg-center w-full"
-                                         style="background-image: url('{{ asset($post->featured_image) }}')"></div>
+                                    <div class="h-48 overflow-hidden rounded-t-xl relative">
+                                        <img src="{{ asset($post->featured_image) }}" alt="{{ $post->title }}"
+                                             class="absolute inset-0 w-full h-full object-cover">
+                                    </div>
                                 @else
-                                    <div
-                                        class="h-48 bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center">
+                                    <div class="h-48 bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center rounded-t-xl">
                                         <i class="fas fa-newspaper text-white text-4xl"></i>
                                     </div>
                                 @endif
@@ -231,35 +273,3 @@
         </div>
     </section>
 </x-frontend.layouts.app>
-
-@push('section-styles')
-    <style>
-        .blog-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .category-badge {
-            transition: all 0.3s ease;
-        }
-
-        .category-badge:hover {
-            transform: scale(1.05);
-        }
-
-        .fluid-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        @media (min-width: 768px) {
-            .fluid-container {
-                padding: 0 2rem;
-            }
-        }
-    </style>
-@endpush

@@ -39,22 +39,30 @@
                                 <div class="w-24 h-24 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
                                     A
                                 </div>
-                                <h2 class="text-xl font-bold">Andreo Gotema</h2>
-                                <p class="text-primary-500">Spertplena Full-Stack Programisto</p>
+                                <h2 class="text-xl font-bold">Андрей Готэм</h2>
+                                <p class="text-primary-500">Senior Full-Stack разработчик</p>
                             </div>
 
                             <div class="space-y-4">
                                 <div class="flex items-center">
                                     <i class="fas fa-envelope text-primary-500 w-5 mr-3"></i>
-                                    <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-sm hover:text-primary-500">andreogotema@gmail.com</a>
+                                    <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-xs hover:text-primary-500">andreogotema@gmail.com</a>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-phone text-primary-500 w-5 mr-3"></i>
-                                    <span class="text-sm">+7 (123) 456-78-90</span>
+                                    <i class="fab fa-telegram-plane text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://t.me/SirAndrewGotham" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">@SirAndrewGotham</span>
+                                    </a>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fa-brands fa-square-whatsapp text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://wa.me/+77755569244" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">WhatsApp</span>
+                                    </a>
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-primary-500 w-5 mr-3"></i>
-                                    <span class="text-sm">Rusio</span>
+                                    <span class="text-sm">Россия</span>
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fab fa-github text-primary-500 w-5 mr-3"></i>

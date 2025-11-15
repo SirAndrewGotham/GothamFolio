@@ -1,3 +1,8 @@
+@php
+    $activeLanguages = \App\Models\Language::active()->ordered()->get();
+@endphp
+
+<x-backend.layouts.app :title="__('admin.portfolio.projects.create_project')">
 @push('scripts')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -154,7 +159,7 @@
     </script>
 @endpush
 
-<x-backend.layouts.app>
+
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-zinc-800 dark:text-zinc-200">
             {{ __('admin.portfolio.projects.create_project') }}
