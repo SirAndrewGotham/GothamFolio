@@ -44,6 +44,28 @@ class ProjectController extends Controller
         return view('admin.projects.create', compact('projectTypes', 'categories', 'languages'));
     }
 
+    public function show(Project $project)
+    {
+        // Load relationships you want to display
+        $project->load([
+            'projectType',
+            'categories',
+            'images',
+            'translations' // If you want to see all translations
+        ]);
+
+        // Get available languages for translation status
+        $activeLanguages = \App\Models\Language::active()->ordered()->get();
+
+        // Get existing translations to show which ones are available
+        $existingTranslations = $project->translations()
+            ->select('locale')
+            ->distinct()
+            ->pluck('locale');
+
+        return view('admin.projects.show', compact('project', 'activeLanguages', 'existingTranslations'));
+    }
+
     public function store(StoreProjectRequest $request)
     {
         $data = $request->validated();
@@ -127,21 +149,27 @@ class ProjectController extends Controller
         $projectTypes = ProjectType::all();
         $categories = Category::where('is_active', true)->get();
 
+        // Get active languages for multilingual form - ADD THIS LINE
+        $activeLanguages = \App\Models\Language::active()->ordered()->get();
+
         // Eager load translations for the project
         $project->load('translations');
 
         // Eager load project images
         $project->load('images');
 
-        // Get active languages
-        $languages = $this->languageService->getAvailableLanguages();
-
-        return view('admin.projects.edit', compact('project', 'projectTypes', 'categories', 'languages'));
+        // Make sure to include activeLanguages in the compact() function
+        return view('admin.projects.edit', compact('project', 'projectTypes', 'categories', 'activeLanguages'));
     }
 
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        dd(1);
+        \Log::info('UPDATE METHOD - START', [
+            'project_id' => $project->id,
+            'project_slug' => $project->slug,
+            'request_data' => $request->all()
+        ]);
+
         $data = $request->validated();
 
         // Handle project image update
@@ -198,6 +226,11 @@ class ProjectController extends Controller
         if ($request->has('categories')) {
             $project->syncCategories($request->categories);
         }
+
+        \Log::info('UPDATE METHOD - COMPLETED', [
+            'project_id' => $project->id,
+            'updated_data' => $project->getChanges()
+        ]);
 
         return redirect()->route('admin.projects.index')
             ->with('success', __('admin.portfolio.projects.success_update'));

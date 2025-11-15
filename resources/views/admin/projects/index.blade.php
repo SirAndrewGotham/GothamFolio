@@ -66,12 +66,26 @@
                                                 </span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                            <a href="{{ route('admin.projects.edit', $project) }}" class="text-indigo-600 hover:text-indigo-900 mr-3">{{ __('admin.general.edit') }}</a>
-                                            <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" class="inline">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('{{ __('admin.portfolio.projects.confirm_delete') }}')">{{ __('admin.general.delete') }}</button>
-                                            </form>
+                                            <div class="flex space-x-2">
+                                                <!-- View button -->
+                                                <a href="{{ route('admin.projects.show', $project) }}" class="text-blue-600 hover:text-blue-900">
+                                                    {{ __('admin.general.view') }}
+                                                </a>
+
+                                                <!-- Edit button -->
+                                                <a href="{{ route('admin.projects.edit', $project) }}" class="text-indigo-600 hover:text-indigo-900">
+                                                    {{ __('admin.general.edit') }}
+                                                </a>
+
+                                                <!-- Delete button -->
+                                                <form action="{{ route('admin.projects.destroy', $project) }}" method="POST" class="inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-red-600 hover:text-red-900" onclick="return confirm('{{ __('admin.general.confirm_delete') }}')">
+                                                        {{ __('admin.general.delete') }}
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </td>
                                     </tr>
                                 @endforeach

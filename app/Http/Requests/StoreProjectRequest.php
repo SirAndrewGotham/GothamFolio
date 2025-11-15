@@ -19,7 +19,7 @@ class StoreProjectRequest extends FormRequest
             'description.en' => 'nullable|string',
             'description.*' => 'nullable|string',
             'project_type_id' => 'required|exists:project_types,id',
-            'year' => 'required|integer|min:2000|max:' . date('Y'),
+            'year' => 'required|integer|min:2000|max:2030',
             'status' => 'required|in:Active,completed,in_progress,planned',
             'duration' => 'nullable|string|max:100',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:5120',
