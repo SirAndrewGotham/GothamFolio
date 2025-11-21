@@ -2,6 +2,7 @@
     use Illuminate\Support\Facades\Storage;
     $activeLanguages = \App\Models\Language::active()->ordered()->get();
     $currentLocale = app()->getLocale();
+    $otherLanguages = $activeLanguages->where('code', '!=', $currentLocale); // Add this line
 @endphp
 
 <x-backend.layouts.app :title="$gallery->title">
@@ -83,21 +84,16 @@
             <div>
                 <h2 class="text-lg font-semibold mb-3">{{ __('admin.gallery.translations') }}</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    @foreach($activeLanguages as $language)
-                        @if($language->code !== $currentLocale)
-                            <div class="border rounded-lg p-4">
-                                <h3 class="font-semibold text-sm mb-2">{{ $language->name_english }}</h3>
-                                <p class="text-sm"><strong>{{ __('admin.gallery.title') }}
-                                        :</strong> {{ $gallery->getTranslation('title', $language->code) ?? 'N/A' }}</p>
-                                <p class="text-sm"><strong>{{ __('admin.gallery.description') }}
-                                        :</strong> {{ $gallery->getTranslation('description', $language->code) ?? 'N/A' }}
-                                </p>
-                            </div>
-                        @endif
+                    @foreach($otherLanguages as $language) // Change this line
+                        <div class="border rounded-lg p-4">
+                            <h3 class="font-semibold text-sm mb-2">{{ $language->name_english }}</h3>
+                            <p class="text-sm"><strong>{{ __('admin.gallery.title') }}:</strong> {{ $gallery->getTranslation('title', $language->code) ?? 'N/A' }}</p>
+                            <p class="text-sm"><strong>{{ __('admin.gallery.description') }}:</strong> {{ $gallery->getTranslation('description', $language->code) ?? 'N/A' }}</p>
+                        </div>
                     @endforeach
 
                     {{-- Show message if no other translations available --}}
-                    @if($activeLanguages->where('code', '!=', $currentLocale)->isEmpty())
+                    @if($otherLanguages->isEmpty()) // Change this line
                         <div class="col-span-full text-center text-gray-500 py-4">
                             {{ __('admin.gallery.no_other_translations') }}
                         </div>

@@ -122,9 +122,9 @@
                         <a href="{{ route('admin.projects.index') }}" class="btn btn-gray">{{ __('admin.portfolio.projects.back_to_list') }}</a>
                     </div>
 
-                    <form action="/admin/projects/{{ $project->slug }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <input type="hidden" name="_method" value="PUT">
+                        @method('PUT')
 
                         <!-- 1. BASIC INFORMATION SECTION -->
                         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
@@ -158,7 +158,7 @@
                                 <label for="status" class="block text-sm font-medium text-zinc-700 dark:text-zinc-300">{{ __('admin.portfolio.projects.status') }} *</label>
                                 <select name="status" id="status" required class="mt-1 block w-full rounded-md border-zinc-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-zinc-700 dark:border-zinc-600 dark:text-white">
                                     <option value="">{{ __('admin.portfolio.projects.select_status') }}</option>
-                                    <option value="Active" {{ old('status', $project->status) == 'Active' ? 'selected' : '' }}>{{ __('admin.portfolio.projects.active') }}</option>
+                                    <option value="active" {{ old('status', $project->status) == 'active' ? 'selected' : '' }}>{{ __('admin.portfolio.projects.active') }}</option>
                                     <option value="completed" {{ old('status', $project->status) == 'completed' ? 'selected' : '' }}>{{ __('admin.portfolio.projects.completed') }}</option>
                                     <option value="in_progress" {{ old('status', $project->status) == 'in_progress' ? 'selected' : '' }}>{{ __('admin.portfolio.projects.in_progress') }}</option>
                                     <option value="planned" {{ old('status', $project->status) == 'planned' ? 'selected' : '' }}>{{ __('admin.portfolio.projects.planned') }}</option>

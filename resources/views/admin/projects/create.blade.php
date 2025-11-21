@@ -1,7 +1,3 @@
-@php
-    $activeLanguages = \App\Models\Language::active()->ordered()->get();
-@endphp
-
 <x-backend.layouts.app :title="__('admin.portfolio.projects.create_project')">
 @push('scripts')
     <script>

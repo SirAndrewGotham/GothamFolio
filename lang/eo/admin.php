@@ -10,6 +10,7 @@ return [
         'inactive' => 'Neaktiva',
         'current_image' => 'Nuna bildo:',
         'not_set' => 'Ne agordita',
+        'fix_errors' => 'Bonvolu korekti la jenajn erarojn:',
     ],
     'blog' => [
         'posts' => [
@@ -27,8 +28,11 @@ return [
             'draft' => 'Malneto',
             'featured' => 'Elstara',
             'translations' => 'Tradukoj',
+            'languages' => 'Lingvoj',
             'current' => 'Nuna',
             'no_translations' => 'Neniu alia traduko havebla',
+            'translation_not_available' => 'Traduko ne havebla',
+            'not_available' => 'Ne havebla',
             'add_translation' => 'Aldoni Tradukon',
             'featured_image' => 'Elstara Bildo',
             'excerpt' => 'Estrakto',
@@ -216,13 +220,14 @@ return [
         'create_first' => 'Kreu vian unuan galerion por montri viajn bildojn.',
         'title_for_language' => 'Titolo (:language)',
         'description_for_language' => 'Priskribo (:language)',
-        'galleries' => 'Galerioj',
+        'list_title' => 'Galerioj',
         'upload_multiple' => 'Alŝuti Plurajn Bildojn',
         'manage_images' => 'Mastrumi Bildojn',
         'description' => 'Priskribo',
         'no_description' => 'Neniu priskribo provizita.',
         'title_prefix_for_language' => 'Titola Prefikso (:language)',
         'title_prefix_placeholder' => 'ekz., Foto - ',
+        'no_other_translations' => 'Neniu alia traduko havebla',
     ],
     'image' => [
         'upload_image' => 'Alŝuti Bildon',
@@ -247,4 +252,5 @@ return [
         'image_deleted' => 'Bildo sukcese forigita',
         'confirm_delete' => 'Ĉu vi certas, ke vi volas forigi ĉi tiun bildon?',
     ],
+    'whatsapp' => 'WhatsApp',
 ];

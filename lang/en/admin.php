@@ -10,6 +10,7 @@ return [
         'inactive' => 'Inactive',
         'current_image' => 'Current Image:',
         'not_set' => 'Not set',
+        'fix_errors' => 'Please fix the following errors:',
     ],
     'blog' => [
         'posts' => [
@@ -27,8 +28,11 @@ return [
             'draft' => 'Draft',
             'featured' => 'Featured',
             'translations' => 'Translations',
+            'languages' => 'Languages',
             'current' => 'Current',
             'no_translations' => 'No other translations available',
+            'translation_not_available' => 'Translation not available',
+            'not_available' => 'Not available',
             'add_translation' => 'Add Translation',
             'featured_image' => 'Featured Image',
             'excerpt' => 'Excerpt',
@@ -216,13 +220,14 @@ return [
         'create_first' => 'Create your first gallery to showcase your images.',
         'title_for_language' => 'Title (:language)',
         'description_for_language' => 'Description (:language)',
-        'galleries' => 'Galleries',
+        'list_title' => 'Galleries',
         'upload_multiple' => 'Upload Multiple Images',
         'manage_images' => 'Manage Images',
         'description' => 'Description',
         'no_description' => 'No description provided.',
         'title_prefix_for_language' => 'Title Prefix (:language)',
         'title_prefix_placeholder' => 'e.g., Photo - ',
+        'no_other_translations' => 'No other translations available',
     ],
     'image' => [
         'upload_image' => 'Upload Image',
@@ -246,5 +251,9 @@ return [
         'image_updated' => 'Image updated successfully',
         'image_deleted' => 'Image deleted successfully',
         'confirm_delete' => 'Are you sure you want to delete this image?',
+    ],
+    'whatsapp' => [
+        'label' => 'WhatsApp',
+        'url' => 'https://wa.me/77755569244',
     ],
 ];

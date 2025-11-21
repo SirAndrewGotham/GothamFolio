@@ -61,10 +61,10 @@
     </script>
 @endpush
 
-<x-backend.layouts.app :title="__('Upload Image')">
+<x-backend.layouts.app :title="__('admin.image.upload_image')">
     <div class="max-w-4xl mx-auto">
         <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold">{{ __('admin.gallery.image.upload_image') }} to {{ $gallery->title }}</h1>
+            <h1 class="text-2xl font-bold">{{ __('admin.image.upload_image') }} {{ __('admin.gallery.images_in', ['gallery' => $gallery->title]) }}</h1>
             <a href="{{ route('admin.galleries.images.index', $gallery) }}" class="btn btn-gray">{{ __('admin.image.back_to_list') }}</a>
         </div>
 
@@ -75,7 +75,7 @@
             <div class="bg-white rounded-lg shadow p-6 space-y-6">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <h2 class="text-lg font-semibold mb-4">{{ __('admin.gallery.image.image_info') }}</h2>
+                        <h2 class="text-lg font-semibold mb-4">{{ __('admin.image.image_info') }}</h2>
 
                         <!-- Beautiful Image Upload -->
                         <div class="mb-4">
@@ -146,8 +146,9 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="camera_model" class="block text-sm font-medium text-gray-700 mb-1">Camera
-                                Model</label>
+                            <label for="camera_model" class="block text-sm font-medium text-gray-700 mb-1">
+                                {{ __('admin.image.camera_model') }}
+                            </label>
                             <input type="text" name="camera_model" id="camera_model" value="{{ old('camera_model') }}"
                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
                             @error('camera_model')
@@ -156,8 +157,9 @@
                         </div>
 
                         <div class="mb-4">
-                            <label for="camera_settings" class="block text-sm font-medium text-gray-700 mb-1">Camera
-                                Settings</label>
+                            <label for="camera_settings" class="block text-sm font-medium text-gray-700 mb-1">
+                                {{ __('admin.image.camera_settings') }}
+                            </label>
                             <input type="text" name="camera_settings" id="camera_settings"
                                    value="{{ old('camera_settings') }}"
                                    class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">

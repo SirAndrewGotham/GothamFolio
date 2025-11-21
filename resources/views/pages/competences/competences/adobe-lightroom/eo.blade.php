@@ -205,8 +205,8 @@
                                                 Portfolia Administrado
                                             </h3>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Administris multoblajn fotografiajn portfoliojn kaj klientajn projektojn uzante Lightroom's
-                                                potencan katalogan sistemon kaj kolektajn trajtojn.
+                                                Administris multoblajn fotografiajn portfoliojn kaj klientajn projektojn uzante la potencan
+                                                katalogan sistemon de Lightroom kaj ĝiajn kolektajn trajtojn.
                                             </p>
                                         </div>
                                     </div>
@@ -301,7 +301,7 @@
 
                                     <h3>Redaktada Iltaro</h3>
                                     <p>
-                                        Mi laboras kun la plena gamo de Lightroom's redaktaj iloj, inkluzive:
+                                        Mi laboras kun la plena gamo de redaktaj iloj de Lightroom, inkluzive:
                                     </p>
                                     <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-4">
                                         <span class="px-3 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm text-center">Tonkurbo</span>

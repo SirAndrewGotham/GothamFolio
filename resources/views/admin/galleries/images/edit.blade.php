@@ -84,7 +84,7 @@
 
         @if($errors->any())
             <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg mb-6">
-                <strong>⚠️ {{ __('Please fix the following errors:') }}</strong>
+                <strong>⚠️ {{ __('admin.general.fix_errors') }}</strong>
                 <ul class="mt-2 list-disc list-inside">
                     @foreach($errors->all() as $error)
                         <li>{{ $error }}</li>
@@ -210,7 +210,7 @@
                     <div class="bg-blue-50 p-4 rounded-lg">
                         <h2 class="text-lg font-semibold mb-4">{{ __('admin.image.status_description') }}</h2>
 
-                        <div class="mb- 4">
+                        <div class="mb-4">
                             <label class="flex items-center">
                                 <input type="checkbox" name="is_published" value="1" {{ old('is_published', $image->is_published) ? 'checked' : '' }}
                                 class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">

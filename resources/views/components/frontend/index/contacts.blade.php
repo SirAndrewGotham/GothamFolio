@@ -132,8 +132,8 @@ $submit = function () {
                             <i class="fas fa-phone text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold">WhatsApp</h4>
-                            <a href="https://wa.me/+77755569244" target="_blank"
+                            <h4 class="font-semibold">{{ __('whatsapp') }}</h4>
+                            <a href="https://wa.me/77755569244" target="_blank"
                                class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
                                 +7 (775) 556-9244
                             </a>

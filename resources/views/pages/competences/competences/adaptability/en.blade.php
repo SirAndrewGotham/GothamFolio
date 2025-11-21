@@ -2,7 +2,7 @@
     @push('section-styles')
         <style>
             /* Alpine.js specific gradient that isn't in the main app.css */
-            .alpine-gradient {
+            .adaptability-gradient {
                 background: linear-gradient(135deg, #8b5cf6 0%, #4c1d95 100%);
                 -webkit-background-clip: text;
                 -webkit-text-fill-color: transparent;

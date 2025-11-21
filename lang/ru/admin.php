@@ -10,6 +10,7 @@ return [
         'inactive' => 'Деактивировать',
         'current_image' => 'Текущее изображение:',
         'not_set' => 'Не установлено',
+        'fix_errors' => 'Пожалуйста, исправьте следующие ошибки:',
     ],
     'blog' => [
         'posts' => [
@@ -27,8 +28,11 @@ return [
             'draft' => 'Черновик',
             'featured' => 'Рекомендуемый',
             'translations' => 'Переводы',
+            'languages' => 'Языки',
             'current' => 'Текущий',
             'no_translations' => 'Другие переводы недоступны',
+            'translation_not_available' => 'Перевод недоступен',
+            'not_available' => 'Недоступно',
             'add_translation' => 'Добавить перевод',
             'featured_image' => 'Изображение',
             'excerpt' => 'Краткое описание',
@@ -216,12 +220,14 @@ return [
         'create_first' => 'Создайте свою первую галерею для демонстрации изображений.',
         'title_for_language' => 'Название (:language)',
         'description_for_language' => 'Описание (:language)',
+        'list_title' => 'Галереи',
         'upload_multiple' => 'Загрузить Несколько Изображений',
         'manage_images' => 'Управление Изображениями',
         'description' => 'Описание',
         'no_description' => 'Описание не предоставлено.',
         'title_prefix_for_language' => 'Префикс названия (:language)',
         'title_prefix_placeholder' => 'напр., Фото - ',
+        'no_other_translations' => 'Другие переводы недоступны',
     ],
     'image' => [
         'upload_image' => 'Загрузить изображение',
@@ -246,4 +252,5 @@ return [
         'image_deleted' => 'Изображение успешно удалено',
         'confirm_delete' => 'Вы уверены, что хотите удалить это изображение?',
     ],
+    'whatsapp' => 'WhatsApp',
 ];

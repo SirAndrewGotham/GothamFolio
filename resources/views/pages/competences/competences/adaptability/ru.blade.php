@@ -419,7 +419,7 @@
                                     </div>
                                     <div class="flex-grow">
                                         <div class="font-medium group-hover:text-[#FF5722] transition-colors">Решение проблем</div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400">90% proficiency</div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">90% владения</div>
                                     </div>
                                     <i class="fas fa-chevron-right text-gray-400 group-hover:text-[#FF5722] transition-colors"></i>
                                 </a>
@@ -429,7 +429,7 @@
                                     </div>
                                     <div class="flex-grow">
                                         <div class="font-medium group-hover:text-[#FF5722] transition-colors">Непрерывное обучение</div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400">88% proficiency</div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">88% владения</div>
                                     </div>
                                     <i class="fas fa-chevron-right text-gray-400 group-hover:text-[#FF5722] transition-colors"></i>
                                 </a>
@@ -439,7 +439,7 @@
                                     </div>
                                     <div class="flex-grow">
                                         <div class="font-medium group-hover:text-[#FF5722] transition-colors">Коммуникация</div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400">85% proficiency</div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">85% владения</div>
                                     </div>
                                     <i class="fas fa-chevron-right text-gray-400 group-hover:text-[#FF5722] transition-colors"></i>
                                 </a>
@@ -449,7 +449,7 @@
                                     </div>
                                     <div class="flex-grow">
                                         <div class="font-medium group-hover:text-[#FF5722] transition-colors">Лидерство</div>
-                                        <div class="text-xs text-gray-500 dark:text-gray-400">80% proficiency</div>
+                                        <div class="text-xs text-gray-500 dark:text-gray-400">80% владения</div>
                                     </div>
                                     <i class="fas fa-chevron-right text-gray-400 group-hover:text-[#FF5722] transition-colors"></i>
                                 </a>

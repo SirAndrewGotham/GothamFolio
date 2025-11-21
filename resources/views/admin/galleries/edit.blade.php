@@ -119,15 +119,9 @@
                                 </div>
                             </div>
 
-                            <!-- Existing cover image URL field -->
-{{--                            <input type="text" name="cover_image" id="cover_image" value="{{ old('cover_image', $gallery->cover_image) }}"--}}
-{{--                                   class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mt-2">--}}
-{{--                            @error('cover_image')--}}
-{{--                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>--}}
-{{--                            @enderror--}}
-{{--                            @error('cover_image_file')--}}
-{{--                            <p class="text-red-500 text-xs mt-1">{{ $message }}</p>--}}
-{{--                            @enderror--}}
+                            @error('cover_image_file')
+                                <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+                            @enderror
                         </div>
                     </div>
 

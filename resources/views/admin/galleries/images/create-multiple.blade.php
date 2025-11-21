@@ -8,7 +8,8 @@
         document.addEventListener('DOMContentLoaded', function () {
             const dropZone = document.getElementById('drop-zone');
             const fileInput = document.getElementById('images');
-            const fileList = document.getElementById('file-list');
+            const fileListContainer = document.getElementById('file-list');
+            const fileList = fileListContainer.querySelector('ul');
             const uploadButton = document.getElementById('upload-button');
             let selectedFiles = [];
 
@@ -42,11 +43,10 @@
             // Handle dropped files
             dropZone.addEventListener('drop', handleDrop, false);
 
-            function handleDrop(e) {
-                const dt = e.dataTransfer;
-                const files = dt.files;
-                handleFiles(files);
-            }
+            // Handle click on drop zone
+            dropZone.addEventListener('click', function () {
+                fileInput.click();
+            });
 
             // Handle file input change
             fileInput.addEventListener('change', function() {
@@ -108,10 +108,10 @@
                 // Update UI
                 if (selectedFiles.length > 0) {
                     uploadButton.disabled = false;
-                    fileList.classList.remove('hidden');
+                    fileListContainer.classList.remove('hidden');
                 } else {
                     uploadButton.disabled = true;
-                    fileList.classList.add('hidden');
+                    fileListContainer.classList.add('hidden');
                 }
             }
 

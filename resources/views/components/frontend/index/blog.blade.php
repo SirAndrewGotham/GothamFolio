@@ -43,7 +43,7 @@ $recentPosts = computed(fn() => Post::published()
             @foreach($this->recentPosts as $post)
             <a href="{{ url('/blog/' . $post->slug) }}" class="group block bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg fade-in transition-transform hover:scale-105">
                 <!-- Post Image -->
-                <div class="h-48 bg-cover bg-center w-full" style="background-image: url('{{ $post->featured_image ?? asset('assets/frontend/img/blog/default.jpg') }}')">
+                <div class="h-48 bg-cover bg-center w-full" style="background-image: url('{{ Storage::url($post->featured_image) }}')">
                     @if(!$post->featured_image)
                     <div class="w-full h-full bg-gradient-to-r from-primary-400 to-purple-500 flex items-center justify-center">
                         <i class="fas fa-newspaper text-white text-5xl"></i>

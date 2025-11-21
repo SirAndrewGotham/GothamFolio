@@ -238,7 +238,7 @@
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Недestructive редактирование</span>
+                                            <span>Неразрушающее редактирование</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>

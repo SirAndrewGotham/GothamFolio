@@ -31,12 +31,8 @@ class GalleryController extends Controller
     {
         $validated = $request->validated();
 
-        // Handle cover image upload using PortfolioImageService
-        $coverImagePath = null;
+        // Handle cover image upload (store original image)
         if ($request->hasFile('cover_image_file')) {
-            $portfolioImageService = app(\App\Services\PortfolioImageService::class);
-
-            // For galleries, we'll use a simpler approach - just store the original image
             $file = $request->file('cover_image_file');
             $filename = 'gallery-cover-' . Str::random(8) . '.' . $file->getClientOriginalExtension();
             $path = $file->storeAs('gallery-covers', $filename, 'public');

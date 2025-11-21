@@ -423,11 +423,11 @@
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-layer-group text-[#31A8FF] w-5 mr-3"></i>
-                                        <span class="text-sm">Kreitaj Dosieroj: <strong>2,000+</strong></span>
+                                        <span class="text-sm">Kreitaj Dosieroj: <strong>200,000+</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-clock text-[#31A8FF] w-5 mr-3"></i>
-                                        <span class="text-sm">Uzitaj Horoj: <strong>3,000+</strong></span>
+                                        <span class="text-sm">Uzitaj Horoj: <strong>30,000+</strong></span>
                                     </div>
                                 </div>
                             </div>
