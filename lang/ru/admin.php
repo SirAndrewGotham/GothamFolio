@@ -216,7 +216,6 @@ return [
         'create_first' => 'Создайте свою первую галерею для демонстрации изображений.',
         'title_for_language' => 'Название (:language)',
         'description_for_language' => 'Описание (:language)',
-        'galleries' => 'Фотогалереи',
         'upload_multiple' => 'Загрузить Несколько Изображений',
         'manage_images' => 'Управление Изображениями',
         'description' => 'Описание',

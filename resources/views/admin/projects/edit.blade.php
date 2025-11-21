@@ -21,7 +21,7 @@
                 if (fileInput && previewContainer && previewImage && removeButton) {
                     // Handle file selection for cover image
                     fileInput.addEventListener('change', function (e) {
-                        const file = e.target极iles[0];
+                        const file = e.target.files[0];
                         if (file) {
                             const reader = new FileReader();
                             reader.onload = function (e) {

@@ -477,6 +477,34 @@
                                 </div>
                             </div>
                         </section>
+
+                        <!-- Rekomendoj Sekcio -->
+                        <section id="recommendations" class="fade-in">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 print:shadow-none">
+                                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                                    <i class="fas fa-comment-alt text-primary-500 mr-3"></i>
+                                    Rekomendoj
+                                </h2>
+
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mr-4 p-3">
+                                            <i class="fas fa-user-tie"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold">Taris LLC</h4>
+                                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">Projekta Estro</p>
+                                            <p class="text-gray-700 dark:text-gray-300 mb-3">
+                                                En letero de decembro 2024, mia rolo kiel ĉefa specialisto en la malantaŭa disvolviĝo de la geografia informa sistemo (GIS IMUS) estis elstarigita, kune kun mia kapablo rapide majstri kompleksajn teknologiajn trajtojn kaj efike kunlabori kun kolegoj el rilataj fakoj.
+                                            </p>
+                                            <a href="{{ url('/contact') }}" class="text-primary-500 dark:text-primary-400 text-sm italic hover:underline">
+                                                Rekomenda letero havebla laŭ peto.
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                 </div>
             </div>

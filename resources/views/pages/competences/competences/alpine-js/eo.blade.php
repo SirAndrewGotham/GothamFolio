@@ -13,10 +13,10 @@
 
     @push('scripts')
         <script>
-            // Skill bar animation
+            // Lertostria animacio por kapablecaj stangoj
             document.addEventListener('DOMContentLoaded', function() {
                 const skillBars = document.querySelectorAll('.skill-bar-inner');
-                
+
                 skillBars.forEach(bar => {
                     const width = bar.getAttribute('data-width');
                     setTimeout(() => {
@@ -26,9 +26,9 @@
             });
         </script>
     @endpush
-    <!-- Main Content -->
+    <!-- Ĉefa Enhavo -->
     <main class="w-full pt-20">
-        <!-- Breadcrumbs -->
+        <!-- Paneroj -->
         <section class="py-6 bg-gray-50 dark:bg-gray-800/30 border-b border-gray-200 dark:border-gray-700">
             <div class="fluid-container">
                 <nav class="flex fade-in" aria-label="Breadcrumb">
@@ -42,7 +42,7 @@
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <a href="/competences" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
-                                    Competences
+                                    Kapablecoj
                                 </a>
                             </div>
                         </li>
@@ -50,7 +50,7 @@
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <a href="/competences/frontend" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
-                                    Frontend Development
+                                    Frontend Disvolviĝo
                                 </a>
                             </div>
                         </li>
@@ -67,35 +67,35 @@
             </div>
         </section>
 
-        <!-- Hero Section -->
+        <!-- Hero Sekcio -->
         <section class="py-12 bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900">
             <div class="fluid-container">
                 <div class="max-w-6xl mx-auto">
                     <div class="flex flex-col lg:flex-row items-center gap-8 fade-in">
-                        <!-- Icon and Basic Info -->
+                        <!-- Ikono kaj Baza Informo -->
                         <div class="flex-shrink-0">
                             <div class="w-24 h-24 rounded-2xl bg-gradient-to-r from-purple-500 to-indigo-500 flex items-center justify-center text-white shadow-lg">
                                 <i class="fas fa-mountain text-4xl"></i>
                             </div>
                         </div>
 
-                        <!-- Main Info -->
+                        <!-- Ĉefa Informo -->
                         <div class="flex-grow text-center lg:text-left">
                             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
                                 <h1 class="text-4xl md:text-5xl font-bold mb-2 sm:mb-0 alpine-gradient">Alpine.js</h1>
                                 <div class="flex items-center justify-center sm:justify-end space-x-4">
                                         <span class="px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">
                                             <i class="fas fa-bolt mr-1"></i>
-                                            Lightweight & Reactive
+                                            Malpeza & Reaktiva
                                         </span>
                                 </div>
                             </div>
                             <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
-                                Minimalist JavaScript framework for adding interactivity to web pages.
-                                Perfect for enhancing server-rendered HTML with reactive behavior.
+                                Minimumisma JavaScript-kadro por aldoni interagivecon al retpaĝoj.
+                                Perfekta por plibonigi servile renderitan HTML per reaktiva konduto.
                             </p>
 
-                            <!-- Stats -->
+                            <!-- Statistikoj -->
                             <div class="flex flex-wrap gap-6 justify-center lg:justify-start">
                                 <div class="flex items-center">
                                     <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mr-3">
@@ -103,7 +103,7 @@
                                     </div>
                                     <div>
                                         <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">82%</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Proficiency Level</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Nivelo de Lerteco</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
@@ -111,8 +111,8 @@
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                     <div>
-                                        <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">3+ years</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Experience</div>
+                                        <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">3+ jaroj</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Sperto</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
@@ -121,7 +121,7 @@
                                     </div>
                                     <div>
                                         <div class="text-2xl font-bold text-gray-800 dark:text-gray-200">~7KB</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Bundle Size</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Pakgrando</div>
                                     </div>
                                 </div>
                             </div>
@@ -131,139 +131,139 @@
             </div>
         </section>
 
-        <!-- Main Content -->
+        <!-- Ĉefa Enhavo -->
         <section class="py-16">
             <div class="fluid-container">
                 <div class="max-w-6xl mx-auto">
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        <!-- Main Content -->
+                        <!-- Ĉefa Enhavo -->
                         <div class="lg:col-span-2 space-y-8">
-                            <!-- About Alpine.js -->
+                            <!-- Pri Alpine.js -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-info-circle text-purple-500 mr-3"></i>
-                                    About Alpine.js
+                                    Pri Alpine.js
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        <strong>Alpine.js</strong> is a rugged, minimal tool for composing behavior directly in your markup.
-                                        Think of it like jQuery for the modern web. It offers the reactive and declarative nature of big
-                                        frameworks like Vue or React at a much lower cost.
+                                        <strong>Alpine.js</strong> estas robusta, minimuma ilo por komponi konduton rekte en via markado.
+                                        Pensu pri ĝi kiel jQuery por la moderna reto. Ĝi ofertas la reaktivan kaj deklaran naturon de grandaj
+                                        kadroj kiel Vue aŭ React je multe pli malalta kosto.
                                     </p>
 
-                                    <h3>Key Advantages</h3>
+                                    <h3>Ĉefaj Avantaĝoj</h3>
                                     <ul>
-                                        <li><strong>Minimal footprint</strong> - Only ~7KB gzipped</li>
-                                        <li><strong>No build step required</strong> - Works directly in the browser</li>
-                                        <li><strong>Declarative syntax</strong> - Write behavior directly in HTML</li>
-                                        <li><strong>Reactive state</strong> - Automatic UI updates when data changes</li>
-                                        <li><strong>Perfect for server-rendered apps</strong> - Enhances existing HTML</li>
-                                        <li><strong>Progressive enhancement</strong> - Add interactivity incrementally</li>
-                                        <li><strong>Familiar Vue-like syntax</strong> - Easy to learn for Vue developers</li>
+                                        <li><strong>Minimuma piedsigno</strong> - Nur ~7KB kun gzip</li>
+                                        <li><strong>Neniu konstrua paŝo necesa</strong> - Funkcias rekte en la retumilo</li>
+                                        <li><strong>Deklarara sintakso</strong> - Skribu konduton rekte en HTML</li>
+                                        <li><strong>Reaktiva stato</strong> - Aŭtomataj UI-ĝisdatigoj kiam datumoj ŝanĝiĝas</li>
+                                        <li><strong>Perfekta por servile renderitaj aplikaĵoj</strong> - Plibonigas ekzistantan HTML</li>
+                                        <li><strong>Progresiga plibonigo</strong> - Aldonu interagivecon laŭgrade</li>
+                                        <li><strong>Familiar Vue-simila sintakso</strong> - Facile lernebla por Vue-disvolvistoj</li>
                                     </ul>
 
-                                    <h3>Ideal Use Cases</h3>
+                                    <h3>Ideaj Uzkazoj</h3>
                                     <p>
-                                        Alpine.js shines in scenarios where you need interactivity without the overhead of a full SPA:
+                                        Alpine.js brilas en scenaroj kie vi bezonas interagivecon sen la superŝarĝo de plena SPA:
                                     </p>
                                     <ul>
-                                        <li>Enhancing server-rendered applications (Laravel, Django, Rails)</li>
-                                        <li>Adding interactivity to static sites</li>
-                                        <li>Building small to medium complexity components</li>
-                                        <li>Prototyping and MVPs</li>
-                                        <li>Legacy code enhancement</li>
-                                        <li>Progressive enhancement of existing applications</li>
+                                        <li>Plibonigo de servile renderitaj aplikaĵoj (Laravel, Django, Rails)</li>
+                                        <li>Aldono de interagiveco al statikaj retejoj</li>
+                                        <li>Konstruado de malgrandaj ĝis mezaj komplekseckomponentoj</li>
+                                        <li>Prototipado kaj MVP</li>
+                                        <li>Plibonigo de hereda kodo</li>
+                                        <li>Progresiga plibonigo de ekzistantaj aplikaĵoj</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <!-- My Alpine.js Journey -->
+                            <!-- Mia Vojaĝo kun Alpine.js -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-road text-purple-500 mr-3"></i>
-                                    My Journey with Alpine.js
+                                    Mia Vojaĝo kun Alpine.js
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        I started using Alpine.js in 2021 when looking for a lightweight solution to add interactivity
-                                        to server-rendered Laravel applications. Since then, it has become my go-to tool for enhancing
-                                        HTML with reactive behavior without the complexity of larger frameworks.
+                                        Mi komencis uzi Alpine.js en 2021 kiam serĉante malpezan solvon por aldoni interagivecon
+                                        al servile renderitaj Laravel-aplikaĵoj. Ekde tiam, ĝi fariĝis mia ĉefa ilo por plibonigi
+                                        HTML per reaktiva konduto sen la komplekseco de pli grandaj kadroj.
                                     </p>
 
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                                         <div class="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-6">
                                             <h3 class="text-lg font-bold mb-3 flex items-center">
                                                 <i class="fas fa-code text-purple-500 mr-2"></i>
-                                                Laravel Integration
+                                                Laravel-Integriĝo
                                             </h3>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Extensive experience integrating Alpine.js with Laravel applications,
-                                                creating reactive components that work seamlessly with server-rendered Blade templates.
+                                                Vasta sperto integri Alpine.js kun Laravel-aplikaĵoj,
+                                                kreante reaktivajn komponantojn kiuj funkcias senprobleme kun servile renderitaj ŝablonoj de Blade.
                                             </p>
                                         </div>
                                         <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-6">
                                             <h3 class="text-lg font-bold mb-3 flex items-center">
                                                 <i class="fas fa-lightbulb text-blue-500 mr-2"></i>
-                                                Progressive Enhancement
+                                                Progresiga Plibonigo
                                             </h3>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Successfully used Alpine.js to progressively enhance legacy applications,
-                                                adding modern interactivity without complete rewrites.
+                                                Sukcese uzis Alpine.js por progresige plibonigi heredajn aplikaĵojn,
+                                                aldonante modernan interagivecon sen kompleta re-skribo.
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- My Experience -->
+                            <!-- Mia Sperto -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-user-check text-purple-500 mr-3"></i>
-                                    My Experience with Alpine.js
+                                    Mia Sperto kun Alpine.js
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        With 3+ years of experience, I've used Alpine.js across various projects,
-                                        from simple interactive elements to complex component-based interfaces.
+                                        Kun 3+ jaroj da sperto, mi uzis Alpine.js tra diversaj projektoj,
+                                        de simplaj interagivaj elementoj ĝis kompleksaj komponent-bazitaj interfacoj.
                                     </p>
 
-                                    <h3>Core Skills</h3>
+                                    <h3>Kernaj Kapablecoj</h3>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Reactive state management</span>
+                                            <span>Reaktiva stata administrado</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Component composition</span>
+                                            <span>Komponenta komponado</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Event handling</span>
+                                            <span>Okaza prilaborado</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Form interactions</span>
+                                            <span>Forminteragoj</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Dynamic content loading</span>
+                                            <span>Dinamika enhavo-ŝarĝado</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Integration with Laravel/Livewire</span>
+                                            <span>Integriĝo kun Laravel/Livewire</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Custom directives</span>
+                                            <span>Propraj direktivoj</span>
                                         </div>
                                         <div class="flex items-center">
                                             <i class="fas fa-check text-green-500 mr-2"></i>
-                                            <span>Performance optimization</span>
+                                            <span>Rendimenta optimumigo</span>
                                         </div>
                                     </div>
 
-                                    <h3>Technical Stack</h3>
+                                    <h3>Teknika Stako</h3>
                                     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
                                         <span class="px-3 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg text-sm text-center">x-data</span>
                                         <span class="px-3 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg text-sm text-center">x-show</span>
@@ -275,130 +275,130 @@
                                         <span class="px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm text-center">x-effect</span>
                                     </div>
 
-                                    <h3>Notable Projects</h3>
+                                    <h3>Notindaj Projektoj</h3>
                                     <ul>
-                                        <li><strong>Interactive Data Tables</strong> - Sortable, filterable tables with Alpine.js</li>
-                                        <li><strong>Dynamic Form Builders</strong> - Forms that adapt based on user input</li>
-                                        <li><strong>Modal Systems</strong> - Accessible modal dialogs with Alpine.js</li>
-                                        <li><strong>Tab Interfaces</strong> - Responsive tab components without page reloads</li>
-                                        <li><strong>Live Search</strong> - Real-time search with debounced input</li>
+                                        <li><strong>Interagivaj Datumtabeloj</strong> - Ordeblaj, filtriblaj tabeloj kun Alpine.js</li>
+                                        <li><strong>Dinamikaj Formkonstruiloj</strong> - Formoj kiuj adaptiĝas laŭ uzanto-enigo</li>
+                                        <li><strong>Modalaj Sistemoj</strong> - Alireblaj modalaj dialogoj kun Alpine.js</li>
+                                        <li><strong>Langetaj Interfacoj</strong> - Respondemaj langetaj komponantoj sen paĝo-reŝarĝo</li>
+                                        <li><strong>Viva Serĉo</strong> - Realtempa serĉo kun malrapidigita enigo</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <!-- Technical Details -->
+                            <!-- Teknikaj Detaloj -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-cogs text-purple-500 mr-3"></i>
-                                    Technical Details
+                                    Teknikaj Detaloj
                                 </h2>
                                 <div class="content-section">
-                                    <h3>Architecture & Philosophy</h3>
+                                    <h3>Arkitekturo & Filozofio</h3>
                                     <p>
-                                        Alpine.js follows a "progressive enhancement" philosophy, allowing you to add interactivity
-                                        to existing HTML without a complete rewrite. Its architecture is designed to be:
+                                        Alpine.js sekvas "progresigan plibonigan" filozofion, permesante al vi aldoni interagivecon
+                                        al ekzistanta HTML sen kompleta re-skribo. Ĝia arkitekturo estas desegnita por esti:
                                     </p>
                                     <ul>
-                                        <li><strong>Declarative</strong> - Define behavior directly in HTML attributes</li>
-                                        <li><strong>Reactive</strong> - Automatic UI updates when data changes</li>
-                                        <li><strong>Component-based</strong> - Encapsulate behavior in reusable components</li>
-                                        <li><strong>Unobtrusive</strong> - Works alongside existing JavaScript</li>
-                                        <li><strong>Extensible</strong> - Create custom directives and plugins</li>
+                                        <li><strong>Deklarara</strong> - Difinu konduton rekte en HTML-atributoj</li>
+                                        <li><strong>Reaktiva</strong> - Aŭtomataj UI-ĝisdatigoj kiam datumoj ŝanĝiĝas</li>
+                                        <li><strong>Komponent-bazita</strong> - Enkapsulu konduton en reuzeblaj komponantoj</li>
+                                        <li><strong>Neniu truda</strong> - Funkcias kune kun ekzistanta JavaScript</li>
+                                        <li><strong>Etendebla</strong> - Kreu proprajn direktivojn kaj kromaĵojn</li>
                                     </ul>
 
-                                    <h3>Key Directives</h3>
+                                    <h3>Ĉefaj Direktivoj</h3>
                                     <p>
-                                        Alpine.js provides a set of directives that form the core of its functionality:
+                                        Alpine.js provizas aron de direktivoj kiuj formas la kernon de ĝia funkcieco:
                                     </p>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                             <h4 class="font-semibold text-purple-500 mb-2">x-data</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Defines a component's data and behavior
+                                                Difinas la datumojn kaj konduton de komponanto
                                             </p>
                                         </div>
                                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                             <h4 class="font-semibold text-purple-500 mb-2">x-show</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Toggles element visibility based on expression
+                                                Ŝaltas videblecon de elemento bazita sur esprimo
                                             </p>
                                         </div>
                                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                             <h4 class="font-semibold text-purple-500 mb-2">x-bind</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Dynamically sets HTML attributes
+                                                Dinamike agordas HTML-atributojn
                                             </p>
                                         </div>
                                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                             <h4 class="font-semibold text-purple-500 mb-2">x-on</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Listens for DOM events and runs expressions
+                                                Aŭskultas DOM-okazaĵojn kaj rulas esprimojn
                                             </p>
                                         </div>
                                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                             <h4 class="font-semibold text-purple-500 mb-2">x-model</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Creates two-way data bindings
+                                                Kreas du-direktajn datumbindojn
                                             </p>
                                         </div>
                                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                             <h4 class="font-semibold text-purple-500 mb-2">x-for</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Iterates over arrays to create DOM elements
+                                                Iteracias super tabeloj por krei DOM-elementojn
                                             </p>
                                         </div>
                                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                             <h4 class="font-semibold text-purple-500 mb-2">x-transition</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Applies CSS transitions to elements
+                                                Aplikas CSS-transirojn al elementoj
                                             </p>
                                         </div>
                                         <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                             <h4 class="font-semibold text-purple-500 mb-2">x-effect</h4>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Runs code when dependencies change
+                                                Rulas kodon kiam dependaĵoj ŝanĝiĝas
                                             </p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- GitHub Projects -->
+                            <!-- Projektoj ĉe GitHub -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fab fa-github text-purple-500 mr-3"></i>
-                                    Projects on GitHub
+                                    Projektoj ĉe GitHub
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        Some of my Alpine.js projects can be found on GitHub:
+                                        Kelkaj el miaj Alpine.js-projektoj troveblas ĉe GitHub:
                                     </p>
                                     <div class="mt-4">
                                         <a href="https://github.com/SirAndrewGotham" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-900 text-white rounded-lg font-medium transition-colors">
                                             <i class="fab fa-github mr-2"></i>
-                                            <span>SirAndrewGotham on GitHub</span>
+                                            <span>SirAndrewGotham ĉe GitHub</span>
                                         </a>
                                     </div>
                                     <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
-                                        I'm continuously adding new Alpine.js projects that demonstrate practical applications
-                                        and best practices for using this lightweight framework.
+                                        Mi konstante aldonas novajn Alpine.js-projektojn kiuj pruvas praktikajn aplikojn
+                                        kaj bonajn praktikojn por uzi ĉi tiun malpezan kadron.
                                     </p>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Sidebar -->
+                        <!-- Flankmenuo -->
                         <div class="space-y-6">
-                            <!-- Proficiency Card -->
+                            <!-- Lerteco-Karto -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-chart-bar text-purple-500 mr-2"></i>
-                                    Proficiency Level
+                                    Nivelo de Lerteco
                                 </h3>
                                 <div class="space-y-4">
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Overall Proficiency</span>
+                                            <span class="text-sm">Ĝenerala Lerteco</span>
                                             <span class="text-sm font-bold text-purple-500">82%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
@@ -408,7 +408,7 @@
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Component Development</span>
+                                            <span class="text-sm">Komponenta Disvolviĝo</span>
                                             <span class="text-sm font-bold text-green-500">85%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -417,7 +417,7 @@
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">State Management</span>
+                                            <span class="text-sm">Stata Administrado</span>
                                             <span class="text-sm font-bold text-blue-500">80%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -426,7 +426,7 @@
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Laravel Integration</span>
+                                            <span class="text-sm">Laravel-Integriĝo</span>
                                             <span class="text-sm font-bold text-red-500">88%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -435,7 +435,7 @@
                                     </div>
                                     <div>
                                         <div class="flex justify-between mb-1">
-                                            <span class="text-sm">Performance Optimization</span>
+                                            <span class="text-sm">Rendimenta Optimumigo</span>
                                             <span class="text-sm font-bold text-yellow-500">75%</span>
                                         </div>
                                         <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
@@ -445,87 +445,87 @@
                                 </div>
                             </div>
 
-                            <!-- Quick Facts -->
+                            <!-- Rapidaj Faktoj -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-lightbulb text-purple-500 mr-2"></i>
-                                    Quick Facts
+                                    Rapidaj Faktoj
                                 </h3>
                                 <div class="space-y-3">
                                     <div class="flex items-center">
                                         <i class="fas fa-calendar text-purple-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Experience: <strong>3+ years</strong></span>
+                                        <span class="text-sm">Sperto: <strong>3+ jaroj</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-code text-purple-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Version: <strong>Alpine.js 3.x</strong></span>
+                                        <span class="text-sm">Versio: <strong>Alpine.js 3.x</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-project-diagram text-purple-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Projects: <strong>15+</strong></span>
+                                        <span class="text-sm">Projektoj: <strong>15+</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-weight-hanging text-purple-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Bundle Size: <strong>~7KB</strong></span>
+                                        <span class="text-sm">Pakgrando: <strong>~7KB</strong></span>
                                     </div>
                                     <div class="flex items-center">
                                         <i class="fas fa-rocket text-purple-500 w-5 mr-3"></i>
-                                        <span class="text-sm">Status: <strong>Active Development</strong></span>
+                                        <span class="text-sm">Statuso: <strong>Aktiva Disvolviĝo</strong></span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Learning Path -->
+                            <!-- Lernovojo -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-graduation-cap text-purple-500 mr-2"></i>
-                                    Learning Path
+                                    Lernovojo
                                 </h3>
                                 <div class="space-y-3">
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-check text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Basic directives (x-data, x-show)</span>
+                                        <span class="text-sm">Bazaj direktivoj (x-data, x-show)</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-check text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Event handling (x-on)</span>
+                                        <span class="text-sm">Okaza prilaborado (x-on)</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-check text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Two-way binding (x-model)</span>
+                                        <span class="text-sm">Du-direkta bindado (x-model)</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-check text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Component composition</span>
+                                        <span class="text-sm">Komponenta komponado</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-spinner text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Advanced state management</span>
+                                        <span class="text-sm">Altnivela stata administrado</span>
                                     </div>
                                     <div class="flex items-start">
                                         <div class="w-6 h-6 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-500 mr-3 mt-0.5 flex-shrink-0">
                                             <i class="fas fa-clock text-xs"></i>
                                         </div>
-                                        <span class="text-sm">Custom directives & plugins</span>
+                                        <span class="text-sm">Propraj direktivoj & kromaĵoj</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Related Competences -->
+                            <!-- Rilataj Kapablecoj -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-network-wired text-purple-500 mr-2"></i>
-                                    Related Competences
+                                    Rilataj Kapablecoj
                                 </h3>
                                 <div class="space-y-2">
                                     <a href="/competences/laravel" class="flex items-center p-3 rounded-lg bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors group">
@@ -534,7 +534,7 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-purple-500 transition-colors">Laravel</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">95% proficiency</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">95% lerteco</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-purple-500 transition-colors"></i>
                                     </a>
@@ -544,7 +544,7 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-purple-500 transition-colors">Livewire</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">85% proficiency</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">85% lerteco</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-purple-500 transition-colors"></i>
                                     </a>
@@ -554,7 +554,7 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-purple-500 transition-colors">Tailwind CSS</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">90% proficiency</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">90% lerteco</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-purple-500 transition-colors"></i>
                                     </a>
@@ -564,20 +564,20 @@
                                         </div>
                                         <div class="flex-grow">
                                             <div class="font-medium group-hover:text-purple-500 transition-colors">JavaScript</div>
-                                            <div class="text-xs text-gray-500 dark:text-gray-400">88% proficiency</div>
+                                            <div class="text-xs text-gray-500 dark:text-gray-400">88% lerteco</div>
                                         </div>
                                         <i class="fas fa-chevron-right text-gray-400 group-hover:text-purple-500 transition-colors"></i>
                                     </a>
                                 </div>
                             </div>
 
-                            <!-- Call to Action -->
+                            <!-- Alvoko al Ago -->
                             <div class="bg-gradient-to-r from-purple-500 to-indigo-500 rounded-xl shadow-lg p-6 text-white fade-in">
-                                <h3 class="text-lg font-bold mb-2">Interested in collaboration?</h3>
-                                <p class="text-sm mb-4">Ready to discuss your Alpine.js project</p>
+                                <h3 class="text-lg font-bold mb-2">Ĉu interesita pri kunlaboro?</h3>
+                                <p class="text-sm mb-4">Preta diskuti vian Alpine.js-projekton</p>
                                 <a href="/contact" class="inline-flex items-center justify-center w-full px-4 py-2 bg-white text-purple-600 font-medium rounded-lg hover:bg-gray-100 transition-colors">
                                     <i class="fas fa-envelope mr-2"></i>
-                                    Contact Me
+                                    Kontaktu Min
                                 </a>
                             </div>
                         </div>
