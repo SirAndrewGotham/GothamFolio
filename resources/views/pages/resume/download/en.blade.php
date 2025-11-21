@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Gotham - Professional Resume</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -51,6 +51,12 @@
         .header-content {
             max-width: 800px;
             margin: 0 auto;
+        }
+
+        .telegram-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
         }
 
         h1 {
@@ -298,8 +304,8 @@
                         <span>andreogotema@gmail.com</span>
                     </div>
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+7 (123) 456-78-90</span>
+                        <i class="fab fa-telegram-plane"></i>
+                        <span>@SirAndrewGotham</span>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>

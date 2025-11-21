@@ -118,7 +118,7 @@
                                 <!-- Current Image Preview -->
                                 @if($post->featured_image)
                                     <div class="mb-4">
-                                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">{{ __('admin.general.current_image') }}</p>
+                                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-2">{{ __('admin.blog.posts.current_image') }}</p>
                                         <img src="{{ Storage::url($post->featured_image) }}" alt="{{ $post->title }}" class="w-48 h-36 object-cover rounded-lg shadow-md border border-gray-200 dark:border-gray-600">
                                     </div>
                                 @endif
@@ -131,9 +131,9 @@
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8 m2-2 2 2"/>
                                                 </svg>
                                                 <p class="mb-2 text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
-                                                    <span class="font-semibold">{{ __('admin.portfolio.projects.click_to_upload') }}</span> {{ __('admin.portfolio.projects.drag_and_drop') }}
+                                                    <span class="font-semibold">{{ __('admin.blog.posts.click_to_upload') }}</span> {{ __('admin.blog.posts.drag_and_drop') }}
                                                 </p>
-                                                <p class="text-xs text-gray-500 dark:text-gray-400">{{ __('admin.portfolio.projects.image_formats') }}</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400">{{ __('admin.blog.posts.image_formats') }}</p>
                                             </div>
                                             <input id="featured_image" name="featured_image" type="file" class="hidden" accept="image/*"/>
                                         </label>

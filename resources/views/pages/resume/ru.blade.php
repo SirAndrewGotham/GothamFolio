@@ -46,11 +46,19 @@
                             <div class="space-y-4">
                                 <div class="flex items-center">
                                     <i class="fas fa-envelope text-primary-500 w-5 mr-3"></i>
-                                    <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-sm hover:text-primary-500">andreogotema@gmail.com</a>
+                                    <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-xs hover:text-primary-500">andreogotema@gmail.com</a>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-phone text-primary-500 w-5 mr-3"></i>
-                                    <span class="text-sm">+7 (123) 456-78-90</span>
+                                    <i class="fab fa-telegram-plane text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://t.me/SirAndrewGotham" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">@SirAndrewGotham</span>
+                                    </a>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fa-brands fa-square-whatsapp text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://wa.me/+77755569244" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">WhatsApp</span>
+                                    </a>
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-primary-500 w-5 mr-3"></i>
@@ -466,6 +474,34 @@
                                         </div>
                                     </div>
 
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Секция рекомендаций -->
+                        <section id="recommendations" class="fade-in">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 print:shadow-none">
+                                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                                    <i class="fas fa-comment-alt text-primary-500 mr-3"></i>
+                                    Рекомендации
+                                </h2>
+
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mr-4 p-3">
+                                            <i class="fas fa-user-tie"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold">ООО «Тарис»</h4>
+                                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">Руководитель проекта</p>
+                                            <p class="text-gray-700 dark:text-gray-300 mb-3">
+                                                В письме от декабря 2024 года отмечена моя роль как ключевого специалиста в разработке back-end части геоинформационной системы (ГИС ИМУС), а также способность быстро осваивать сложные технологические особенности и эффективно взаимодействовать со смежными сотрудниками.
+                                            </p>
+                                            <a href="{{ url('/contact') }}" class="text-primary-500 dark:text-primary-400 text-sm italic hover:underline">
+                                                Рекомендательное письмо предоставляется по запросу.
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>

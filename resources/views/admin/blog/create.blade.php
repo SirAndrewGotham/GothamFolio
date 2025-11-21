@@ -77,7 +77,7 @@
                             <div>
                                 <label for="language_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.language_label') }}</label>
                                 <select name="language_id" id="language_id" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                                    <option value="">{{ __('Select Language') }}</option>
+                                    <option value="">{{ __('admin.blog.posts.select_language') }}</option>
                                     @foreach($languages as $language)
                                         <option value="{{ $language->id }}">{{ $language->name_native }} ({{ $language->name_english }})</option>
                                     @endforeach
@@ -99,15 +99,9 @@
                         <div class="mb-6">
                             <label for="content" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.content') }}</label>
                             <textarea name="content" id="content" rows="10" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
-{{--                            <textarea name="content" id="content" rows="10" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">{{ old('content', $post->content ?? '') }}</textarea>--}}
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-{{--                            <div>--}}
-{{--                                <label for="featured_image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.featured_image') }}</label>--}}
-{{--                                <input type="file" name="featured_image" id="featured_image" accept="image/*" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">--}}
-{{--                            </div>--}}
-
                             <div class="md:col-span-3">
                                 <label for="featured_image" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">{{ __('admin.blog.posts.featured_image') }}</label>
 
@@ -119,9 +113,9 @@
                                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
                                                 </svg>
                                                 <p class="mb-2 text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
-                                                    <span class="font-semibold">{{ __('admin.portfolio.projects.click_to_upload') }}</span> {{ __('admin.portfolio.projects.drag_and_drop') }}
+                                                    <span class="font-semibold">{{ __('admin.blog.posts.click_to_upload') }}</span> {{ __('admin.blog.posts.drag_and_drop') }}
                                                 </p>
-                                                <p class="text-xs text-gray-500 dark:text-gray-400">{{ __('admin.portfolio.projects.image_formats') }}</p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400">{{ __('admin.blog.posts.image_formats') }}</p>
                                             </div>
                                             <input id="featured_image" name="featured_image" type="file" class="hidden" accept="image/*"/>
                                         </label>

@@ -180,6 +180,10 @@ return [
             'description' => 'Ĉu interesita krei similan projekton? Ni diskutu viajn ideojn.',
         ],
         'view_all_projects' => 'Ĉiuj projektoj',
+        'gallery' => [
+            'more_images' => '+:count pliaj bildoj',
+            'no_images' => 'Neniuj projektaj bildoj haveblaj'
+        ],
     ],
     'competences' => [
         'seo' => [

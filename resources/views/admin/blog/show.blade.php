@@ -35,7 +35,7 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <h4 class="font-semibold text-lg mb-2">{{ __('Post Information') }}</h4>
+                            <h4 class="font-semibold text-lg mb-2">{{ __('admin.blog.posts.post_information') }}</h4>
                             <dl class="space-y-2">
                                 <div>
                                     <dt class="font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.post_id') }}:</dt>
@@ -64,11 +64,11 @@
                                     </div>
                                     <div>
                                         <dt class="font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.publish_date') }}:</dt>
-                                        <dd class="text-gray-900 dark:text-gray-100">{{ $post->published_at ? $post->published_at->format('Y-m-d H:i') : __('Not published') }}</dd>
+                                        <dd class="text-gray-900 dark:text-gray-100">{{ $post->published_at ? $post->published_at->format('Y-m-d H:i') : __('admin.blog.posts.not_published') }}</dd>
                                     </div>
                                     <div>
                                         <dt class="font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.read_time') }}:</dt>
-                                        <dd class="text-gray-900 dark:text-gray-100">{{ $post->read_time }} {{ __('minutes') }}</dd>
+                                        <dd class="text-gray-900 dark:text-gray-100">{{ $post->read_time }} {{ __('admin.blog.posts.minutes') }}</dd>
                                     </div>
                                     <div>
                                         <dt class="font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.views') }}:</dt>
@@ -107,7 +107,7 @@
                     @if($post->featured_image)
                         <div class="mb-6">
                             <h4 class="font-semibold text-lg mb-2">{{ __('admin.blog.posts.featured_image') }}</h4>
-                            <img src="{{ $post->featured_image }}" alt="{{ $post->title }}" class="max-w-full h-auto rounded-lg shadow-md">
+                            <img src="{{ Storage::url($post->featured_image) }}" alt="{{ $post->title }}" class="max-w-full h-auto rounded-lg shadow-md">
                         </div>
                     @endif
 
@@ -155,15 +155,15 @@
                             <dl class="space-y-2">
                                 <div>
                                     <dt class="font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.meta_title') }}:</dt>
-                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->meta_title ?: __('Not set') }}</dd>
+                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->meta_title ?: __('admin.blog.posts.not_set') }}</dd>
                                 </div>
                                 <div>
                                     <dt class="font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.meta_description') }}:</dt>
-                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->meta_description ?: __('Not set') }}</dd>
+                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->meta_description ?: __('admin.blog.posts.not_set') }}</dd>
                                 </div>
                                 <div>
                                     <dt class="font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.meta_keywords') }}:</dt>
-                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->meta_keywords ?: __('Not set') }}</dd>
+                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->meta_keywords ?: __('admin.blog.posts.not_set') }}</dd>
                                 </div>
                             </dl>
                         </div>
@@ -173,11 +173,11 @@
                             <dl class="space-y-2">
                                 <div>
                                     <dt class="font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.allow_comments') }}:</dt>
-                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->allow_comments ? __('Yes') : __('No') }}</dd>
+                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->allow_comments ? __('admin.blog.posts.yes') : __('admin.blog.posts.no') }}</dd>
                                 </div>
                                 <div>
                                     <dt class="font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.allow_anonymous_comments') }}:</dt>
-                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->allow_anonymous_comments ? __('Yes') : __('No') }}</dd>
+                                    <dd class="text-gray-900 dark:text-gray-100">{{ $post->allow_anonymous_comments ? __('admin.blog.posts.yes') : __('admin.blog.posts.no') }}</dd>
                                 </div>
                             </dl>
                         </div>

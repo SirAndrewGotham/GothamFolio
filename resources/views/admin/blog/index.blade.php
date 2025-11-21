@@ -23,7 +23,7 @@
                                 <tr>
                                     <th class="px-4 py-2">{{ __('admin.blog.posts.post_id') }}</th>
                                     <th class="px-4 py-2">{{ __('admin.blog.posts.title_label') }}</th>
-                                    <th class="px-4 py-2">{{ __('Languages') }}</th>
+                                    <th class="px-4 py-2">{{ __('admin.blog.posts.languages') }}</th>
                                     <th class="px-4 py-2">{{ __('admin.blog.posts.status_label') }}</th>
                                     <th class="px-4 py-2">{{ __('admin.blog.posts.actions') }}</th>
                                 </tr>
@@ -44,9 +44,9 @@
                                                             {{ $language->code }}: {{ $translation->is_published ? __('admin.blog.posts.published') : __('admin.blog.posts.draft') }}
                                                         </span>
                                                 @else
-                                                    <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 dark:text-gray-400 mr-2 mb-2" title="Translation not available">
-                                                            {{ $language->code }}: N/A
-                                                        </span>
+                                                    <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 dark:text-gray-400 mr-2 mb-2" title="{{ __('admin.blog.posts.translation_not_available') }}">
+                                                        {{ $language->code }}: {{ __('admin.blog.posts.not_available') }}
+                                                    </span>
                                                 @endif
                                             @endforeach
                                         </td>

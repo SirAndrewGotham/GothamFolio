@@ -91,10 +91,15 @@ class ProjectSeeder extends Seeder
             $jsonContent = File::get($jsonPath);
             $data = json_decode($jsonContent, true);
 
+            // Debug: check if projects key exists
+            if (!isset($data['projects'])) {
+                Log::error('Projects key not found in JSON file');
+                return $this->getDefaultProjectsData();
+            }
+
             return $data['projects'] ?? [];
         } catch (\Exception $e) {
             Log::error('Failed to load projects.json: '.$e->getMessage());
-
             return $this->getDefaultProjectsData();
         }
     }

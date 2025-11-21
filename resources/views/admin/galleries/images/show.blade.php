@@ -1,3 +1,9 @@
+@php
+    use Illuminate\Support\Facades\Storage;
+    $activeLanguages = \App\Models\Language::active()->ordered()->get();
+    $currentLocale = app()->getLocale();
+@endphp
+
 <x-backend.layouts.app :title="'Image - ' . $image->title">
     <div class="max-w-6xl mx-auto">
         <div class="flex justify-between items-center mb-6">
@@ -79,23 +85,24 @@
             </div>
 
             <div>
-                <h2 class="text-lg font-semibold mb-3">Translations</h2>
+                <h2 class="text-lg font-semibold mb-3">{{ __('admin.gallery.translations') }}</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="border rounded-lg p-4">
-                        <h3 class="font-semibold text-sm mb-2">English</h3>
-                            <p class="text-sm"><strong>Title:</strong> {{ $image->getTranslation('title', 'en') }}</p>
-                            <p class="text-sm"><strong>Description:</strong> {{ $image->getTranslation('description', 'en') ?? 'N/A' }}</p>
-                    </div>
-                    <div class="border rounded-lg p-4">
-                        <h3 class="font-semibold text-sm mb-2">Esperanto</h3>
-                        <p class="text-sm"><strong>Title:</strong> {{ $image->getTranslation('title', 'eo') }}</p>
-                        <p class="text-sm"><strong>Description:</strong> {{ $image->getTranslation('description', 'eo') ?? 'N/A' }}</p>
-                    </div>
-                    <div class="border rounded-lg p-4">
-                        <h3 class="font-semibold text-sm mb-2">Russian</h3>
-                        <p class="text-sm"><strong>Title:</strong> {{ $image->getTranslation('title', 'ru') }}</p>
-                        <p class="text-sm"><strong>Description:</strong> {{ $image->getTranslation('description', 'ru') ?? 'N/A' }}</p>
-                    </div>
+                    @foreach($activeLanguages as $language)
+                        @if($language->code !== $currentLocale)
+                            <div class="border rounded-lg p-4">
+                                <h3 class="font-semibold text-sm mb-2">{{ $language->name_english }}</h3>
+                                <p class="text-sm"><strong>{{ __('admin.gallery.title') }}:</strong> {{ $image->getTranslation('title', $language->code) ?? 'N/A' }}</p>
+                                <p class="text-sm"><strong>{{ __('admin.gallery.description') }}:</strong> {{ $image->getTranslation('description', $language->code) ?? 'N/A' }}</p>
+                            </div>
+                        @endif
+                    @endforeach
+
+                    {{-- Show message if no other translations available --}}
+                    @if($activeLanguages->where('code', '!=', $currentLocale)->isEmpty())
+                        <div class="col-span-full text-center text-gray-500 py-4">
+                            {{ __('admin.gallery.no_other_translations') }}
+                        </div>
+                    @endif
                 </div>
             </div>
 

@@ -39,22 +39,30 @@
                                 <div class="w-24 h-24 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
                                     A
                                 </div>
-                                <h2 class="text-xl font-bold">Andreo Gotema</h2>
-                                <p class="text-primary-500">Spertplena Full-Stack Programisto</p>
+                                <h2 class="text-xl font-bold">Андрей Готэм</h2>
+                                <p class="text-primary-500">Senior Full-Stack разработчик</p>
                             </div>
 
                             <div class="space-y-4">
                                 <div class="flex items-center">
                                     <i class="fas fa-envelope text-primary-500 w-5 mr-3"></i>
-                                    <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-sm hover:text-primary-500">andreogotema@gmail.com</a>
+                                    <a href="mailto:andreogotema@gmail.com" target="_blank" class="text-xs hover:text-primary-500">andreogotema@gmail.com</a>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-phone text-primary-500 w-5 mr-3"></i>
-                                    <span class="text-sm">+7 (123) 456-78-90</span>
+                                    <i class="fab fa-telegram-plane text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://t.me/SirAndrewGotham" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">@SirAndrewGotham</span>
+                                    </a>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fa-brands fa-square-whatsapp text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://wa.me/+77755569244" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">WhatsApp</span>
+                                    </a>
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fas fa-map-marker-alt text-primary-500 w-5 mr-3"></i>
-                                    <span class="text-sm">Rusio</span>
+                                    <span class="text-sm">Россия</span>
                                 </div>
                                 <div class="flex items-center">
                                     <i class="fab fa-github text-primary-500 w-5 mr-3"></i>
@@ -466,6 +474,34 @@
                                         </div>
                                     </div>
 
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Rekomendoj Sekcio -->
+                        <section id="recommendations" class="fade-in">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 print:shadow-none">
+                                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                                    <i class="fas fa-comment-alt text-primary-500 mr-3"></i>
+                                    Rekomendoj
+                                </h2>
+
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mr-4 p-3">
+                                            <i class="fas fa-user-tie"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-semibold">Taris LLC</h4>
+                                            <p class="text-gray-600 dark:text-gray-400 text-sm mb-2">Projekta Estro</p>
+                                            <p class="text-gray-700 dark:text-gray-300 mb-3">
+                                                En letero de decembro 2024, mia rolo kiel ĉefa specialisto en la malantaŭa disvolviĝo de la geografia informa sistemo (GIS IMUS) estis elstarigita, kune kun mia kapablo rapide majstri kompleksajn teknologiajn trajtojn kaj efike kunlabori kun kolegoj el rilataj fakoj.
+                                            </p>
+                                            <a href="{{ url('/contact') }}" class="text-primary-500 dark:text-primary-400 text-sm italic hover:underline">
+                                                Rekomenda letero havebla laŭ peto.
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </section>

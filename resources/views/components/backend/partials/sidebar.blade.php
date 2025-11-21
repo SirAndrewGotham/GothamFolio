@@ -27,9 +27,6 @@
         <flux:spacer />
 
         <flux:navlist.group :heading="__('Blog')" class="grid">
-            <flux:navlist.item icon="tag" :href="route('admin.categories.index')" :current="request()->routeIs('admin.categories.*')" wire:navigate>
-                {{ __('Categories') }}
-            </flux:navlist.item>
             <flux:navlist.item icon="document-text" :href="route('admin.posts.index')" :current="request()->routeIs('admin.posts.*')" wire:navigate>
                 {{ __('Posts') }}
             </flux:navlist.item>
@@ -51,13 +48,21 @@
 
         <flux:spacer />
 
-        <!-- ADD PORTFOLIO GROUP HERE -->
+        <!-- PORTFOLIO GROUP -->
         <flux:navlist.group :heading="__('Portfolio')" class="grid">
             <flux:navlist.item icon="briefcase" :href="route('admin.portfolio.categories.index')" :current="request()->routeIs('admin.portfolio.categories.*')" wire:navigate>
                 {{ __('Portfolio Categories') }}
             </flux:navlist.item>
             <flux:navlist.item icon="rocket-launch" :href="route('admin.projects.index')" :current="request()->routeIs('admin.projects.*')" wire:navigate>
                 {{ __('Projects') }}
+            </flux:navlist.item>
+        </flux:navlist.group>
+
+        <flux:spacer />
+
+        <flux:navlist.group :heading="__('System')" class="grid">
+            <flux:navlist.item icon="tag" :href="route('admin.categories.index')" :current="request()->routeIs('admin.categories.*')" wire:navigate>
+                {{ __('Categories') }}
             </flux:navlist.item>
         </flux:navlist.group>
 

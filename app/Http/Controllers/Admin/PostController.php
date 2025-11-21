@@ -58,7 +58,7 @@ class PostController extends Controller
                 $post->id,
                 'card',
                 null,  // custom folder (use default)
-                'blog' // base folder
+                'images/blogs' // base folder
             );
             $post->update(['featured_image' => $processedImages['xl']['webp'] ?? null]);
         }
@@ -124,7 +124,7 @@ class PostController extends Controller
                 $post->id,
                 'card',
                 null,  // custom folder (use default)
-                'blog' // base folder
+                'images/blogs' // base folder
             );
             $data['featured_image'] = $processedImages['xl']['webp'] ?? null;
         }
@@ -149,7 +149,7 @@ class PostController extends Controller
             ->with('success', 'Post updated successfully');
     }
 
-    protected function deletePostImages($itemId, $folder = 'blog')
+    protected function deletePostImages($itemId, $folder = 'images/blogs')
     {
         $pattern = "{$folder}/{$itemId}/*";
         $directories = Storage::disk('public')->directories("{$folder}/{$itemId}");

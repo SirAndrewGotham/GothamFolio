@@ -32,7 +32,7 @@ class UpdatePostRequest extends FormRequest
             'user_id' => 'required|exists:users,id',
             'allow_comments' => 'boolean',
             'allow_anonymous_comments' => 'boolean',
-            'meta_title极' => 'nullable|string|max:255',
+            'meta_title' => 'nullable|string|max:255',
             'meta_description' => 'nullable|string',
             'meta_keywords' => 'nullable|string',
         ];

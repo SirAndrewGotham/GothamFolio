@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('web')
@@ -35,6 +36,10 @@ Route::middleware('web')
 
         // Image management routes
         Route::prefix('galleries/{gallery}')->name('galleries.')->group(function () {
+            // Multi-image upload - MUST come before the resource route
+            Route::get('images/upload-multiple', [ImageController::class, 'createMultiple'])->name('images.create-multiple');
+            Route::post('images/upload-multiple', [ImageController::class, 'storeMultiple'])->name('images.store-multiple');
+
             Route::resource('images', ImageController::class)
                 ->names([
                     'index' => 'images.index',
@@ -68,7 +73,7 @@ Route::middleware('web')
                 ]);
         });
 
-        Route::resource('projects', \App\Http\Controllers\Admin\ProjectController::class);
+        Route::resource('projects', ProjectController::class);
         // Project images deletion route
-        Route::delete('project-images/{id}', [\App\Http\Controllers\Admin\ProjectController::class, 'destroyImage'])->name('project-images.destroy');
+        Route::delete('project-images/{id}', [ProjectController::class, 'destroyImage'])->name('project-images.destroy');
     });

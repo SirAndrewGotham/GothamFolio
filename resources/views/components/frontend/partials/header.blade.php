@@ -1,4 +1,4 @@
-<header class="fixed w-full z-50 glass-effect py-4" wire:key="'header-' . $current_locale" x-data="{ mobileMenuOpen: false }">
+<header class="fixed w-full z-50 glass-effect py-4" wire:key="'header-' . {{ $current_locale ?? app()->getLocale() }}" x-data="{ mobileMenuOpen: false }">
     <div class="fluid-container flex justify-between items-center">
         <!-- Logo Component -->
         <div class="flex items-center">
@@ -8,7 +8,7 @@
         </div>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex space-x-8 {{ $is_rtl ? 'flex-row-reverse' : '' }}">
+        <nav class="hidden md:flex space-x-8 {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'flex-row-reverse' : '' }}">
             <a href="{{ url('/') }}"
                class="font-medium hover:text-primary-500 transition-colors {{ request()->is('/') ? 'text-primary-500' : '' }}">
                 {{ __('gothamfolio.navigation.home') }}
@@ -52,10 +52,10 @@
         </nav>
 
         <!-- Controls -->
-        <div class="flex items-center space-x-4 {{ $is_rtl ? 'flex-row-reverse' : '' }}">
+        <div class="flex items-center space-x-4 {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'flex-row-reverse' : '' }}">
             @if(\App\Models\Language::active()->count() > 1)
                 <!-- Language Switcher -->
-                <livewire:language-switcher-volt :wire:key="'language-switcher-' . $current_locale" />
+                <livewire:language-switcher-volt wire:key="language-switcher-{{ $current_locale ?? app()->getLocale() }}" />
             @endif
 
             <!-- Theme Toggle -->
@@ -74,31 +74,31 @@
     <!-- Mobile Menu -->
     <div x-show="mobileMenuOpen" class="md:hidden absolute top-full left-0 w-full bg-white dark:bg-gray-900 shadow-lg py-4">
         <div class="fluid-container flex flex-col space-y-4">
-            <a href="{{ url('/') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('/') ? 'text-primary-500' : '' }}">
+            <a href="{{ url('/') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'text-right' : '' }} {{ request()->is('/') ? 'text-primary-500' : '' }}">
                 {{ __('gothamfolio.navigation.home') }}
             </a>
             @if(config('gothamfolio.resume') === 'on')
-                <a href="{{ url('/resume') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('resume') ? 'text-primary-500' : '' }}">
+                <a href="{{ url('/resume') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'text-right' : '' }} {{ request()->is('resume') ? 'text-primary-500' : '' }}">
                     {{ __('gothamfolio.navigation.resume') }}
                 </a>
             @endif
             @if(config('gothamfolio.portfolio') === 'on')
-                <a href="{{ url('/portfolio') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
+                <a href="{{ url('/portfolio') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'text-right' : '' }} {{ request()->is('portfolio') ? 'text-primary-500' : '' }}">
                     {{ __('gothamfolio.navigation.portfolio') }}
                 </a>
             @endif
             @if(config('gothamfolio.galleries') === 'on')
-                <a href="{{ url('/galleries') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
+                <a href="{{ url('/galleries') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'text-right' : '' }} {{ request()->is('galleries') ? 'text-primary-500' : '' }}">
                     {{ __('gothamfolio.navigation.galleries') }}
                 </a>
             @endif
             @if(config('gothamfolio.blog') === 'on')
-                <a href="{{ url('/blog') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('blog') ? 'text-primary-500' : '' }}">
+                <a href="{{ url('/blog') }}" class="font-medium py-2 border-b border-gray-200 dark:border-gray-700 {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'text-right' : '' }} {{ request()->is('blog') ? 'text-primary-500' : '' }}">
                     {{ __('gothamfolio.navigation.blog') }}
                 </a>
             @endif
             @if(config('gothamfolio.contacts') === 'on')
-                <a href="{{ url('/contact') }}" class="font-medium py-2 {{ $is_rtl ? 'text-right' : '' }} {{ request()->is('contact') ? 'text-primary-500' : '' }}">
+                <a href="{{ url('/contact') }}" class="font-medium py-2 {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'text-right' : '' }} {{ request()->is('contact') ? 'text-primary-500' : '' }}">
                     {{ __('gothamfolio.navigation.contact') }}
                 </a>
             @endif

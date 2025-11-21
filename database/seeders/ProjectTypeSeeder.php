@@ -12,6 +12,7 @@ class ProjectTypeSeeder extends Seeder
         $types = [
             [
                 'name' => 'Full-stack',
+                'slug' => 'full-stack',
                 'description' => 'Complete web applications with both frontend and backend',
                 'icon' => 'fas fa-layer-group',
                 'order' => 1,
@@ -23,6 +24,7 @@ class ProjectTypeSeeder extends Seeder
             ],
             [
                 'name' => 'Frontend',
+                'slug' => 'frontend',
                 'description' => 'User interface and client-side applications',
                 'icon' => 'fas fa-paint-brush',
                 'order' => 2,
@@ -34,6 +36,7 @@ class ProjectTypeSeeder extends Seeder
             ],
             [
                 'name' => 'Backend',
+                'slug' => 'backend',
                 'description' => 'Server-side applications and APIs',
                 'icon' => 'fas fa-server',
                 'order' => 3,
@@ -45,6 +48,7 @@ class ProjectTypeSeeder extends Seeder
             ],
             [
                 'name' => 'API',
+                'slug' => 'api',
                 'description' => 'RESTful APIs and web services',
                 'icon' => 'fas fa-code',
                 'order' => 4,
@@ -52,6 +56,18 @@ class ProjectTypeSeeder extends Seeder
                     'en' => ['name' => 'API', 'description' => 'RESTful APIs and web services'],
                     'ru' => ['name' => 'API', 'description' => 'RESTful API и веб-сервисы'],
                     'eo' => ['name' => 'API', 'description' => 'RESTful API kaj retservoj'],
+                ],
+            ],
+            [
+                'name' => 'Legacy',
+                'slug' => 'legacy',
+                'description' => 'Maintenance and modernization of legacy systems',
+                'icon' => 'fas fa-history',
+                'order' => 5,
+                'translations' => [
+                    'en' => ['name' => 'Legacy', 'description' => 'Maintenance and modernization of legacy systems'],
+                    'ru' => ['name' => 'Легаси', 'description' => 'Поддержка и модернизация устаревших систем'],
+                    'eo' => ['name' => 'Legacy', 'description' => 'Subteno kaj modernigo de malnovaj sistemoj'],
                 ],
             ],
         ];
