@@ -1,10 +1,10 @@
 <x-frontend.layouts.app>
-    <!-- Main Content -->
+    <!-- Основной контент -->
     <main class="w-full pt-20" x-data="portfolioItemApp()" x-init="init()">
-        <!-- Breadcrumbs -->
+        <!-- Хлебные крошки -->
         <section class="py-6 bg-gray-50 dark:bg-gray-800/30 border-b border-gray-200 dark:border-gray-700">
             <div class="fluid-container">
-                <nav class="flex fade-in" aria-label="Breadcrumb">
+                <nav class="flex fade-in" aria-label="Хлебные крошки">
                     <ol class="flex items-center space-x-2">
                         <li>
                             <a href="/" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">
@@ -15,7 +15,7 @@
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <a href="/portfolio" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
-                                    Portfolio
+                                    Портфолио
                                 </a>
                             </div>
                         </li>
@@ -23,7 +23,7 @@
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <a href="/portfolio/laravel" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
-                                    Laravel Projects
+                                    Проекты Laravel
                                 </a>
                             </div>
                         </li>
@@ -31,7 +31,7 @@
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <span class="text-gray-700 dark:text-gray-300 text-sm font-medium">
-                                    IMUS City TV Inspection Module
+                                    Модуль ТВ-инспекции IMUS City
                                 </span>
                             </div>
                         </li>
@@ -40,32 +40,32 @@
             </div>
         </section>
 
-        <!-- Project Hero Section -->
+        <!-- Герой раздела проекта -->
         <section class="py-12 bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-900">
             <div class="fluid-container">
                 <div class="max-w-6xl mx-auto">
                     <div class="flex flex-col lg:flex-row items-start gap-8 fade-in">
-                        <!-- Project Info -->
+                        <!-- Информация о проекте -->
                         <div class="flex-grow">
                             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                                <h1 class="text-4xl md:text-5xl font-bold mb-2 sm:mb-0">IMUS City TV Inspection Module</h1>
+                                <h1 class="text-4xl md:text-5xl font-bold mb-2 sm:mb-0">Модуль ТВ-инспекции IMUS City</h1>
                                 <div class="flex items-center space-x-4">
                                     <span class="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
                                         <i class="fas fa-circle mr-1 text-xs"></i>
-                                        Completed Project
+                                        Завершенный проект
                                     </span>
                                     <span class="px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm font-medium">
                                         <i class="fas fa-industry mr-1 text-xs"></i>
-                                        Industrial Software
+                                        Промышленное ПО
                                     </span>
                                 </div>
                             </div>
                             <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
-                                Web service for managing and analyzing sewer network TV inspection data.
-                                Integration with IMUS City system for automation of control and monitoring processes.
+                                Веб-сервис для управления и анализа данных ТВ-инспекции канализационных сетей.
+                                Интеграция с системой IMUS City для автоматизации процессов контроля и мониторинга.
                             </p>
 
-                            <!-- Project Stats -->
+                            <!-- Статистика проекта -->
                             <div class="flex flex-wrap gap-6">
                                 <div class="flex items-center">
                                     <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mr-3">
@@ -73,7 +73,7 @@
                                     </div>
                                     <div>
                                         <div class="text-lg font-bold text-gray-800 dark:text-gray-200">2023</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Development Year</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Год разработки</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
@@ -81,8 +81,8 @@
                                         <i class="fas fa-clock"></i>
                                     </div>
                                     <div>
-                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">4 months</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Development Time</div>
+                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">4 месяца</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Время разработки</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
@@ -91,25 +91,25 @@
                                     </div>
                                     <div>
                                         <div class="text-lg font-bold text-gray-800 dark:text-gray-200">Backend</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Project Type</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Тип проекта</div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Action Buttons -->
+                            <!-- Кнопки действий -->
                             <div class="flex flex-wrap gap-4 mt-8">
                                 <a href="https://taris.ru/programmnoe-obespechenie-telescan/web-servis-imus" target="_blank" class="inline-flex items-center px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors shadow-lg">
                                     <i class="fas fa-external-link-alt mr-2"></i>
-                                    <span>Official Website</span>
+                                    <span>Официальный сайт</span>
                                 </a>
                                 <button @click="showCaseStudy = true" class="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg font-medium transition-colors">
                                     <i class="fas fa-file-alt mr-2"></i>
-                                    <span>Project Case</span>
+                                    <span>Кейс проекта</span>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Project Icon -->
+                        <!-- Иконка проекта -->
                         <div class="flex-shrink-0">
                             <div class="w-24 h-24 rounded-2xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-lg">
                                 <i class="fas fa-search text-4xl"></i>
@@ -121,114 +121,114 @@
         </section>
 
         @if($project->hasGalleryImages())
-            <!-- Project Gallery -->
+            <!-- Галерея проекта -->
             <section class="py-16">
-            <div class="fluid-container">
-                <div class="max-w-6xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-12 text-center fade-in">Project Gallery</h2>
+                <div class="fluid-container">
+                    <div class="max-w-6xl mx-auto">
+                        <h2 class="text-3xl font-bold mb-12 text-center fade-in">Галерея проекта</h2>
 
-                    <!-- Main Gallery -->
-                    <div class="project-gallery main mb-8 fade-in">
-                        <div class="gallery-item h-96" @click="openLightbox(0)">
-                            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="TV Inspection Module Interface" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                                <div class="opacity-0 hover:opacity-100 transition-opacity duration-300">
-                                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                        <!-- Основная галерея -->
+                        <div class="project-gallery main mb-8 fade-in">
+                            <div class="gallery-item h-96" @click="openLightbox(0)">
+                                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Интерфейс модуля ТВ-инспекции" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                    <div class="opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="gallery-item h-44" @click="openLightbox(1)">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Анализ данных инспекции" class="w-full h-full object-cover">
+                                </div>
+                                <div class="gallery-item h-44" @click="openLightbox(2)">
+                                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Отчеты и статистика" class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </div>
-                        <div class="space-y-4">
-                            <div class="gallery-item h-44" @click="openLightbox(1)">
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Inspection Data Analysis" class="w-full h-full object-cover">
-                            </div>
-                            <div class="gallery-item h-44" @click="openLightbox(2)">
-                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Reports and Statistics" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Secondary Gallery -->
-                    <div class="project-gallery secondary fade-in">
-                        <div class="gallery-item h-64" @click="openLightbox(3)">
-                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Integration with IMUS City" class="w-full h-full object-cover">
-                        </div>
-                        <div class="gallery-item h-64" @click="openLightbox(4)">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Data Visualization" class="w-full h-full object-cover">
+                        <!-- Дополнительная галерея -->
+                        <div class="project-gallery secondary fade-in">
+                            <div class="gallery-item h-64" @click="openLightbox(3)">
+                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Интеграция с IMUS City" class="w-full h-full object-cover">
+                            </div>
+                            <div class="gallery-item h-64" @click="openLightbox(4)">
+                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Визуализация данных" class="w-full h-full object-cover">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         @endif
 
-        <!-- Project Details -->
+        <!-- Детали проекта -->
         <section class="py-16 bg-gray-50 dark:bg-gray-800/30">
             <div class="fluid-container">
                 <div class="max-w-6xl mx-auto">
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                        <!-- Main Content -->
+                        <!-- Основной контент -->
                         <div class="lg:col-span-2 space-y-12">
-                            <!-- Project Description -->
+                            <!-- Описание проекта -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-info-circle text-blue-500 mr-3"></i>
-                                    About the Project
+                                    О проекте
                                 </h2>
                                 <div class="content-section">
                                     <p>
-                                        <strong>IMUS City TV Inspection Module</strong> is a specialized web service for managing
-                                        and analyzing sewer network TV inspection data. The project was developed for TARIS company -
-                                        a leading Russian manufacturer of pipeline diagnostic equipment.
+                                        <strong>Модуль ТВ-инспекции IMUS City</strong> — это специализированный веб-сервис для управления
+                                        и анализа данных ТВ-инспекции канализационных сетей. Проект разработан для компании TARIS —
+                                        ведущего российского производителя оборудования для диагностики трубопроводов.
                                     </p>
                                     <p>
-                                        The system provides a complete cycle of working with TV inspection data: from uploading
-                                        and processing videos to generating reports and integration with the main IMUS City system.
+                                        Система обеспечивает полный цикл работы с данными ТВ-инспекции: от загрузки
+                                        и обработки видео до формирования отчетов и интеграции с основной системой IMUS City.
                                     </p>
                                     <p>
-                                        The main goal of the project is to automate the processes of monitoring and controlling
-                                        the condition of sewer networks, which significantly increases the efficiency of urban
-                                        infrastructure maintenance.
+                                        Основная цель проекта — автоматизация процессов мониторинга и контроля
+                                        состояния канализационных сетей, что значительно повышает эффективность обслуживания
+                                        городской инфраструктуры.
                                     </p>
                                 </div>
                             </div>
 
-                            <!-- Key Features -->
+                            <!-- Ключевые особенности -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-star text-blue-500 mr-3"></i>
-                                    Key Features
+                                    Ключевые особенности
                                 </h2>
                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div class="feature-list space-y-3">
-                                        <h3 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Core Modules</h3>
+                                        <h3 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Основные модули</h3>
                                         <ul class="space-y-2 text-gray-600 dark:text-gray-400">
-                                            <li>Upload and processing of TV inspection videos</li>
-                                            <li>Automatic defect recognition</li>
-                                            <li>Report and documentation generation</li>
-                                            <li>Integration with IMUS City system</li>
-                                            <li>Project and object management</li>
-                                            <li>Inspection data visualization</li>
+                                            <li>Загрузка и обработка видео ТВ-инспекции</li>
+                                            <li>Автоматическое распознавание дефектов</li>
+                                            <li>Формирование отчетов и документации</li>
+                                            <li>Интеграция с системой IMUS City</li>
+                                            <li>Управление проектами и объектами</li>
+                                            <li>Визуализация данных инспекции</li>
                                         </ul>
                                     </div>
                                     <div class="feature-list space-y-3">
-                                        <h3 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Technical Features</h3>
+                                        <h3 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Технические особенности</h3>
                                         <ul class="space-y-2 text-gray-600 dark:text-gray-400">
-                                            <li>RESTful API for integration with external systems</li>
-                                            <li>Support for various video data formats</li>
-                                            <li>Automatic defect classification</li>
-                                            <li>Notification and alert system</li>
-                                            <li>Multi-user access with role model</li>
-                                            <li>Data backup and recovery</li>
+                                            <li>RESTful API для интеграции с внешними системами</li>
+                                            <li>Поддержка различных форматов видео данных</li>
+                                            <li>Автоматическая классификация дефектов</li>
+                                            <li>Система уведомлений и оповещений</li>
+                                            <li>Многопользовательский доступ с ролевой моделью</li>
+                                            <li>Резервное копирование и восстановление данных</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Development Process -->
+                            <!-- Процесс разработки -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 fade-in">
                                 <h2 class="text-2xl font-bold mb-6 flex items-center">
                                     <i class="fas fa-code-branch text-blue-500 mr-3"></i>
-                                    Development Process
+                                    Процесс разработки
                                 </h2>
                                 <div class="space-y-6">
                                     <div class="flex items-start">
@@ -236,10 +236,10 @@
                                             <span class="text-sm font-bold">1</span>
                                         </div>
                                         <div>
-                                            <h3 class="font-semibold mb-2">Requirements Analysis and Design</h3>
+                                            <h3 class="font-semibold mb-2">Анализ требований и проектирование</h3>
                                             <p class="text-gray-600 dark:text-gray-400">
-                                                Study of sewer network TV inspection specifics, analysis of existing company processes,
-                                                system architecture design and API planning.
+                                                Изучение специфики ТВ-инспекции канализационных сетей, анализ существующих процессов компании,
+                                                проектирование архитектуры системы и планирование API.
                                             </p>
                                         </div>
                                     </div>
@@ -248,10 +248,10 @@
                                             <span class="text-sm font-bold">2</span>
                                         </div>
                                         <div>
-                                            <h3 class="font-semibold mb-2">Backend Development</h3>
+                                            <h3 class="font-semibold mb-2">Разработка бэкенда</h3>
                                             <p class="text-gray-600 dark:text-gray-400">
-                                                API creation, implementation of video data processing business logic,
-                                                development of defect classification system and reporting modules.
+                                                Создание API, реализация бизнес-логики обработки видео данных,
+                                                разработка системы классификации дефектов и модулей отчетности.
                                             </p>
                                         </div>
                                     </div>
@@ -260,10 +260,10 @@
                                             <span class="text-sm font-bold">3</span>
                                         </div>
                                         <div>
-                                            <h3 class="font-semibold mb-2">Integration and Testing</h3>
+                                            <h3 class="font-semibold mb-2">Интеграция и тестирование</h3>
                                             <p class="text-gray-600 dark:text-gray-400">
-                                                Integration with IMUS City system, comprehensive functionality testing,
-                                                performance optimization and preparation for industrial operation.
+                                                Интеграция с системой IMUS City, комплексное тестирование функциональности,
+                                                оптимизация производительности и подготовка к промышленной эксплуатации.
                                             </p>
                                         </div>
                                     </div>
@@ -272,10 +272,10 @@
                                             <span class="text-sm font-bold">4</span>
                                         </div>
                                         <div>
-                                            <h3 class="font-semibold mb-2">Deployment and Support</h3>
+                                            <h3 class="font-semibold mb-2">Внедрение и поддержка</h3>
                                             <p class="text-gray-600 dark:text-gray-400">
-                                                System deployment on production servers, user training,
-                                                technical support and improvements based on feedback.
+                                                Развертывание системы на рабочих серверах, обучение пользователей,
+                                                техническая поддержка и доработки по обратной связи.
                                             </p>
                                         </div>
                                     </div>
@@ -283,13 +283,13 @@
                             </div>
                         </div>
 
-                        <!-- Sidebar -->
+                        <!-- Боковая панель -->
                         <div class="space-y-6">
-                            <!-- Technologies Used -->
+                            <!-- Используемые технологии -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-tools text-blue-500 mr-2"></i>
-                                    Technologies
+                                    Технологии
                                 </h3>
                                 <div class="space-y-3">
                                     <div>
@@ -307,7 +307,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold mb-2 text-sm text-gray-500 dark:text-gray-400">API & Integration</h4>
+                                        <h4 class="font-semibold mb-2 text-sm text-gray-500 dark:text-gray-400">API & Интеграция</h4>
                                         <div class="flex flex-wrap gap-2">
                                             <a href="{{ url('/portfolio', ['category' => 'api']) }}" class="tech-tag px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-lg text-sm hover:bg-green-200 dark:hover:bg-green-800/50 transition-colors">
                                                 REST API
@@ -321,7 +321,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <h4 class="font-semibold mb-2 text-sm text-gray-500 dark:text-gray-400">Infrastructure</h4>
+                                        <h4 class="font-semibold mb-2 text-sm text-gray-500 dark:text-gray-400">Инфраструктура</h4>
                                         <div class="flex flex-wrap gap-2">
                                             <a href="{{ url('/portfolio', ['category' => 'docker']) }}" class="tech-tag px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg text-sm hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
                                                 Docker
@@ -337,80 +337,80 @@
                                 </div>
                             </div>
 
-                            <!-- Project Stats -->
+                            <!-- Статистика проекта -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-chart-bar text-blue-500 mr-2"></i>
-                                    Project Statistics
+                                    Статистика проекта
                                 </h3>
                                 <div class="space-y-3">
                                     <div class="flex justify-between">
-                                        <span class="text-sm text-gray-600 dark:text-gray-400">Development Time</span>
-                                        <span class="font-semibold">4 months</span>
+                                        <span class="text-sm text-gray-600 dark:text-gray-400">Время разработки</span>
+                                        <span class="font-semibold">4 месяца</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span class="text-sm text-gray-600 dark:text-gray-400">Commits</span>
+                                        <span class="text-sm text-gray-600 dark:text-gray-400">Коммиты</span>
                                         <span class="font-semibold">287</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span class="text-sm text-gray-600 dark:text-gray-400">Lines of Code</span>
+                                        <span class="text-sm text-gray-600 dark:text-gray-400">Строк кода</span>
                                         <span class="font-semibold">~18,000</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span class="text-sm text-gray-600 dark:text-gray-400">API Endpoints</span>
+                                        <span class="text-sm text-gray-600 dark:text-gray-400">API эндпоинтов</span>
                                         <span class="font-semibold">24</span>
                                     </div>
                                     <div class="flex justify-between">
-                                        <span class="text-sm text-gray-600 dark:text-gray-400">Performance</span>
+                                        <span class="text-sm text-gray-600 dark:text-gray-400">Производительность</span>
                                         <span class="font-semibold">96/100</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Challenges & Solutions -->
+                            <!-- Решенные задачи -->
                             <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 fade-in">
                                 <h3 class="text-lg font-bold mb-4 flex items-center">
                                     <i class="fas fa-puzzle-piece text-blue-500 mr-2"></i>
-                                    Solved Challenges
+                                    Решенные задачи
                                 </h3>
                                 <div class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
                                     <div class="flex items-start">
                                         <i class="fas fa-check text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
-                                        <span>Integration with legacy IMUS City system</span>
+                                        <span>Интеграция с устаревшей системой IMUS City</span>
                                     </div>
                                     <div class="flex items-start">
                                         <i class="fas fa-check text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
-                                        <span>Processing large volumes of video data</span>
+                                        <span>Обработка больших объемов видео данных</span>
                                     </div>
                                     <div class="flex items-start">
                                         <i class="fas fa-check text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
-                                        <span>Implementation of defect classification system</span>
+                                        <span>Реализация системы классификации дефектов</span>
                                     </div>
                                     <div class="flex items-start">
                                         <i class="fas fa-check text-green-500 mr-2 mt-0.5 flex-shrink-0"></i>
-                                        <span>Ensuring high API performance</span>
+                                        <span>Обеспечение высокой производительности API</span>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Client Info -->
+                            <!-- Информация о клиенте -->
                             <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-gray-800 dark:to-gray-800 rounded-xl p-6 fade-in">
-                                <h3 class="font-semibold mb-3">Client</h3>
+                                <h3 class="font-semibold mb-3">Клиент</h3>
                                 <div class="flex items-center mb-3">
                                     <div class="w-10 h-10 rounded-lg bg-blue-500 flex items-center justify-center text-white mr-3">
                                         <i class="fas fa-building"></i>
                                     </div>
                                     <div>
                                         <div class="font-semibold">TARIS</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">Diagnostic Equipment Manufacturer</div>
+                                        <div class="text-sm text-gray-600 dark:text-gray-400">Производитель диагностического оборудования</div>
                                     </div>
                                 </div>
                                 <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                                    Leading Russian manufacturer of pipeline diagnostic and cleaning equipment
+                                    Ведущий российский производитель оборудования для диагностики и очистки трубопроводов
                                 </p>
                                 <a href="https://taris.ru" target="_blank" class="inline-flex items-center justify-center w-full px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors text-sm">
                                     <i class="fas fa-external-link-alt mr-2"></i>
-                                    <span>Visit Website</span>
+                                    <span>Посетить сайт</span>
                                 </a>
                             </div>
                         </div>
@@ -419,37 +419,37 @@
             </div>
         </section>
 
-        <!-- Business Impact -->
+        <!-- Бизнес-эффект -->
         <section class="py-16 bg-white dark:bg-gray-800">
             <div class="fluid-container">
                 <div class="max-w-6xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-12 text-center fade-in">Business Impact</h2>
+                    <h2 class="text-3xl font-bold mb-12 text-center fade-in">Бизнес-эффект</h2>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                         <div class="text-center fade-in">
                             <div class="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-500 mx-auto mb-4">
                                 <i class="fas fa-chart-line text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Efficiency +40%</h3>
+                            <h3 class="text-xl font-semibold mb-3">Эффективность +40%</h3>
                             <p class="text-gray-600 dark:text-gray-400">
-                                Automation of TV inspection data processing reduced analysis time by 40%
+                                Автоматизация обработки данных ТВ-инспекции сократила время анализа на 40%
                             </p>
                         </div>
                         <div class="text-center fade-in">
                             <div class="w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mx-auto mb-4">
                                 <i class="fas fa-bug text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Accuracy 95%</h3>
+                            <h3 class="text-xl font-semibold mb-3">Точность 95%</h3>
                             <p class="text-gray-600 dark:text-gray-400">
-                                Automatic defect recognition system provides 95% classification accuracy
+                                Система автоматического распознавания дефектов обеспечивает 95% точность классификации
                             </p>
                         </div>
                         <div class="text-center fade-in">
                             <div class="w-16 h-16 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mx-auto mb-4">
                                 <i class="fas fa-file-alt text-2xl"></i>
                             </div>
-                            <h3 class="text-xl font-semibold mb-3">Reports in 5 minutes</h3>
+                            <h3 class="text-xl font-semibold mb-3">Отчеты за 5 минут</h3>
                             <p class="text-gray-600 dark:text-gray-400">
-                                Comprehensive report generation reduced from several hours to 5 minutes
+                                Формирование комплексных отчетов сократилось с нескольких часов до 5 минут
                             </p>
                         </div>
                     </div>
@@ -457,22 +457,22 @@
             </div>
         </section>
 
-        <!-- Call to Action -->
+        <!-- Призыв к действию -->
         <section class="py-16">
             <div class="fluid-container">
                 <div class="max-w-4xl mx-auto text-center fade-in">
-                    <h2 class="text-3xl font-bold mb-6">Interested in an industrial solution?</h2>
+                    <h2 class="text-3xl font-bold mb-6">Интересует промышленное решение?</h2>
                     <p class="text-xl text-gray-600 dark:text-gray-400 mb-8">
-                        Ready to discuss your tasks and create a reliable solution for business process automation.
+                        Готов обсудить ваши задачи и создать надежное решение для автоматизации бизнес-процессов.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
                         <a href="/contact" class="inline-flex items-center px-8 py-3 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-medium transition-colors shadow-lg">
                             <i class="fas fa-envelope mr-2"></i>
-                            <span>Discuss Project</span>
+                            <span>Обсудить проект</span>
                         </a>
                         <a href="/portfolio" class="inline-flex items-center px-8 py-3 border border-blue-500 text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-900/20 rounded-lg font-medium transition-colors">
                             <i class="fas fa-eye mr-2"></i>
-                            <span>All Projects</span>
+                            <span>Все проекты</span>
                         </a>
                     </div>
                 </div>
@@ -480,7 +480,7 @@
         </section>
 
         @if($project->hasGalleryImages())
-            <!-- Lightbox Modal -->
+            <!-- Модальное окно лайтбокса -->
             <div x-show="lightboxOpen" x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
@@ -490,7 +490,7 @@
                 <button @click="lightboxOpen = false" class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
-                <img :src="lightboxImages[lightboxIndex]" :alt="'Image ' + (lightboxIndex + 1)" class="max-w-full max-h-full object-contain">
+                <img :src="lightboxImages[lightboxIndex]" :alt="'Изображение ' + (lightboxIndex + 1)" class="max-w-full max-h-full object-contain">
                 <button @click="lightboxIndex = (lightboxIndex - 1 + lightboxImages.length) % lightboxImages.length"
                         class="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 transition-colors">
                     <i class="fas fa-chevron-left text-2xl"></i>
@@ -503,311 +503,311 @@
         </div>
         @endif
 
-        <!-- Case Study Modal -->
+        <!-- Модальное окно кейса -->
         <div x-show="showCaseStudy" x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
              class="fixed inset-0 z-50 overflow-y-auto" x-cloak style="display: none;">
             <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
-                <!-- Background overlay -->
+                <!-- Фоновое наложение -->
                 <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" @click="showCaseStudy = false"></div>
 
-                <!-- Modal panel -->
+                <!-- Панель модального окна -->
                 <div class="relative inline-block w-full max-w-6xl px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white dark:bg-gray-800 rounded-2xl shadow-xl sm:my-8 sm:align-middle sm:p-6">
-                    <!-- Close button -->
+                    <!-- Кнопка закрытия -->
                     <button @click="showCaseStudy = false" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
                         <i class="fas fa-times text-2xl"></i>
                     </button>
 
-                    <!-- Case Study Content -->
+                    <!-- Контент кейса -->
                     <div class="max-h-[80vh] overflow-y-auto">
-                        <!-- Header -->
+                        <!-- Заголовок -->
                         <div class="text-center mb-8">
-                            <h2 class="text-3xl font-bold mb-4">Project Case: IMUS City TV Inspection Module</h2>
-                            <p class="text-xl text-gray-600 dark:text-gray-400">Industrial automation for sewer network diagnostics</p>
+                            <h2 class="text-3xl font-bold mb-4">Кейс проекта: Модуль ТВ-инспекции IMUS City</h2>
+                            <p class="text-xl text-gray-600 dark:text-gray-400">Промышленная автоматизация для диагностики канализационных сетей</p>
                         </div>
 
-                        <!-- Executive Summary -->
+                        <!-- Краткое описание -->
                         <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-gray-700 dark:to-gray-700 rounded-xl p-6 mb-8">
                             <h3 class="text-xl font-bold mb-4 flex items-center">
                                 <i class="fas fa-chart-line text-blue-500 mr-3"></i>
-                                Project Summary
+                                Резюме проекта
                             </h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <h4 class="font-semibold mb-2">Project Goals</h4>
+                                    <h4 class="font-semibold mb-2">Цели проекта</h4>
                                     <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                                         <li class="flex items-start">
                                             <i class="fas fa-check text-green-500 mr-2 mt-1 flex-shrink-0"></i>
-                                            <span>Automate TV inspection data processing workflow</span>
+                                            <span>Автоматизировать процесс обработки данных ТВ-инспекции</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-check text-green-500 mr-2 mt-1 flex-shrink-0"></i>
-                                            <span>Integrate with existing IMUS City infrastructure</span>
+                                            <span>Интегрировать с существующей инфраструктурой IMUS City</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-check text-green-500 mr-2 mt-1 flex-shrink-0"></i>
-                                            <span>Implement automatic defect classification</span>
+                                            <span>Реализовать автоматическую классификацию дефектов</span>
                                         </li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold mb-2">Key Results</h4>
+                                    <h4 class="font-semibold mb-2">Ключевые результаты</h4>
                                     <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                                         <li class="flex items-start">
                                             <i class="fas fa-rocket text-blue-500 mr-2 mt-1 flex-shrink-0"></i>
-                                            <span>40% reduction in data processing time</span>
+                                            <span>Сокращение времени обработки данных на 40%</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-bolt text-yellow-500 mr-2 mt-1 flex-shrink-0"></i>
-                                            <span>95% accuracy in defect classification</span>
+                                            <span>95% точность в классификации дефектов</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-file-alt text-green-500 mr-2 mt-1 flex-shrink-0"></i>
-                                            <span>5-minute report generation</span>
+                                            <span>Формирование отчетов за 5 минут</span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Technical Challenges -->
+                        <!-- Технические задачи -->
                         <div class="mb-8">
                             <h3 class="text-2xl font-bold mb-6 flex items-center">
                                 <i class="fas fa-puzzle-piece text-blue-500 mr-3"></i>
-                                Technical Challenges & Solutions
+                                Технические задачи и решения
                             </h3>
                             <div class="space-y-6">
-                                <!-- Challenge 1 -->
+                                <!-- Задача 1 -->
                                 <div class="bg-white dark:bg-gray-700 rounded-xl p-6 border-l-4 border-blue-500">
-                                    <h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Challenge: Legacy System Integration</h4>
+                                    <h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Задача: Интеграция с устаревшей системой</h4>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <h5 class="font-medium mb-2 text-gray-600 dark:text-gray-400">Problem</h5>
+                                            <h5 class="font-medium mb-2 text-gray-600 dark:text-gray-400">Проблема</h5>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                The existing IMUS City system used outdated protocols and data formats,
-                                                requiring complex integration while maintaining backward compatibility.
+                                                Существующая система IMUS City использовала устаревшие протоколы и форматы данных,
+                                                требовавшие сложной интеграции при сохранении обратной совместимости.
                                             </p>
                                         </div>
                                         <div>
-                                            <h5 class="font-medium mb-2 text-green-600 dark:text-green-400">Solution</h5>
+                                            <h5 class="font-medium mb-2 text-green-600 dark:text-green-400">Решение</h5>
                                             <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                                                 <li class="flex items-start">
                                                     <i class="fas fa-check text-green-500 mr-2 mt-0.5"></i>
-                                                    <span>Custom API adapter development</span>
+                                                    <span>Разработка пользовательского адаптера API</span>
                                                 </li>
                                                 <li class="flex items-start">
                                                     <i class="fas fa-check text-green-500 mr-2 mt-0.5"></i>
-                                                    <span>Data format transformation layer</span>
+                                                    <span>Слой трансформации форматов данных</span>
                                                 </li>
                                                 <li class="flex items-start">
                                                     <i class="fas fa-check text-green-500 mr-2 mt-0.5"></i>
-                                                    <span>Graceful fallback mechanisms</span>
+                                                    <span>Механизмы плавного отката</span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="mt-4 p-4 bg-gray-50 dark:bg-gray-600 rounded-lg">
-                                        <h5 class="font-medium mb-2 text-sm">Result:</h5>
+                                        <h5 class="font-medium mb-2 text-sm">Результат:</h5>
                                         <p class="text-sm text-gray-600 dark:text-gray-400">
-                                            Seamless integration with zero disruption to existing operations
+                                            Бесшовная интеграция без прерывания существующих операций
                                         </p>
                                     </div>
                                 </div>
 
-                                <!-- Challenge 2 -->
+                                <!-- Задача 2 -->
                                 <div class="bg-white dark:bg-gray-700 rounded-xl p-6 border-l-4 border-cyan-500">
-                                    <h4 class="font-semibold text-lg mb-3 text-cyan-600 dark:text-cyan-400">Challenge: Large Volume Video Processing</h4>
+                                    <h4 class="font-semibold text-lg mb-3 text-cyan-600 dark:text-cyan-400">Задача: Обработка больших объемов видео</h4>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <h5 class="font-medium mb-2 text-gray-600 dark:text-gray-400">Problem</h5>
+                                            <h5 class="font-medium mb-2 text-gray-600 dark:text-gray-400">Проблема</h5>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Processing hours of inspection video footage required significant computational
-                                                resources and efficient storage management.
+                                                Обработка часов видеозаписей инспекции требовала значительных вычислительных
+                                                ресурсов и эффективного управления хранением.
                                             </p>
                                         </div>
                                         <div>
-                                            <h5 class="font-medium mb-2 text-green-600 dark:text-green-400">Solution</h5>
+                                            <h5 class="font-medium mb-2 text-green-600 dark:text-green-400">Решение</h5>
                                             <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                                                 <li class="flex items-start">
                                                     <i class="fas fa-check text-green-500 mr-2 mt-0.5"></i>
-                                                    <span>Asynchronous processing with queues</span>
+                                                    <span>Асинхронная обработка с очередями</span>
                                                 </li>
                                                 <li class="flex items-start">
                                                     <i class="fas fa-check text-green-500 mr-2 mt-0.5"></i>
-                                                    <span>Video compression and optimization</span>
+                                                    <span>Сжатие и оптимизация видео</span>
                                                 </li>
                                                 <li class="flex items-start">
                                                     <i class="fas fa-check text-green-500 mr-2 mt-0.5"></i>
-                                                    <span>Distributed storage architecture</span>
+                                                    <span>Распределенная архитектура хранения</span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="mt-4 p-4 bg-gray-50 dark:bg-gray-600 rounded-lg">
-                                        <h5 class="font-medium mb-2 text-sm">Result:</h5>
+                                        <h5 class="font-medium mb-2 text-sm">Результат:</h5>
                                         <p class="text-sm text-gray-600 dark:text-gray-400">
-                                            Processing time reduced by 60% with optimized resource usage
+                                            Время обработки сокращено на 60% с оптимизированным использованием ресурсов
                                         </p>
                                     </div>
                                 </div>
 
-                                <!-- Challenge 3 -->
+                                <!-- Задача 3 -->
                                 <div class="bg-white dark:bg-gray-700 rounded-xl p-6 border-l-4 border-indigo-500">
-                                    <h4 class="font-semibold text-lg mb-3 text-indigo-600 dark:text-indigo-400">Challenge: Real-time Data Synchronization</h4>
+                                    <h4 class="font-semibold text-lg mb-3 text-indigo-600 dark:text-indigo-400">Задача: Синхронизация данных в реальном времени</h4>
                                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                         <div>
-                                            <h5 class="font-medium mb-2 text-gray-600 dark:text-gray-400">Problem</h5>
+                                            <h5 class="font-medium mb-2 text-gray-600 dark:text-gray-400">Проблема</h5>
                                             <p class="text-sm text-gray-600 dark:text-gray-400">
-                                                Multiple field teams needed real-time access to inspection data
-                                                while maintaining data consistency across distributed systems.
+                                                Несколько полевых команд нуждались в доступе к данным инспекции в реальном времени
+                                                при сохранении согласованности данных в распределенных системах.
                                             </p>
                                         </div>
                                         <div>
-                                            <h5 class="font-medium mb-2 text-green-600 dark:text-green-400">Solution</h5>
+                                            <h5 class="font-medium mb-2 text-green-600 dark:text-green-400">Решение</h5>
                                             <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                                                 <li class="flex items-start">
                                                     <i class="fas fa-check text-green-500 mr-2 mt-0.5"></i>
-                                                    <span>WebSocket implementation for real-time updates</span>
+                                                    <span>Реализация WebSocket для обновлений в реальном времени</span>
                                                 </li>
                                                 <li class="flex items-start">
                                                     <i class="fas fa-check text-green-500 mr-2 mt-0.5"></i>
-                                                    <span>Optimistic locking for data consistency</span>
+                                                    <span>Оптимистическая блокировка для согласованности данных</span>
                                                 </li>
                                                 <li class="flex items-start">
                                                     <i class="fas fa-check text-green-500 mr-2 mt-0.5"></i>
-                                                    <span>Conflict resolution mechanisms</span>
+                                                    <span>Механизмы разрешения конфликтов</span>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="mt-4 p-4 bg-gray-50 dark:bg-gray-600 rounded-lg">
-                                        <h5 class="font-medium mb-2 text-sm">Result:</h5>
+                                        <h5 class="font-medium mb-2 text-sm">Результат:</h5>
                                         <p class="text-sm text-gray-600 dark:text-gray-400">
-                                            Real-time data synchronization with 99.9% uptime
+                                            Синхронизация данных в реальном времени с доступностью 99.9%
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Technical Architecture -->
+                        <!-- Техническая архитектура -->
                         <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-gray-700 dark:to-gray-700 rounded-xl p-6 mb-8">
                             <h3 class="text-xl font-bold mb-4 flex items-center">
                                 <i class="fas fa-sitemap text-indigo-500 mr-3"></i>
-                                Technical Architecture
+                                Техническая архитектура
                             </h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <h4 class="font-semibold mb-3 text-indigo-600 dark:text-indigo-400">Backend Components</h4>
+                                    <h4 class="font-semibold mb-3 text-indigo-600 dark:text-indigo-400">Backend компоненты</h4>
                                     <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                                         <li class="flex items-start">
                                             <i class="fas fa-server text-indigo-500 mr-2 mt-0.5"></i>
-                                            <span>Laravel RESTful API with 24 endpoints</span>
+                                            <span>Laravel RESTful API с 24 эндпоинтами</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-database text-indigo-500 mr-2 mt-0.5"></i>
-                                            <span>MySQL with optimized indexing</span>
+                                            <span>MySQL с оптимизированной индексацией</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-bolt text-indigo-500 mr-2 mt-0.5"></i>
-                                            <span>Redis for caching and session management</span>
+                                            <span>Redis для кэширования и управления сессиями</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-exchange-alt text-indigo-500 mr-2 mt-0.5"></i>
-                                            <span>Queue system for background processing</span>
+                                            <span>Система очередей для фоновой обработки</span>
                                         </li>
                                     </ul>
                                 </div>
                                 <div>
-                                    <h4 class="font-semibold mb-3 text-purple-600 dark:text-purple-400">Integration Layer</h4>
+                                    <h4 class="font-semibold mb-3 text-purple-600 dark:text-purple-400">Слой интеграции</h4>
                                     <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                                         <li class="flex items-start">
                                             <i class="fas fa-plug text-purple-500 mr-2 mt-0.5"></i>
-                                            <span>Custom IMUS City API adapter</span>
+                                            <span>Пользовательский адаптер API IMUS City</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-sync text-purple-500 mr-2 mt-0.5"></i>
-                                            <span>WebSocket for real-time communication</span>
+                                            <span>WebSocket для общения в реальном времени</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-shield-alt text-purple-500 mr-2 mt-0.5"></i>
-                                            <span>JWT authentication and authorization</span>
+                                            <span>JWT аутентификация и авторизация</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-code text-purple-500 mr-2 mt-0.5"></i>
-                                            <span>Comprehensive API documentation</span>
+                                            <span>Комплексная документация API</span>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Business Impact -->
+                        <!-- Бизнес-эффект -->
                         <div class="mb-8">
                             <h3 class="text-2xl font-bold mb-6 flex items-center">
                                 <i class="fas fa-chart-line text-green-500 mr-3"></i>
-                                Business Impact & Results
+                                Бизнес-эффект и результаты
                             </h3>
                             <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
                                 <div class="text-center bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
                                     <div class="text-3xl font-bold text-green-500 mb-2">40%</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Time Savings</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Экономия времени</div>
                                 </div>
                                 <div class="text-center bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
                                     <div class="text-3xl font-bold text-blue-500 mb-2">95%</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Accuracy Rate</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Точность</div>
                                 </div>
                                 <div class="text-center bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
-                                    <div class="text-3xl font-bold text-purple-500 mb-2">5 min</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">Report Generation</div>
+                                    <div class="text-3xl font-bold text-purple-500 mb-2">5 мин</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Формирование отчетов</div>
                                 </div>
                                 <div class="text-center bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
                                     <div class="text-3xl font-bold text-indigo-500 mb-2">24/7</div>
-                                    <div class="text-sm text-gray-600 dark:text-gray-400">System Availability</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">Доступность системы</div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Lessons Learned -->
+                        <!-- Извлеченные уроки -->
                         <div class="mb-8">
                             <h3 class="text-2xl font-bold mb-6 flex items-center">
                                 <i class="fas fa-graduation-cap text-blue-500 mr-3"></i>
-                                Lessons Learned
+                                Извлеченные уроки
                             </h3>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="bg-white dark:bg-gray-700 rounded-xl p-6">
-                                    <h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Technical Insights</h4>
+                                    <h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Технические инсайты</h4>
                                     <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
                                         <li class="flex items-start">
                                             <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-0.5"></i>
-                                            <span>Importance of comprehensive API versioning strategy</span>
+                                            <span>Важность комплексной стратегии версионирования API</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-0.5"></i>
-                                            <span>Value of asynchronous processing for video data</span>
+                                            <span>Ценность асинхронной обработки для видео данных</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-0.5"></i>
-                                            <span>Benefits of modular architecture for industrial systems</span>
+                                            <span>Преимущества модульной архитектуры для промышленных систем</span>
                                         </li>
                                     </ul>
                                 </div>
                                 <div class="bg-white dark:bg-gray-700 rounded-xl p-6">
-                                    <h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Project Management</h4>
+                                    <h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">Управление проектом</h4>
                                     <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
                                         <li class="flex items-start">
                                             <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-0.5"></i>
-                                            <span>Early stakeholder involvement crucial for industrial projects</span>
+                                            <span>Раннее вовлечение стейкхолдеров критично для промышленных проектов</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-0.5"></i>
-                                            <span>Phased deployment reduces operational risk</span>
+                                            <span>Поэтапное развертывание снижает операционные риски</span>
                                         </li>
                                         <li class="flex items-start">
                                             <i class="fas fa-lightbulb text-yellow-500 mr-2 mt-0.5"></i>
-                                            <span>Comprehensive testing essential for reliability</span>
+                                            <span>Комплексное тестирование необходимо для надежности</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -838,8 +838,8 @@
                         this.lightboxOpen = true;
                     },
                     init() {
-                        // Initialize any animations or interactions
-                        console.log('IMUS City portfolio item initialized');
+                        // Инициализация анимаций или взаимодействий
+                        console.log('Портфолио IMUS City инициализировано');
                     }
                 }
             }

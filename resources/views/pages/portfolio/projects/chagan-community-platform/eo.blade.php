@@ -124,8 +124,9 @@
             </div>
         </section>
 
-        <!-- Projekta Galerio -->
-        <section class="py-16">
+        @if($project->hasGalleryImages())
+            <!-- Projekta Galerio -->
+            <section class="py-16">
             <div class="fluid-container">
                 <div class="max-w-6xl mx-auto">
                     <h2 class="text-3xl font-bold mb-12 text-center fade-in">Projekta Galerio</h2>
@@ -162,6 +163,7 @@
                 </div>
             </div>
         </section>
+        @endif
 
         <!-- Projekta Detaloj -->
         <section class="py-16 bg-gray-50 dark:bg-gray-800/30">
@@ -434,8 +436,9 @@
             </div>
         </section>
 
-        <!-- Lumskatola Modala Fenestro -->
-        <div x-show="lightboxOpen" x-transition:enter="transition ease-out duration-300"
+        @if($project->hasGalleryImages())
+            <!-- Lumskatola Modala Fenestro -->
+            <div x-show="lightboxOpen" x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -455,6 +458,7 @@
                 </button>
             </div>
         </div>
+        @endif
 
         <!-- Kazo-Studa Modala Fenestro -->
         <div x-show="showCaseStudy" x-transition:enter="transition ease-out duration-300"

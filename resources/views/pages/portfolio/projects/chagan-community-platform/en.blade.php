@@ -124,44 +124,46 @@
             </div>
         </section>
 
-        <!-- Project Gallery -->
-        <section class="py-16">
-            <div class="fluid-container">
-                <div class="max-w-6xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-12 text-center fade-in">Project Gallery</h2>
+        @if($project->hasGalleryImages())
+            <!-- Project Gallery -->
+            <section class="py-16">
+                <div class="fluid-container">
+                    <div class="max-w-6xl mx-auto">
+                        <h2 class="text-3xl font-bold mb-12 text-center fade-in">Project Gallery</h2>
 
-                    <!-- Main Gallery -->
-                    <div class="project-gallery main mb-8 fade-in">
-                        <div class="gallery-item h-96" @click="openLightbox(0)">
-                            <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Chagan.su Main Page" class="w-full h-full object-cover">
-                            <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                                <div class="opacity-0 hover:opacity-100 transition-opacity duration-300">
-                                    <i class="fas fa-search-plus text-white text-2xl"></i>
+                        <!-- Main Gallery -->
+                        <div class="project-gallery main mb-8 fade-in">
+                            <div class="gallery-item h-96" @click="openLightbox(0)">
+                                <img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Chagan.su Main Page" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                                    <div class="opacity-0 hover:opacity-100 transition-opacity duration-300">
+                                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="gallery-item h-44" @click="openLightbox(1)">
+                                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Residents Catalog" class="w-full h-full object-cover">
+                                </div>
+                                <div class="gallery-item h-44" @click="openLightbox(2)">
+                                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Photo Archive" class="w-full h-full object-cover">
                                 </div>
                             </div>
                         </div>
-                        <div class="space-y-4">
-                            <div class="gallery-item h-44" @click="openLightbox(1)">
-                                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Residents Catalog" class="w-full h-full object-cover">
-                            </div>
-                            <div class="gallery-item h-44" @click="openLightbox(2)">
-                                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Photo Archive" class="w-full h-full object-cover">
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Secondary Gallery -->
-                    <div class="project-gallery secondary fade-in">
-                        <div class="gallery-item h-64" @click="openLightbox(3)">
-                            <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mobile Version" class="w-full h-full object-cover">
-                        </div>
-                        <div class="gallery-item h-64" @click="openLightbox(4)">
-                            <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Community Forum" class="w-full h-full object-cover">
+                        <!-- Secondary Gallery -->
+                        <div class="project-gallery secondary fade-in">
+                            <div class="gallery-item h-64" @click="openLightbox(3)">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mobile Version" class="w-full h-full object-cover">
+                            </div>
+                            <div class="gallery-item h-64" @click="openLightbox(4)">
+                                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Community Forum" class="w-full h-full object-cover">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        @endif
 
         <!-- Project Details -->
         <section class="py-16 bg-gray-50 dark:bg-gray-800/30">
@@ -434,8 +436,9 @@
             </div>
         </section>
 
-        <!-- Lightbox Modal -->
-        <div x-show="lightboxOpen" x-transition:enter="transition ease-out duration-300"
+        @if($project->hasGalleryImages())
+            <!-- Lightbox Modal -->
+            <div x-show="lightboxOpen" x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -455,6 +458,7 @@
                 </button>
             </div>
         </div>
+        @endif
 
         <!-- Case Study Modal -->
         <div x-show="showCaseStudy" x-transition:enter="transition ease-out duration-300"

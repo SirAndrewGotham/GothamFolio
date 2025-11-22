@@ -583,7 +583,7 @@
                     </div>
 
                     <!-- Grid View -->
-                    <div x-show="viewMode === 'grid' && filteredGalleries.length > 0" class="gallery-grid fade-in" x-cloak>
+                    <div x-show="viewMode === 'grid' && filteredGalleries.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in" x-cloak>
                         <template x-for="gallery in filteredGalleries" :key="gallery.id">
                             <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
                                 <div class="relative h-64 overflow-hidden">
@@ -627,7 +627,7 @@
                     </div>
 
                     <!-- Masonry View -->
-                    <div x-show="viewMode === 'masonry' && filteredGalleries.length > 0" class="masonry-grid fade-in" x-cloak>
+                    <div x-show="viewMode === 'masonry' && filteredGalleries.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in" x-cloak>
                         <template x-for="gallery in filteredGalleries" :key="gallery.id">
                             <div class="masonry-item bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                                 <div class="relative">
