@@ -366,7 +366,12 @@
         </section>
 
         <!-- Модальное окно концепции проекта -->
-        <div x-show="showCaseStudy" x-transition:enter="transition ease-out duration-300"
+        <div x-show="showCaseStudy"
+             @keydown.escape.window="showCaseStudy = false"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="modal-title"
+             x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -386,7 +391,7 @@
                     <div class="max-h-[80vh] overflow-y-auto">
                         <!-- Заголовок -->
                         <div class="text-center mb-8">
-                            <h2 class="text-3xl font-bold mb-4">Концепция проекта: Сообщество Gotham Forum</h2>
+                            <h2 id="modal-title" class="text-3xl font-bold mb-4">Концепция проекта: Сообщество Gotham Forum</h2>
                             <p class="text-xl text-gray-600 dark:text-gray-400">Видение платформы вовлечения сообществ нового поколения</p>
                         </div>
 
@@ -528,13 +533,21 @@
                 return {
                     showCaseStudy: false,
                     init() {
-                        // Закрыть модальное окно по клавише Escape
-                        document.addEventListener('keydown', (e) => {
-                            if (e.key === 'Escape' && this.showCaseStudy) {
-                                this.showCaseStudy = false;
-                            }
+                        // Запуск анимаций при скролле
+                        this.animateOnScroll();
+                    },
+                    animateOnScroll() {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add('visible');
+                                }
+                            });
                         });
-                    }
+
+                        document.querySelectorAll('.fade-in').forEach((el) => {
+                            observer.observe(el);
+                        });
                 }
             }
         </script>

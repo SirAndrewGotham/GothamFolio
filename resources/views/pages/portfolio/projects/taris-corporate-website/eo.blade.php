@@ -548,7 +548,11 @@
         </section>
 
         <!-- Kazo-Modala Fenestro -->
-        <div x-show="showCaseStudy" x-transition:enter="transition ease-out duration-300"
+        <div x-show="showCaseStudy"
+             role="dialog"
+             aria-modal="true"
+             aria-labelledby="modal-title"
+             x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -568,7 +572,7 @@
                     <div class="max-h-[80vh] overflow-y-auto">
                         <!-- Kapo -->
                         <div class="text-center mb-8">
-                            <h2 class="text-3xl font-bold mb-4">Projekta Kazo: TARIS Korporacia Retejo</h2>
+                            <h2 id="modal-title" class="text-3xl font-bold mb-4">Projekta Kazo: TARIS Korporacia Retejo</h2>
                             <p class="text-xl text-gray-600 dark:text-gray-400">Legacy sistemo-subteno kaj stabiliga aliro</p>
                         </div>
 

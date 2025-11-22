@@ -554,11 +554,27 @@
                 return {
                     showCaseStudy: false,
                     init() {
-                        // Fermi modalan fenestron per Escape-klavo
+                        // Закрыть модальное окно по клавише Escape
                         document.addEventListener('keydown', (e) => {
                             if (e.key === 'Escape' && this.showCaseStudy) {
                                 this.showCaseStudy = false;
                             }
+                        });
+
+                        // Запуск анимаций при скролле
+                        this.animateOnScroll();
+                    },
+                    animateOnScroll() {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add('visible');
+                                }
+                            });
+                        });
+
+                        document.querySelectorAll('.fade-in').forEach((el) => {
+                            observer.observe(el);
                         });
                     }
                 }

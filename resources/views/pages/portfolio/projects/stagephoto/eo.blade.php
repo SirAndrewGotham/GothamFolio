@@ -257,7 +257,7 @@
                                     <div>
                                         <h4 class="font-semibold mb-2 text-sm text-gray-500 dark:text-gray-400">Backend</h4>
                                         <div class="flex flex-wrap gap-2">
-                                            <a href="{{ url('/portfolio', ['category' => 'laravel']) }}" class="tech-tag px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg text-sm hover:bg-purple-200 dark:hover:bg-purple-800/50 transition-colors">
+                                            <a href="{{ url('/portfolio?category=laravel') }}" class="tech-tag px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg text-sm hover:bg-purple-200 dark:hover:bg-purple-800/50 transition-colors">
                                                 Laravel 12
                                             </a>
                                             <a href="{{ url('/portfolio', ['category' => 'php']) }}" class="tech-tag px-3 py-1 bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-lg text-sm hover:bg-red-200 dark:hover:bg-red-800/50 transition-colors">
@@ -395,7 +395,9 @@
         </section>
 
         <!-- Kazo-Modala Fenestro -->
-        <div x-show="showCaseStudy" x-transition:enter="transition ease-out duration-300"
+        <div x-show="showCaseStudy"
+             @keydown.escape.window="showCaseStudy = false"
+             x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -415,7 +417,7 @@
                     <div class="max-h-[80vh] overflow-y-auto">
                         <!-- Kapo -->
                         <div class="text-center mb-8">
-                            <h2 class="text-3xl font-bold mb-4">Projekta Kazo: StagePhoto Platformo</h2>
+                            <h2 id="modal-title" class="text-3xl font-bold mb-4">Projekta Kazo: StagePhoto Platformo</h2>
                             <p class="text-xl text-gray-600 dark:text-gray-400">Kompleta analizo de la disvolviĝa procezo de heredaĵa sistemo al moderna platformo</p>
                         </div>
 
@@ -603,17 +605,9 @@
         </div>
 
         <script>
-            function portfolioItemApp() {
+            function portfolioItem极() {
                 return {
-                    showCaseStudy: false,
-                    init() {
-                        // Fermi modalan fenestron per Escape-klavo
-                        document.addEventListener('keydown', (e) => {
-                            if (e.key === 'Escape' && this.showCaseStudy) {
-                                this.showCaseStudy = false;
-                            }
-                        });
-                    }
+                    showCaseStudy: false
                 }
             }
         </script>

@@ -58,15 +58,6 @@
 
 @push('styles')
     <style>
-        /* Gallery Grid Styles */
-        .gallery-grid {
-            display: grid;
-            gap: 1.5rem;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
         .gallery-card {
             position: relative;
             border-radius: 1rem;
@@ -104,25 +95,6 @@
 
         .gallery-card:hover .gallery-overlay {
             opacity: 1;
-        }
-
-        .masonry-grid {
-            column-count: 3;
-            column-gap: 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        @media (max-width: 1024px) {
-            .masonry-grid {
-                column-count: 2;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .masonry-grid {
-                column-count: 1;
-            }
         }
 
         .masonry-item {
@@ -627,17 +599,13 @@
                     </div>
 
                     <!-- Masonry View -->
-                    <div x-show="viewMode === 'masonry' && filteredGalleries.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in" x-cloak>
+                    <div x-show="viewMode === 'masonry' && filteredGalleries.length > 0" class="columns-1 md:columns-2 lg:columns-3 gap-6 fade-in" x-cloak>
                         <template x-for="gallery in filteredGalleries" :key="gallery.id">
-                            <div class="masonry-item bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
+                            <div class="break-inside-avoid mb-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300">
                                 <div class="relative">
-{{--                                    @if($gallery->cover_image)--}}
-{{--                                        <img :src="gallery.cover_image" :alt="gallery.title" class="w-full h-auto object-cover">--}}
-{{--                                    @else--}}
-                                        <div class="placeholder-image w-full h-64" :class="'placeholder-' + (gallery.categories[0]?.slug || 'landscape')">
-                                            <!-- CSS placeholder for masonry image -->
-                                        </div>
-{{--                                    @endif--}}
+                                    <div class="placeholder-image w-full h-64" :class="'placeholder-' + (gallery.categories[0]?.slug || 'landscape')">
+                                        <!-- CSS placeholder for masonry image -->
+                                    </div>
                                     <div class="absolute top-4 right-4" x-show="gallery.categories.length > 0">
                                     <span class="px-3 py-1 rounded-full text-xs font-medium text-white shadow-lg"
                                           :class="getCategoryColor(gallery.categories[0].slug)">

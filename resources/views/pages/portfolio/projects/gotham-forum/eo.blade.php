@@ -366,7 +366,9 @@
         </section>
 
         <!-- Projekta Koncepta Modala Fenestro -->
-        <div x-show="showCaseStudy" x-transition:enter="transition ease-out duration-300"
+        <div x-show="showCaseStudy"
+             @keydown.escape.window="showCaseStudy = false"
+             x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -527,14 +529,23 @@
             function portfolioItemApp() {
                 return {
                     showCaseStudy: false,
+                    showCaseStudy: false,
                     init() {
-                        // Fermi modalan fenestron per Escape-klavo
-                        document.addEventListener('keydown', (e) => {
-                            if (e.key === 'Escape' && this.showCaseStudy) {
-                                this.showCaseStudy = false;
-                            }
+                        // Запуск анимаций при скролле
+                        this.animateOnScroll();
+                    },
+                    animateOnScroll() {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    entry.target.classList.add('visible');
+                                }
+                            });
                         });
-                    }
+
+                        document.querySelectorAll('.fade-in').forEach((el) => {
+                            observer.observe(el);
+                        });
                 }
             }
         </script>
