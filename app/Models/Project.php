@@ -34,6 +34,12 @@ class Project extends Model
         return !empty($images);
     }
 
+    public function hasGalleryImages()
+    {
+        // New method specifically for gallery images
+        return $this->images()->exists();
+    }
+
     protected $fillable = [
         'uuid',
         'slug',

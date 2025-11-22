@@ -124,8 +124,9 @@
             </div>
         </section>
 
-        <!-- Галерея проекта -->
-        <section class="py-16">
+        @if($project->hasGalleryImages())
+            <!-- Галерея проекта -->
+            <section class="py-16">
             <div class="fluid-container">
                 <div class="max-w-6xl mx-auto">
                     <h2 class="text-3xl font-bold mb-12 text-center fade-in">Галерея проекта</h2>
@@ -162,6 +163,7 @@
                 </div>
             </div>
         </section>
+        @endif
 
         <!-- Детали проекта -->
         <section class="py-16 bg-gray-50 dark:bg-gray-800/30">
@@ -434,8 +436,9 @@
             </div>
         </section>
 
-        <!-- Модальное окно лайтбокса -->
-        <div x-show="lightboxOpen" x-transition:enter="transition ease-out duration-300"
+        @if($project->hasGalleryImages())
+            <!-- Модальное окно лайтбокса -->
+            <div x-show="lightboxOpen" x-transition:enter="transition ease-out duration-300"
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
@@ -455,6 +458,7 @@
                 </button>
             </div>
         </div>
+        @endif
 
         <!-- Модальное окно кейса -->
         <div x-show="showCaseStudy" x-transition:enter="transition ease-out duration-300"

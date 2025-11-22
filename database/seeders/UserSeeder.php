@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
             ['email' => 'admin@admin.com'],
             [
                 'name' => 'admin',
-                'password' => Hash::make('password'),
+                'password' => Hash::make(config('gothamfolio.admin_password')),
                 'email_verified_at' => now(),
                 'created_at' => now(),
                 'updated_at' => now(),

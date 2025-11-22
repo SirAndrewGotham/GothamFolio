@@ -15,4 +15,5 @@ return [
         'allow_comments' => true,
         'anonymous_comments' => true,
     ],
+    'admin_password' => env('ADMIN_PASSWORD', 'password'),
 ];
