@@ -605,7 +605,7 @@
         </div>
 
         <script>
-            function portfolioItem极() {
+            function portfolioItem() {
                 return {
                     showCaseStudy: false
                 }

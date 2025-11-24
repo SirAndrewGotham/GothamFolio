@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
+<html lang="{{ str_replace('_', '-', $current_locale ?? app()->getLocale()) }}"
+      dir="{{ $direction ?? (new \App\Services\LanguageService())->getApplicationDirection() }}"
+      class="scroll-smooth {{ ($is_rtl ?? (new \App\Services\LanguageService())->getApplicationIsRtl()) ? 'rtl' : 'ltr' }}">
 <head>
     @include('components.backend.partials.head')
 </head>

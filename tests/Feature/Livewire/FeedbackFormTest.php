@@ -1,4 +1,4 @@
-<?php
+h<?php
 
 use App\Mail\FeedbackReceived;
 use Illuminate\Support\Facades\Mail;
@@ -10,7 +10,7 @@ use function Pest\Livewire\livewire;
 uses(Illuminate\Foundation\Testing\RefreshDatabase::class);
 
 it('feedback form renders successfully', function () {
-    Volt::test('feedback-form')
+    livewire('feedback-form')
         ->assertStatus(200);
 });
 

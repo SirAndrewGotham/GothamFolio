@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Hash;
 use Livewire\Volt\Volt;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
+use function Pest\Livewire\livewire;
+
 uses(RefreshDatabase::class)
     ->beforeEach(function () {
         $this->seed(\Database\Seeders\RoleSeeder::class);
@@ -17,7 +19,7 @@ test('password can be updated', function () {
 
     $this->actingAs($user);
 
-    $response = Volt::test('settings.password')
+    $response = livewire('settings.password')
         ->set('current_password', 'password')
         ->set('password', 'new-password')
         ->set('password_confirmation', 'new-password')
@@ -35,7 +37,7 @@ test('correct password must be provided to update password', function () {
 
     $this->actingAs($user);
 
-    $response = Volt::test('settings.password')
+    $response = livewire('settings.password')
         ->set('current_password', 'wrong-password')
         ->set('password', 'new-password')
         ->set('password_confirmation', 'new-password')

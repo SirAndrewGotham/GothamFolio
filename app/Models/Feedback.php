@@ -17,5 +17,10 @@ class Feedback extends Model
         'category',
         'message',
         'ip_address',
+        'is_read',
+    ];
+
+    protected $casts = [
+        'is_read' => 'boolean',
     ];
 }

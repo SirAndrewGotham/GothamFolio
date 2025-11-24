@@ -16,7 +16,7 @@ beforeEach(function () {
 });
 
 it('component renders successfully', function () {
-    Volt::test('language-switcher-volt')
+    livewire('language-switcher-volt')
         ->assertStatus(200);
 });
 

@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
             ResumeSummarySeeder::class,
             GallerySeeder::class,
             ImageSeeder::class,
+            FeedbackSeeder::class,
         ]);
     }
 }
