@@ -82,7 +82,7 @@ new class extends Component {
         }
 
         // CAPTCHA validation - show error only for this one (users might make mistakes)
-        if ($this->captchaAnswer != $this->captchaCorrectAnswer) {
+        if ((int) $this->captchaAnswer !== $this->captchaCorrectAnswer) {
             $this->addError('captchaAnswer', __('gothamfolio.feedback_form.captcha_error'));
             return;
         }

@@ -23,16 +23,16 @@ class PostController extends Controller
     public function index(Request $request)
     {
         $filter = $request->get('filter');
-        
+
         $posts = Post::query()
             ->when($filter === 'published', fn($q) => $q->where('is_published', true))
             ->when($filter === 'draft', fn($q) => $q->where('is_published', false))
             ->latest()
             ->get();
-        
+
         // Add active languages for the translation display
         $activeLanguages = \App\Models\Language::active()->ordered()->get();
-        
+
         return view('admin.blog.index', compact('posts', 'filter', 'activeLanguages'));
     }
 
@@ -140,15 +140,12 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         // Delete post images
-        $this->deletePostImages($post->id, 'blog');
+        $this->deletePostImages($post->id, 'images/blogs');
 
-        $post->update($data);
-
-        // Debug: check what's being updated
-        \Log::info('Post updated', ['post_id' => $post->id, 'data' => $data]);
+        $post->delete();
 
         return redirect()->route('admin.blog.index')
-            ->with('success', 'Post updated successfully');
+            ->with('success', 'Post deleted successfully');
     }
 
     protected function deletePostImages($itemId, $folder = 'images/blogs')

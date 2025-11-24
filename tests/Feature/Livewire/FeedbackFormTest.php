@@ -1,4 +1,4 @@
-h<?php
+<?php
 
 use App\Mail\FeedbackReceived;
 use Illuminate\Support\Facades\Mail;

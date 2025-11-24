@@ -23,7 +23,7 @@
                 {{ __('Resume') }}
             </flux:navlist.item>
             <flux:navlist.item icon="chat-bubble-left" :href="route('admin.feedback.index')" :current="request()->routeIs('admin.feedback.*')" wire:navigate>
-                Feedback
+                {{ __('Feedback') }}
             </flux:navlist.item>
         </flux:navlist.group>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\FeedbackController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PostController;
@@ -77,7 +78,7 @@ Route::middleware(['web', 'admin'])
         // Project images deletion route
         Route::delete('project-images/{id}', [ProjectController::class, 'destroyImage'])->name('project-images.destroy');
 
-        Route::resource('feedback', \App\Http\Controllers\Admin\FeedbackController::class)->except(['create', 'store', 'edit', 'update']);
+        Route::resource('feedback', FeedbackController::class)->except(['create', 'store', 'edit', 'update']);
         Route::post('feedback/{feedback}/mark-read', [FeedbackController::class, 'markAsRead'])
             ->name('feedback.mark-read');
         Route::post('feedback/{feedback}/mark-unread', [FeedbackController::class, 'markAsUnread'])
