@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('web')
+Route::middleware(['web', 'admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
@@ -76,4 +76,12 @@ Route::middleware('web')
         Route::resource('projects', ProjectController::class);
         // Project images deletion route
         Route::delete('project-images/{id}', [ProjectController::class, 'destroyImage'])->name('project-images.destroy');
+
+        Route::resource('feedback', \App\Http\Controllers\Admin\FeedbackController::class)->except(['create', 'store', 'edit', 'update']);
+        Route::post('feedback/{feedback}/mark-read', [FeedbackController::class, 'markAsRead'])
+            ->name('feedback.mark-read');
+        Route::post('feedback/{feedback}/mark-unread', [FeedbackController::class, 'markAsUnread'])
+            ->name('feedback.mark-unread');
+        Route::post('feedback/bulk-mark-read', [FeedbackController::class, 'bulkMarkAsRead'])
+            ->name('feedback.bulk-mark-read');
     });

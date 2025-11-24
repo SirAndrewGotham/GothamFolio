@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('feedback', function (Blueprint $table) {
             $table->id();
             $table->ipAddress('ip_address')->nullable();
+            $table->boolean('is_read')->default(false);
             $table->string('name');
             $table->string('email');
             $table->string('subject');

@@ -9,6 +9,7 @@ use App\Models\Language;
 use App\Models\Post;
 use App\Services\PortfolioImageService;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -19,19 +20,20 @@ class PostController extends Controller
         $this->imageService = $imageService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        // Get posts grouped by post_id with their translations
-        $posts = Post::with(['language', 'author'])
-            ->orderBy('post_id', 'desc')
-            ->orderBy('language_id')
-            ->get()
-            ->groupBy('post_id');
-
-        // Get all active languages to show which translations are missing
-        $activeLanguages = Language::active()->ordered()->get();
-
-        return view('admin.blog.index', compact('posts', 'activeLanguages'));
+        $filter = $request->get('filter');
+        
+        $posts = Post::query()
+            ->when($filter === 'published', fn($q) => $q->where('is_published', true))
+            ->when($filter === 'draft', fn($q) => $q->where('is_published', false))
+            ->latest()
+            ->get();
+        
+        // Add active languages for the translation display
+        $activeLanguages = \App\Models\Language::active()->ordered()->get();
+        
+        return view('admin.blog.index', compact('posts', 'filter', 'activeLanguages'));
     }
 
     public function create()

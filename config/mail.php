@@ -109,8 +109,14 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'andreogotema@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Gotham Folio CMS'),
+    ],
+
+    // For the feedback replyes
+    'to' => [
+        'address' => env('MAIL_TO_ADDRESS', 'andreogotema@gmail.com'),
+        'name' => env('MAIL_TO_NAME', 'Gotham Folio Recipient'),
     ],
 
 ];

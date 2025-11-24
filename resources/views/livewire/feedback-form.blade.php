@@ -1,128 +1,132 @@
 <?php
-use function Livewire\Volt\{state, rules, mount};
-use Illuminate\Support\Str;
+
+use function Livewire\Volt\{state, rules};
 use Illuminate\Support\Facades\Mail;
 use App\Mail\FeedbackReceived;
+use Livewire\Volt\Component;
 
-// Add props to accept parameters
-mount(function ($hideCategory = false, $defaultCategory = '') {
-    $this->hideCategory = $hideCategory;
-    $this->defaultCategory = $defaultCategory;
+new class extends Component {
+    public $name = '';
+    public $email = '';
+    public $subject = '';
+    public $category = '';
+    public $message = '';
+    public $formSubmitted = false;
+    public $formSubmitting = false;
+    public $hideCategory = false;
+    public $defaultCategory = '';
+    public $honeypot = '';
+    public $captchaAnswer = '';
+    public $captchaQuestion = '';
+    public $captchaCorrectAnswer = 0;
+    public $submissionTime = 0;
 
-    // Set default category if provided and hideCategory is true
-    if ($this->hideCategory && $this->defaultCategory) {
-        $this->category = $this->defaultCategory;
+    public function mount($hideCategory = false, $defaultCategory = '')
+    {
+        $this->hideCategory = $hideCategory;
+        $this->defaultCategory = $defaultCategory;
+
+        // Set default category if provided and hideCategory is true
+        if ($this->hideCategory && $this->defaultCategory) {
+            $this->category = $this->defaultCategory;
+        }
+
+        $this->submissionTime = time();
+        $this->generateCaptcha();
     }
 
-    $this->submissionTime = time();
-    $this->generateCaptcha();
-});
-
-state([
-    'name' => '',
-    'email' => '',
-    'subject' => '',
-    'category' => '',
-    'message' => '',
-    'formSubmitted' => false,
-    'formSubmitting' => false,
-    'hideCategory' => false,
-    'defaultCategory' => '',
-    'honeypot' => '',
-    'captchaAnswer' => '',
-    'captchaQuestion' => '',
-    'captchaCorrectAnswer' => 0,
-    'submissionTime' => 0,
-]);
-
-rules([
-    'name' => 'required|min:2',
-    'email' => 'required|email',
-    'subject' => 'required|min:5',
-    'category' => 'required',
-    'message' => 'required|min:10',
-    'honeypot' => 'max:0', // Honeypot must be empty
-    'captchaAnswer' => function ($value) {
-        return 'required|in:' . $this->captchaCorrectAnswer;
-    },
-]);
-
-$resetForm = function () {
-    $this->reset(['name', 'email', 'subject', 'category', 'message', 'captchaAnswer']);
-    if ($this->hideCategory && $this->defaultCategory) {
-        $this->category = $this->defaultCategory;
+    protected function rules()
+    {
+        return [
+            'name' => 'required|min:2',
+            'email' => 'required|email',
+            'subject' => 'required|min:5',
+            'category' => 'required',
+            'message' => 'required|min:10',
+            'honeypot' => 'max:0',
+        ];
     }
-    $this->generateCaptcha();
-};
 
-$generateCaptcha = function () {
-    $num1 = rand(1, 10);
-    $num2 = rand(1, 10);
-    $this->captchaQuestion = __('gothamfolio.feedback_form.captcha_question', ['num1' => $num1, 'num2' => $num2]);
-    $this->captchaCorrectAnswer = $num1 + $num2;
-};
+    public function resetForm()
+    {
+        $this->reset(['name', 'email', 'subject', 'category', 'message', 'captchaAnswer']);
+        if ($this->hideCategory && $this->defaultCategory) {
+            $this->category = $this->defaultCategory;
+        }
+        $this->generateCaptcha();
+    }
 
-$submit = function () {
-    // Time-based protection - silent failure
-    if (time() - $this->submissionTime < 3) {
-        // Silently fail - show success but don't actually process
+    public function generateCaptcha()
+    {
+        $num1 = rand(1, 10);
+        $num2 = rand(1, 10);
+        $this->captchaQuestion = __('gothamfolio.feedback_form.captcha_question', ['num1' => $num1, 'num2' => $num2]);
+        $this->captchaCorrectAnswer = $num1 + $num2;
+    }
+
+    public function submit()
+    {
+        // Time-based protection - silent failure
+        if (time() - $this->submissionTime < 3) {
+            // Silently fail - show success but don't actually process
+            $this->formSubmitted = true;
+            $this->resetForm();
+            return;
+        }
+
+        // Honeypot check - silent failure
+        if (!empty($this->honeypot)) {
+            $this->formSubmitted = true;
+            $this->resetForm();
+            return;
+        }
+
+        // CAPTCHA validation - show error only for this one (users might make mistakes)
+        if ($this->captchaAnswer != $this->captchaCorrectAnswer) {
+            $this->addError('captchaAnswer', __('gothamfolio.feedback_form.captcha_error'));
+            return;
+        }
+
+        // Rate limiting - silent failure
+        $ip = request()->ip();
+        $recentSubmissions = \App\Models\Feedback::where('ip_address', $ip)
+            ->where('created_at', '>', now()->subHour())
+            ->count();
+
+        if ($recentSubmissions >= 3) {
+            $this->formSubmitted = true;
+            $this->resetForm();
+            return;
+        }
+
+        // If we get here, it's a legitimate submission
+        $this->validate([
+            'name' => 'required|min:2',
+            'email' => 'required|email',
+            'subject' => 'required|min:5',
+            'category' => 'required',
+            'message' => 'required|min:10',
+        ]);
+
+        $this->formSubmitting = true;
+
+        // Save to database with IP
+        $feedback = \App\Models\Feedback::create([
+            'name' => $this->name,
+            'email' => $this->email,
+            'subject' => $this->subject,
+            'category' => $this->category,
+            'message' => $this->message,
+            'ip_address' => $ip,
+        ]);
+
+        // Send email
+        Mail::to(config('mail.to.address', config('mail.from.address')))->send(new FeedbackReceived($feedback->toArray()));
+
         $this->formSubmitted = true;
         $this->resetForm();
-        return;
+        $this->formSubmitting = false;
     }
-
-    // Honeypot check - silent failure
-    if (!empty($this->honeypot)) {
-        $this->formSubmitted = true;
-        $this->resetForm();
-        return;
-    }
-
-    // CAPTCHA validation - show error only for this one (users might make mistakes)
-    if ($this->captchaAnswer != $this->captchaCorrectAnswer) {
-        $this->addError('captchaAnswer', __('gothamfolio.feedback_form.captcha_error'));
-        return;
-    }
-
-    // Rate limiting - silent failure
-    $ip = request()->ip();
-    $recentSubmissions = \App\Models\Feedback::where('ip_address', $ip)
-        ->where('created_at', '>', now()->subHour())
-        ->count();
-
-    if ($recentSubmissions >= 3) {
-        $this->formSubmitted = true;
-        $this->resetForm();
-        return;
-    }
-
-    // If we get here, it's a legitimate submission
-    $this->validate([
-        'name' => 'required|min:2',
-        'email' => 'required|email',
-        'subject' => 'required|min:5',
-        'category' => 'required',
-        'message' => 'required|min:10',
-    ]);
-
-    $this->formSubmitting = true;
-
-    // Save to database with IP
-    $feedback = \App\Models\Feedback::create([
-        'name' => $this->name,
-        'email' => $this->email,
-        'subject' => $this->subject,
-        'category' => $this->category,
-        'message' => $this->message,
-        'ip_address' => $ip,
-    ]);
-
-    // Send email
-    Mail::to(config('mail.to.address', config('mail.from.address')))->send(new FeedbackReceived($feedback->toArray()));
-
-    $this->formSubmitted = true;
-    $this->resetForm();
-    $this->formSubmitting = false;
 };
 ?>
 
