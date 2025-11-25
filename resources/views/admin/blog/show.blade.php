@@ -140,19 +140,6 @@
                             </div>
                     </div>
 
-                    @if($post->categories->count() > 0)
-                        <div class="mb-6">
-                            <h4 class="font-semibold text-lg mb-2">{{ __('admin.blog.posts.categories') }}</h4>
-                            <div class="flex flex-wrap gap-2">
-                                @foreach($post->categories as $category)
-                                    <span class="bg-gray-200 dark:bg-gray-600 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full text-sm">
-                                        {{ $category->name }}
-                                    </span>
-                                @endforeach
-                            </div>
-                        </div>
-                    @endif
-
                     @if($post->tags->count() > 0)
                         <div class="mb-6">
                             <h4 class="font-semibold text-lg mb-2">{{ __('admin.blog.posts.tags') }}</h4>

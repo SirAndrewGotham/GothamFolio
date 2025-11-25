@@ -287,7 +287,7 @@ class Post extends Model
 
     public function getImageUrlsAttribute()
     {
-        $imageService = app(\App\Services\ImageService::class);
+        $imageService = app(ImageService::class);
         return $imageService->getImageUrls('blog', $this->id, $this->featured_image, 'card');
     }
 }

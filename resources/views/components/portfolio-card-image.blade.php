@@ -1,5 +1,5 @@
 @props([
-    'projectSlug',
+    'project',
     'alt',
     'imageType' => 'card',
     'lazy' => true,
@@ -9,15 +9,16 @@
 @php
 //    $imageService = app(\App\Services\PortfolioImageService::class);
 //    $images = $imageService->getProjectImageUrls($projectSlug, $imageType);
-    // Look up project by slug to get ID
-    $project = \App\Models\Project::where('slug', $projectSlug)->first();
-    $projectId = $project ? $project->id : null;
 
     if ($projectId) {
         try {
             $imageService = app(\App\Services\ImageService::class);
-            $images = $imageService->getImageUrls('project', $projectId, $projectId, $imageType);
+            $images = $imageService->getImageUrls('project', $projectId, $project->image, $imageType);
         } catch (\Exception $e) {
+            \Log::warning('ImageService failed, falling back to PortfolioImageService', [
+                'projectId' => $projectId,
+                'error' => $e->getMessage()
+            ]);
             $oldService = app(\App\Services\PortfolioImageService::class);
             $images = $oldService->getProjectImageUrls($projectId, $imageType);
         }

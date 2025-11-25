@@ -41,9 +41,12 @@ class PortfolioImageService
         // Determine the target folder
         $targetFolder = $customFolder ?: $imageType;
 
+        // Read the source image ONCE before the loop
+        $sourceImage = $manager->read($uploadedImage);
+
         foreach ($this->sizes[$imageType] as $sizeName => $dimensions) {
-            $img = $manager->read($uploadedImage);
-            // First resize to the larger dimension, then use cover
+            // Clone the already-loaded image instead of reading from disk again
+            $img = clone $sourceImage;
             $img->resize($dimensions['width'], $dimensions['height']);
             $img->cover($dimensions['width'], $dimensions['height']);
 
@@ -91,7 +94,7 @@ class PortfolioImageService
                     $webpPath = "{$sizeDirectory}/{$baseFile}.webp";
                     $jpgPath = "{$sizeDirectory}/{$baseFile}.jpg";
 
-                    if (Storage::disk('public')->exists($webpPath)) {
+                    if (Storage::disk('public')->exists($webpPath) && Storage::disk('public')->exists($jpgPath)) {
                         $images[$sizeName] = [
                             'webp' => Storage::url($webpPath),
                             'jpg' => Storage::url($jpgPath)

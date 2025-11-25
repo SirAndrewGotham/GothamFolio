@@ -57,18 +57,7 @@ class PostController extends Controller
         }
 
         // Handle excerpt generation from content if excerpt is empty
-        if (empty($data['excerpt']) && !empty($data['content'])) {
-            // Strip HTML tags and clean up whitespace
-            $cleanContent = strip_tags($data['content']);
-
-            // Replace multiple spaces, tabs, and newlines with single spaces
-            $cleanContent = preg_replace('/\s+/', ' ', $cleanContent);
-
-            // Trim leading/trailing whitespace
-            $cleanContent = trim($cleanContent);
-
-            $data['excerpt'] = Str::limit($cleanContent, 200);
-        }
+        $this->generateExcerpt($data);
 
         // Ensure post_id is null for new posts (not translations)
         $data['post_id'] = null;
@@ -125,18 +114,7 @@ class PostController extends Controller
         $translationData = $request->validated();
 
         // Handle excerpt generation from content if excerpt is empty
-        if (empty($translationData['excerpt']) && !empty($translationData['content'])) {
-            // Strip HTML tags and clean up whitespace
-            $cleanContent = strip_tags($translationData['content']);
-
-            // Replace multiple spaces, tabs, and newlines with single spaces
-            $cleanContent = preg_replace('/\s+/', ' ', $cleanContent);
-
-            // Trim leading/trailing whitespace
-            $cleanContent = trim($cleanContent);
-
-            $translationData['excerpt'] = Str::limit($cleanContent, 200);
-        }
+        $this->generateExcerpt($translationData);
 
         // Create new translation using the source post's post_id
         $translationData['post_id'] = $post->post_id;
@@ -215,6 +193,19 @@ class PostController extends Controller
 
         foreach ($directories as $directory) {
             Storage::disk('public')->deleteDirectory($directory);
+        }
+    }
+
+    /**
+     * Generate excerpt from content if not provided.
+     */
+    private function generateExcerpt(array &$data): void
+    {
+        if (empty($data['excerpt']) && !empty($data['content'])) {
+            $cleanContent = strip_tags($data['content']);
+            $cleanContent = preg_replace('/\s+/', ' ', $cleanContent);
+            $cleanContent = trim($cleanContent);
+            $data['excerpt'] = Str::limit($cleanContent, 200);
         }
     }
 }
