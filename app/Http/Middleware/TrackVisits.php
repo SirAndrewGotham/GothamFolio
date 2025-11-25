@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class TrackVisits
 {
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next): mixed
     {
         register_shutdown_function(function () use ($request) {
             $visitor = Visitor::trackVisit();

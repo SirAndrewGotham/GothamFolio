@@ -23,11 +23,18 @@ class Visitor extends Model
         'is_bot',
     ];
 
-    public static function trackVisit()
+    protected function casts(): array
+    {
+        return [
+            'is_bot' => 'boolean',
+        ];
+    }
+
+    public static function trackVisit(): ?self
     {
         // Skip tracking for bots and certain paths
         if (self::isBot() || self::shouldSkipTracking()) {
-            return;
+            return null;
         }
 
         return self::create([
@@ -40,11 +47,11 @@ class Visitor extends Model
             'device_type' => self::getDeviceType(),
             'browser' => self::getBrowser(),
             'platform' => self::getPlatform(),
-            'is_bot' => self::isBot(),
+            'is_bot' => false, // Bots are filtered before reaching here
         ]);
     }
 
-    protected static function isBot()
+    protected static function isBot(): bool
     {
         $userAgent = Request::userAgent();
 
@@ -81,7 +88,7 @@ class Visitor extends Model
         return false;
     }
 
-    protected static function shouldSkipTracking()
+    protected static function shouldSkipTracking(): bool
     {
         $skipPaths = ['admin', 'api', 'health', 'horizon', 'telescope'];
         $currentPath = Request::path();
@@ -95,37 +102,57 @@ class Visitor extends Model
         return false;
     }
 
-    protected static function getDeviceType()
+    protected static function getDeviceType(): string
     {
         $userAgent = Request::userAgent();
-        if (preg_match('/(mobile|android|iphone|ipod|ipad)/i', $userAgent)) {
-            return 'mobile';
-        } elseif (preg_match('/(tablet|ipad)/i', $userAgent)) {
+        if (preg_match('/(tablet|ipad)/i', $userAgent)) {
             return 'tablet';
+        } elseif (preg_match('/(mobile|android|iphone|ipod)/i', $userAgent)) {
+            return 'mobile';
         }
         return 'desktop';
     }
 
-    protected static function getBrowser()
+    protected static function getBrowser(): string
     {
         // Simple browser detection
         $userAgent = Request::userAgent();
-        if (stripos($userAgent, 'Chrome') !== false) return 'Chrome';
-        if (stripos($userAgent, 'Firefox') !== false) return 'Firefox';
-        if (stripos($userAgent, 'Safari') !== false) return 'Safari';
-        if (stripos($userAgent, 'Edge') !== false) return 'Edge';
-        if (stripos($userAgent, 'Opera') !== false) return 'Opera';
+        if (stripos($userAgent, 'Chrome') !== false) {
+            return 'Chrome';
+        }
+        if (stripos($userAgent, 'Firefox') !== false) {
+            return 'Firefox';
+        }
+        if (stripos($userAgent, 'Safari') !== false) {
+            return 'Safari';
+        }
+        if (stripos($userAgent, 'Edge') !== false) {
+            return 'Edge';
+        }
+        if (stripos($userAgent, 'Opera') !== false) {
+            return 'Opera';
+        }
         return 'Unknown';
     }
 
-    protected static function getPlatform()
+    protected static function getPlatform(): string
     {
         $userAgent = Request::userAgent();
-        if (stripos($userAgent, 'Windows') !== false) return 'Windows';
-        if (stripos($userAgent, 'Mac') !== false) return 'macOS';
-        if (stripos($userAgent, 'Linux') !== false) return 'Linux';
-        if (stripos($userAgent, 'Android') !== false) return 'Android';
-        if (stripos($userAgent, 'iPhone') !== false) return 'iOS';
+        if (stripos($userAgent, 'Windows') !== false) {
+            return 'Windows';
+        }
+        if (stripos($userAgent, 'Mac') !== false) {
+            return 'macOS';
+        }
+        if (stripos($userAgent, 'Linux') !== false) {
+            return 'Linux';
+        }
+        if (stripos($userAgent, 'Android') !== false) {
+            return 'Android';
+        }
+        if (stripos($userAgent, 'iPhone') !== false) {
+            return 'iOS';
+        }
         return 'Unknown';
     }
 

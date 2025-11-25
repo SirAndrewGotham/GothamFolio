@@ -7,28 +7,28 @@ use Livewire\Component;
 
 class VisitorStats extends Component
 {
-    public $totalVisits;
-    public $todayVisits;
+    public int $totalVisits;
+    public int $todayVisits;
 
-    public function mount()
+    public function mount(): void
     {
         $this->updateStats();
     }
 
-    public function updateStats()
+    public function updateStats(): void
     {
         $this->totalVisits = Visitor::count();
         $this->todayVisits = Visitor::whereDate('created_at', today())->count();
     }
 
-    protected function getListeners()
+    protected function getListeners(): array
     {
         return [
             "echo:visitor-stats,.VisitorTracked" => 'updateStats',
         ];
     }
 
-    public function render()
+    public function render(): \Illuminate\View\View
     {
         return view('livewire.admin.visitor-stats');
     }

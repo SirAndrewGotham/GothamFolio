@@ -4,19 +4,19 @@
 
         <!-- Stats Cards -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <h3 class="text-lg font-semibold mb-2">Total Visits</h3>
                 <p class="text-3xl font-bold text-primary-600">{{ number_format($stats['total_visits']) }}</p>
             </div>
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <h3 class="text-lg font-semibold mb-2">Today's Visits</h3>
                 <p class="text-3xl font-bold text-primary-600">{{ number_format($stats['today_visits']) }}</p>
             </div>
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <h3 class="text-lg font-semibold mb-2">Unique Visitors</h3>
                 <p class="text-3xl font-bold text-primary-600">{{ number_format($stats['unique_visitors']) }}</p>
             </div>
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <h3 class="text-lg font-semibold mb-2">Bot Visits</h3>
                 <p class="text-3xl font-bold text-primary-600">{{ number_format($stats['bot_visits']) }}</p>
             </div>
@@ -38,12 +38,12 @@
                     <option value="365">Last year</option>
                 </select>
             </div>
-            <div id="visitsChart" class="h-64"></div>
+            <canvas id="visitsChart" class="h-64"></canvas>
         </div>
 
         <!-- Top Pages -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <h3 class="text-lg font-semibold mb-4">Top Pages</h3>
                 <div class="space-y-3">
                     @foreach($stats['top_pages'] as $page)
@@ -58,7 +58,7 @@
             </div>
 
             <!-- Browser Statistics -->
-            <div class="bg-white rounded-lg shadow p-6">
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
                 <h3 class="text-lg font-semibold mb-4">Browser Usage</h3>
                 <div class="space-y-3">
                     @foreach($stats['browser_stats'] as $browser)
@@ -74,7 +74,7 @@
         </div>
 
         <!-- Device Statistics -->
-        <div class="bg-white rounded-lg shadow p-6">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
             <h3 class="text-lg font-semibold mb-4">Device Types</h3>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 @foreach($stats['device_stats'] as $device)
@@ -82,7 +82,7 @@
                     <h4 class="font-semibold mb-2">{{ ucfirst($device->device_type) }}</h4>
                     <p class="text-2xl font-bold text-primary-600">{{ number_format($device->visits) }}</p>
                     <p class="text-sm text-gray-600">
-                        {{ round(($device->visits / $stats['total_visits']) * 100, 1) }}%
+                        {{ $stats['total_visits'] > 0 ? round(($device->visits / $stats['total_visits']) * 100, 1) : 0 }}%
                     </p>
                 </div>
                 @endforeach
@@ -96,7 +96,7 @@
         let visitsChart;
 
         function loadChartData(days = 30) {
-            fetch(`/admin/visitors/chart-data?days=${days}`)
+            fetch(`{{ route('admin.visitors.chart-data') }}?days=${days}`)
                 .then(response => response.json())
                 .then(data => {
                     updateChart(data);

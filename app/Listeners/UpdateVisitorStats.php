@@ -21,10 +21,8 @@ class UpdateVisitorStats implements ShouldQueue
     /**
      * Handle the event.
      */
-    public function handle(VisitorTracked $event)
+    public function handle(VisitorTracked $event): void
     {
-        // This listener doesn't need to do much since the event
-        // already broadcasts the updated stats
-        // You can add additional processing here if needed
+        // Event already broadcasts updated stats via VisitorTracked::broadcastWith()
     }
 }

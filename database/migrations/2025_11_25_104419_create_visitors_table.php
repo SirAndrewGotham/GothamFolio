@@ -30,12 +30,4 @@ return new class extends Migration
             $table->index('is_bot');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('visitors');
-    }
 };

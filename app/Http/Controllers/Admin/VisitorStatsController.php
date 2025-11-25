@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Visitor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class VisitorStatsController
+class VisitorStatsController extends Controller
 {
     public function __construct()
     {
@@ -17,20 +18,23 @@ class VisitorStatsController
     public function index()
     {
         $stats = [
-            'total_visits' => Visitor::count(), // This needs the import
+            'total_visits' => Visitor::count(),
             'today_visits' => Visitor::whereDate('created_at', today())->count(),
             'unique_visitors' => Visitor::distinct('ip_address')->count('ip_address'),
-            'bot_visits' => Visitor::where('is_bot', true)->count(), // Add this
-            'top_pages' => Visitor::select('path', DB::raw('COUNT(*) as visits'))
+            'bot_visits' => Visitor::where('is_bot', true)->count(),
+            'top_pages' => Visitor::query()
+                ->selectRaw('path, COUNT(*) as visits')
                 ->groupBy('path')
                 ->orderBy('visits', 'desc')
                 ->limit(10)
                 ->get(),
-            'browser_stats' => Visitor::select('browser', DB::raw('COUNT(*) as visits'))
+            'browser_stats' => Visitor::query()
+                ->selectRaw('browser, COUNT(*) as visits')
                 ->groupBy('browser')
                 ->orderBy('visits', 'desc')
                 ->get(),
-            'device_stats' => Visitor::select('device_type', DB::raw('COUNT(*) as visits'))
+            'device_stats' => Visitor::query()
+                ->selectRaw('device_type, COUNT(*) as visits')
                 ->groupBy('device_type')
                 ->orderBy('visits', 'desc')
                 ->get(),
@@ -39,14 +43,12 @@ class VisitorStatsController
         return view('admin.visitors.index', compact('stats'));
     }
 
-    public function chartData(Request $request)
+    public function chartData(Request $request): \Illuminate\Http\JsonResponse
     {
-        $days = $request->get('days', 30);
+        $days = min(max((int) $request->get('days', 30), 1), 365);
 
-        $visits = Visitor::select(
-            DB::raw('DATE(created_at) as date'),
-            DB::raw('COUNT(*) as visits')
-        )
+        $visits = Visitor::query()
+            ->selectRaw('DATE(created_at) as date, COUNT(*) as visits')
             ->where('created_at', '>=', now()->subDays($days))
             ->groupBy('date')
             ->orderBy('date')

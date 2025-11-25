@@ -10,7 +10,8 @@
 //    $imageService = app(\App\Services\PortfolioImageService::class);
 //    $images = $imageService->getProjectImageUrls($projectSlug, $imageType);
 
-    if ($projectId) {
+    if ($project) {
+        $projectId = $project->id;
         try {
             $imageService = app(\App\Services\ImageService::class);
             $images = $imageService->getImageUrls('project', $projectId, $project->image, $imageType);

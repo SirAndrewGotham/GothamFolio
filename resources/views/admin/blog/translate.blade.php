@@ -32,7 +32,7 @@
                 const featuredDropZone = featuredImageInput.parentElement;
                 featuredDropZone.addEventListener('dragover', function (e) {
                     e.preventDefault();
-                    featuredDropZone.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                    featuredDropZone.classList.add('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
                 });
 
                 featuredDropZone.addEventListener('dragleave', function (e) {

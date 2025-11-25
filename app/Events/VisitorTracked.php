@@ -20,12 +20,12 @@ class VisitorTracked
         $this->visitor = $visitor;
     }
 
-    public function broadcastOn()
+    public function broadcastOn(): Channel
     {
         return new Channel('visitor-stats');
     }
 
-    public function broadcastWith()
+    public function broadcastWith(): array
     {
         return [
             'total_visits' => Visitor::count(),

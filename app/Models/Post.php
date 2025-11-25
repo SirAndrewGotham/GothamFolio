@@ -285,7 +285,7 @@ class Post extends Model
         }
     }
 
-    public function getImageUrlsAttribute()
+    public function getImageUrlsAttribute(): array
     {
         $imageService = app(ImageService::class);
         return $imageService->getImageUrls('blog', $this->id, $this->featured_image, 'card');

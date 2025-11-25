@@ -1,8 +1,9 @@
 @volt('single-gallery')
 <?php
+use function Laravel\Folio\name;
+name('galleries.show');
 
-// Remove the use statement for Gallery
-// use App\Models\Gallery;
+use App\Models\Gallery;
 use function Livewire\Volt\{state, computed, mount};
 
 // Make sure ALL state properties are using arrays, not Eloquent models
@@ -19,7 +20,7 @@ mount(function () {
     $slug = request()->route('slug');
 
     // Use fully qualified class name instead of imported Gallery
-    $gallery = \App\Models\Gallery::with(['categories', 'translations', 'publishedImages.tags', 'publishedImages.translations'])
+    $gallery = Gallery::with(['categories', 'translations'])
         ->where('slug', $slug)
         ->published()
         ->firstOrFail();
@@ -78,45 +79,45 @@ mount(function () {
 });
 
 // Update sortedImages to work with arrays
-$sortedImages = computed(function () {
-    $images = $this->imagesData;
+//$sortedImages = computed(function () {
+//    $images = $this->imagesData;
+//
+//    switch ($this->sortBy) {
+//        case 'date':
+//            return collect($images)->sortByDesc('year')->values()->all();
+//        case 'name':
+//            return collect($images)->sortBy('title')->values()->all();
+//        case 'category':
+//            return collect($images)->sortBy(function ($image) {
+//                return $image['tags'][0]['name'] ?? '';
+//            })->values()->all();
+//        default:
+//            return $images;
+//    }
+//});
 
-    switch ($this->sortBy) {
-        case 'date':
-            return collect($images)->sortByDesc('year')->values()->all();
-        case 'name':
-            return collect($images)->sortBy('title')->values()->all();
-        case 'category':
-            return collect($images)->sortBy(function ($image) {
-                return $image['tags'][0]['name'] ?? '';
-            })->values()->all();
-        default:
-            return $images;
-    }
-});
-
-$currentImage = computed(function () {
-    return $this->sortedImages[$this->currentImageIndex] ?? null;
-});
+//$currentImage = computed(function () {
+//    return $this->sortedImages[$this->currentImageIndex] ?? null;
+//});
 
 // Remove any direct references to Eloquent models in your functions
-$openLightbox = function ($image) {
-    // Find the index in the sortedImages array
-    $this->currentImageIndex = collect($this->sortedImages())->search(function ($img) use ($image) {
-        return $img['id'] === $image['id'];
-    });
-    $this->lightboxOpen = true;
-};
-
-$navigateLightbox = function ($direction) {
-    $count = count($this->imagesData); // Use count() instead of ->count()
-
-    if ($count === 0) {
-        return;
-    }
-
-    $this->currentImageIndex = ($this->currentImageIndex + $direction + $count) % $count;
-};
+//$openLightbox = function ($image) {
+//    // Find the index in the sortedImages array
+//    $this->currentImageIndex = collect($this->sortedImages())->search(function ($img) use ($image) {
+//        return $img['id'] === $image['id'];
+//    });
+//    $this->lightboxOpen = true;
+//};
+//
+//$navigateLightbox = function ($direction) {
+//    $count = count($this->imagesData); // Use count() instead of ->count()
+//
+//    if ($count === 0) {
+//        return;
+//    }
+//
+//    $this->currentImageIndex = ($this->currentImageIndex + $direction + $count) % $count;
+//};
 
 ?>
 
@@ -197,28 +198,28 @@ $navigateLightbox = function ($direction) {
     @endpush
 
     // Duplicated
-{{--    @push('scripts')--}}
-{{--        <script>--}}
-{{--            // Additional JavaScript for gallery functionality if needed--}}
-{{--            document.addEventListener('DOMContentLoaded', function() {--}}
-{{--                // Keyboard navigation for lightbox (already in Alpine, but backup)--}}
-{{--                document.addEventListener('keydown', function(e) {--}}
-{{--                    const lightbox = document.querySelector('[x-show="lightboxOpen"]');--}}
-{{--                    if (lightbox && lightbox.__x.$data.lightboxOpen) {--}}
-{{--                        if (e.key === 'Escape') {--}}
-{{--                            lightbox.__x.$data.closeLightbox();--}}
-{{--                        }--}}
-{{--                        if (e.key === 'ArrowLeft') {--}}
-{{--                            lightbox.__x.$data.navigateLightbox(-1);--}}
-{{--                        }--}}
-{{--                        if (e.key === 'ArrowRight') {--}}
-{{--                            lightbox.__x.$data.navigateLightbox(1);--}}
-{{--                        }--}}
-{{--                    }--}}
-{{--                });--}}
-{{--            });--}}
-{{--        </script>--}}
-{{--    @endpush--}}
+    {{--    @push('scripts')--}}
+    {{--        <script>--}}
+    {{--            // Additional JavaScript for gallery functionality if needed--}}
+    {{--            document.addEventListener('DOMContentLoaded', function() {--}}
+    {{--                // Keyboard navigation for lightbox (already in Alpine, but backup)--}}
+    {{--                document.addEventListener('keydown', function(e) {--}}
+    {{--                    const lightbox = document.querySelector('[x-show="lightboxOpen"]');--}}
+    {{--                    if (lightbox && lightbox.__x.$data.lightboxOpen) {--}}
+    {{--                        if (e.key === 'Escape') {--}}
+    {{--                            lightbox.__x.$data.closeLightbox();--}}
+    {{--                        }--}}
+    {{--                        if (e.key === 'ArrowLeft') {--}}
+    {{--                            lightbox.__x.$data.navigateLightbox(-1);--}}
+    {{--                        }--}}
+    {{--                        if (e.key === 'ArrowRight') {--}}
+    {{--                            lightbox.__x.$data.navigateLightbox(1);--}}
+    {{--                        }--}}
+    {{--                    }--}}
+    {{--                });--}}
+    {{--            });--}}
+    {{--        </script>--}}
+    {{--    @endpush--}}
 
     <x-slot name="title">{{ $galleryData['title'] }} - {{ __('gothamfolio.galleries.title') }}</x-slot>
 
@@ -226,7 +227,7 @@ $navigateLightbox = function ($direction) {
         lightboxOpen: {{ $lightboxOpen ? 'true' : 'false' }},
         currentImageIndex: {{ $currentImageIndex }},
         sortBy: '{{ $sortBy }}',
-        images: @js($sortedImages),  // Change this to use $sortedImages
+        images: @js($imagesData),  // Use the raw images data, Alpine will sort it
         openLightbox(image) {
             this.currentImageIndex = this.images.findIndex(img => img.id === image.id);
             this.lightboxOpen = true;
@@ -240,18 +241,24 @@ $navigateLightbox = function ($direction) {
             document.body.style.overflow = '';
         },
         init() {
-            // Keyboard navigation for lightbox
-            document.addEventListener('keydown', (e) => {
-                if (this.lightboxOpen) {
-                    if (e.key === 'Escape') this.closeLightbox();
-                    if (e.key === 'ArrowLeft') this.navigateLightbox(-1);
-                    if (e.key === 'ArrowRight') this.navigateLightbox(1);
+            // Initialize with original order
+            this.applySort();
+        },
+        applySort() {
+            const sortBy = this.sortBy;
+            this.images = [...this.images].sort((a, b) => {
+                switch (sortBy) {
+                    case 'date': return b.year - a.year;
+                    case 'name': return a.title.localeCompare(b.title);
+                    case 'category': return (a.tags[0]?.name || '').localeCompare(b.tags[0]?.name || '');
+                    default: return 0; // original order
                 }
             });
-
-            // Setup animations
-            this.setupAnimations();
         },
+
+        // Watch for sort changes
+        $watch('sortBy', () => this.applySort())
+
         setupAnimations() {
             const fadeElements = document.querySelectorAll('.fade-in');
             const fadeObserver = new IntersectionObserver((entries) => {
@@ -272,14 +279,16 @@ $navigateLightbox = function ($direction) {
                 <nav class="flex fade-in" aria-label="Breadcrumb">
                     <ol class="flex items-center space-x-2">
                         <li>
-                            <a href="/" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">
+                            <a href="{{ route('home') }}"
+                               class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors">
                                 <i class="fas fa-home"></i>
                             </a>
                         </li>
                         <li>
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-                                <a href="/galleries" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
+                                <a href="{{ route('galleries.index') }}"
+                                   class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
                                     {{ __('gothamfolio.gallery.breadcrumb') }}
                                 </a>
                             </div>
@@ -288,7 +297,8 @@ $navigateLightbox = function ($direction) {
                             <li>
                                 <div class="flex items-center">
                                     <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-                                    <a href="/galleries?category={{ $galleryData['categories'][0]['slug'] }}" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
+                                    <a href="{{ route('galleries.index', ['category' => $categorySlug]) }}"
+                                       class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
                                         {{ $galleryData['categories'][0]['name'] }}
                                     </a>
                                 </div>
@@ -318,7 +328,8 @@ $navigateLightbox = function ($direction) {
                                 <h1 class="text-4xl md:text-5xl font-bold mb-2 sm:mb-0">{{ $galleryData['title'] }}</h1>
                                 <div class="flex items-center space-x-4">
                                     @if(!empty($galleryData['categories']))
-                                        <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium">
+                                        <span
+                                            class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium">
                                         <i class="fas fa-leaf mr-1 text-xs"></i>
                                         {{ $galleryData['categories'][0]['name'] }}
                                     </span>
@@ -332,31 +343,40 @@ $navigateLightbox = function ($direction) {
                             <!-- Gallery Stats -->
                             <div class="flex flex-wrap gap-6">
                                 <div class="flex items-center">
-                                    <div class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 mr-3">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 mr-3">
                                         <i class="fas fa-images"></i>
                                     </div>
                                     <div>
-                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ count($imagesData) }}</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.stats.photos') }}</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ count($imagesData) }}</div>
+                                        <div
+                                            class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.stats.photos') }}</div>
                                     </div>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mr-3">
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mr-3">
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                     <div>
-                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ $galleryData['year'] }}</div>
-                                        <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.stats.year') }}</div>
+                                        <div
+                                            class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ $galleryData['year'] }}</div>
+                                        <div
+                                            class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.stats.year') }}</div>
                                     </div>
                                 </div>
                                 @if(!empty($galleryData['categories']))
                                     <div class="flex items-center">
-                                        <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mr-3">
+                                        <div
+                                            class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mr-3">
                                             <i class="fas fa-camera"></i>
                                         </div>
                                         <div>
-                                            <div class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ $galleryData['categories'][0]['name'] }}</div>
-                                            <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.stats.style') }}</div>
+                                            <div
+                                                class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ $galleryData['categories'][0]['name'] }}</div>
+                                            <div
+                                                class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.stats.style') }}</div>
                                         </div>
                                     </div>
                                 @endif
@@ -371,7 +391,8 @@ $navigateLightbox = function ($direction) {
                                 @if(!empty($imagesData) && !empty($imagesData[0]['tags']))
                                     <div class="flex flex-wrap gap-2">
                                         @foreach(array_slice($imagesData[0]['tags'], 0, 4) as $tag)
-                                            <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm">
+                                            <span
+                                                class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm">
                                         {{ $tag['name'] }}
                                     </span>
                                         @endforeach
@@ -381,12 +402,14 @@ $navigateLightbox = function ($direction) {
                         </div>
 
                         <!-- Featured Photo -->
-                        <div class="flex-shrink-0 lg:w-96">
+                        <div class="shrink-0 lg:w-96">
                             <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="{{ !empty($imagesData) ? $imagesData[0]['file_path'] . $imagesData[0]['file_name'] : $galleryData['cover_image'] }}"
-                                     alt="{{ !empty($imagesData) ? $imagesData[0]['title'] : $galleryData['title'] }}"
-                                     class="w-full h-64 lg:h-96 object-cover">
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                                <img
+                                    src="{{ !empty($imagesData) ? $imagesData[0]['file_path'] . $imagesData[0]['file_name'] : $galleryData['cover_image'] }}"
+                                    alt="{{ !empty($imagesData) ? $imagesData[0]['title'] : $galleryData['title'] }}"
+                                    class="w-full h-64 lg:h-96 object-cover">
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                                     <div class="text-white">
                                         <h3 class="text-xl font-bold mb-2">{{ !empty($imagesData) ? $imagesData[0]['title'] : 'Featured Image' }}</h3>
                                         <p class="text-emerald-100 text-sm">{{ !empty($imagesData) ? $imagesData[0]['description'] : '' }}</p>
@@ -406,7 +429,8 @@ $navigateLightbox = function ($direction) {
                     <h2 class="text-3xl font-bold mb-12 text-center fade-in">{{ __('gothamfolio.gallery.techniques') }}</h2>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         <div class="text-center fade-in">
-                            <div class="w-20 h-20 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 mx-auto mb-4">
+                            <div
+                                class="w-20 h-20 rounded-2xl bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 mx-auto mb-4">
                                 <i class="fas fa-search-plus text-2xl"></i>
                             </div>
                             <h3 class="text-lg font-semibold mb-3">{{ __('gothamfolio.galleries.techniques_magnification') }}</h3>
@@ -415,7 +439,8 @@ $navigateLightbox = function ($direction) {
                             </p>
                         </div>
                         <div class="text-center fade-in">
-                            <div class="w-20 h-20 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mx-auto mb-4">
+                            <div
+                                class="w-20 h-20 rounded-2xl bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mx-auto mb-4">
                                 <i class="fas fa-sun text-2xl"></i>
                             </div>
                             <h3 class="text-lg font-semibold mb-3">{{ __('gothamfolio.galleries.techniques_lighting') }}</h3>
@@ -424,7 +449,8 @@ $navigateLightbox = function ($direction) {
                             </p>
                         </div>
                         <div class="text-center fade-in">
-                            <div class="w-20 h-20 rounded-2xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mx-auto mb-4">
+                            <div
+                                class="w-20 h-20 rounded-2xl bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mx-auto mb-4">
                                 <i class="fas fa-ruler-combined text-2xl"></i>
                             </div>
                             <h3 class="text-lg font-semibold mb-3">{{ __('gothamfolio.galleries.techniques_depth') }}</h3>
@@ -433,7 +459,8 @@ $navigateLightbox = function ($direction) {
                             </p>
                         </div>
                         <div class="text-center fade-in">
-                            <div class="w-20 h-20 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 mx-auto mb-4">
+                            <div
+                                class="w-20 h-20 rounded-2xl bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-500 mx-auto mb-4">
                                 <i class="fas fa-hand-holding-usd text-2xl"></i>
                             </div>
                             <h3 class="text-lg font-semibold mb-3">{{ __('gothamfolio.galleries.techniques_stability') }}</h3>
@@ -454,11 +481,13 @@ $navigateLightbox = function ($direction) {
                         <h2 class="text-3xl font-bold mb-4 lg:mb-0">{{ __('gothamfolio.galleries.title') }}</h2>
                         <div class="flex items-center space-x-4">
                             <span class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.galleries.sort_by') }}:</span>
-                            <select x-model="sortBy" class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors">
+                            <select x-model="sortBy"
+                                    class="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors">
                                 <option value="order">{{ __('gothamfolio.galleries.sort_options.order') }}</option>
                                 <option value="date">{{ __('gothamfolio.galleries.sort_options.date') }}</option>
                                 <option value="name">{{ __('gothamfolio.galleries.sort_options.name') }}</option>
-                                <option value="category">{{ __('gothamfolio.galleries.sort_options.category') }}</option>
+                                <option
+                                    value="category">{{ __('gothamfolio.galleries.sort_options.category') }}</option>
                             </select>
                         </div>
                     </div>
@@ -469,7 +498,8 @@ $navigateLightbox = function ($direction) {
                             <div class="masonry-item">
                                 <div class="photo-card">
                                     <div class="relative overflow-hidden">
-                                        <img :src="image.file_path + image.file_name" :alt="image.title" class="photo-image">
+                                        <img :src="image.file_path + image.file_name" :alt="image.title"
+                                             class="photo-image">
                                         <div class="photo-overlay text-white">
                                             <h3 class="text-lg font-bold mb-2" x-text="image.title"></h3>
                                             <p class="text-sm text-gray-200 mb-3" x-text="image.description"></p>
@@ -479,17 +509,21 @@ $navigateLightbox = function ($direction) {
                                             </div>
                                         </div>
                                         <div class="absolute top-4 right-4">
-                                            <button @click="openLightbox(image)" class="w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-colors">
+                                            <button @click="openLightbox(image)"
+                                                    class="w-8 h-8 rounded-full bg-black/50 hover:bg-black/70 flex items-center justify-center text-white transition-colors">
                                                 <i class="fas fa-expand text-sm"></i>
                                             </button>
                                         </div>
                                     </div>
                                     <div class="p-4">
                                         <h3 class="font-semibold mb-2" x-text="image.title"></h3>
-                                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3" x-text="image.description"></p>
-                                        <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-                                            <span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded text-xs"
-                                                  x-text="image.tags[0]?.name || ''"></span>
+                                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3"
+                                           x-text="image.description"></p>
+                                        <div
+                                            class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+                                            <span
+                                                class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded text-xs"
+                                                x-text="image.tags[0]?.name || ''"></span>
                                             <span x-text="image.year"></span>
                                         </div>
                                     </div>
@@ -505,7 +539,8 @@ $navigateLightbox = function ($direction) {
         <section class="py-16">
             <div class="fluid-container">
                 <div class="max-w-6xl mx-auto">
-                    <h2 class="text-3xl font-bold mb-12 text-center fade-in">{{ __('gothamfolio.galleries.equipment') }} & {{ __('gothamfolio.gallery.settings') }}</h2>
+                    <h2 class="text-3xl font-bold mb-12 text-center fade-in">{{ __('gothamfolio.galleries.equipment') }}
+                        & {{ __('gothamfolio.gallery.settings') }}</h2>
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                         <div class="fade-in">
                             <h3 class="text-2xl font-bold mb-6 flex items-center">
@@ -514,7 +549,8 @@ $navigateLightbox = function ($direction) {
                             </h3>
                             <div class="space-y-6">
                                 <div class="flex items-start">
-                                    <div class="w-12 h-12 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 mr-4 flex-shrink-0">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-500 mr-4 flex-shrink-0">
                                         <i class="fas fa-camera"></i>
                                     </div>
                                     <div>
@@ -527,7 +563,8 @@ $navigateLightbox = function ($direction) {
                                     </div>
                                 </div>
                                 <div class="flex items-start">
-                                    <div class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mr-4 flex-shrink-0">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-500 mr-4 flex-shrink-0">
                                         <i class="fas fa-search"></i>
                                     </div>
                                     <div>
@@ -540,7 +577,8 @@ $navigateLightbox = function ($direction) {
                                     </div>
                                 </div>
                                 <div class="flex items-start">
-                                    <div class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mr-4 flex-shrink-0">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mr-4 flex-shrink-0">
                                         <i class="fas fa-sliders-h"></i>
                                     </div>
                                     <div>
@@ -561,25 +599,37 @@ $navigateLightbox = function ($direction) {
                             </h3>
                             <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-6">
                                 <div class="space-y-4">
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
-                                        <span class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_aperture') }}</span>
+                                    <div
+                                        class="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
+                                        <span
+                                            class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_aperture') }}</span>
                                         <span class="font-semibold">f/8 - f/16</span>
                                     </div>
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
-                                        <span class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_shutter') }}</span>
-                                        <span class="font-semibold">1/125 - 1/250 {{ __('gothamfolio.gallery.settings_seconds') }}</span>
+                                    <div
+                                        class="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
+                                        <span
+                                            class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_shutter') }}</span>
+                                        <span
+                                            class="font-semibold">1/125 - 1/250 {{ __('gothamfolio.gallery.settings_seconds') }}</span>
                                     </div>
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
-                                        <span class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_iso') }}</span>
+                                    <div
+                                        class="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
+                                        <span
+                                            class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_iso') }}</span>
                                         <span class="font-semibold">100 - 400</span>
                                     </div>
-                                    <div class="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
-                                        <span class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_wb') }}</span>
-                                        <span class="font-semibold">{{ __('gothamfolio.gallery.settings_auto') }} / {{ __('gothamfolio.gallery.settings_daylight') }}</span>
+                                    <div
+                                        class="flex justify-between items-center py-2 border-b border-gray-200 dark:border-gray-600">
+                                        <span
+                                            class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_wb') }}</span>
+                                        <span
+                                            class="font-semibold">{{ __('gothamfolio.gallery.settings_auto') }} / {{ __('gothamfolio.gallery.settings_daylight') }}</span>
                                     </div>
                                     <div class="flex justify-between items-center py-2">
-                                        <span class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_focus') }}</span>
-                                        <span class="font-semibold">{{ __('gothamfolio.gallery.settings_manual') }}</span>
+                                        <span
+                                            class="text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.settings_focus') }}</span>
+                                        <span
+                                            class="font-semibold">{{ __('gothamfolio.gallery.settings_manual') }}</span>
                                     </div>
                                 </div>
                                 <div class="mt-6 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
@@ -604,11 +654,13 @@ $navigateLightbox = function ($direction) {
                         {{ __('gothamfolio.galleries.community_text') }}
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="https://t.me/FotoEsperanta" target="_blank" class="inline-flex items-center px-8 py-3 bg-white text-emerald-600 rounded-lg font-medium transition-colors shadow-lg hover:bg-gray-100">
+                        <a href="https://t.me/FotoEsperanta" target="_blank"
+                           class="inline-flex items-center px-8 py-3 bg-white text-emerald-600 rounded-lg font-medium transition-colors shadow-lg hover:bg-gray-100">
                             <i class="fab fa-telegram mr-2"></i>
                             <span>Telegram Community</span>
                         </a>
-                        <a href="/galleries" class="inline-flex items-center px-8 py-3 border border-white text-white hover:bg-white hover:text-emerald-600 rounded-lg font-medium transition-colors">
+                        <a href="/galleries"
+                           class="inline-flex items-center px-8 py-3 border border-white text-white hover:bg-white hover:text-emerald-600 rounded-lg font-medium transition-colors">
                             <i class="fas fa-images mr-2"></i>
                             <span>{{ __('gothamfolio.galleries.all_galleries') }}</span>
                         </a>
@@ -622,9 +674,10 @@ $navigateLightbox = function ($direction) {
              x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
              x-transition:leave="transition ease-in duration-200"
              x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
-             class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-90 p-4" x-cloak>
+             class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4" x-cloak>
             <div class="relative max-w-6xl max-h-full w-full">
-                <button @click="closeLightbox()" class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10">
+                <button @click="closeLightbox()"
+                        class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors z-10">
                     <i class="fas fa-times text-2xl"></i>
                 </button>
 
@@ -634,11 +687,13 @@ $navigateLightbox = function ($direction) {
                          class="w-full max-h-[70vh] object-contain">
                     <div class="p-6">
                         <h3 class="text-xl font-bold mb-2" x-text="images[currentImageIndex]?.title"></h3>
-                        <p class="text-gray-600 dark:text-gray-400 mb-4" x-text="images[currentImageIndex]?.description"></p>
+                        <p class="text-gray-600 dark:text-gray-400 mb-4"
+                           x-text="images[currentImageIndex]?.description"></p>
                         <div class="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
                             <div class="flex items-center space-x-4">
-                                <span class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded"
-                                      x-text="images[currentImageIndex]?.tags[0]?.name || ''"></span>
+                                <span
+                                    class="px-2 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded"
+                                    x-text="images[currentImageIndex]?.tags[0]?.name || ''"></span>
                                 <span x-text="images[currentImageIndex]?.year"></span>
                             </div>
                             <div class="flex items-center space-x-2">
