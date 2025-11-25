@@ -122,7 +122,7 @@
                                 @if($post->featured_image)
                                     <div class="h-64 overflow-hidden rounded-t-xl relative">
                                         <img src="{{ asset($post->featured_image) }}" alt="{{ $post->title }}"
-                                             class="absolute inset-0 w-full h-full object-cover">
+                                             class="absolute inset-0 w-full h-full object-fill">
                                     </div>
                                 @else
                                     <div class="h-64 bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center rounded-t-xl">
@@ -198,7 +198,7 @@
                                 @if($post->featured_image)
                                     <div class="h-48 overflow-hidden rounded-t-xl relative">
                                         <img src="{{ asset($post->featured_image) }}" alt="{{ $post->title }}"
-                                             class="absolute inset-0 w-full h-full object-cover">
+                                             class="absolute inset-0 w-full h-full object-fill">
                                     </div>
                                 @else
                                     <div class="h-48 bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center rounded-t-xl">

@@ -87,4 +87,20 @@ class Category extends Model
     {
         return $this->morphToMany(\Illuminate\Database\Eloquent\Model::class, 'categorizable');
     }
+
+    /**
+     * Scope for active categories.
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    /**
+     * Scope for featured categories.
+     */
+    public function scopeFeatured($query)
+    {
+        return $query->where('is_featured', true);
+    }
 }

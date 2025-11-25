@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->string('cover_image')->nullable();
             $table->integer('year')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_published')->default(true);
             $table->integer('order')->default(0);

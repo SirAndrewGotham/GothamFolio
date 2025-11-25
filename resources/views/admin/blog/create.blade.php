@@ -1,4 +1,9 @@
+@push('section-styles')
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+@endpush
 @push('scripts')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Featured image functionality
@@ -51,6 +56,33 @@
                 }
             });
         });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Select2 for categories multi-select
+            $('#categories').select2({
+                placeholder: 'Select categories',
+                width: '100%'
+            });
+        });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded');
+            console.log('jQuery available:', typeof $ !== 'undefined');
+            console.log('Select2 available:', typeof $.fn.select2 !== 'undefined');
+
+            if (typeof $ !== 'undefined' && typeof $.fn.select2 !== 'undefined') {
+                // Initialize Select2 for categories multi-select
+                $('#categories').select2({
+                    placeholder: 'Select categories',
+                    width: '100%'
+                });
+                console.log('Select2 initialized');
+            } else {
+                console.error('jQuery or Select2 not available');
+            }
+        });
     </script>
 @endpush
 
@@ -88,6 +120,18 @@
                                 <label for="user_id" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.author_label') }}</label>
                                 <input type="hidden" name="user_id" value="{{ auth()->id() }}">
                                 <input type="text" value="{{ auth()->user()->name }}" disabled class="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 dark:bg-gray-600 dark:border-gray-600 dark:text-white">
+                            </div>
+
+                            <div class="mb-6">
+                                <label for="categories" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.categories') }}</label>
+                                <select name="categories[]" id="categories" multiple class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    @foreach(\App\Models\Category::active()->get() as $category)
+                                        <option value="{{ $category->id }}" {{ in_array($category->id, old('categories', [])) ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                {{--                                <textarea name="categories" id="categories" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>--}}
                             </div>
                         </div>
 

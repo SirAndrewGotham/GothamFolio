@@ -8,12 +8,17 @@
 @php
     $images = $project->image_urls;
     $hasValidImages = !empty($images);
+
+    // Debug: check what's in the image field and the resulting URLs
+//    \Log::debug('Project ID: ' . $project->id);
+//    \Log::debug('Image field: ' . ($project->image ?? 'null'));
+//    \Log::debug('Image URLs: ' . json_encode($images));
 @endphp
 
     <!-- Debug: Check project data -->
 @php
     // dd($project); // Uncomment to see full project data
-    \Log::debug('Project data: ' . $project->toJson());
+//    \Log::debug('Project data: ' . $project->toJson());
 @endphp
 
 @if($hasValidImages)

@@ -18,8 +18,9 @@ class StoreGalleryRequest extends FormRequest
             'main_title' => 'required|string|max:255',
             'main_description' => 'nullable|string',
             'cover_image' => 'nullable|sometimes|string|max:255',
-            'cover_image_file' => 'nullable|sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120', // Added file validation
+            'cover_image_file' => 'nullable|sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120',
             'year' => 'nullable|integer|min:1900|max:' . date('Y'),
+            'is_active' => 'boolean',
             'is_featured' => 'boolean',
             'is_published' => 'boolean',
             'order' => 'nullable|integer',

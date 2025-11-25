@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Services\PortfolioImageService;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -25,10 +26,12 @@ class PostController extends Controller
         $filter = $request->get('filter');
 
         $posts = Post::query()
+            ->with('language') // Add this to eager load the language relationship
             ->when($filter === 'published', fn($q) => $q->where('is_published', true))
             ->when($filter === 'draft', fn($q) => $q->where('is_published', false))
             ->latest()
-            ->get();
+            ->get()
+            ->groupBy('post_id');
 
         // Add active languages for the translation display
         $activeLanguages = \App\Models\Language::active()->ordered()->get();
@@ -47,11 +50,36 @@ class PostController extends Controller
     {
         $data = $request->validated();
 
+        // Handle published_at logic
+        if (empty($data['published_at'])) {
+            // If no publish date is set, use current time
+            $data['published_at'] = now();
+        }
+
+        // Handle excerpt generation from content if excerpt is empty
+        if (empty($data['excerpt']) && !empty($data['content'])) {
+            // Strip HTML tags and clean up whitespace
+            $cleanContent = strip_tags($data['content']);
+
+            // Replace multiple spaces, tabs, and newlines with single spaces
+            $cleanContent = preg_replace('/\s+/', ' ', $cleanContent);
+
+            // Trim leading/trailing whitespace
+            $cleanContent = trim($cleanContent);
+
+            $data['excerpt'] = Str::limit($cleanContent, 200);
+        }
+
         // Ensure post_id is null for new posts (not translations)
         $data['post_id'] = null;
 
         // Create post first to get ID
         $post = Post::create($data);
+
+        // After post creation/update, sync categories
+        if ($request->has('categories')) {
+            $post->categories()->sync($request->categories);
+        }
 
         // Handle featured image upload
         if ($request->hasFile('featured_image')) {
@@ -94,14 +122,41 @@ class PostController extends Controller
 
     public function storeTranslation(StorePostRequest $request, Post $post)
     {
-        // Create new translation using the source post's post_id
         $translationData = $request->validated();
+
+        // Handle excerpt generation from content if excerpt is empty
+        if (empty($translationData['excerpt']) && !empty($translationData['content'])) {
+            // Strip HTML tags and clean up whitespace
+            $cleanContent = strip_tags($translationData['content']);
+
+            // Replace multiple spaces, tabs, and newlines with single spaces
+            $cleanContent = preg_replace('/\s+/', ' ', $cleanContent);
+
+            // Trim leading/trailing whitespace
+            $cleanContent = trim($cleanContent);
+
+            $translationData['excerpt'] = Str::limit($cleanContent, 200);
+        }
+
+        // Create new translation using the source post's post_id
         $translationData['post_id'] = $post->post_id;
 
         $translation = Post::create($translationData);
 
-        return redirect()->route('admin.blog.show', $post)
-            ->with('success', 'Translation created successfully');
+        // Handle featured image upload
+        if ($request->hasFile('featured_image')) {
+            $processedImages = $this->imageService->processProjectImage(
+                $request->file('featured_image'),
+                $translation->id,
+                'card',
+                null,  // custom folder (use default)
+                'images/blogs' // base folder
+            );
+            $translation->update(['featured_image' => $processedImages['xl']['webp'] ?? null]);
+        }
+
+        return redirect()->route('admin.posts.show', $post) // Fix route name
+        ->with('success', 'Translation created successfully');
     }
 
     public function edit(Post $post)
@@ -132,6 +187,11 @@ class PostController extends Controller
         }
 
         $post->update($data);
+
+        // After post creation/update, sync categories
+        if ($request->has('categories')) {
+            $post->categories()->sync($request->categories);
+        }
 
         return redirect()->route('admin.blog.index')
             ->with('success', 'Post updated successfully');

@@ -1,4 +1,60 @@
 <x-backend.layouts.app>
+    @push('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // Featured image functionality
+                const featuredImageInput = document.getElementById('featured_image');
+                const featuredPreviewContainer = document.getElementById('featured-image-preview');
+                const featuredPreviewImage = document.getElementById('preview-featured-image');
+                const removeFeaturedButton = document.getElementById('remove-featured-image');
+
+                // Handle file selection for featured image
+                featuredImageInput.addEventListener('change', function (e) {
+                    const file = e.target.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function (e) {
+                            featuredPreviewImage.src = e.target.result;
+                            featuredPreviewContainer.classList.remove('hidden');
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                });
+
+                // Handle remove button for featured image
+                removeFeaturedButton.addEventListener('click', function () {
+                    featuredImageInput.value = '';
+                    featuredPreviewContainer.classList.add('hidden');
+                    featuredPreviewImage.src = '';
+                });
+
+                // Drag and drop for featured image
+                const featuredDropZone = featuredImageInput.parentElement;
+                featuredDropZone.addEventListener('dragover', function (e) {
+                    e.preventDefault();
+                    featuredDropZone.classList.add('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                });
+
+                featuredDropZone.addEventListener('dragleave', function (e) {
+                    e.preventDefault();
+                    featuredDropZone.classList.remove('border-blue-500', 'bg-blue-50', 'dark:bg-blue-900/20');
+                });
+
+                featuredDropZone.addEventListener('drop', function (e) {
+                    e.preventDefault();
+                    featuredDropZone.classList.remove('border-blue-500', 'bg-blue-50', 'dark:blue-900/20');
+
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        featuredImageInput.files = files;
+                        const event = new Event('change');
+                        featuredImageInput.dispatchEvent(event);
+                    }
+                });
+            });
+        </script>
+    @endpush
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('admin.blog.posts.translate_post') }}
@@ -9,7 +65,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <form action="{{ route('admin.posts.store-translation', $post) }}" method="POST">
+                    <form action="{{ route('admin.posts.store-translation', $post) }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <div class="mb-6">
@@ -54,25 +110,45 @@
 
                         <div class="mb-6">
                             <label for="content" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.content') }}</label>
-{{--                            <textarea name="content" id="content" rows="10" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">{{ $post->content }}</textarea>--}}
-                            <tinymce-editor
-                                :model-value="old('content', $post->content ?? '')"
-                                id="content"
-                                name="content"
-                                :config="{
-            height: 600,
-            menubar: 'file edit view insert format tools table help',
-            plugins: 'advlist autolink lists link image charmap preview anchor searchreplace visualblocks code fullscreen insertdatetime media table wordcount help',
-            toolbar: 'undo redo | blocks | bold italic forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media table | code help'
-        }"
-                                @update:model-value="content = $event"
-                            ></tinymce-editor>
+                            <textarea name="content" id="content" rows="10" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">{{ $post->content }}</textarea>
                         </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-                            <div>
-                                <label for="featured_image" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.featured_image') }}</label>
-                                <input type="url" name="featured_image" id="featured_image" value="{{ $post->featured_image }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            <div class="md:col-span-3">
+                                <label for="featured_image" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">{{ __('admin.blog.posts.featured_image') }}</label>
+
+                                <div class="relative group">
+                                    <div class="flex items-center justify-center w-full">
+                                        <label for="featured_image" class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-lg cursor-pointer border-gray-300 dark:border-gray-600 hover:border-blue-400 dark:hover:border-blue-500 transition-colors duration-200 group-hover:border-blue-400 dark:group-hover:border-blue-500 bg-gray-50 dark:bg-gray-700/50">
+                                            <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                                <svg class="w-8 h-8 mb-3 text-gray-500 group-hover:text-blue-500 dark:text-gray-400 dark:group-hover:text-blue-400 transition-colors duration-200" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 0 20 16">
+                                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13ha3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                                </svg>
+                                                <p class="mb-6 text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                                                    <span class="font-semibold">{{ __('admin.blog.posts.click_to_upload') }}</span> {{ __('admin.blog.posts.drag_and_drop') }}
+                                                </p>
+                                                <p class="text-xs text-gray-500 dark:text-gray-400">{{ __('admin.blog.posts.image_formats') }}</p>
+                                            </div>
+                                            <input id="featured_image" name="featured_image" type="file" class="hidden" accept="image/*"/>
+                                        </label>
+                                    </div>
+
+                                    <!-- Preview container (will be populated by JavaScript) -->
+                                    <div id="featured-image-preview" class="{{ $post->featured_image ? '' : 'hidden' }} mt-4">
+                                        <div class="relative inline-block">
+                                            <img id="preview-featured-image" class="w-32 h-32 object-cover rounded-lg shadow-md border border-gray-200 dark:border-gray-600" src="{{ $post->featured_image }}" alt="Preview">
+                                            <button type="button" id="remove-featured-image" class="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 shadow-md hover:text-red-600 transition-colors duration-200">
+                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                @error('featured_image')
+                                <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                                @enderror
                             </div>
 
                             <div>

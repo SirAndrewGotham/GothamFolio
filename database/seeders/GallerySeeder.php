@@ -13,164 +13,307 @@ class GallerySeeder extends Seeder
 {
     public function run(): void
     {
-        // First, ensure we have the required categories
+        // Create empty categories for future use (optional)
         $this->ensureCategoriesExist();
 
-        // Get categories for galleries
-        $categories = Category::whereIn('name', [
-            'Landscape', 'Portrait', 'Architecture', 'Street', 'Nature', 'Art', 'Travel', 'Macro'
-        ])->get();
+        // Create unique tags with distinct slugs
+        $this->ensureTagsExist();
 
-        // Get tags for images
-        $tags = Tag::whereIn('name', [
-            'sunset', 'mountains', 'urban', 'portrait', 'architecture', 'nature',
-            'black-and-white', 'color', 'travel', 'macro', 'details', 'textures'
-        ])->get();
+        // Get all tags
+        $tags = Tag::all();
 
-        // If no tags exist, create some default ones
-        if ($tags->isEmpty()) {
-            $tagNames = ['sunset', 'mountains', 'urban', 'portrait', 'architecture', 'nature',
-                'black-and-white', 'color', 'travel', 'macro', 'details', 'textures'];
-
-            foreach ($tagNames as $tagName) {
-                Tag::firstOrCreate(
-                    ['name' => $tagName],
-                    ['slug' => Str::slug($tagName)]
-                );
-            }
-
-            $tags = Tag::whereIn('name', $tagNames)->get();
-        }
-
-        // Create galleries
-        $galleries = Gallery::factory()
-            ->count(8)
-            ->create()
-            ->each(function (Gallery $gallery) use ($categories, $tags) {
-                // Only attach categories if we have them
-                if ($categories->isNotEmpty()) {
-                    $gallery->categories()->attach(
-                        $categories->random(min(3, $categories->count()))->pluck('id')
-                    );
-                }
-
-                // Create images for this gallery
-                $images = Image::factory()
-                    ->count(rand(5, 20))
-                    ->create(['gallery_id' => $gallery->id])
-                    ->each(function (Image $image) use ($tags) {
-                        // Only attach tags if we have them
-                        if ($tags->isNotEmpty()) {
-                            $image->tags()->attach(
-                                $tags->random(min(5, $tags->count()))->pluck('id')
-                            );
-                        }
-                    });
-
-                // Set cover image if not set
-                if (empty($gallery->cover_image) && $images->isNotEmpty()) {
-                    $gallery->update([
-                        'cover_image' => $images->first()->file_path . $images->first()->file_name
-                    ]);
-                }
-
-                // Create translations for each gallery
-                $this->createTranslations($gallery);
-            });
-
-        // Create some images that belong to multiple galleries
-        $sharedImages = Image::factory()
-            ->count(10)
-            ->create(['gallery_id' => null])
-            ->each(function (Image $image) use ($galleries, $tags) {
-                // Assign to 2-3 random galleries
-                if ($galleries->isNotEmpty()) {
-                    $image->galleries()->attach(
-                        $galleries->random(min(3, $galleries->count()))->pluck('id'),
-                        ['order' => rand(0, 50)]
-                    );
-                }
-
-                // Assign random tags if available
-                if ($tags->isNotEmpty()) {
-                    $image->tags()->attach(
-                        $tags->random(min(5, $tags->count()))->pluck('id')
-                    );
-                }
-
-                // Create translations for each image
-                $this->createTranslations($image);
-            });
+        // Create specific galleries
+        $this->createGalleries($tags);
     }
 
     protected function ensureCategoriesExist(): void
     {
-        $requiredCategories = [
-            'Landscape', 'Portrait', 'Architecture', 'Street', 'Nature', 'Art', 'Travel', 'Macro'
+        // Create empty categories for future use
+        $optionalCategories = [
+            'Photography', 'Art', 'Travel', 'Events'
         ];
 
-        foreach ($requiredCategories as $categoryName) {
+        foreach ($optionalCategories as $categoryName) {
             Category::firstOrCreate(
                 ['name' => $categoryName],
                 [
                     'slug' => Str::slug($categoryName),
-                    'description' => $this->getCategoryDescription($categoryName),
-                    'is_active' => true
+                    'description' => 'Category for future use',
+                    'is_active' => false
                 ]
             );
         }
     }
 
-    protected function getCategoryDescription(string $categoryName): string
+    protected function ensureTagsExist(): void
     {
-        $descriptions = [
-            'Landscape' => 'Beautiful natural and urban landscapes from around the world',
-            'Portrait' => 'Emotional human portraits in natural environments',
-            'Architecture' => 'Modern and classical architecture from different countries',
-            'Street' => 'Everyday life of cities and their inhabitants',
-            'Nature' => 'Animals and nature in their natural habitat',
-            'Art' => 'Monochromatic compositions focusing on form and light',
-            'Travel' => 'Photographs from different countries and cultures',
-            'Macro' => 'Amazing world of small details and textures hidden from ordinary view',
+        $tags = [
+            // Nature & Landscape tags
+            ['name' => 'Forest', 'slug' => 'forest'],
+            ['name' => 'Mountains', 'slug' => 'mountains'],
+            ['name' => 'Ocean', 'slug' => 'ocean'],
+            ['name' => 'Sunset', 'slug' => 'sunset'],
+            ['name' => 'Sunrise', 'slug' => 'sunrise'],
+            ['name' => 'Water', 'slug' => 'water'],
+            ['name' => 'Reflections', 'slug' => 'reflections'],
+            ['name' => 'Trees', 'slug' => 'trees'],
+            ['name' => 'Rivers', 'slug' => 'rivers'],
+
+            // Wildlife & Birds tags
+            ['name' => 'Wild Animals', 'slug' => 'wild-animals'],
+            ['name' => 'Bird Species', 'slug' => 'bird-species'],
+            ['name' => 'Animal Portraits', 'slug' => 'animal-portraits'],
+            ['name' => 'In Flight', 'slug' => 'in-flight'],
+            ['name' => 'Mammals', 'slug' => 'mammals'],
+            ['name' => 'Feathers', 'slug' => 'feathers'],
+
+            // Closeup & Macro tags
+            ['name' => 'Macro Photography', 'slug' => 'macro-photography'],
+            ['name' => 'Closeup Shots', 'slug' => 'closeup-shots'],
+            ['name' => 'Fine Details', 'slug' => 'fine-details'],
+            ['name' => 'Textures', 'slug' => 'textures'],
+            ['name' => 'Flowers', 'slug' => 'flowers'],
+            ['name' => 'Insects', 'slug' => 'insects'],
+            ['name' => 'Patterns', 'slug' => 'patterns'],
+
+            // City & Urban tags
+            ['name' => 'Urban Life', 'slug' => 'urban-life'],
+            ['name' => 'Cityscape', 'slug' => 'cityscape'],
+            ['name' => 'Architecture', 'slug' => 'architecture'],
+            ['name' => 'Street Photography', 'slug' => 'street-photography'],
+            ['name' => 'Skyscrapers', 'slug' => 'skyscrapers'],
+            ['name' => 'City Lights', 'slug' => 'city-lights'],
+
+            // People tags
+            ['name' => 'Portrait', 'slug' => 'portrait'],
+            ['name' => 'People', 'slug' => 'people'],
+            ['name' => 'Human Emotions', 'slug' => 'human-emotions'],
+            ['name' => 'Faces', 'slug' => 'faces'],
+            ['name' => 'Expressions', 'slug' => 'expressions'],
+
+            // Theater & Performance tags
+            ['name' => 'Live Performance', 'slug' => 'live-performance'],
+            ['name' => 'Theater', 'slug' => 'theater'],
+            ['name' => 'Drama', 'slug' => 'drama'],
+            ['name' => 'Actors', 'slug' => 'actors'],
+            ['name' => 'Stage Lighting', 'slug' => 'stage-lighting'],
+            ['name' => 'Costumes', 'slug' => 'costumes'],
+
+            // Rock music tags
+            ['name' => 'Rock Concert', 'slug' => 'rock-concert'],
+            ['name' => 'Music Show', 'slug' => 'music-show'],
+            ['name' => 'Guitars', 'slug' => 'guitars'],
+            ['name' => 'Drums', 'slug' => 'drums'],
+            ['name' => 'Live Music', 'slug' => 'live-music'],
+            ['name' => 'Crowd', 'slug' => 'crowd'],
+            ['name' => 'Stage Energy', 'slug' => 'stage-energy'],
+
+            // Seasonal tags
+            ['name' => 'Winter', 'slug' => 'winter'],
+            ['name' => 'Summer', 'slug' => 'summer'],
+            ['name' => 'Spring', 'slug' => 'spring'],
+            ['name' => 'Autumn', 'slug' => 'autumn'],
         ];
 
-        return $descriptions[$categoryName] ?? 'Photography collection';
+        foreach ($tags as $tag) {
+            Tag::firstOrCreate(
+                ['slug' => $tag['slug']],
+                [
+                    'name' => $tag['name'],
+                    'slug' => $tag['slug']
+                ]
+            );
+        }
     }
 
-    protected function createTranslations($model): void
+    protected function createGalleries($tags): void
     {
-        $locales = ['en', 'ru', 'eo'];
+        $galleriesData = [
+            'Nature' => [
+                'en' => [
+                    'title' => 'Nature',
+                    'description' => 'The raw beauty of natural environments, flora, and untouched landscapes'
+                ],
+                'ru' => [
+                    'title' => 'Природа',
+                    'description' => 'Необработанная красота природных сред, флоры и нетронутых ландшафтов'
+                ],
+                'eo' => [
+                    'title' => 'Naturo',
+                    'description' => 'La kruda beleco de naturaj medioj, flaŭro kaj netuŝitaj pejzaĝoj'
+                ]
+            ],
+            'Landscape' => [
+                'en' => [
+                    'title' => 'Landscape',
+                    'description' => 'Breathtaking scenic views from around the world'
+                ],
+                'ru' => [
+                    'title' => 'Пейзаж',
+                    'description' => 'Захватывающие дух живописные виды со всего мира'
+                ],
+                'eo' => [
+                    'title' => 'Pejzaĝo',
+                    'description' => 'Spirforprenaj pitoreskaj vidajĵoj el la tuta mondo'
+                ]
+            ],
+            'Wildlife' => [
+                'en' => [
+                    'title' => 'Wildlife',
+                    'description' => 'Animals and creatures in their natural habitats and behaviors'
+                ],
+                'ru' => [
+                    'title' => 'Дикая природа',
+                    'description' => 'Животные и существа в их естественной среде обитания и поведении'
+                ],
+                'eo' => [
+                    'title' => 'Sovaĝa vivo',
+                    'description' => 'Animaloj kaj estaĵoj en iliaj naturaj vivejoj kaj kondutoj'
+                ]
+            ],
+            'Birds' => [
+                'en' => [
+                    'title' => 'Birds',
+                    'description' => 'Avian beauty captured in flight and natural environments'
+                ],
+                'ru' => [
+                    'title' => 'Птицы',
+                    'description' => 'Красота птиц, запечатленная в полете и естественной среде'
+                ],
+                'eo' => [
+                    'title' => 'Birdoj',
+                    'description' => 'Birda beleco kaptita en flugo kaj naturaj medioj'
+                ]
+            ],
+            'Closeup & Macro' => [
+                'en' => [
+                    'title' => 'Closeup & Macro',
+                    'description' => 'The hidden world revealed through detailed close-up photography'
+                ],
+                'ru' => [
+                    'title' => 'Крупный план и Макро',
+                    'description' => 'Скрытый мир, раскрытый через детальную крупноплановую съемку'
+                ],
+                'eo' => [
+                    'title' => 'Proksimuma & Makro',
+                    'description' => 'La kaŝita mondo malkaŝita per detala proksimuma fotado'
+                ]
+            ],
+            'City' => [
+                'en' => [
+                    'title' => 'City',
+                    'description' => 'Urban environments, architecture, and the rhythm of city life'
+                ],
+                'ru' => [
+                    'title' => 'Город',
+                    'description' => 'Городская среда, архитектура и ритм городской жизни'
+                ],
+                'eo' => [
+                    'title' => 'Urbo',
+                    'description' => 'Urbaj medioj, arkitekturo kaj la ritmo de urba vivo'
+                ]
+            ],
+            'People' => [
+                'en' => [
+                    'title' => 'People',
+                    'description' => 'Human portraits capturing emotions and everyday moments'
+                ],
+                'ru' => [
+                    'title' => 'Люди',
+                    'description' => 'Человеческие портреты, запечатлевающие эмоции и повседневные моменты'
+                ],
+                'eo' => [
+                    'title' => 'Homoj',
+                    'description' => 'Homaj portretoj kaptantaj emociojn kaj ĉiutagajn momentojn'
+                ]
+            ],
+            'Theater' => [
+                'en' => [
+                    'title' => 'Theater',
+                    'description' => 'The dramatic world of stage performances and theatrical expressions'
+                ],
+                'ru' => [
+                    'title' => 'Театр',
+                    'description' => 'Драматический мир сценических представлений и театральных выражений'
+                ],
+                'eo' => [
+                    'title' => 'Teatro',
+                    'description' => 'La drammondo de scenejaj prezentadoj kaj teatraj esprimoj'
+                ]
+            ],
+            'Rock' => [
+                'en' => [
+                    'title' => 'Rock',
+                    'description' => 'The raw energy and passion of rock music performances'
+                ],
+                'ru' => [
+                    'title' => 'Рок',
+                    'description' => 'Необузданная энергия и страсть рок-музыкальных выступлений'
+                ],
+                'eo' => [
+                    'title' => 'Rokenrolo',
+                    'description' => 'La kruda energio kaj pasio de rokmuzikaj prezentadoj'
+                ]
+            ]
+        ];
 
-        foreach ($locales as $locale) {
-            if ($model instanceof Gallery) {
-                $model->setTranslation('title', $this->getTranslatedTitle($model->title, $locale), $locale);
-                $model->setTranslation('description', $this->getTranslatedDescription($model->description, $locale), $locale);
-            } elseif ($model instanceof Image) {
-                $model->setTranslation('title', $this->getTranslatedTitle($model->title, $locale), $locale);
-                $model->setTranslation('description', $this->getTranslatedDescription($model->description, $locale), $locale);
+        foreach ($galleriesData as $galleryName => $translations) {
+            $gallery = Gallery::create([
+                'title' => $translations['en']['title'],
+                'description' => $translations['en']['description'],
+                'is_active' => true,
+                'cover_image' => null
+            ]);
+
+            // Add translations for all languages
+            foreach ($translations as $locale => $translation) {
+                $gallery->setTranslation('title', $translation['title'], $locale);
+                $gallery->setTranslation('description', $translation['description'], $locale);
+            }
+
+            $gallery->save();
+
+            // Assign relevant tags to each gallery
+            $this->assignTagsToGallery($gallery, $galleryName, $tags);
+        }
+    }
+
+    protected function assignTagsToGallery(Gallery $gallery, string $galleryName, $tags): void
+    {
+        $tagMapping = [
+            'Nature' => ['forest', 'trees', 'rivers', 'water', 'flowers', 'mountains'],
+            'Landscape' => ['mountains', 'ocean', 'sunset', 'sunrise', 'forest', 'reflections'],
+            'Wildlife' => ['wild-animals', 'mammals', 'animal-portraits', 'forest'],
+            'Birds' => ['bird-species', 'in-flight', 'feathers', 'animal-portraits'],
+            'Closeup & Macro' => ['macro-photography', 'closeup-shots', 'fine-details', 'textures', 'flowers', 'insects', 'patterns'],
+            'City' => ['urban-life', 'cityscape', 'architecture', 'street-photography', 'skyscrapers', 'city-lights'],
+            'People' => ['portrait', 'people', 'human-emotions', 'faces', 'expressions'],
+            'Theater' => ['live-performance', 'theater', 'drama', 'actors', 'stage-lighting', 'costumes'],
+            'Rock' => ['rock-concert', 'music-show', 'live-music', 'guitars', 'drums', 'crowd', 'stage-energy']
+        ];
+
+        if (isset($tagMapping[$galleryName])) {
+            $relevantTagSlugs = $tagMapping[$galleryName];
+            $relevantTags = $tags->whereIn('slug', $relevantTagSlugs);
+
+            if ($relevantTags->isNotEmpty()) {
+                $gallery->tags()->attach($relevantTags->pluck('id'));
             }
         }
     }
 
-    protected function getTranslatedTitle(string $title, string $locale): string
+    protected function createTranslations($model): void
     {
-        $translations = [
-            'en' => $title,
-            'ru' => "[RU] $title",
-            'eo' => "[EO] $title"
-        ];
+        // This method is kept for compatibility but not used in the new structure
+        $locales = ['en', 'ru', 'eo'];
 
-        return $translations[$locale] ?? $title;
-    }
+        foreach ($locales as $locale) {
+            if ($model instanceof Gallery) {
+                $model->setTranslation('title', $model->title, $locale);
+                $model->setTranslation('description', $model->description, $locale);
+            }
+        }
 
-    protected function getTranslatedDescription(string $description, string $locale): string
-    {
-        $translations = [
-            'en' => $description,
-            'ru' => "[RU] $description",
-            'eo' => "[EO] $description"
-        ];
-
-        return $translations[$locale] ?? $description;
+        $model->save();
     }
 }

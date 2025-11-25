@@ -7,8 +7,23 @@
 ])
 
 @php
-    $imageService = app(\App\Services\PortfolioImageService::class);
-    $images = $imageService->getProjectImageUrls($projectSlug, $imageType);
+//    $imageService = app(\App\Services\PortfolioImageService::class);
+//    $images = $imageService->getProjectImageUrls($projectSlug, $imageType);
+    // Look up project by slug to get ID
+    $project = \App\Models\Project::where('slug', $projectSlug)->first();
+    $projectId = $project ? $project->id : null;
+
+    if ($projectId) {
+        try {
+            $imageService = app(\App\Services\ImageService::class);
+            $images = $imageService->getImageUrls('project', $projectId, $projectId, $imageType);
+        } catch (\Exception $e) {
+            $oldService = app(\App\Services\PortfolioImageService::class);
+            $images = $oldService->getProjectImageUrls($projectId, $imageType);
+        }
+    } else {
+        $images = [];
+    }
 
     // Fallback to default image if none found
     if (empty($images)) {

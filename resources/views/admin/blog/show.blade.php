@@ -111,9 +111,26 @@
                         </div>
                     @endif
 
+                    <!-- Categories Section -->
+                    <div class="mb-6">
+                        <h4 class="font-semibold text-lg mb-3">{{ __('admin.blog.posts.categories') }}</h4>
+                        @if($post->categories->count() > 0)
+                            <div class="flex flex-wrap gap-2">
+                                @foreach($post->categories as $category)
+                                    <span class="inline-block bg-primary-100 dark:bg-primary-900/30 text-primary-800 dark:text-primary-300 rounded-full px-3 py-1 text-sm font-medium">
+                                        {{ $category->name }}
+                                    </span>
+                                @endforeach
+                            </div>
+                        @else
+                            <p class="text-gray-500 dark:text-gray-400">{{ __('admin.blog.posts.no_categories') }}</p>
+                        @endif
+                    </div>
+
+                    <!-- Excerpt Section -->
                     <div class="mb-6">
                         <h4 class="font-semibold text-lg mb-2">{{ __('admin.blog.posts.excerpt') }}</h4>
-                        <p class="text-gray-700 dark:text-gray-300">{{ $post->excerpt }}</p>
+                        <p class="text-gray-700 dark:text-gray-300">{{ $post->excerpt ?? __('admin.blog.posts.no_excerpt') }}</p>
                     </div>
 
                     <div class="mb-6">

@@ -43,6 +43,8 @@ class PortfolioImageService
 
         foreach ($this->sizes[$imageType] as $sizeName => $dimensions) {
             $img = $manager->read($uploadedImage);
+            // First resize to the larger dimension, then use cover
+            $img->resize($dimensions['width'], $dimensions['height']);
             $img->cover($dimensions['width'], $dimensions['height']);
 
             $quality = $imageType === 'lightbox' ? 90 : 80;

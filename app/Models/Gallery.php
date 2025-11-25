@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Concerns\HasCategories;
 use App\Concerns\HasSlug;
+use App\Concerns\HasTags;
 use App\Concerns\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -12,7 +13,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Gallery extends Model
 {
-    use HasFactory, SoftDeletes, HasSlug, HasCategories, HasTranslations;
+    use HasFactory, SoftDeletes, HasSlug, HasCategories, HasTags, HasTranslations;
 
     protected $fillable = [
         'title',
@@ -20,12 +21,14 @@ class Gallery extends Model
         'description',
         'cover_image',
         'year',
+        'is_active',
         'is_featured',
         'is_published',
         'order',
     ];
 
     protected $casts = [
+        'is_active' => 'boolean',
         'is_featured' => 'boolean',
         'is_published' => 'boolean',
         'year' => 'integer',
@@ -65,5 +68,10 @@ class Gallery extends Model
     public function scopeOrdered($query)
     {
         return $query->orderBy('order')->orderBy('created_at', 'desc');
+    }
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
     }
 }
