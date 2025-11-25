@@ -22,9 +22,6 @@
             <flux:navlist.item icon="academic-cap" :href="route('admin.resume.index')" :current="request()->routeIs('admin.resume.*')" wire:navigate>
                 {{ __('Resume') }}
             </flux:navlist.item>
-            <flux:navlist.item icon="chat-bubble-left" :href="route('admin.feedback.index')" :current="request()->routeIs('admin.feedback.*')" wire:navigate>
-                {{ __('Feedback') }}
-            </flux:navlist.item>
         </flux:navlist.group>
 
         <flux:spacer />
@@ -64,6 +61,12 @@
         <flux:spacer />
 
         <flux:navlist.group :heading="__('System')" class="grid">
+            <flux:navlist.item icon="chat-bubble-left" :href="route('admin.feedback.index')" :current="request()->routeIs('admin.feedback.*')" wire:navigate>
+                {{ __('Feedback') }}
+            </flux:navlist.item>
+            <flux:navlist.item icon="chart-bar" :href="route('admin.visitors.index')" :current="request()->routeIs('admin.visitors.*')" wire:navigate>
+                {{ __('Visitor Statistics') }}
+            </flux:navlist.item>
             <flux:navlist.item icon="tag" :href="route('admin.categories.index')" :current="request()->routeIs('admin.categories.*')" wire:navigate>
                 {{ __('Categories') }}
             </flux:navlist.item>
@@ -71,6 +74,14 @@
 
         <flux:spacer />
     </flux:navlist>
+
+    <flux:spacer />
+
+    <flux:navlist.group :heading="__('Analytics')" class="grid">
+        <flux:navlist.item icon="chart-bar" :href="route('admin.visitors.index')" :current="request()->routeIs('admin.visitors.*')" wire:navigate>
+            {{ __('Visitor Statistics') }}
+        </flux:navlist.item>
+    </flux:navlist.group>
 
     <flux:spacer />
 

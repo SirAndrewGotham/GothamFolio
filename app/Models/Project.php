@@ -7,7 +7,6 @@ use App\Concerns\HasCompetences;
 use App\Concerns\HasSlug;
 use App\Concerns\HasTranslations;
 use App\Services\ImageService;
-use App\Services\PortfolioImageService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

@@ -17,7 +17,7 @@ state([
 mount(function () {
     // Load all data in mount and convert to arrays immediately
     $slug = request()->route('slug');
-    
+
     // Use fully qualified class name instead of imported Gallery
     $gallery = \App\Models\Gallery::with(['categories', 'translations', 'publishedImages.tags', 'publishedImages.translations'])
         ->where('slug', $slug)
@@ -39,7 +39,7 @@ mount(function () {
         'cover_image' => $gallery->cover_image,
         'categories' => []
     ];
-    
+
     // Manually convert categories
     foreach ($gallery->categories as $category) {
         $galleryData['categories'][] = [
@@ -65,12 +65,12 @@ mount(function () {
             'camera_model' => $image->camera_model,
             'camera_settings' => $image->camera_settings,
         ];
-        
+
         // Manually convert tags
         foreach ($image->tags as $tag) {
             $imageData['tags'][] = ['name' => $tag->name];
         }
-        
+
         $imagesData[] = $imageData;
     }
 
@@ -80,7 +80,7 @@ mount(function () {
 // Update sortedImages to work with arrays
 $sortedImages = computed(function () {
     $images = $this->imagesData;
-    
+
     switch ($this->sortBy) {
         case 'date':
             return collect($images)->sortByDesc('year')->values()->all();
@@ -110,7 +110,7 @@ $openLightbox = function ($image) {
 
 $navigateLightbox = function ($direction) {
     $count = count($this->imagesData); // Use count() instead of ->count()
-    
+
     if ($count === 0) {
         return;
     }
@@ -196,28 +196,29 @@ $navigateLightbox = function ($direction) {
         </style>
     @endpush
 
-    @push('scripts')
-        <script>
-            // Additional JavaScript for gallery functionality if needed
-            document.addEventListener('DOMContentLoaded', function() {
-                // Keyboard navigation for lightbox (already in Alpine, but backup)
-                document.addEventListener('keydown', function(e) {
-                    const lightbox = document.querySelector('[x-show="lightboxOpen"]');
-                    if (lightbox && lightbox.__x.$data.lightboxOpen) {
-                        if (e.key === 'Escape') {
-                            lightbox.__x.$data.closeLightbox();
-                        }
-                        if (e.key === 'ArrowLeft') {
-                            lightbox.__x.$data.navigateLightbox(-1);
-                        }
-                        if (e.key === 'ArrowRight') {
-                            lightbox.__x.$data.navigateLightbox(1);
-                        }
-                    }
-                });
-            });
-        </script>
-    @endpush
+    // Duplicated
+{{--    @push('scripts')--}}
+{{--        <script>--}}
+{{--            // Additional JavaScript for gallery functionality if needed--}}
+{{--            document.addEventListener('DOMContentLoaded', function() {--}}
+{{--                // Keyboard navigation for lightbox (already in Alpine, but backup)--}}
+{{--                document.addEventListener('keydown', function(e) {--}}
+{{--                    const lightbox = document.querySelector('[x-show="lightboxOpen"]');--}}
+{{--                    if (lightbox && lightbox.__x.$data.lightboxOpen) {--}}
+{{--                        if (e.key === 'Escape') {--}}
+{{--                            lightbox.__x.$data.closeLightbox();--}}
+{{--                        }--}}
+{{--                        if (e.key === 'ArrowLeft') {--}}
+{{--                            lightbox.__x.$data.navigateLightbox(-1);--}}
+{{--                        }--}}
+{{--                        if (e.key === 'ArrowRight') {--}}
+{{--                            lightbox.__x.$data.navigateLightbox(1);--}}
+{{--                        }--}}
+{{--                    }--}}
+{{--                });--}}
+{{--            });--}}
+{{--        </script>--}}
+{{--    @endpush--}}
 
     <x-slot name="title">{{ $galleryData['title'] }} - {{ __('gothamfolio.galleries.title') }}</x-slot>
 

@@ -31,3 +31,5 @@ document.addEventListener('DOMContentLoaded', function() {
 //
 // // Mount the app
 // app.mount('#app');
+
+import './echo';

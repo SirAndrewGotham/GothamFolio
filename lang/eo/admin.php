@@ -177,9 +177,9 @@ return [
     ],
     'gallery' => [
         'title' => 'Titolo',
-        'aktiva_stato' => 'Aktiva Stato',
-        'aktiva' => 'Aktiva',
-        'neaktiva' => 'Neaktiva',
+        'aktiva_status' => 'Aktiva Stato',
+        'aktive' => 'Aktiva',
+        'inactive' => 'Neaktiva',
         'gallery_created' => 'Galerio sukcese kreita',
         'gallery_updated' => 'Galerio sukcese ĝisdatigita',
         'gallery_deleted' => 'Galerio sukcese forigita',

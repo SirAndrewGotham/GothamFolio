@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Category;
 use App\Models\Gallery;
-use App\Models\Image;
 use App\Models\Tag;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
@@ -30,7 +29,7 @@ class GallerySeeder extends Seeder
     {
         // Create empty categories for future use
         $optionalCategories = [
-            'Photography', 'Art', 'Travel', 'Events'
+            'Photography', 'Art', 'Travel', 'Events',
         ];
 
         foreach ($optionalCategories as $categoryName) {
@@ -39,7 +38,7 @@ class GallerySeeder extends Seeder
                 [
                     'slug' => Str::slug($categoryName),
                     'description' => 'Category for future use',
-                    'is_active' => false
+                    'is_active' => false,
                 ]
             );
         }
@@ -118,10 +117,7 @@ class GallerySeeder extends Seeder
         foreach ($tags as $tag) {
             Tag::firstOrCreate(
                 ['slug' => $tag['slug']],
-                [
-                    'name' => $tag['name'],
-                    'slug' => $tag['slug']
-                ]
+                ['name' => $tag['name']]
             );
         }
     }
@@ -132,129 +128,129 @@ class GallerySeeder extends Seeder
             'Nature' => [
                 'en' => [
                     'title' => 'Nature',
-                    'description' => 'The raw beauty of natural environments, flora, and untouched landscapes'
+                    'description' => 'The raw beauty of natural environments, flora, and untouched landscapes',
                 ],
                 'ru' => [
                     'title' => 'Природа',
-                    'description' => 'Необработанная красота природных сред, флоры и нетронутых ландшафтов'
+                    'description' => 'Необработанная красота природных сред, флоры и нетронутых ландшафтов',
                 ],
                 'eo' => [
                     'title' => 'Naturo',
-                    'description' => 'La kruda beleco de naturaj medioj, flaŭro kaj netuŝitaj pejzaĝoj'
-                ]
+                    'description' => 'La kruda beleco de naturaj medioj, flaŭro kaj netuŝitaj pejzaĝoj',
+                ],
             ],
             'Landscape' => [
                 'en' => [
                     'title' => 'Landscape',
-                    'description' => 'Breathtaking scenic views from around the world'
+                    'description' => 'Breathtaking scenic views from around the world',
                 ],
                 'ru' => [
                     'title' => 'Пейзаж',
-                    'description' => 'Захватывающие дух живописные виды со всего мира'
+                    'description' => 'Захватывающие дух живописные виды со всего мира',
                 ],
                 'eo' => [
                     'title' => 'Pejzaĝo',
-                    'description' => 'Spirforprenaj pitoreskaj vidajĵoj el la tuta mondo'
-                ]
+                    'description' => 'Spirforprenaj pitoreskaj vidajĵoj el la tuta mondo',
+                ],
             ],
             'Wildlife' => [
                 'en' => [
                     'title' => 'Wildlife',
-                    'description' => 'Animals and creatures in their natural habitats and behaviors'
+                    'description' => 'Animals and creatures in their natural habitats and behaviors',
                 ],
                 'ru' => [
                     'title' => 'Дикая природа',
-                    'description' => 'Животные и существа в их естественной среде обитания и поведении'
+                    'description' => 'Животные и существа в их естественной среде обитания и поведении',
                 ],
                 'eo' => [
                     'title' => 'Sovaĝa vivo',
-                    'description' => 'Animaloj kaj estaĵoj en iliaj naturaj vivejoj kaj kondutoj'
-                ]
+                    'description' => 'Animaloj kaj estaĵoj en iliaj naturaj vivejoj kaj kondutoj',
+                ],
             ],
             'Birds' => [
                 'en' => [
                     'title' => 'Birds',
-                    'description' => 'Avian beauty captured in flight and natural environments'
+                    'description' => 'Avian beauty captured in flight and natural environments',
                 ],
                 'ru' => [
                     'title' => 'Птицы',
-                    'description' => 'Красота птиц, запечатленная в полете и естественной среде'
+                    'description' => 'Красота птиц, запечатленная в полете и естественной среде',
                 ],
                 'eo' => [
                     'title' => 'Birdoj',
-                    'description' => 'Birda beleco kaptita en flugo kaj naturaj medioj'
-                ]
+                    'description' => 'Birda beleco kaptita en flugo kaj naturaj medioj',
+                ],
             ],
             'Closeup & Macro' => [
                 'en' => [
                     'title' => 'Closeup & Macro',
-                    'description' => 'The hidden world revealed through detailed close-up photography'
+                    'description' => 'The hidden world revealed through detailed close-up photography',
                 ],
                 'ru' => [
                     'title' => 'Крупный план и Макро',
-                    'description' => 'Скрытый мир, раскрытый через детальную крупноплановую съемку'
+                    'description' => 'Скрытый мир, раскрытый через детальную крупноплановую съемку',
                 ],
                 'eo' => [
                     'title' => 'Proksimuma & Makro',
-                    'description' => 'La kaŝita mondo malkaŝita per detala proksimuma fotado'
-                ]
+                    'description' => 'La kaŝita mondo malkaŝita per detala proksimuma fotado',
+                ],
             ],
             'City' => [
                 'en' => [
                     'title' => 'City',
-                    'description' => 'Urban environments, architecture, and the rhythm of city life'
+                    'description' => 'Urban environments, architecture, and the rhythm of city life',
                 ],
                 'ru' => [
                     'title' => 'Город',
-                    'description' => 'Городская среда, архитектура и ритм городской жизни'
+                    'description' => 'Городская среда, архитектура и ритм городской жизни',
                 ],
                 'eo' => [
                     'title' => 'Urbo',
-                    'description' => 'Urbaj medioj, arkitekturo kaj la ritmo de urba vivo'
-                ]
+                    'description' => 'Urbaj medioj, arkitekturo kaj la ritmo de urba vivo',
+                ],
             ],
             'People' => [
                 'en' => [
                     'title' => 'People',
-                    'description' => 'Human portraits capturing emotions and everyday moments'
+                    'description' => 'Human portraits capturing emotions and everyday moments',
                 ],
                 'ru' => [
                     'title' => 'Люди',
-                    'description' => 'Человеческие портреты, запечатлевающие эмоции и повседневные моменты'
+                    'description' => 'Человеческие портреты, запечатлевающие эмоции и повседневные моменты',
                 ],
                 'eo' => [
                     'title' => 'Homoj',
-                    'description' => 'Homaj portretoj kaptantaj emociojn kaj ĉiutagajn momentojn'
-                ]
+                    'description' => 'Homaj portretoj kaptantaj emociojn kaj ĉiutagajn momentojn',
+                ],
             ],
             'Theater' => [
                 'en' => [
                     'title' => 'Theater',
-                    'description' => 'The dramatic world of stage performances and theatrical expressions'
+                    'description' => 'The dramatic world of stage performances and theatrical expressions',
                 ],
                 'ru' => [
                     'title' => 'Театр',
-                    'description' => 'Драматический мир сценических представлений и театральных выражений'
+                    'description' => 'Драматический мир сценических представлений и театральных выражений',
                 ],
                 'eo' => [
                     'title' => 'Teatro',
-                    'description' => 'La drammondo de scenejaj prezentadoj kaj teatraj esprimoj'
-                ]
+                    'description' => 'La drammondo de scenejaj prezentadoj kaj teatraj esprimoj',
+                ],
             ],
             'Rock' => [
                 'en' => [
                     'title' => 'Rock',
-                    'description' => 'The raw energy and passion of rock music performances'
+                    'description' => 'The raw energy and passion of rock music performances',
                 ],
                 'ru' => [
                     'title' => 'Рок',
-                    'description' => 'Необузданная энергия и страсть рок-музыкальных выступлений'
+                    'description' => 'Необузданная энергия и страсть рок-музыкальных выступлений',
                 ],
                 'eo' => [
                     'title' => 'Rokenrolo',
-                    'description' => 'La kruda energio kaj pasio de rokmuzikaj prezentadoj'
-                ]
-            ]
+                    'description' => 'La kruda energio kaj pasio de rokmuzikaj prezentadoj',
+                ],
+            ],
         ];
 
         foreach ($galleriesData as $galleryName => $translations) {
@@ -262,7 +258,7 @@ class GallerySeeder extends Seeder
                 'title' => $translations['en']['title'],
                 'description' => $translations['en']['description'],
                 'is_active' => true,
-                'cover_image' => null
+                'cover_image' => null,
             ]);
 
             // Add translations for all languages
@@ -289,7 +285,7 @@ class GallerySeeder extends Seeder
             'City' => ['urban-life', 'cityscape', 'architecture', 'street-photography', 'skyscrapers', 'city-lights'],
             'People' => ['portrait', 'people', 'human-emotions', 'faces', 'expressions'],
             'Theater' => ['live-performance', 'theater', 'drama', 'actors', 'stage-lighting', 'costumes'],
-            'Rock' => ['rock-concert', 'music-show', 'live-music', 'guitars', 'drums', 'crowd', 'stage-energy']
+            'Rock' => ['rock-concert', 'music-show', 'live-music', 'guitars', 'drums', 'crowd', 'stage-energy'],
         ];
 
         if (isset($tagMapping[$galleryName])) {

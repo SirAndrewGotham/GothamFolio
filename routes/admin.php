@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\VisitorStatsController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['web', 'admin'])
@@ -85,4 +86,9 @@ Route::middleware(['web', 'admin'])
             ->name('feedback.mark-unread');
         Route::post('feedback/bulk-mark-read', [FeedbackController::class, 'bulkMarkAsRead'])
             ->name('feedback.bulk-mark-read');
+
+        Route::prefix('visitors')->name('visitors.')->group(function () {
+            Route::get('/', [VisitorStatsController::class, 'index'])->name('index');
+            Route::get('/chart-data', [VisitorStatsController::class, 'chartData'])->name('chart-data');
+        });
     });

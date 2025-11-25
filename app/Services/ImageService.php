@@ -135,6 +135,9 @@ class ImageService
 
     protected function getModuleConfig($module)
     {
+        if (!isset($this->moduleConfig[$module])) {
+            \Log::warning("Unknown module '{$module}' in ImageService, falling back to 'project' config");
+        }
         return $this->moduleConfig[$module] ?? $this->moduleConfig['project'];
     }
 }
