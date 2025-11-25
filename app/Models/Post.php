@@ -7,6 +7,7 @@ use App\Concerns\HasSlug;
 use App\Concerns\HasTags;
 use App\Concerns\HasViews;
 use App\Concerns\HasVotes;
+use App\Services\ImageService;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -204,8 +205,16 @@ class Post extends Model
 
         // Suppress warnings for malformed HTML
         libxml_use_internal_errors(true);
-        $dom->loadHTML(mb_convert_encoding($this->content, 'HTML-ENTITIES', 'UTF-8'));
+        $dom->loadHTML('<?xml encoding="UTF-8">' . $this->content);
         libxml_clear_errors();
+
+        // Remove the artificial encoding tag
+        foreach ($dom->childNodes as $item) {
+            if ($item->nodeType == XML_PI_NODE) {
+                $dom->removeChild($item);
+                break;
+            }
+        }
 
         $headings = $dom->getElementsByTagName('*');
 
@@ -235,6 +244,7 @@ class Post extends Model
     {
         return Attribute::make(
             get: fn ($value) => is_string($value) ? json_decode($value, true) : $value,
+            set: fn ($value) => json_encode($value, JSON_UNESCAPED_UNICODE),
         );
     }
 
@@ -273,5 +283,11 @@ class Post extends Model
         foreach ($postsInGroup as $post) {
             $post->categories()->sync($categoryIds);
         }
+    }
+
+    public function getImageUrlsAttribute()
+    {
+        $imageService = app(\App\Services\ImageService::class);
+        return $imageService->getImageUrls('blog', $this->id, $this->featured_image, 'card');
     }
 }

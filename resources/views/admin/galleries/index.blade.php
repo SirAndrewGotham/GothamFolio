@@ -52,9 +52,14 @@
                             {{ $gallery->year }}
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap">
-                        <span class="px-2 py-1 text-xs rounded-full {{ $gallery->is_published ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800' }}">
-                            {{ $gallery->is_published ? __('admin.gallery.published') : __('admin.gallery.draft') }}
-                        </span>
+                            <div class="flex flex-col space-y-1">
+                                <span class="px-2 py-1 text-xs rounded-full {{ $gallery->is_active ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800' }}">
+                                    {{ $gallery->is_active ? __('admin.gallery.active') : __('admin.gallery.inactive') }}
+                                </span>
+                                <span class="px-2 py-1 text-xs rounded-full {{ $gallery->is_published ? 'bg-green-100 text-green-800' : 'bg-gray-100 text-gray-800' }}">
+                                    {{ $gallery->is_published ? __('admin.gallery.published') : __('admin.gallery.draft') }}
+                                </span>
+                            </div>
                         </td>
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                             <a href="{{ route('admin.galleries.show', $gallery) }}" class="text-blue-600 hover:text-blue-900 mr-3">{{ __('admin.gallery.view') }}</a>

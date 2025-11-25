@@ -1,46 +1,97 @@
 @volt('single-gallery')
 <?php
 
-//use App\Models\Gallery;
+// Remove the use statement for Gallery
+// use App\Models\Gallery;
 use function Livewire\Volt\{state, computed, mount};
 
+// Make sure ALL state properties are using arrays, not Eloquent models
 state([
-    'gallery' => null,
-    'images' => [],
+    'galleryData' => null,
+    'imagesData' => [],
     'sortBy' => 'order',
     'lightboxOpen' => false,
     'currentImageIndex' => 0,
 ]);
 
-$gallery = computed(function () {
+mount(function () {
+    // Load all data in mount and convert to arrays immediately
     $slug = request()->route('slug');
-    return App\Models\Gallery::with(['categories', 'translations', 'publishedImages.tags', 'publishedImages.translations'])
+    
+    // Use fully qualified class name instead of imported Gallery
+    $gallery = \App\Models\Gallery::with(['categories', 'translations', 'publishedImages.tags', 'publishedImages.translations'])
         ->where('slug', $slug)
         ->published()
         ->firstOrFail();
-});
 
-$images = computed(function () {
-    return $this->gallery->publishedImages()
+    $images = $gallery->publishedImages()
         ->with(['tags', 'translations'])
         ->ordered()
         ->get();
+
+    // Convert gallery to array using manual conversion (no helper functions)
+    $galleryData = [
+        'id' => $gallery->id,
+        'title' => $gallery->getTranslation('title'),
+        'description' => $gallery->getTranslation('description'),
+        'slug' => $gallery->slug,
+        'year' => $gallery->year,
+        'cover_image' => $gallery->cover_image,
+        'categories' => []
+    ];
+    
+    // Manually convert categories
+    foreach ($gallery->categories as $category) {
+        $galleryData['categories'][] = [
+            'id' => $category->id,
+            'name' => $category->name,
+            'slug' => $category->slug
+        ];
+    }
+
+    $this->galleryData = $galleryData;
+
+    // Convert images to array using manual conversion (no helper functions)
+    $imagesData = [];
+    foreach ($images as $image) {
+        $imageData = [
+            'id' => $image->id,
+            'title' => $image->getTranslation('title'),
+            'description' => $image->getTranslation('description'),
+            'file_path' => $image->file_path,
+            'file_name' => $image->file_name,
+            'year' => $image->year,
+            'tags' => [],
+            'camera_model' => $image->camera_model,
+            'camera_settings' => $image->camera_settings,
+        ];
+        
+        // Manually convert tags
+        foreach ($image->tags as $tag) {
+            $imageData['tags'][] = ['name' => $tag->name];
+        }
+        
+        $imagesData[] = $imageData;
+    }
+
+    $this->imagesData = $imagesData;
 });
 
+// Update sortedImages to work with arrays
 $sortedImages = computed(function () {
-    $images = $this->images;
-
+    $images = $this->imagesData;
+    
     switch ($this->sortBy) {
         case 'date':
-            return $images->sortByDesc('year')->values();
+            return collect($images)->sortByDesc('year')->values()->all();
         case 'name':
-            return $images->sortBy('title')->values();
+            return collect($images)->sortBy('title')->values()->all();
         case 'category':
-            return $images->sortBy(function ($image) {
-                return $image->tags->first()?->name ?? '';
-            })->values();
+            return collect($images)->sortBy(function ($image) {
+                return $image['tags'][0]['name'] ?? '';
+            })->values()->all();
         default:
-            return $images->values();
+            return $images;
     }
 });
 
@@ -48,21 +99,18 @@ $currentImage = computed(function () {
     return $this->sortedImages[$this->currentImageIndex] ?? null;
 });
 
-mount(function () {
-    $this->gallery = $this->gallery();
-    $this->images = $this->images();
-});
-
+// Remove any direct references to Eloquent models in your functions
 $openLightbox = function ($image) {
-    $this->currentImageIndex = $this->sortedImages->search(function ($img) use ($image) {
-        return $img->id === $image->id;
+    // Find the index in the sortedImages array
+    $this->currentImageIndex = collect($this->sortedImages())->search(function ($img) use ($image) {
+        return $img['id'] === $image['id'];
     });
     $this->lightboxOpen = true;
 };
 
 $navigateLightbox = function ($direction) {
-    $count = $this->sortedImages->count();
-
+    $count = count($this->imagesData); // Use count() instead of ->count()
+    
     if ($count === 0) {
         return;
     }
@@ -73,14 +121,111 @@ $navigateLightbox = function ($direction) {
 ?>
 
 <x-frontend.layouts.app>
+    @push('section-styles')
+        <style>
+            /* Photo-specific styles for single gallery view */
+            .photo-card {
+                position: relative;
+                border-radius: 1rem;
+                overflow: hidden;
+                background: white;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+                transition: all 0.3s ease;
+            }
 
-    <x-slot name="title">{{ $gallery()->getTranslation('title') }} - {{ __('gothamfolio.galleries.title') }}</x-slot>
+            .photo-card:hover {
+                transform: translateY(-4px);
+                box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+
+            .photo-image {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+
+            .photo-card:hover .photo-image {
+                transform: scale(1.05);
+            }
+
+            .photo-overlay {
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                padding: 1.5rem;
+            }
+
+            .photo-card:hover .photo-overlay {
+                opacity: 1;
+            }
+
+            /* Masonry grid styles (if not already included from index) */
+            .masonry-grid {
+                column-count: 3;
+                column-gap: 1.5rem;
+            }
+
+            @media (max-width: 1024px) {
+                .masonry-grid {
+                    column-count: 2;
+                }
+            }
+
+            @media (max-width: 640px) {
+                .masonry-grid {
+                    column-count: 1;
+                }
+            }
+
+            .masonry-item {
+                break-inside: avoid;
+                margin-bottom: 1.5rem;
+            }
+
+            /* Lightbox enhancements */
+            .lightbox-image {
+                max-height: 70vh;
+                object-fit: contain;
+            }
+        </style>
+    @endpush
+
+    @push('scripts')
+        <script>
+            // Additional JavaScript for gallery functionality if needed
+            document.addEventListener('DOMContentLoaded', function() {
+                // Keyboard navigation for lightbox (already in Alpine, but backup)
+                document.addEventListener('keydown', function(e) {
+                    const lightbox = document.querySelector('[x-show="lightboxOpen"]');
+                    if (lightbox && lightbox.__x.$data.lightboxOpen) {
+                        if (e.key === 'Escape') {
+                            lightbox.__x.$data.closeLightbox();
+                        }
+                        if (e.key === 'ArrowLeft') {
+                            lightbox.__x.$data.navigateLightbox(-1);
+                        }
+                        if (e.key === 'ArrowRight') {
+                            lightbox.__x.$data.navigateLightbox(1);
+                        }
+                    }
+                });
+            });
+        </script>
+    @endpush
+
+    <x-slot name="title">{{ $galleryData['title'] }} - {{ __('gothamfolio.galleries.title') }}</x-slot>
 
     <div x-data="{
         lightboxOpen: {{ $lightboxOpen ? 'true' : 'false' }},
         currentImageIndex: {{ $currentImageIndex }},
         sortBy: '{{ $sortBy }}',
-        images: @js($sortedImages),
+        images: @js($sortedImages),  // Change this to use $sortedImages
         openLightbox(image) {
             this.currentImageIndex = this.images.findIndex(img => img.id === image.id);
             this.lightboxOpen = true;
@@ -138,12 +283,12 @@ $navigateLightbox = function ($direction) {
                                 </a>
                             </div>
                         </li>
-                        @if($gallery()->categories->isNotEmpty())
+                        @if(!empty($galleryData['categories']))
                             <li>
                                 <div class="flex items-center">
                                     <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
-                                    <a href="/galleries?category={{ $gallery()->categories->first()->slug }}" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
-                                        {{ $gallery()->categories->first()->name }}
+                                    <a href="/galleries?category={{ $galleryData['categories'][0]['slug'] }}" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors text-sm">
+                                        {{ $galleryData['categories'][0]['name'] }}
                                     </a>
                                 </div>
                             </li>
@@ -152,7 +297,7 @@ $navigateLightbox = function ($direction) {
                             <div class="flex items-center">
                                 <i class="fas fa-chevron-right text-gray-400 text-xs mx-2"></i>
                                 <span class="text-gray-700 dark:text-gray-300 text-sm font-medium">
-                                    {{ $gallery()->getTranslation('title') }}
+                                    {{ $galleryData['title'] }}
                                 </span>
                             </div>
                         </li>
@@ -169,18 +314,18 @@ $navigateLightbox = function ($direction) {
                         <!-- Gallery Info -->
                         <div class="flex-grow">
                             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4">
-                                <h1 class="text-4xl md:text-5xl font-bold mb-2 sm:mb-0">{{ $gallery()->getTranslation('title') }}</h1>
+                                <h1 class="text-4xl md:text-5xl font-bold mb-2 sm:mb-0">{{ $galleryData['title'] }}</h1>
                                 <div class="flex items-center space-x-4">
-                                    @if($gallery()->categories->isNotEmpty())
+                                    @if(!empty($galleryData['categories']))
                                         <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium">
                                         <i class="fas fa-leaf mr-1 text-xs"></i>
-                                        {{ $gallery()->categories->first()->name }}
+                                        {{ $galleryData['categories'][0]['name'] }}
                                     </span>
                                     @endif
                                 </div>
                             </div>
                             <p class="text-xl text-gray-600 dark:text-gray-400 mb-6">
-                                {{ $gallery()->getTranslation('description') }}
+                                {{ $galleryData['description'] }}
                             </p>
 
                             <!-- Gallery Stats -->
@@ -190,7 +335,7 @@ $navigateLightbox = function ($direction) {
                                         <i class="fas fa-images"></i>
                                     </div>
                                     <div>
-                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ $images()->count() }}</div>
+                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ count($imagesData) }}</div>
                                         <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.stats.photos') }}</div>
                                     </div>
                                 </div>
@@ -199,17 +344,17 @@ $navigateLightbox = function ($direction) {
                                         <i class="fas fa-calendar-alt"></i>
                                     </div>
                                     <div>
-                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ $gallery()->year }}</div>
+                                        <div class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ $galleryData['year'] }}</div>
                                         <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.stats.year') }}</div>
                                     </div>
                                 </div>
-                                @if($gallery()->categories->isNotEmpty())
+                                @if(!empty($galleryData['categories']))
                                     <div class="flex items-center">
                                         <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-500 mr-3">
                                             <i class="fas fa-camera"></i>
                                         </div>
                                         <div>
-                                            <div class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ $gallery()->categories->first()->name }}</div>
+                                            <div class="text-lg font-bold text-gray-800 dark:text-gray-200">{{ $galleryData['categories'][0]['name'] }}</div>
                                             <div class="text-sm text-gray-600 dark:text-gray-400">{{ __('gothamfolio.gallery.stats.style') }}</div>
                                         </div>
                                     </div>
@@ -220,13 +365,13 @@ $navigateLightbox = function ($direction) {
                             <div class="mt-8 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
                                 <h3 class="text-lg font-semibold mb-3 text-emerald-600 dark:text-emerald-400">{{ __('gothamfolio.gallery.about') }}</h3>
                                 <p class="text-gray-600 dark:text-gray-400 mb-4">
-                                    {{ $gallery()->getTranslation('description') }}
+                                    {{ $galleryData['description'] }}
                                 </p>
-                                @if($images()->isNotEmpty() && $images()->first()->tags->isNotEmpty())
+                                @if(!empty($imagesData) && !empty($imagesData[0]['tags']))
                                     <div class="flex flex-wrap gap-2">
-                                        @foreach($images()->first()->tags->take(4) as $tag)
+                                        @foreach(array_slice($imagesData[0]['tags'], 0, 4) as $tag)
                                             <span class="px-3 py-1 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-lg text-sm">
-                                        {{ $tag->name }}
+                                        {{ $tag['name'] }}
                                     </span>
                                         @endforeach
                                     </div>
@@ -237,13 +382,13 @@ $navigateLightbox = function ($direction) {
                         <!-- Featured Photo -->
                         <div class="flex-shrink-0 lg:w-96">
                             <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="{{ $images()->isNotEmpty() ? $images()->first()->file_path . $images()->first()->file_name : $gallery()->cover_image }}"
-                                     alt="{{ $images()->isNotEmpty() ? $images()->first()->getTranslation('title') : $gallery()->getTranslation('title') }}"
+                                <img src="{{ !empty($imagesData) ? $imagesData[0]['file_path'] . $imagesData[0]['file_name'] : $galleryData['cover_image'] }}"
+                                     alt="{{ !empty($imagesData) ? $imagesData[0]['title'] : $galleryData['title'] }}"
                                      class="w-full h-64 lg:h-96 object-cover">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
                                     <div class="text-white">
-                                        <h3 class="text-xl font-bold mb-2">{{ $images()->isNotEmpty() ? $images()->first()->getTranslation('title') : 'Featured Image' }}</h3>
-                                        <p class="text-emerald-100 text-sm">{{ $images()->isNotEmpty() ? $images()->first()->getTranslation('description') : '' }}</p>
+                                        <h3 class="text-xl font-bold mb-2">{{ !empty($imagesData) ? $imagesData[0]['title'] : 'Featured Image' }}</h3>
+                                        <p class="text-emerald-100 text-sm">{{ !empty($imagesData) ? $imagesData[0]['description'] : '' }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -516,101 +661,3 @@ $navigateLightbox = function ($direction) {
     </div>
 </x-frontend.layouts.app>
 @endvolt
-
-@push('section-styles')
-    <style>
-        /* Photo-specific styles for single gallery view */
-        .photo-card {
-            position: relative;
-            border-radius: 1rem;
-            overflow: hidden;
-            background: white;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            transition: all 0.3s ease;
-        }
-
-        .photo-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .photo-image {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .photo-card:hover .photo-image {
-            transform: scale(1.05);
-        }
-
-        .photo-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
-        }
-
-        .photo-card:hover .photo-overlay {
-            opacity: 1;
-        }
-
-        /* Masonry grid styles (if not already included from index) */
-        .masonry-grid {
-            column-count: 3;
-            column-gap: 1.5rem;
-        }
-
-        @media (max-width: 1024px) {
-            .masonry-grid {
-                column-count: 2;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .masonry-grid {
-                column-count: 1;
-            }
-        }
-
-        .masonry-item {
-            break-inside: avoid;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Lightbox enhancements */
-        .lightbox-image {
-            max-height: 70vh;
-            object-fit: contain;
-        }
-    </style>
-@endpush
-
-@push('scripts')
-    <script>
-        // Additional JavaScript for gallery functionality if needed
-        document.addEventListener('DOMContentLoaded', function() {
-            // Keyboard navigation for lightbox (already in Alpine, but backup)
-            document.addEventListener('keydown', function(e) {
-                const lightbox = document.querySelector('[x-show="lightboxOpen"]');
-                if (lightbox && lightbox.__x.$data.lightboxOpen) {
-                    if (e.key === 'Escape') {
-                        lightbox.__x.$data.closeLightbox();
-                    }
-                    if (e.key === 'ArrowLeft') {
-                        lightbox.__x.$data.navigateLightbox(-1);
-                    }
-                    if (e.key === 'ArrowRight') {
-                        lightbox.__x.$data.navigateLightbox(1);
-                    }
-                }
-            });
-        });
-    </script>
-@endpush

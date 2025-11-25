@@ -11,7 +11,8 @@
     }
 
     // Get all published galleries with their images count
-    $galleries = Gallery::with(['categories', 'translations'])
+    $galleries = Gallery::active()
+        ->with(['categories', 'translations'])
         ->published()
         ->ordered()
         ->withCount('publishedImages')
@@ -557,7 +558,9 @@
                     <!-- Grid View -->
                     <div x-show="viewMode === 'grid' && filteredGalleries.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 fade-in" x-cloak>
                         <template x-for="gallery in filteredGalleries" :key="gallery.id">
-                            <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300">
+                            <div class="gallery-card bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300"
+                                 @click="openGallery(gallery.slug)"
+                                 style="cursor: pointer;">
                                 <div class="relative h-64 overflow-hidden">
 {{--                                    @if($gallery->cover_image)--}}
 {{--                                        <img :src="gallery.cover_image" :alt="gallery.title" class="gallery-image w-full h-full object-cover">--}}

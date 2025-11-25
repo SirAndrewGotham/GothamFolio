@@ -6,6 +6,7 @@ use App\Concerns\HasCategories;
 use App\Concerns\HasCompetences;
 use App\Concerns\HasSlug;
 use App\Concerns\HasTranslations;
+use App\Services\ImageService;
 use App\Services\PortfolioImageService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -15,22 +16,21 @@ class Project extends Model
 {
     use HasCategories, HasCompetences, HasFactory, HasSlug, HasTranslations, SoftDeletes;
 
-    protected PortfolioImageService $imageService;
-
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->imageService = app(PortfolioImageService::class);
     }
 
     public function getImageUrlsAttribute()
     {
-        return $this->imageService->getProjectImageUrls($this->id, 'card');
+        $imageService = app(ImageService::class);
+        return $imageService->getImageUrls('project', $this->id, $this->image, 'card');
     }
 
     public function hasImages()
     {
-        $images = $this->imageService->getProjectImageUrls($this->id, 'card');
+        $imageService = app(ImageService::class);
+        $images = $imageService->getImageUrls('project', $this->id, $this->image, 'card');
         return !empty($images);
     }
 

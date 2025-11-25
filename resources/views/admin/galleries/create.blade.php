@@ -129,10 +129,10 @@
 
                         <div class="mb-4">
                             <label class="flex items-center">
-                                <input type="hidden" name="is_published" value="0">
-                                <input type="checkbox" name="is_published" value="1" {{ old('is_published', 1) == 1 ? 'checked' : '' }}
+                                <input type="hidden" name="is_active" value="0">
+                                <input type="checkbox" name="is_active" value="1" {{ old('is_active', 1) == 1 ? 'checked' : '' }}
                                 class="rounded border-gray-300 text-blue-600 focus:ring-blue-500">
-                                <span class="ml-2 text-sm text-gray-700">{{ __('admin.gallery.published_status') }}</span>
+                                <span class="ml-2 text-sm text-gray-700">{{ __('admin.gallery.active_status') }}</span>
                             </label>
                         </div>
 

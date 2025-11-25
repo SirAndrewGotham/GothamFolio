@@ -46,6 +46,7 @@ class GalleryController extends Controller
             'description' => $validated['main_description'] ?? null,
             'cover_image' => $validated['cover_image'] ?? null,
             'year' => $validated['year'] ?? null,
+            'is_active' => $validated['is_active'] ?? true, // Add this
             'is_featured' => $validated['is_featured'] ?? false,
             'is_published' => $validated['is_published'] ?? true,
             'order' => $validated['order'] ?? 0,
@@ -109,6 +110,7 @@ class GalleryController extends Controller
             'description' => $validated['main_description'] ?? null,
             'cover_image' => $validated['cover_image'] ?? $gallery->cover_image,
             'year' => $validated['year'] ?? null,
+            'is_active' => $validated['is_active'] ?? true, // Add this
             'is_featured' => $validated['is_featured'] ?? false,
             'is_published' => $validated['is_published'] ?? true,
             'order' => $validated['order'] ?? 0,

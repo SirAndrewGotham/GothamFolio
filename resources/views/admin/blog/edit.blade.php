@@ -92,6 +92,17 @@
                                 <input type="hidden" name="user_id" value="{{ old('user_id', $post->user_id) }}">
                                 <input type="text" value="{{ $post->author->name }}" disabled class="mt-1 block w-full rounded-md border-gray-300 shadow-sm bg-gray-100 dark:bg-gray-600 dark:border-gray-600 dark:text-white">
                             </div>
+
+                            <div class="mb-6">
+                                <label for="categories" class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ __('admin.blog.posts.categories') }}</label>
+                                <select name="categories[]" id="categories" multiple class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                    @foreach(\App\Models\Category::active()->get() as $category)
+                                        <option value="{{ $category->id }}" {{ in_array($category->id, old('categories', $post->categories->pluck('id')->toArray() ?? [])) ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
 
                         <div class="mb-6">

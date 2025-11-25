@@ -20,6 +20,7 @@ class UpdateGalleryRequest extends FormRequest
             'cover_image' => 'nullable|string|max:255',
             'cover_image_file' => 'nullable|sometimes|image|mimes:jpeg,png,jpg,gif,svg,webp|max:5120', // Added file validation
             'year' => 'nullable|integer|min:1900|max:' . date('Y'),
+            'is_active' => 'boolean',
             'is_featured' => 'boolean',
             'is_published' => 'boolean',
             'order' => 'nullable|integer',
