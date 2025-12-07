@@ -23,7 +23,7 @@ return [
         'contact_us' => 'Обратная связь',
         'get_in_touch' => 'Свяжитесь со мной!',
         'russia' => 'Россия',
-        'whatsapp_for_messages' => 'WhatsApp (для сообщений)',
+        'whatsapp_for_messages' => 'WhatsApp',
         'social_networks' => 'Социальные сети',
         'copyright' => 'Авторское право © 2025 Андрей Готэм. Все права на содержание данного сайта защищены законом.',
         'description' => 'Full-stack разработчик, увлеченный созданием инновационных веб-решений и обменом знаний через технические статьи.',
@@ -282,7 +282,9 @@ return [
         'go_to_github' => 'Перейти на GitHub',
         'vk_description' => 'Свяжитесь со мной через социальную сеть',
         'go_to_vk' => 'Перейти в ВК',
+        'go_to_linkedin' => 'Перейти в LinkedIn',
         'blog_description' => 'Оставьте комментарий к моим статьям',
+        'blog' => 'Блог',
         'go_to_blog' => 'Перейти в блог',
     ],
     'faq_accordion' => [
@@ -297,6 +299,14 @@ return [
         'a4' => 'Основной стек: Laravel, Livewire, Alpine.js, Tailwind CSS, Vue.js, MySQL/PostgreSQL. Также работаю с различными API, системами платежей и облачными сервисами.',
         'q5' => 'Предоставляете ли вы техническую поддержку?',
         'a5' => 'Да, я предоставляю техническую поддержку и обслуживание проектов. Мы можем обсудить различные варианты поддержки в зависимости от ваших потребностей.',
+    ],
+    'contact_info' => [
+        'email' => 'Email',
+        'telephone' => 'Телефон',
+        'whatsapp' => 'WhatsApp',
+        'telegram' => 'Telegram',
+        'for_messages' => '(для сообщений)',
+        'email_placeholder' => 'ваш@email.com',
     ],
     'feedback_form' => [
         'send_message' => 'Отправить сообщение',

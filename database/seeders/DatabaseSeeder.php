@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
             LanguageSeeder::class,
             UserSeeder::class,
             PostSeeder::class,
-            CommentSeeder::class,
+//            CommentSeeder::class,
 //            SubscriptionSeeder::class,
-            VoteSeeder::class,
+//            VoteSeeder::class,
 //            ViewSeeder::class,
             ProjectTypeSeeder::class,
             ProjectSeeder::class,
@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             ResumeSummarySeeder::class,
             GallerySeeder::class,
             ImageSeeder::class,
-            FeedbackSeeder::class,
+//            FeedbackSeeder::class,
         ]);
     }
 }

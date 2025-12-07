@@ -34,13 +34,14 @@
                     <!-- Flanka Strio -->
                     <div class="lg:col-span-1 space-y-8 fade-in">
                         <!-- Persona Informo -->
+                        <!-- Personal Info -->
                         <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 print:shadow-none">
                             <div class="text-center mb-6">
                                 <div class="w-24 h-24 rounded-full bg-gradient-to-r from-primary-500 to-purple-500 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">
                                     A
                                 </div>
-                                <h2 class="text-xl font-bold">Андрей Готэм</h2>
-                                <p class="text-primary-500">Senior Full-Stack разработчик</p>
+                                <h2 class="text-xl font-bold">Andreo Gotem'</h2>
+                                <p class="text-primary-500">Spertplena Full-Stack Programisto</p>
                             </div>
 
                             <div class="space-y-4">
@@ -55,18 +56,28 @@
                                     </a>
                                 </div>
                                 <div class="flex items-center">
+                                    <i class="fa fa-phone text-primary-500 w-5 mr-3"></i>
+                                    <a href="tel:+79918739137" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">+7 (991) 873-9137</span>
+                                    </a>
+                                </div>
+                                <div class="flex items-center">
                                     <i class="fa-brands fa-square-whatsapp text-primary-500 w-5 mr-3"></i>
                                     <a href="https://wa.me/+77755569244" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
                                         <span class="text-sm">WhatsApp</span>
                                     </a>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-primary-500 w-5 mr-3"></i>
-                                    <span class="text-sm">Россия</span>
+                                    <i class="fab fa-github text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://github.com/sirandrewgotham" target="_blank" class="text-sm hover:text-primary-500">SirAndrewGotham</a>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fab fa-github text-primary-500 w-5 mr-3"></i>
-                                    <a href="https://github.com/sirandrewgotham" target="_blank" class="text-sm hover:text-primary-500">sirandrewgotham</a>
+                                    <i class="fab fa-linkedin text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://www.linkedin.com/in/andrew-gotham/" target="_blank" class="text-sm hover:text-primary-500">LinkedIn</a>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary-500 w-5 mr-3"></i>
+                                    <span class="text-sm">Rusio</span>
                                 </div>
                             </div>
                         </div>

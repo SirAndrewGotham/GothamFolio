@@ -33,9 +33,9 @@
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Email</h4>
+                                <h4 class="font-semibold">{{ __('gothamfolio.contact_info.email') }}</h4>
                                 <p class="text-gray-600 dark:text-gray-400">andreogotema@gmail.com</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">{{ __('gothamfolio.contact_page.email_description') }}</p>
+{{--                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">{{ __('gothamfolio.contact_page.email_description') }}</p>--}}
                             </div>
                         </div>
 
@@ -44,9 +44,19 @@
                                 <i class="fab fa-telegram"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">Telegram</h4>
-                                <p class="text-gray-600 dark:text-gray-400">@sirandrewgotham</p>
-                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">{{ __('gothamfolio.contact_page.telegram_description') }}</p>
+                                <h4 class="font-semibold">{{ __('gothamfolio.contact_info.telegram') }}</h4>
+                                <p class="text-gray-600 dark:text-gray-400">@SirAndrewGotham</p>
+{{--                                <p class="text-sm text-gray-500 dark:text-gray-500 mt-1">{{ __('gothamfolio.contact_page.telegram_description') }}</p>--}}
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mr-4">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">{{ __('gothamfolio.contact_info.telephone') }}</h4>
+                                <p class="text-gray-600 dark:text-gray-400">+7 (991) 873-9137</p>
                             </div>
                         </div>
 
@@ -55,8 +65,8 @@
                                 <i class="fab fa-whatsapp"></i>
                             </div>
                             <div>
-                                <h4 class="font-semibold">WhatsApp</h4>
-                                <p class="text-gray-600 dark:text-gray-400">+7 (775) 556-9244</p>
+                                <h4 class="font-semibold">{{ __('gothamfolio.contact_info.whatsapp') }}</h4>
+{{--                                <p class="text-gray-600 dark:text-gray-400">(for messages)</p>--}}
                             </div>
                         </div>
                     </div>
@@ -113,22 +123,22 @@
 
                     <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
                         <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mx-auto mb-4">
-                            <i class="fab fa-vk text-xl"></i>
+                            <i class="fab fa-linkedin text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">ВКонтакте</h3>
+                        <h3 class="text-xl font-bold mb-3">LinkedIn</h3>
                         <p class="text-gray-600 dark:text-gray-400 mb-4">
                             {{ __('gothamfolio.contact_page.vk_description') }}
                         </p>
-                        <a href="https://vk.com/sirandrewgotham" target="_blank" class="text-primary-500 hover:text-primary-600 font-medium">
-                            {{ __('gothamfolio.contact_page.go_to_vk') }}
+                        <a href="https://www.linkedin.com/in/andrew-gotham/" target="_blank" class="text-primary-500 hover:text-primary-600 font-medium">
+                            {{ __('gothamfolio.contact_page.go_to_linkedin') }}
                         </a>
                     </div>
 
                     <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
                         <div class="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mx-auto mb-4">
-                            <i class="fas fa-comments text-xl"></i>
+                            <i class="fas fa-blog text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Блог</h3>
+                        <h3 class="text-xl font-bold mb-3">{{ __('gothamfolio.contact_page.blog') }}</h3>
                         <p class="text-gray-600 dark:text-gray-400 mb-4">
                             {{ __('gothamfolio.contact_page.blog_description') }}
                         </p>

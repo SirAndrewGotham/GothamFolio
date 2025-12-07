@@ -16,18 +16,14 @@
         ->mapWithKeys(fn($category) => [$category->slug => $category->name])
         ->toArray();
 
-    // Get all categories for the sidebar - simplest approach
-    $categories = Category::where('language_id', $language->id)
-        ->get()
-        ->mapWithKeys(fn($category) => [$category->slug => $category->name])
-        ->toArray();
-
     // Check if we have categories
     $hasCategories = !empty($categories);
 
     // Get the post by slug for current language
+    // Actually, i do not care about language here,
+    // i will show whatever slug was requested
     $post = Post::where('slug', $slug)
-        ->where('language_id', $language->id)
+//        ->where('language_id', $language->id)
         ->with(['author', 'categories', 'tags'])
         ->published()
         ->firstOrFail();
@@ -36,7 +32,8 @@
     $post->increment('views_count');
 
     // Get related posts (same category, same language)
-    $relatedPosts = Post::where('language_id', $language->id)
+//    $relatedPosts = Post::where('language_id', $language->id)
+    $relatedPosts = Post::where('language_id', $post->language_id)
         ->where('id', '!=', $post->id)
         ->whereHas('categories', function($query) use ($post) {
             $query->whereIn('categories.id', $post->categories->pluck('id'));

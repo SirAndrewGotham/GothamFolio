@@ -26,18 +26,18 @@ class UserSeeder extends Seeder
             ]
         );
 
-        $totalUsers = 5;
-
-        $this->command->getOutput()->progressStart($totalUsers);
-
-        User::factory()
-            ->count($totalUsers)
-            ->create(['role_id' => Role::where('name', 'user')->first()->id])
-            ->each(function () {
-                $this->command->getOutput()->progressAdvance();
-            });
-
-        $this->command->getOutput()->progressFinish();
-        $this->command->info('Users seeded successfully!');
+//        $totalUsers = 5;
+//
+//        $this->command->getOutput()->progressStart($totalUsers);
+//
+//        User::factory()
+//            ->count($totalUsers)
+//            ->create(['role_id' => Role::where('name', 'user')->first()->id])
+//            ->each(function () {
+//                $this->command->getOutput()->progressAdvance();
+//            });
+//
+//        $this->command->getOutput()->progressFinish();
+//        $this->command->info('Users seeded successfully!');
     }
 }

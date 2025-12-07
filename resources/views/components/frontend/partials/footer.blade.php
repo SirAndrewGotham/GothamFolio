@@ -48,6 +48,10 @@
                         <span>{{ __('gothamfolio.footer.russia') }}</span>
                     </p>
                     <p class="flex items-center">
+                        <i class="fas fa-phone mr-2"></i>
+                        <a href="tel:+79918739137" class="hover:text-white">+7 (991) 873-9137</a>
+                    </p>
+                    <p class="flex items-center">
                         <i class="fas fa-envelope mr-2"></i>
                         <a href="mailto:andreogotema@gmail.com" class="hover:text-white">andreogotema@gmail.com</a>
                     </p>
@@ -61,6 +65,9 @@
             <div>
                 <h4 class="text-white font-bold mb-4">{{ __('gothamfolio.footer.social_networks') }}</h4>
                 <div class="flex space-x-4">
+                    <a href="https://www.linkedin.com/in/andrew-gotham/" target="_blank" rel="noopener noreferrer" aria-label="InkedIn" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
                     <a href="https://github.com/sirandrewgotham" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
                         <i class="fab fa-github"></i>
                     </a>

@@ -282,7 +282,9 @@ return [
         'go_to_github' => 'Iri al GitHub',
         'vk_description' => 'Konekti kun mi per socia reto',
         'go_to_vk' => 'Iri al VK',
+        'go_to_linkedin' => 'Iri al LinkedIn',
         'blog_description' => 'Lasi komenton pri miaj artikoloj',
+        'blog' => 'Blogo',
         'go_to_blog' => 'Iri al Blogo',
     ],
     'faq_accordion' => [
@@ -297,6 +299,14 @@ return [
         'a4' => 'Ĉefa stako: Laravel, Livewire, Alpine.js, Tailwind CSS, Vue.js, MySQL/PostgreSQL. Mi ankaŭ laboras kun diversaj API-oj, pagsistemoj, kaj nubaj servoj.',
         'q5' => 'Ĉu vi provizas teknikan subtenon?',
         'a5' => 'Jes, mi provizas teknikan subtenon kaj projektan prizorgon. Ni povas diskuti diversajn subtenajn elektojn depende de viaj bezonoj.',
+    ],
+    'contact_info' => [
+        'email' => 'Retpoŝto',
+        'telephone' => 'Telefono',
+        'whatsapp' => 'WhatsApp',
+        'telegram' => 'Telegram',
+        'for_messages' => '(por mesaĝoj)',
+        'email_placeholder' => 'via@retposxto.com',
     ],
     'feedback_form' => [
         'send_message' => 'Sendi Mesaĝon',

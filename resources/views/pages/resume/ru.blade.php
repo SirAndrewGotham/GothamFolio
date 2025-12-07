@@ -55,18 +55,28 @@
                                     </a>
                                 </div>
                                 <div class="flex items-center">
+                                    <i class="fa fa-phone text-primary-500 w-5 mr-3"></i>
+                                    <a href="tel:+79918739137" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
+                                        <span class="text-sm">+7 (991) 873-9137</span>
+                                    </a>
+                                </div>
+                                <div class="flex items-center">
                                     <i class="fa-brands fa-square-whatsapp text-primary-500 w-5 mr-3"></i>
                                     <a href="https://wa.me/+77755569244" target="_blank" rel="noopener noreferrer" class="text-sm hover:text-primary-500">
                                         <span class="text-sm">WhatsApp</span>
                                     </a>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fas fa-map-marker-alt text-primary-500 w-5 mr-3"></i>
-                                    <span class="text-sm">Россия</span>
+                                    <i class="fab fa-github text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://github.com/sirandrewgotham" target="_blank" class="text-sm hover:text-primary-500">SirAndrewGotham</a>
                                 </div>
                                 <div class="flex items-center">
-                                    <i class="fab fa-github text-primary-500 w-5 mr-3"></i>
-                                    <a href="https://github.com/sirandrewgotham" target="_blank" class="text-sm hover:text-primary-500">sirandrewgotham</a>
+                                    <i class="fab fa-linkedin text-primary-500 w-5 mr-3"></i>
+                                    <a href="https://www.linkedin.com/in/andrew-gotham/" target="_blank" class="text-sm hover:text-primary-500">LinkedIn</a>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-primary-500 w-5 mr-3"></i>
+                                    <span class="text-sm">Россия</span>
                                 </div>
                             </div>
                         </div>

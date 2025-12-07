@@ -281,7 +281,9 @@ return [
         'go_to_github' => 'Go to GitHub',
         'vk_description' => 'Connect with me via social network',
         'go_to_vk' => 'Go to VK',
+        'go_to_linkedin' => 'Go to LinkedIn',
         'blog_description' => 'Leave a comment on my articles',
+        'blog' => 'Blog',
         'go_to_blog' => 'Go to Blog',
     ],
     'faq_accordion' => [
@@ -296,6 +298,14 @@ return [
         'a4' => 'My primary stack: Laravel, Livewire, Alpine.js, Tailwind CSS, Vue.js, MySQL/PostgreSQL. I also work with various APIs, payment systems, and cloud services.',
         'q5' => 'Do you provide technical support?',
         'a5' => 'Yes, I provide technical support and project maintenance. We can discuss various support options depending on your needs.',
+    ],
+    'contact_info' => [
+        'email' => 'Email',
+        'telephone' => 'Telephone',
+        'whatsapp' => 'WhatsApp',
+        'telegram' => 'Telegram',
+        'for_messages' => '(for messages)',
+        'email_placeholder' => 'your@email.com',
     ],
     'feedback_form' => [
         'send_message' => 'Send Message',

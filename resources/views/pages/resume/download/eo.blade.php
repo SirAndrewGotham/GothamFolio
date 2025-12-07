@@ -294,6 +294,10 @@
                 <p class="tagline">Spertplena Full-Stack Programisto kaj Programada Inĝeniero</p>
                 <div class="contact-info">
                     <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+7 (991) 873-9137</span>
+                    </div>
+                    <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <span>andreogotema@gmail.com</span>
                     </div>
@@ -305,10 +309,10 @@
                         <i class="fas fa-map-marker-alt"></i>
                         <span>Rusio</span>
                     </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <span>sirandrewgotham</span>
-                    </div>
+{{--                    <div class="contact-item">--}}
+{{--                        <i class="fab fa-github"></i>--}}
+{{--                        <span>SirAndrewGotham</span>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </header>

@@ -118,7 +118,7 @@ $submit = function () {
                             <i class="fas fa-envelope text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold">Email</h4>
+                            <h4 class="font-semibold">{{ __('gothamfolio.contact_info.email') }}</h4>
                             <a href="mailto:andreogotema@gmail.com"
                                class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
                                 andreogotema@gmail.com
@@ -132,10 +132,24 @@ $submit = function () {
                             <i class="fas fa-phone text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold">{{ __('whatsapp') }}</h4>
+                            <h4 class="font-semibold">{{ __('gothamfolio.contact_info.telephone') }}</h4>
+                            <a href="tel:+79918739137"
+                               class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
+                                +7 (991) 873-9137
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 mr-4">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold">{{ __('gothamfolio.contact_info.whatsapp') }}</h4>
                             <a href="https://wa.me/77755569244" target="_blank"
                                class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
-                                +7 (775) 556-9244
+                                {{ __('gothamfolio.contact_info.for_messages') }}
                             </a>
                         </div>
                     </div>
@@ -146,7 +160,7 @@ $submit = function () {
                             <i class="fab fa-telegram text-xl"></i>
                         </div>
                         <div>
-                            <h4 class="font-semibold">Telegram</h4>
+                            <h4 class="font-semibold">{{ __('gothamfolio.contact_info.telegram') }}</h4>
                             <a href="https://t.me/sirandrewgotham" target="_blank"
                                class="text-gray-600 dark:text-gray-400 hover:text-primary-500 transition-colors">
                                 @SirAndrewGotham
@@ -158,6 +172,10 @@ $submit = function () {
                 <div class="mt-8">
                     <h4 class="font-semibold mb-4">{{ __('gothamfolio.footer.social_networks') }}</h4>
                     <div class="flex space-x-4">
+                        <a href="https://www.linkedin.com/in/andrew-gotham/" target="_blank"
+                           class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                         <a href="https://github.com/sirandrewgotham" target="_blank"
                            class="w-10 h-10 rounded-lg bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-primary-500 hover:text-white transition-colors">
                             <i class="fab fa-github"></i>
